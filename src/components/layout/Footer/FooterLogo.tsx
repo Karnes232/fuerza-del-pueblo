@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { FooterLogoProps } from "@/types/footer.types"
 
-export const FooterLogo = ({ onClick }: FooterLogoProps) => {
+export const FooterLogo = ({ onClick, logo }: FooterLogoProps) => {
   // Option 1: Text-based logo (current default)
   //   return (
   //     <Link href="/" onClick={onClick} className="inline-block">
@@ -21,10 +21,10 @@ export const FooterLogo = ({ onClick }: FooterLogoProps) => {
   return (
     <Link href="/" onClick={onClick} className="inline-block">
       <Image
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1vT0mXuxtC8VOUkQ5krTeGlbVIvaWBd-d_g&s"
-        alt="Fuerza del Pueblo - Verón-Punta Cana"
-        width={160}
-        height={50}
+        src={logo.asset.url}
+        alt={logo.alt}
+        width={logo.asset.metadata.dimensions.width}
+        height={logo.asset.metadata.dimensions.height}
         className="h-12 md:h-14 w-auto"
       />
     </Link>

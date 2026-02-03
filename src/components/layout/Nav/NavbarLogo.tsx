@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { LogoProps } from "@/types/navbar.types"
 
-export const NavbarLogo = ({ onClick }: LogoProps) => {
+export const NavbarLogo = ({ onClick, logo }: LogoProps) => {
   // Option 1: Text-based logo (current default)
   //   return (
   //     <Link href="/" onClick={onClick} className="flex-shrink-0">
@@ -21,10 +21,10 @@ export const NavbarLogo = ({ onClick }: LogoProps) => {
   return (
     <Link href="/" onClick={onClick} className="shrink-0">
       <Image
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1vT0mXuxtC8VOUkQ5krTeGlbVIvaWBd-d_g&s"
-        alt="Fuerza del Pueblo - Verón-Punta Cana"
-        width={180}
-        height={60}
+        src={logo.asset.url}
+        alt={logo.alt}
+        width={logo.asset.metadata.dimensions.width}
+        height={logo.asset.metadata.dimensions.height}
         className="h-12 md:h-14 w-auto"
         priority
       />

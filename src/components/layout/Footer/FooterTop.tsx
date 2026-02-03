@@ -5,24 +5,20 @@ import { FooterNav } from "@/components/layout/Footer/FooterNav"
 import { FooterContact } from "@/components/layout/Footer/FooterContact"
 import { FooterSocial } from "@/components/layout/Footer/FooterSocial"
 import { FooterNewsletter } from "@/components/layout/Footer/FooterNewsletter"
-import {
-  quickLinks,
-  partyLinks,
-  socialLinks,
-  contactInfo,
-  footerContent,
-} from "@/config/footer.config"
+import { quickLinks } from "@/config/footer.config"
+import { FooterProps } from "@/types/footer.types"
 
-export const FooterTop = () => {
+export const FooterTop = ({ generalLayout }: FooterProps) => {
+  console.log(generalLayout)
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8 lg:gap-12">
       {/* Column 1: About */}
       <div className="space-y-4">
-        <FooterLogo />
+        <FooterLogo logo={generalLayout.logo} />
         <p className="text-primaryGreen font-semibold text-sm italic">
-          {footerContent.tagline}
+          {generalLayout.tagline}
         </p>
-        <p className="text-white/70 text-sm">{footerContent.description}</p>
+        <p className="text-white/70 text-sm">{generalLayout.description}</p>
       </div>
 
       {/* Column 2: Quick Links */}
@@ -32,12 +28,16 @@ export const FooterTop = () => {
 
       {/* Column 3: Contact */}
       <FooterColumn title="Contacto">
-        <FooterContact contacts={contactInfo} />
+        <FooterContact
+          address={generalLayout.address}
+          email={generalLayout.email}
+          telephone={generalLayout.telephone}
+        />
       </FooterColumn>
 
       {/* Column 4: Connect */}
       <FooterColumn title="Conéctate">
-        <FooterSocial socials={socialLinks} />
+        <FooterSocial socials={generalLayout.socialLinks} />
         <div className="pt-4">
           <FooterNewsletter />
         </div>

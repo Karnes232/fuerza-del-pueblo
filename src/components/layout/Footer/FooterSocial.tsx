@@ -12,7 +12,7 @@ export const FooterSocial = ({
       <div className="flex gap-3 flex-wrap">
         {socials.map(social => (
           <SocialIcon
-            key={social.platform}
+            key={social._key ?? social.platform}
             platform={social.platform}
             href={social.href}
             icon={social.icon}

@@ -1,15 +1,29 @@
 // components/SocialIcon.tsx
-import * as Icons from "lucide-react"
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  MessageCircle,
+  Share2,
+  X,
+  Youtube,
+} from "lucide-react"
 import { SocialIconProps } from "@/types/footer.types"
 
-export const SocialIcon = ({
-  platform,
-  href,
-  icon,
-  ariaLabel,
-}: SocialIconProps) => {
-  // Dynamically get the icon component
-  const IconComponent = Icons[icon as keyof typeof Icons] as any
+const ICON_MAP = {
+  Facebook,
+  Instagram,
+  Linkedin,
+  MessageCircle,
+  Share2,
+  X,
+  Youtube,
+} as const
+
+type IconName = keyof typeof ICON_MAP
+
+export const SocialIcon = ({ href, icon, ariaLabel }: SocialIconProps) => {
+  const IconComponent = ICON_MAP[icon as IconName] ?? Share2
 
   return (
     <a

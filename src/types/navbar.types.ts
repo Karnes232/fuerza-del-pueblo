@@ -12,6 +12,18 @@ export interface NavDropdownItem extends NavItem {
 
 export interface NavbarProps {
   className?: string
+  logo: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
 }
 
 export interface NavLinkProps {
@@ -51,4 +63,16 @@ export interface MobileMenuButtonProps {
 
 export interface LogoProps {
   onClick?: () => void
+  logo: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
 }

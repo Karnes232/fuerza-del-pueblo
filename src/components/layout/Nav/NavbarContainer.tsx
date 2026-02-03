@@ -8,7 +8,7 @@ import { MobileMenuButton } from "@/components/layout/Nav/MobileMenuButton"
 import { useNavbar } from "@/hooks/useNavbar"
 import { NavbarProps } from "@/types/navbar.types"
 
-export const NavbarContainer = ({ className = "" }: NavbarProps) => {
+export const NavbarContainer = ({ className = "", logo }: NavbarProps) => {
   const {
     isMobileMenuOpen,
     activeDropdown,
@@ -24,7 +24,7 @@ export const NavbarContainer = ({ className = "" }: NavbarProps) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <NavbarLogo onClick={closeMobileMenu} />
+          <NavbarLogo onClick={closeMobileMenu} logo={logo} />
 
           {/* Desktop Navigation */}
           <DesktopNav

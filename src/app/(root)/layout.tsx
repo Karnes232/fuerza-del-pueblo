@@ -4,6 +4,7 @@ import "@/app/globals.css"
 import { Montserrat, Open_Sans } from "next/font/google"
 import { NavbarContainer } from "@/components/layout/Nav/NavbarContainer"
 import { FooterContainer } from "@/components/layout/Footer/FooterContainer"
+import { getGeneralLayout } from "@/sanity/queries/GeneralLayout/GeneraLayout"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -20,19 +21,21 @@ export const metadata: Metadata = {
   description: "Fuerza del Pueblo",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const generalLayout = await getGeneralLayout()
+
   return (
     <html lang="es">
       <body
         className={`${montserrat.variable} ${openSans.variable} antialiased overflow-x-hidden `}
       >
-        <NavbarContainer />
+        <NavbarContainer logo={generalLayout.logo} />
         {children}
-        <FooterContainer />
+        <FooterContainer generalLayout={generalLayout} />
       </body>
     </html>
   )

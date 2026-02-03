@@ -1,4 +1,4 @@
-import { HeroSection } from '@/components/HomePage/HeroSection';
+import { HeroSection } from "@/components/HomePage/HeroSection"
 import {
   heroData,
   aboutData,
@@ -7,13 +7,13 @@ import {
   eventsData,
   joinData,
   contactData,
-} from '@/config/home.config';
+} from "@/config/home.config"
 
 export default function Home() {
   return (
     <main>
-     {/* Hero Section */}
-     <HeroSection
+      {/* Hero Section */}
+      <HeroSection
         title={heroData.title}
         subtitle={heroData.subtitle}
         slogan={heroData.slogan}

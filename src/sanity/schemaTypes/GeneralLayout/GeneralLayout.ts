@@ -1,6 +1,16 @@
 // schemas/generalLayout.ts
-import { defineField, defineType } from "sanity"
+import { defineArrayMember, defineField, defineType } from "sanity"
 import { DocumentIcon } from "@sanity/icons"
+
+const SOCIAL_PLATFORMS: { title: string; value: string }[] = [
+  { title: "Facebook", value: "facebook" },
+  { title: "Instagram", value: "instagram" },
+  { title: "X (Twitter)", value: "x" },
+  { title: "YouTube", value: "youtube" },
+  { title: "WhatsApp", value: "whatsapp" },
+  { title: "LinkedIn", value: "linkedin" },
+  { title: "TikTok", value: "tiktok" },
+]
 
 export const generalLayoutType = defineType({
   name: "generalLayout",
@@ -9,14 +19,26 @@ export const generalLayoutType = defineType({
   icon: DocumentIcon,
   fields: [
     defineField({
-      name: "companyName",
-      title: "Company Name",
+      name: "name",
+      title: "Name",
       type: "string",
       validation: Rule => Rule.required(),
     }),
     defineField({
-      name: "companyDescription",
-      title: "Company Description",
+      name: "tagline",
+      title: "Tagline",
+      type: "string",
+      validation: Rule => Rule.required(),
+    }),
+    defineField({
+      name: "address",
+      title: "Address",
+      type: "string",
+      validation: Rule => Rule.required(),
+    }),
+    defineField({
+      name: "description",
+      title: "Description",
       type: "text",
       validation: Rule => Rule.required(),
     }),
@@ -39,27 +61,59 @@ export const generalLayoutType = defineType({
     defineField({
       name: "socialLinks",
       title: "Social Links",
-      type: "object",
-      description: "Add your social media links:",
-      fields: [
-        {
-          name: "facebook",
-          title: "Facebook URL",
-          type: "url",
-          initialValue: "https://facebook.com/",
-        },
-        {
-          name: "instagram",
-          title: "Instagram URL",
-          type: "url",
-          initialValue: "https://instagram.com/",
-        },
+      type: "array",
+      description:
+        "Add your social media links. Each item has platform, URL, icon name, and accessibility label.",
+      of: [
+        defineArrayMember({
+          type: "object",
+          name: "socialLink",
+          title: "Social Link",
+          fields: [
+            defineField({
+              name: "platform",
+              title: "Platform",
+              type: "string",
+              options: {
+                list: SOCIAL_PLATFORMS,
+                layout: "dropdown",
+              },
+              validation: Rule => Rule.required(),
+            }),
+            defineField({
+              name: "href",
+              title: "URL",
+              type: "url",
+              validation: Rule => Rule.required(),
+            }),
+            defineField({
+              name: "icon",
+              title: "Icon",
+              type: "string",
+              description:
+                "Icon name (e.g. Facebook, Instagram, Youtube, MessageCircle for WhatsApp)",
+              validation: Rule => Rule.required(),
+            }),
+            defineField({
+              name: "ariaLabel",
+              title: "Aria Label",
+              type: "string",
+              description:
+                "Accessible label for screen readers (e.g. Síguenos en Facebook)",
+              validation: Rule => Rule.required(),
+            }),
+          ],
+          preview: {
+            select: { platform: "platform", href: "href" },
+            prepare({ platform, href }) {
+              const title =
+                SOCIAL_PLATFORMS.find(p => p.value === platform)?.title ??
+                platform
+              return { title: title || "Social link", subtitle: href }
+            },
+          },
+        }),
       ],
-      options: {
-        collapsed: false,
-        collapsible: true,
-        columns: 2,
-      },
     }),
     defineField({
       name: "logo",
@@ -82,7 +136,7 @@ export const generalLayoutType = defineType({
   ],
   preview: {
     select: {
-      title: "companyName",
+      title: "Name",
       media: "logo",
     },
   },

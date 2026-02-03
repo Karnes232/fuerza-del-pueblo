@@ -25,70 +25,7 @@ export const legalLinks: FooterLink[] = [
   { label: "Términos de Uso", href: "/terminos" },
 ]
 
-// Social Media Links
-export const socialLinks: SocialLink[] = [
-  {
-    platform: "Facebook",
-    href: "https://facebook.com/fuerzadelpueblo",
-    icon: "Facebook",
-    ariaLabel: "Síguenos en Facebook",
-  },
-  {
-    platform: "Instagram",
-    href: "https://instagram.com/fuerzadelpueblo",
-    icon: "Instagram",
-    ariaLabel: "Síguenos en Instagram",
-  },
-  {
-    platform: "Twitter",
-    href: "https://twitter.com/fuerzadelpueblo",
-    icon: "Twitter",
-    ariaLabel: "Síguenos en Twitter",
-  },
-  {
-    platform: "YouTube",
-    href: "https://youtube.com/@fuerzadelpueblo",
-    icon: "Youtube",
-    ariaLabel: "Suscríbete a nuestro canal",
-  },
-  {
-    platform: "WhatsApp",
-    href: "https://wa.me/18095551234",
-    icon: "MessageCircle",
-    ariaLabel: "Contáctanos por WhatsApp",
-  },
-]
 
-// Contact Information
-export const contactInfo: ContactInfo[] = [
-  {
-    type: "address",
-    label: "Dirección",
-    value: "Verón, Punta Cana, República Dominicana",
-    icon: "MapPin",
-  },
-  {
-    type: "phone",
-    label: "Teléfono",
-    value: "+1 (809) 555-1234",
-    href: "tel:+18095551234",
-    icon: "Phone",
-  },
-  {
-    type: "email",
-    label: "Email",
-    value: "contacto@fdpveron.do",
-    href: "mailto:contacto@fdpveron.do",
-    icon: "Mail",
-  },
-  {
-    type: "whatsapp",
-    label: "WhatsApp",
-    value: "+1 (809) 555-1234",
-    href: "https://wa.me/18095551234",
-    icon: "MessageCircle",
-  },
-]
 
 // Brand Colors (matching navbar)
 export const footerColors = {
