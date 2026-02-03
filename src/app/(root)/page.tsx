@@ -17,13 +17,13 @@ import { ContactSection } from "@/components/HomePage/ContactSection"
 import { getContactMethods } from "@/sanity/queries/GeneralLayout/GeneraLayout"
 
 export default async function Home() {
-  const [heroSection, aboutSection, valuesSection, contactMethods] = await Promise.all([
-    getHeroSection(),
-    getAboutSection(),
-    getValuesSection(),
-    getContactMethods(),
-  ])
-
+  const [heroSection, aboutSection, valuesSection, contactMethods] =
+    await Promise.all([
+      getHeroSection(),
+      getAboutSection(),
+      getValuesSection(),
+      getContactMethods(),
+    ])
 
   return (
     <main>

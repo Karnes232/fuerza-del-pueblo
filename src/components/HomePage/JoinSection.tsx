@@ -1,6 +1,6 @@
 // sections/JoinSection.tsx
-import Image from 'next/image';
-import { Check } from 'lucide-react';
+import Image from "next/image"
+import { Check } from "lucide-react"
 import { Container } from "@/components/HomePage/Container"
 import { CTAButton } from "@/components/HomePage/CTAButton"
 import { JoinSectionProps } from "@/types/home.types"
@@ -35,9 +35,7 @@ export const JoinSection = ({
           </h2>
 
           {/* Description */}
-          <p className="text-xl text-white/90">
-            {description}
-          </p>
+          <p className="text-xl text-white/90">{description}</p>
 
           {/* Benefits List */}
           <div className="grid sm:grid-cols-2 gap-4 text-left max-w-2xl mx-auto py-6">
@@ -69,5 +67,5 @@ export const JoinSection = ({
       <div className="absolute top-10 left-10 w-32 h-32 bg-white/5 rounded-full blur-2xl" />
       <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/5 rounded-full blur-2xl" />
     </section>
-  );
-};
+  )
+}

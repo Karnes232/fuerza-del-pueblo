@@ -1,18 +1,18 @@
 // components/NewsCard.tsx
-import Link from 'next/link';
-import Image from 'next/image';
-import { Calendar } from 'lucide-react';
-import { NewsCardProps } from '@/types/home.types';
+import Link from "next/link"
+import Image from "next/image"
+import { Calendar } from "lucide-react"
+import { NewsCardProps } from "@/types/home.types"
 
 export const NewsCard = ({ article }: NewsCardProps) => {
-  const formattedDate = new Date(article.date).toLocaleDateString('es-DO', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const formattedDate = new Date(article.date).toLocaleDateString("es-DO", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
 
   return (
-    <Link 
+    <Link
       href={`/noticias/${article.slug}`}
       className="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300"
     >
@@ -26,14 +26,14 @@ export const NewsCard = ({ article }: NewsCardProps) => {
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
           {article.category && (
-            <div className="absolute top-4 left-4 bg-[#00A651] text-white px-3 py-1 rounded-full text-xs font-semibold">
+            <div className="absolute top-4 left-4 bg-primaryGreen text-white px-3 py-1 rounded-full text-xs font-semibold">
               {article.category}
             </div>
           )}
         </div>
       ) : (
-        <div className="h-48 bg-gradient-to-br from-[#00A651] to-[#1F4D2B] flex items-center justify-center">
-          <span className="text-white text-4xl font-bold opacity-20">FDP</span>
+        <div className="h-48 bg-linear-to-br from-primaryGreen to-darkGreen flex items-center justify-center">
+          <span className="text-white text-4xl font-bold opacity-20">FP</span>
         </div>
       )}
 
@@ -46,22 +46,20 @@ export const NewsCard = ({ article }: NewsCardProps) => {
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-[#1F4D2B] mb-2 group-hover:text-[#00A651] transition-colors">
+        <h3 className="text-xl font-bold text-darkGreen mb-2 group-hover:text-primaryGreen transition-colors">
           {article.title}
         </h3>
 
         {/* Excerpt */}
-        <p className="text-gray-600 text-sm line-clamp-3">
-          {article.excerpt}
-        </p>
+        <p className="text-gray-600 text-sm line-clamp-3">{article.excerpt}</p>
 
         {/* Read More Link */}
         <div className="mt-4">
-          <span className="text-[#00A651] font-semibold text-sm group-hover:underline">
+          <span className="text-primaryGreen font-semibold text-sm group-hover:underline">
             Leer más →
           </span>
         </div>
       </div>
     </Link>
-  );
-};
+  )
+}

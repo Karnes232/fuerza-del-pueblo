@@ -1,10 +1,10 @@
 // sections/NewsSection.tsx
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import { Container } from '@/components/HomePage/Container';
-import { SectionHeader } from '@/components/HomePage/SectionHeader';
-import { NewsCard } from '@/components/HomePage/NewsCard';
-import { NewsSectionProps } from '@/types/home.types';
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+import { Container } from "@/components/HomePage/Container"
+import { SectionHeader } from "@/components/HomePage/SectionHeader"
+import { NewsCard } from "@/components/HomePage/NewsCard"
+import { NewsSectionProps } from "@/types/home.types"
 
 export const NewsSection = ({
   title,
@@ -16,10 +16,10 @@ export const NewsSection = ({
     <section className="py-16 md:py-24 bg-white">
       <Container>
         <SectionHeader title={title} subtitle={subtitle} />
-        
+
         {/* News Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-          {articles.map((article) => (
+          {articles.map(article => (
             <NewsCard key={article.id} article={article} />
           ))}
         </div>
@@ -36,5 +36,5 @@ export const NewsSection = ({
         </div>
       </Container>
     </section>
-  );
-};
+  )
+}

@@ -20,7 +20,9 @@ export const AboutSection = ({
             <h2 className="text-3xl md:text-4xl font-bold text-charcoal">
               {title}
             </h2>
-            <p className="text-lg text-charcoal/70 leading-relaxed">{content}</p>
+            <p className="text-lg text-charcoal/70 leading-relaxed">
+              {content}
+            </p>
             {ctaText && ctaLink && (
               <div className="pt-4">
                 <CTAButton
@@ -55,7 +57,6 @@ export const AboutSection = ({
                 </div>
               </div>
             )}
-    
           </div>
         </div>
       </Container>
