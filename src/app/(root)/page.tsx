@@ -8,20 +8,23 @@ import {
   joinData,
   contactData,
 } from "@/config/home.config"
+import { getHeroSection } from "@/sanity/queries/HomePage/HeroSection"
 
-export default function Home() {
+export default async function Home() {
+  const [heroSection] = await Promise.all([getHeroSection()])
+
   return (
     <main>
       {/* Hero Section */}
       <HeroSection
-        title={heroData.title}
-        subtitle={heroData.subtitle}
-        slogan={heroData.slogan}
-        ctaText={heroData.ctaText}
-        ctaLink={heroData.ctaLink}
-        secondaryCtaText={heroData.secondaryCtaText}
-        secondaryCtaLink={heroData.secondaryCtaLink}
-        backgroundImage={heroData.backgroundImage}
+        title={heroSection.title}
+        subtitle={heroSection.subtitle}
+        slogan={heroSection.slogan}
+        ctaText={heroSection.ctaText}
+        ctaLink={heroSection.ctaLink}
+        secondaryCtaText={heroSection.secondaryCtaText}
+        secondaryCtaLink={heroSection.secondaryCtaLink}
+        backgroundImage={heroSection.backgroundImage}
       />
 
       {/* About Section */}

@@ -25,8 +25,6 @@ export const legalLinks: FooterLink[] = [
   { label: "Términos de Uso", href: "/terminos" },
 ]
 
-
-
 // Brand Colors (matching navbar)
 export const footerColors = {
   background: "#1F4D2B", // Dark green background

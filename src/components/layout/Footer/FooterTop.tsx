@@ -9,7 +9,6 @@ import { quickLinks } from "@/config/footer.config"
 import { FooterProps } from "@/types/footer.types"
 
 export const FooterTop = ({ generalLayout }: FooterProps) => {
-  console.log(generalLayout)
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8 lg:gap-12">
       {/* Column 1: About */}

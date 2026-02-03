@@ -17,6 +17,8 @@ const config = {
     "from-orange-400",
     // Background opacity classes
     "bg-black/80",
+    "hover:bg-white",
+    "hover:text-darkGreen",
   ],
   theme: {
     extend: {

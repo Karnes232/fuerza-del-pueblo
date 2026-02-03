@@ -20,8 +20,8 @@ export const HeroSection = ({
       {backgroundImage && (
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
-            src={backgroundImage}
-            alt="Hero background"
+            src={backgroundImage?.asset?.url}
+            alt={backgroundImage?.alt}
             fill
             className="object-cover"
             priority
@@ -35,7 +35,7 @@ export const HeroSection = ({
           className="absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(circle, #00A651 1px, transparent 1px)",
+              "radial-gradient(circle, var(--color-primaryGreen) 1px, transparent 1px)",
             backgroundSize: "50px 50px",
           }}
         />
@@ -45,7 +45,7 @@ export const HeroSection = ({
         <div className="max-w-4xl mx-auto text-center space-y-8">
           {/* Subtitle */}
           {subtitle && (
-            <p className="text-[#00A651] font-semibold text-lg md:text-xl uppercase tracking-wide">
+            <p className="text-primaryGreen font-semibold text-lg md:text-xl uppercase tracking-wide">
               {subtitle}
             </p>
           )}
@@ -56,7 +56,7 @@ export const HeroSection = ({
           </h1>
 
           {/* Slogan */}
-          <p className="text-2xl md:text-3xl font-semibold text-[#00A651] italic">
+          <p className="text-2xl md:text-3xl font-semibold text-primaryGreen italic">
             "{slogan}"
           </p>
 
@@ -75,7 +75,7 @@ export const HeroSection = ({
                 href={secondaryCtaLink}
                 variant="outline"
                 size="lg"
-                className="bg-white/10 border-white text-white hover:bg-white hover:text-[#1F4D2B]"
+                className="bg-white/10 border-white text-white hover:bg-white hover:text-darkGreen!"
               />
             )}
           </div>

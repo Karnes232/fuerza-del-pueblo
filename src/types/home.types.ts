@@ -37,7 +37,18 @@ export interface HeroSectionProps {
   ctaLink: string
   secondaryCtaText?: string
   secondaryCtaLink?: string
-  backgroundImage?: string
+  backgroundImage?: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
 }
 
 export interface AboutSectionProps {
