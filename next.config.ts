@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "encrypted-tbn0.gstatic.com",
       },
+      {
+        protocol: "https",
+        hostname: "listindiario.com",
+      },
     ],
     // Update image caching to match 3-day revalidation
     minimumCacheTTL: 259200, // 3 days

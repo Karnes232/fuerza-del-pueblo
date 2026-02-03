@@ -15,7 +15,7 @@ import {
 
 export const FooterTop = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8 lg:gap-12">
       {/* Column 1: About */}
       <div className="space-y-4">
         <FooterLogo />
