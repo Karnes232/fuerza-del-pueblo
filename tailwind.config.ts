@@ -18,6 +18,7 @@ const config = {
     // Background opacity classes
     "bg-black/80",
     "hover:bg-white",
+    "text-primaryGreen",
     "hover:text-darkGreen",
   ],
   theme: {

@@ -9,7 +9,7 @@ export const ValuesSection = ({
   subtitle,
   values,
 }: ValuesSectionProps) => {
-  console.log(values)
+
   return (
     <section className="py-16 md:py-24 bg-[#F4F4F4]">
       <Container>

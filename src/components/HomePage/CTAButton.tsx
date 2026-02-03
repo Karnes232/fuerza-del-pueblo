@@ -15,10 +15,10 @@ export const CTAButton = ({
     "inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
 
   const variantClasses = {
-    primary: "bg-[#00A651] text-white hover:bg-[#008d45]",
-    secondary: "bg-[#1F4D2B] text-white hover:bg-[#163a20]",
+    primary: "bg-primaryGreen text-white hover:bg-primaryGreen/80",
+    secondary: "bg-darkGreen text-white hover:bg-darkGreen/80",
     outline:
-      "border-2 border-[#00A651] text-[#00A651] hover:bg-[#00A651] hover:text-white",
+      "border-2 border-primaryGreen text-primaryGreen hover:bg-primaryGreen hover:text-white",
   }
 
   const sizeClasses = {

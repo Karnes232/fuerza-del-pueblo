@@ -166,7 +166,7 @@ export const joinData = {
   ],
   ctaText: "Afiliarme Ahora",
   ctaLink: "/unete",
-  backgroundImage: "/images/join-bg.jpg", // Optional
+  backgroundImage: "https://picsum.photos/4000/2000?random=" + Math.random(), // Optional
 }
 
 // Contact Section Data

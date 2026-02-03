@@ -102,6 +102,11 @@ export interface JoinSectionProps {
 export interface ContactSectionProps {
   title: string
   description: string
+  contactMethods: {
+    address: string
+    email: string
+    telephone: string
+  }
 }
 
 export interface ValueCardProps {

@@ -12,13 +12,18 @@ import { ValuesSection } from "@/components/HomePage/ValuesSection"
 import { getValuesSection } from "@/sanity/queries/HomePage/ValueSection"
 import { NewsSection } from "@/components/HomePage/NewsSection"
 import { EventsSection } from "@/components/HomePage/EventsSection"
+import { JoinSection } from "@/components/HomePage/JoinSection"
+import { ContactSection } from "@/components/HomePage/ContactSection"
+import { getContactMethods } from "@/sanity/queries/GeneralLayout/GeneraLayout"
 
 export default async function Home() {
-  const [heroSection, aboutSection, valuesSection] = await Promise.all([
+  const [heroSection, aboutSection, valuesSection, contactMethods] = await Promise.all([
     getHeroSection(),
     getAboutSection(),
     getValuesSection(),
+    getContactMethods(),
   ])
+
 
   return (
     <main>
@@ -67,20 +72,21 @@ export default async function Home() {
       />
 
       {/* Join Section */}
-      {/* <JoinSection
+      <JoinSection
         title={joinData.title}
         description={joinData.description}
         benefits={joinData.benefits}
         ctaText={joinData.ctaText}
         ctaLink={joinData.ctaLink}
         backgroundImage={joinData.backgroundImage}
-      /> */}
+      />
 
       {/* Contact Section */}
-      {/* <ContactSection
+      <ContactSection
         title={contactData.title}
         description={contactData.description}
-      /> */}
+        contactMethods={contactMethods}
+      />
     </main>
   )
 }
