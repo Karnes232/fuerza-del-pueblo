@@ -54,7 +54,18 @@ export interface HeroSectionProps {
 export interface AboutSectionProps {
   title: string
   content: string
-  image?: string
+  image?: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
   ctaText?: string
   ctaLink?: string
 }

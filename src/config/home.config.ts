@@ -2,66 +2,66 @@
 import { Value, NewsArticle, Event } from "../types/home.types"
 
 // Hero Section Data
-export const heroData = {
-  title: "Fuerza del Pueblo",
-  subtitle: "Verón - Punta Cana",
-  slogan: "Con la Fuerza del Pueblo venceremos",
-  ctaText: "Únete al Movimiento",
-  ctaLink: "/unete",
-  secondaryCtaText: "Conoce Nuestra Propuesta",
-  secondaryCtaLink: "/partido/quienes-somos",
-  backgroundImage:
-    "https://listindiario.com/files/main_image/files/fp/uploads/2023/06/12/648788e97a4b7.r_d.603-282.jpeg", // Optional
-}
+// export const heroData = {
+//   title: "Fuerza del Pueblo",
+//   subtitle: "Verón - Punta Cana",
+//   slogan: "Con la Fuerza del Pueblo venceremos",
+//   ctaText: "Únete al Movimiento",
+//   ctaLink: "/unete",
+//   secondaryCtaText: "Conoce Nuestra Propuesta",
+//   secondaryCtaLink: "/partido/quienes-somos",
+//   backgroundImage:
+//     "https://listindiario.com/files/main_image/files/fp/uploads/2023/06/12/648788e97a4b7.r_d.603-282.jpeg", // Optional
+// }
 
-// About Section Data
-export const aboutData = {
-  title: "Trabajando por el Desarrollo de Verón-Punta Cana",
-  content:
-    "Fuerza del Pueblo es un movimiento político comprometido con el bienestar y desarrollo de nuestra comunidad. Trabajamos día a día para construir un futuro mejor para todos los ciudadanos de Verón-Punta Cana, basado en la transparencia, la equidad y el servicio genuino al pueblo.",
-  image: "/images/about-community.jpg", // Optional
-  ctaText: "Conoce Más Sobre Nosotros",
-  ctaLink: "/partido/quienes-somos",
-}
+// // About Section Data
+// export const aboutData = {
+//   title: "Trabajando por el Desarrollo de Verón-Punta Cana",
+//   content:
+//     "Fuerza del Pueblo es un movimiento político comprometido con el bienestar y desarrollo de nuestra comunidad. Trabajamos día a día para construir un futuro mejor para todos los ciudadanos de Verón-Punta Cana, basado en la transparencia, la equidad y el servicio genuino al pueblo.",
+//   image: "/images/about-community.jpg", // Optional
+//   ctaText: "Conoce Más Sobre Nosotros",
+//   ctaLink: "/partido/quienes-somos",
+// }
 
 // Core Values
-export const coreValues: Value[] = [
-  {
-    id: "democracy",
-    title: "Democracia",
-    description:
-      "Promovemos la participación ciudadana activa y la toma de decisiones colectivas.",
-    icon: "Users",
-  },
-  {
-    id: "equity",
-    title: "Equidad",
-    description:
-      "Trabajamos por la justicia social y la igualdad de oportunidades para todos.",
-    icon: "Scale",
-  },
-  {
-    id: "development",
-    title: "Desarrollo",
-    description:
-      "Impulsamos el crecimiento económico sostenible y el progreso de nuestra comunidad.",
-    icon: "TrendingUp",
-  },
-  {
-    id: "transparency",
-    title: "Transparencia",
-    description:
-      "Rendimos cuentas y actuamos con honestidad en todas nuestras gestiones.",
-    icon: "Eye",
-  },
-]
+// export const coreValues: Value[] = [
+//   {
+//     id: "democracy",
+//     title: "Democracia",
+//     description:
+//       "Promovemos la participación ciudadana activa y la toma de decisiones colectivas.",
+//     icon: "Users",
+//   },
+//   {
+//     id: "equity",
+//     title: "Equidad",
+//     description:
+//       "Trabajamos por la justicia social y la igualdad de oportunidades para todos.",
+//     icon: "Scale",
+//   },
+//   {
+//     id: "development",
+//     title: "Desarrollo",
+//     description:
+//       "Impulsamos el crecimiento económico sostenible y el progreso de nuestra comunidad.",
+//     icon: "TrendingUp",
+//   },
+//   {
+//     id: "transparency",
+//     title: "Transparencia",
+//     description:
+//       "Rendimos cuentas y actuamos con honestidad en todas nuestras gestiones.",
+//     icon: "Eye",
+//   },
+// ]
 
 // Values Section Data
-export const valuesData = {
-  title: "Nuestros Valores",
-  subtitle: "Los principios que guían nuestro trabajo por la comunidad",
-  values: coreValues,
-}
+// export const valuesData = {
+//   title: "Nuestros Valores",
+//   subtitle: "Los principios que guían nuestro trabajo por la comunidad",
+//   values: coreValues,
+// }
 
 // Latest News (Sample Data)
 export const latestNews: NewsArticle[] = [

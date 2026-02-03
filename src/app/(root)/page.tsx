@@ -1,18 +1,23 @@
+import { AboutSection } from "@/components/HomePage/AboutSection"
 import { HeroSection } from "@/components/HomePage/HeroSection"
 import {
-  heroData,
-  aboutData,
-  valuesData,
   newsData,
   eventsData,
   joinData,
   contactData,
 } from "@/config/home.config"
 import { getHeroSection } from "@/sanity/queries/HomePage/HeroSection"
+import { getAboutSection } from "@/sanity/queries/HomePage/AboutSection"
+import { ValuesSection } from "@/components/HomePage/ValuesSection"
+import { getValuesSection } from "@/sanity/queries/HomePage/ValueSection"
 
 export default async function Home() {
-  const [heroSection] = await Promise.all([getHeroSection()])
-
+  const [heroSection, aboutSection, valuesSection] = await Promise.all([
+    getHeroSection(),
+    getAboutSection(),
+    getValuesSection(),
+  ])
+  console.log(valuesSection)
   return (
     <main>
       {/* Hero Section */}
@@ -28,20 +33,20 @@ export default async function Home() {
       />
 
       {/* About Section */}
-      {/* <AboutSection
-        title={aboutData.title}
-        content={aboutData.content}
-        image={aboutData.image}
-        ctaText={aboutData.ctaText}
-        ctaLink={aboutData.ctaLink}
-      /> */}
+      <AboutSection
+        title={aboutSection.title}
+        content={aboutSection.content}
+        image={aboutSection.image}
+        ctaText={aboutSection.ctaText}
+        ctaLink={aboutSection.ctaLink}
+      />
 
       {/* Values Section */}
-      {/* <ValuesSection
-        title={valuesData.title}
-        subtitle={valuesData.subtitle}
-        values={valuesData.values}
-      /> */}
+      <ValuesSection
+        title={valuesSection.title}
+        subtitle={valuesSection.subtitle}
+        values={valuesSection.values}
+      />
 
       {/* News Section */}
       {/* <NewsSection

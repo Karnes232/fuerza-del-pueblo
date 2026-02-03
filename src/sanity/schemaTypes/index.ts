@@ -4,6 +4,8 @@ import { generalLayoutType } from "./GeneralLayout/GeneralLayout"
 
 //HomePage
 import { heroSectionType } from "./HomePage/HeroSection"
+import { aboutSectionType } from "./HomePage/AboutSection"
+import { valuesSectionType } from "./HomePage/ValuesSection"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -12,5 +14,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
 
     //HomePage
     heroSectionType,
+    aboutSectionType,
+    valuesSectionType,
   ],
 }
