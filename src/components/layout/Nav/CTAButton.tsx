@@ -1,12 +1,12 @@
 // components/CTAButton.tsx
-import Link from 'next/link';
-import { CTAButtonProps } from '@/types/navbar.types';
+import Link from "next/link"
+import { CTAButtonProps } from "@/types/navbar.types"
 
-export const CTAButton = ({ 
-  label, 
-  href, 
+export const CTAButton = ({
+  label,
+  href,
   onClick,
-  className = '' 
+  className = "",
 }: CTAButtonProps) => {
   return (
     <Link
@@ -16,5 +16,5 @@ export const CTAButton = ({
     >
       {label}
     </Link>
-  );
-};
+  )
+}

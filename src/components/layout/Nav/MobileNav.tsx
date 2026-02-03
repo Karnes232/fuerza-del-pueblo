@@ -1,31 +1,33 @@
 // components/MobileNav.tsx
-import { ChevronDown } from 'lucide-react';
-import { NavLink } from '@/components/layout/Nav/NavLink';
-import { DropdownItem } from '@/components/layout/Nav/DropdownItem';
-import { CTAButton } from '@/components/layout/Nav/CTAButton';
-import { navigationItems, ctaButtonConfig } from '@/config/navigation.config';
+import { ChevronDown } from "lucide-react"
+import { NavLink } from "@/components/layout/Nav/NavLink"
+import { DropdownItem } from "@/components/layout/Nav/DropdownItem"
+import { CTAButton } from "@/components/layout/Nav/CTAButton"
+import { navigationItems, ctaButtonConfig } from "@/config/navigation.config"
 
 interface MobileNavProps {
-  isOpen: boolean;
-  activeDropdown: string | null;
-  onToggleDropdown: (label: string) => void;
-  onClose: () => void;
+  isOpen: boolean
+  activeDropdown: string | null
+  onToggleDropdown: (label: string) => void
+  onClose: () => void
 }
 
-export const MobileNav = ({ 
-  isOpen, 
-  activeDropdown, 
-  onToggleDropdown, 
-  onClose 
+export const MobileNav = ({
+  isOpen,
+  activeDropdown,
+  onToggleDropdown,
+  onClose,
 }: MobileNavProps) => {
   return (
     <div
       className={`lg:hidden transition-all duration-300 ease-in-out ${
-        isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+        isOpen
+          ? "max-h-screen opacity-100"
+          : "max-h-0 opacity-0 overflow-hidden"
       }`}
     >
       <div className="px-4 pt-2 pb-6 space-y-3 bg-darkGreen border-t border-primaryGreen/20">
-        {navigationItems.map((item) => {
+        {navigationItems.map(item => {
           // If item has dropdown
           if (item.items && item.items.length > 0) {
             return (
@@ -37,17 +39,17 @@ export const MobileNav = ({
                   {item.label}
                   <ChevronDown
                     className={`w-4 h-4 transition-transform duration-200 ${
-                      activeDropdown === item.label ? 'rotate-180' : ''
+                      activeDropdown === item.label ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
                 <div
                   className={`ml-4 mt-2 space-y-2 transition-all duration-200 ${
-                    activeDropdown === item.label ? 'block' : 'hidden'
+                    activeDropdown === item.label ? "block" : "hidden"
                   }`}
                 >
-                  {item.items.map((subItem) => (
+                  {item.items.map(subItem => (
                     <DropdownItem
                       key={subItem.label}
                       label={subItem.label}
@@ -58,7 +60,7 @@ export const MobileNav = ({
                   ))}
                 </div>
               </div>
-            );
+            )
           }
 
           // Regular link
@@ -70,7 +72,7 @@ export const MobileNav = ({
               onClick={onClose}
               className="block py-2"
             />
-          );
+          )
         })}
 
         {/* Mobile CTA Button */}
@@ -82,5 +84,5 @@ export const MobileNav = ({
         />
       </div>
     </div>
-  );
-};
+  )
+}

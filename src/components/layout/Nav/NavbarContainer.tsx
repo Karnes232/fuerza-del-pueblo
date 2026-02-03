@@ -1,14 +1,14 @@
 // components/NavbarContainer.tsx
-'use client';
+"use client"
 
-import { NavbarLogo } from '@/components/layout/Nav/NavbarLogo';
-import { DesktopNav } from '@/components/layout/Nav/DesktopNav';
-import { MobileNav } from '@/components/layout/Nav/MobileNav';
-import { MobileMenuButton } from '@/components/layout/Nav/MobileMenuButton';
-import { useNavbar } from '@/hooks/useNavbar';
-import { NavbarProps } from '@/types/navbar.types';
+import { NavbarLogo } from "@/components/layout/Nav/NavbarLogo"
+import { DesktopNav } from "@/components/layout/Nav/DesktopNav"
+import { MobileNav } from "@/components/layout/Nav/MobileNav"
+import { MobileMenuButton } from "@/components/layout/Nav/MobileMenuButton"
+import { useNavbar } from "@/hooks/useNavbar"
+import { NavbarProps } from "@/types/navbar.types"
 
-export const NavbarContainer = ({ className = '' }: NavbarProps) => {
+export const NavbarContainer = ({ className = "" }: NavbarProps) => {
   const {
     isMobileMenuOpen,
     activeDropdown,
@@ -17,7 +17,7 @@ export const NavbarContainer = ({ className = '' }: NavbarProps) => {
     openDropdown,
     closeDropdown,
     toggleDropdown,
-  } = useNavbar();
+  } = useNavbar()
 
   return (
     <nav className={`bg-darkGreen sticky top-0 z-50 shadow-lg ${className}`}>
@@ -49,5 +49,5 @@ export const NavbarContainer = ({ className = '' }: NavbarProps) => {
         onClose={closeMobileMenu}
       />
     </nav>
-  );
-};  
+  )
+}
