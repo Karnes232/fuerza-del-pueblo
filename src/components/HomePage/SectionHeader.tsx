@@ -15,11 +15,11 @@ export const SectionHeader = ({
 
   return (
     <div className={`mb-12 ${alignClasses[align]} ${className}`}>
-      <h2 className="text-3xl md:text-4xl font-bold text-[#1F4D2B] mb-4">
+      <h2 className="text-3xl md:text-4xl font-bold text-charcoal mb-4">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">{subtitle}</p>
+        <p className="text-lg text-charcoal/70 max-w-3xl mx-auto">{subtitle}</p>
       )}
     </div>
   )

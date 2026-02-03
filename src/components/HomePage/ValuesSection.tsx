@@ -9,6 +9,7 @@ export const ValuesSection = ({
   subtitle,
   values,
 }: ValuesSectionProps) => {
+  console.log(values)
   return (
     <section className="py-16 md:py-24 bg-[#F4F4F4]">
       <Container>
@@ -16,7 +17,7 @@ export const ValuesSection = ({
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {values.map(value => (
-            <ValueCard key={value.id} value={value} />
+            <ValueCard key={value.title} value={value} />
           ))}
         </div>
       </Container>

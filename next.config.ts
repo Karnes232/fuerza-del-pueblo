@@ -17,6 +17,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "listindiario.com",
       },
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
     ],
     // Update image caching to match 3-day revalidation
     minimumCacheTTL: 259200, // 3 days

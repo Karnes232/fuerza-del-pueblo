@@ -10,6 +10,8 @@ import { getHeroSection } from "@/sanity/queries/HomePage/HeroSection"
 import { getAboutSection } from "@/sanity/queries/HomePage/AboutSection"
 import { ValuesSection } from "@/components/HomePage/ValuesSection"
 import { getValuesSection } from "@/sanity/queries/HomePage/ValueSection"
+import { NewsSection } from "@/components/HomePage/NewsSection"
+import { EventsSection } from "@/components/HomePage/EventsSection"
 
 export default async function Home() {
   const [heroSection, aboutSection, valuesSection] = await Promise.all([
@@ -17,7 +19,7 @@ export default async function Home() {
     getAboutSection(),
     getValuesSection(),
   ])
-  console.log(valuesSection)
+
   return (
     <main>
       {/* Hero Section */}
@@ -49,20 +51,20 @@ export default async function Home() {
       />
 
       {/* News Section */}
-      {/* <NewsSection
+      <NewsSection
         title={newsData.title}
         subtitle={newsData.subtitle}
         articles={newsData.articles}
         viewAllLink={newsData.viewAllLink}
-      /> */}
+      />
 
       {/* Events Section */}
-      {/* <EventsSection
+      <EventsSection
         title={eventsData.title}
         subtitle={eventsData.subtitle}
         events={eventsData.events}
         viewAllLink={eventsData.viewAllLink}
-      /> */}
+      />
 
       {/* Join Section */}
       {/* <JoinSection

@@ -23,10 +23,10 @@ export const ValueCard = ({ value }: ValueCardProps) => {
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-darkGreen">{value.title}</h3>
+        <h3 className="text-xl font-bold text-charcoal">{value.title}</h3>
 
         {/* Description */}
-        <p className="text-darkGreen text-sm leading-relaxed">
+        <p className="text-charcoal text-sm leading-relaxed">
           {value.description}
         </p>
       </div>

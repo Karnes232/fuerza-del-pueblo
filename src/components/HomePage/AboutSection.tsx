@@ -17,10 +17,10 @@ export const AboutSection = ({
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Content */}
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1F4D2B]">
+            <h2 className="text-3xl md:text-4xl font-bold text-charcoal">
               {title}
             </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">{content}</p>
+            <p className="text-lg text-charcoal/70 leading-relaxed">{content}</p>
             {ctaText && ctaLink && (
               <div className="pt-4">
                 <CTAButton
@@ -45,7 +45,7 @@ export const AboutSection = ({
                 />
               </div>
             ) : (
-              <div className="relative h-96 rounded-lg overflow-hidden shadow-xl bg-gradient-to-br from-[#00A651] to-[#1F4D2B] flex items-center justify-center">
+              <div className="relative h-96 rounded-lg overflow-hidden shadow-xl bg-linear-to-br from-primaryGreen to-darkGreen flex items-center justify-center">
                 <div className="text-center text-white p-8">
                   <div className="text-6xl font-bold mb-4 opacity-50">FDP</div>
                   <p className="text-xl font-semibold opacity-75">
@@ -55,8 +55,7 @@ export const AboutSection = ({
                 </div>
               </div>
             )}
-            {/* Decorative Element */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#00A651] rounded-lg -z-10" />
+    
           </div>
         </div>
       </Container>
