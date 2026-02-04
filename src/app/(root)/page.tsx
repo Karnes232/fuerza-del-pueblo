@@ -33,7 +33,6 @@ export default async function Home() {
     getContactMethods(),
     getStructuredData("inicio"),
   ])
-  console.log(structuredData?.jsonLd)
   return (
     <>
       <Script
