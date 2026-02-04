@@ -17,9 +17,10 @@ import { joinData } from "@/config/home.config"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import Script from "next/script"
 
-
 export default async function QuienesSomosPage() {
-  const [structuredData] = await Promise.all([getStructuredData("quienes-somos")])
+  const [structuredData] = await Promise.all([
+    getStructuredData("quienes-somos"),
+  ])
   return (
     <>
       <Script
@@ -29,61 +30,61 @@ export default async function QuienesSomosPage() {
         dangerouslySetInnerHTML={{ __html: structuredData?.jsonLd || "" }}
       />
       <main>
-      {/* Hero Section */}
-      <AboutHero
-        title={aboutHeroData.title}
-        subtitle={aboutHeroData.subtitle}
-        description={aboutHeroData.description}
-        backgroundImage={aboutHeroData.backgroundImage}
-      />
+        {/* Hero Section */}
+        <AboutHero
+          title={aboutHeroData.title}
+          subtitle={aboutHeroData.subtitle}
+          description={aboutHeroData.description}
+          backgroundImage={aboutHeroData.backgroundImage}
+        />
 
-      {/* Main Content Section */}
-      <AboutContent
-        title={aboutContentData.title}
-        content={aboutContentData.content}
-        sections={aboutContentData.sections}
-        image={aboutContentData.image}
-      />
+        {/* Main Content Section */}
+        <AboutContent
+          title={aboutContentData.title}
+          content={aboutContentData.content}
+          sections={aboutContentData.sections}
+          image={aboutContentData.image}
+        />
 
-      {/* Statistics Section */}
-      <AboutStats stats={aboutStatsData.stats} />
+        {/* Statistics Section */}
+        <AboutStats stats={aboutStatsData.stats} />
 
-      {/* History Timeline */}
-      <Timeline
-        title={aboutTimelineData.title}
-        subtitle={aboutTimelineData.subtitle}
-        items={aboutTimelineData.items}
-      />
+        {/* History Timeline */}
+        <Timeline
+          title={aboutTimelineData.title}
+          subtitle={aboutTimelineData.subtitle}
+          items={aboutTimelineData.items}
+        />
 
-      {/* Ideological Principles */}
-      <PrinciplesSection
-        title={aboutPrinciplesData.title}
-        subtitle={aboutPrinciplesData.subtitle}
-        principles={aboutPrinciplesData.principles}
-      />
+        {/* Ideological Principles */}
+        <PrinciplesSection
+          title={aboutPrinciplesData.title}
+          subtitle={aboutPrinciplesData.subtitle}
+          principles={aboutPrinciplesData.principles}
+        />
 
-      {/* National Connection */}
-      <NationalConnection
-        title={nationalConnectionData.title}
-        content={nationalConnectionData.content}
-        logoUrl={nationalConnectionData.logoUrl}
-        leaderName={nationalConnectionData.leaderName}
-        leaderTitle={nationalConnectionData.leaderTitle}
-        leaderImage={nationalConnectionData.leaderImage}
-        ctaText={nationalConnectionData.ctaText}
-        ctaLink={nationalConnectionData.ctaLink}
-      />
+        {/* National Connection */}
+        <NationalConnection
+          title={nationalConnectionData.title}
+          content={nationalConnectionData.content}
+          logoUrl={nationalConnectionData.logoUrl}
+          leaderName={nationalConnectionData.leaderName}
+          leaderTitle={nationalConnectionData.leaderTitle}
+          leaderImage={nationalConnectionData.leaderImage}
+          ctaText={nationalConnectionData.ctaText}
+          ctaLink={nationalConnectionData.ctaLink}
+        />
 
-      {/* Join CTA Section */}
-      <JoinSection
-        title={joinData.title}
-        description={joinData.description}
-        benefits={joinData.benefits}
-        ctaText={joinData.ctaText}
-        ctaLink={joinData.ctaLink}
-        backgroundImage={joinData.backgroundImage}
-      />
-    </main>
+        {/* Join CTA Section */}
+        <JoinSection
+          title={joinData.title}
+          description={joinData.description}
+          benefits={joinData.benefits}
+          ctaText={joinData.ctaText}
+          ctaLink={joinData.ctaLink}
+          backgroundImage={joinData.backgroundImage}
+        />
+      </main>
     </>
   )
 }

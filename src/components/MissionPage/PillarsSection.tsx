@@ -4,11 +4,7 @@ import { SectionHeader } from "@/components/HomePage/SectionHeader"
 import { PillarCard } from "@/components/MissionPage/PillarCard"
 import { PillarsProps } from "@/types/mission.types"
 
-export const PillarsSection = ({
-  title,
-  subtitle,
-  pillars,
-}: PillarsProps) => {
+export const PillarsSection = ({ title, subtitle, pillars }: PillarsProps) => {
   return (
     <section className="py-16 md:py-24 bg-[#F4F4F4]">
       <Container>

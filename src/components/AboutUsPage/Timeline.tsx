@@ -21,9 +21,7 @@ export const Timeline = ({ title, subtitle, items }: TimelineProps) => {
                 <div
                   key={item.id}
                   className={`relative flex items-start ${
-                    index % 2 === 0
-                      ? "md:flex-row"
-                      : "md:flex-row-reverse"
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   } flex-col md:gap-8`}
                 >
                   {/* Year Badge */}
