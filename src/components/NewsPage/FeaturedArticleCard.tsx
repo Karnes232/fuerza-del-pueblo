@@ -1,22 +1,22 @@
 // components/FeaturedArticleCard.tsx
-import Link from 'next/link';
-import Image from 'next/image';
-import { Calendar, Clock, User, ArrowRight } from 'lucide-react';
-import { FeaturedArticleCardProps } from '@/types/news.types';
-import { CategoryBadge } from '@/components/NewsPage/CategoryBadge';
-import { newsCategories } from '@/config/news.config';
+import Link from "next/link"
+import Image from "next/image"
+import { Calendar, Clock, User, ArrowRight } from "lucide-react"
+import { FeaturedArticleCardProps } from "@/types/news.types"
+import { CategoryBadge } from "@/components/NewsPage/CategoryBadge"
+import { newsCategories } from "@/config/news.config"
 
 export const FeaturedArticleCard = ({ article }: FeaturedArticleCardProps) => {
-  const formattedDate = new Date(article.date).toLocaleDateString('es-DO', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const formattedDate = new Date(article.date).toLocaleDateString("es-DO", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  })
 
-  const category = newsCategories.find(c => c.id === article.category);
+  const category = newsCategories.find(c => c.id === article.category)
 
   return (
-    <Link 
+    <Link
       href={`/noticias/${article.slug}`}
       className="group block bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300"
     >
@@ -32,10 +32,12 @@ export const FeaturedArticleCard = ({ article }: FeaturedArticleCardProps) => {
             />
           ) : (
             <div className="flex items-center justify-center h-full">
-              <span className="text-white text-6xl font-bold opacity-20">FDP</span>
+              <span className="text-white text-6xl font-bold opacity-20">
+                FDP
+              </span>
             </div>
           )}
-          
+
           {/* Featured Badge */}
           <div className="absolute top-4 left-4 bg-primaryGreen text-white px-4 py-2 rounded-full font-semibold text-sm shadow-lg">
             Destacado
@@ -46,9 +48,7 @@ export const FeaturedArticleCard = ({ article }: FeaturedArticleCardProps) => {
         <div className="p-8 flex flex-col justify-between">
           <div className="space-y-4">
             {/* Category */}
-            {category && (
-              <CategoryBadge category={category} size="md" />
-            )}
+            {category && <CategoryBadge category={category} size="md" />}
 
             {/* Title */}
             <h2 className="text-3xl font-bold text-darkGreen group-hover:text-primaryGreen transition-colors">
@@ -91,5 +91,5 @@ export const FeaturedArticleCard = ({ article }: FeaturedArticleCardProps) => {
         </div>
       </div>
     </Link>
-  );
-};
+  )
+}

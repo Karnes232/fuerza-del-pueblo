@@ -1,12 +1,12 @@
 // sections/NewsHero.tsx
-import { Container } from '@/components/HomePage/Container';
-import { NewsHeroProps } from '@/types/news.types';
+import { Container } from "@/components/HomePage/Container"
+import { NewsHeroProps } from "@/types/news.types"
 
-export const NewsHero = ({ 
-  title, 
-  subtitle, 
+export const NewsHero = ({
+  title,
+  subtitle,
   description,
-  showSearch = false 
+  showSearch = false,
 }: NewsHeroProps) => {
   return (
     <section className="bg-linear-to-br from-darkGreen to-charcoal text-white py-16 md:py-20">
@@ -17,14 +17,10 @@ export const NewsHero = ({
               {subtitle}
             </p>
           )}
-          <h1 className="text-4xl md:text-5xl font-bold">
-            {title}
-          </h1>
-          <p className="text-xl text-white/90">
-            {description}
-          </p>
+          <h1 className="text-4xl md:text-5xl font-bold">{title}</h1>
+          <p className="text-xl text-white/90">{description}</p>
         </div>
       </Container>
     </section>
-  );
-};
+  )
+}

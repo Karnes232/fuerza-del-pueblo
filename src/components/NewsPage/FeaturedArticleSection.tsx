@@ -1,11 +1,13 @@
 // sections/FeaturedArticleSection.tsx
-import { Container } from '@/components/HomePage/Container';
-import { FeaturedArticleCard } from '@/components/NewsPage/FeaturedArticleCard';
-import { FeaturedArticleSectionProps } from '@/types/news.types';
+import { Container } from "@/components/HomePage/Container"
+import { FeaturedArticleCard } from "@/components/NewsPage/FeaturedArticleCard"
+import { FeaturedArticleSectionProps } from "@/types/news.types"
 
-export const FeaturedArticleSection = ({ article }: FeaturedArticleSectionProps) => {
-  if (!article) return null;
-  
+export const FeaturedArticleSection = ({
+  article,
+}: FeaturedArticleSectionProps) => {
+  if (!article) return null
+
   return (
     <section className="py-16 md:py-20 bg-lightGreen">
       <Container>
@@ -17,5 +19,5 @@ export const FeaturedArticleSection = ({ article }: FeaturedArticleSectionProps)
         <FeaturedArticleCard article={article} />
       </Container>
     </section>
-  );
-};
+  )
+}

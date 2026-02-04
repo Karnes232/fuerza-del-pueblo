@@ -1,6 +1,11 @@
 import { type SchemaTypeDefinition } from "sanity"
 
+//GeneralLayout
 import { generalLayoutType } from "./GeneralLayout/GeneralLayout"
+
+//SEO
+import { seoType } from "./SEO/seo"
+import { pageSeoType } from "./SEO/PageSeo"
 
 //HomePage
 import { heroSectionType } from "./HomePage/HeroSection"
@@ -11,6 +16,10 @@ export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     //GeneralLayout
     generalLayoutType,
+
+    //SEO
+    seoType,
+    pageSeoType,
 
     //HomePage
     heroSectionType,

@@ -1,6 +1,6 @@
 // components/TestimonialCard.tsx
-import { Quote } from 'lucide-react';
-import { TestimonialCardProps } from '@/types/unete.types';
+import { Quote } from "lucide-react"
+import { TestimonialCardProps } from "@/types/unete.types"
 
 export const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
   return (
@@ -30,10 +30,8 @@ export const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
       {/* Quote */}
       <div className="relative">
         <Quote className="absolute -top-2 -left-2 w-8 h-8 text-[#00A651]/20" />
-        <p className="text-gray-700 italic pl-6">
-          {testimonial.quote}
-        </p>
+        <p className="text-gray-700 italic pl-6">{testimonial.quote}</p>
       </div>
     </div>
-  );
-};
+  )
+}

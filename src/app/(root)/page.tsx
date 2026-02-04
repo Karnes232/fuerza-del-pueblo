@@ -1,3 +1,4 @@
+import Script from "next/script"
 import { AboutSection } from "@/components/HomePage/AboutSection"
 import { HeroSection } from "@/components/HomePage/HeroSection"
 import {
@@ -15,78 +16,121 @@ import { EventsSection } from "@/components/HomePage/EventsSection"
 import { JoinSection } from "@/components/HomePage/JoinSection"
 import { ContactSection } from "@/components/HomePage/ContactSection"
 import { getContactMethods } from "@/sanity/queries/GeneralLayout/GeneraLayout"
+import { getPageSeo } from "@/sanity/queries/SEO/seo"
+import { getStructuredData } from "@/sanity/queries/SEO/seo"
 
 export default async function Home() {
-  const [heroSection, aboutSection, valuesSection, contactMethods] =
-    await Promise.all([
-      getHeroSection(),
-      getAboutSection(),
-      getValuesSection(),
-      getContactMethods(),
-    ])
-
+  const [
+    heroSection,
+    aboutSection,
+    valuesSection,
+    contactMethods,
+    structuredData,
+  ] = await Promise.all([
+    getHeroSection(),
+    getAboutSection(),
+    getValuesSection(),
+    getContactMethods(),
+    getStructuredData("inicio"),
+  ])
+  console.log(structuredData?.jsonLd)
   return (
-    <main>
-      {/* Hero Section */}
-      <HeroSection
-        title={heroSection.title}
-        subtitle={heroSection.subtitle}
-        slogan={heroSection.slogan}
-        ctaText={heroSection.ctaText}
-        ctaLink={heroSection.ctaLink}
-        secondaryCtaText={heroSection.secondaryCtaText}
-        secondaryCtaLink={heroSection.secondaryCtaLink}
-        backgroundImage={heroSection.backgroundImage}
+    <>
+      <Script
+        id="structured-data"
+        strategy="beforeInteractive"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: structuredData?.jsonLd || "" }}
       />
+      <main>
+        {/* Hero Section */}
+        <HeroSection
+          title={heroSection.title}
+          subtitle={heroSection.subtitle}
+          slogan={heroSection.slogan}
+          ctaText={heroSection.ctaText}
+          ctaLink={heroSection.ctaLink}
+          secondaryCtaText={heroSection.secondaryCtaText}
+          secondaryCtaLink={heroSection.secondaryCtaLink}
+          backgroundImage={heroSection.backgroundImage}
+        />
 
-      {/* About Section */}
-      <AboutSection
-        title={aboutSection.title}
-        content={aboutSection.content}
-        image={aboutSection.image}
-        ctaText={aboutSection.ctaText}
-        ctaLink={aboutSection.ctaLink}
-      />
+        {/* About Section */}
+        <AboutSection
+          title={aboutSection.title}
+          content={aboutSection.content}
+          image={aboutSection.image}
+          ctaText={aboutSection.ctaText}
+          ctaLink={aboutSection.ctaLink}
+        />
 
-      {/* Values Section */}
-      <ValuesSection
-        title={valuesSection.title}
-        subtitle={valuesSection.subtitle}
-        values={valuesSection.values}
-      />
+        {/* Values Section */}
+        <ValuesSection
+          title={valuesSection.title}
+          subtitle={valuesSection.subtitle}
+          values={valuesSection.values}
+        />
 
-      {/* News Section */}
-      <NewsSection
-        title={newsData.title}
-        subtitle={newsData.subtitle}
-        articles={newsData.articles}
-        viewAllLink={newsData.viewAllLink}
-      />
+        {/* News Section */}
+        <NewsSection
+          title={newsData.title}
+          subtitle={newsData.subtitle}
+          articles={newsData.articles}
+          viewAllLink={newsData.viewAllLink}
+        />
 
-      {/* Events Section */}
-      <EventsSection
-        title={eventsData.title}
-        subtitle={eventsData.subtitle}
-        events={eventsData.events}
-        viewAllLink={eventsData.viewAllLink}
-      />
+        {/* Events Section */}
+        <EventsSection
+          title={eventsData.title}
+          subtitle={eventsData.subtitle}
+          events={eventsData.events}
+          viewAllLink={eventsData.viewAllLink}
+        />
 
-      {/* Join Section */}
-      <JoinSection
-        title={joinData.title}
-        description={joinData.description}
-        benefits={joinData.benefits}
-        ctaText={joinData.ctaText}
-        ctaLink={joinData.ctaLink}
-        backgroundImage={joinData.backgroundImage}
-      />
+        {/* Join Section */}
+        <JoinSection
+          title={joinData.title}
+          description={joinData.description}
+          benefits={joinData.benefits}
+          ctaText={joinData.ctaText}
+          ctaLink={joinData.ctaLink}
+          backgroundImage={joinData.backgroundImage}
+        />
 
-      {/* Contact Section */}
-      <ContactSection
-        title={contactData.title}
-        description={contactData.description}
-        contactMethods={contactMethods}
-      />
-    </main>
+        {/* Contact Section */}
+        <ContactSection
+          title={contactData.title}
+          description={contactData.description}
+          contactMethods={contactMethods}
+        />
+      </main>
+    </>
   )
+}
+
+export async function generateMetadata() {
+  const pageSeo = await getPageSeo("inicio")
+  if (!pageSeo) {
+    return {}
+  }
+  const canonicalUrl = `https://www.fuerzadelpueblo.do`
+  return {
+    canonical: canonicalUrl,
+    title: pageSeo.meta.title,
+    description: pageSeo.meta.description,
+    keywords: pageSeo.meta.keywords,
+    openGraph: {
+      url: canonicalUrl,
+      title: pageSeo.openGraph.title,
+      description: pageSeo.openGraph.description,
+      image: pageSeo.openGraph.imageUrl,
+    },
+    robots: {
+      index: !pageSeo.noIndex,
+      follow: !pageSeo.noFollow,
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    },
+  }
 }

@@ -1,6 +1,14 @@
 // components/BenefitCard.tsx
-import { Megaphone, GraduationCap, Users, Sparkles, Bell, Star, LucideIcon } from 'lucide-react';
-import { BenefitCardProps } from '@/types/unete.types';
+import {
+  Megaphone,
+  GraduationCap,
+  Users,
+  Sparkles,
+  Bell,
+  Star,
+  LucideIcon,
+} from "lucide-react"
+import { BenefitCardProps } from "@/types/unete.types"
 
 const iconMap: Record<string, LucideIcon> = {
   Megaphone,
@@ -9,10 +17,10 @@ const iconMap: Record<string, LucideIcon> = {
   Sparkles,
   Bell,
   Star,
-};
+}
 
 export const BenefitCard = ({ benefit }: BenefitCardProps) => {
-  const IconComponent = iconMap[benefit.icon];
+  const IconComponent = iconMap[benefit.icon]
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border-t-4 border-[#00A651]">
@@ -25,9 +33,7 @@ export const BenefitCard = ({ benefit }: BenefitCardProps) => {
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-[#1F4D2B]">
-          {benefit.title}
-        </h3>
+        <h3 className="text-xl font-bold text-[#1F4D2B]">{benefit.title}</h3>
 
         {/* Description */}
         <p className="text-gray-600 text-sm leading-relaxed">
@@ -35,5 +41,5 @@ export const BenefitCard = ({ benefit }: BenefitCardProps) => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}

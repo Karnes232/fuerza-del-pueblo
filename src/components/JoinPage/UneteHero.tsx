@@ -1,14 +1,14 @@
 // sections/UneteHero.tsx
-import { Check, ArrowDown } from 'lucide-react';
-import { Container } from '@/components/HomePage/Container';
-import { UneteHeroProps } from '@/types/unete.types';
+import { Check, ArrowDown } from "lucide-react"
+import { Container } from "@/components/HomePage/Container"
+import { UneteHeroProps } from "@/types/unete.types"
 
-export const UneteHero = ({ 
-  title, 
-  subtitle, 
-  description, 
+export const UneteHero = ({
+  title,
+  subtitle,
+  description,
   benefits,
-  ctaText 
+  ctaText,
 }: UneteHeroProps) => {
   return (
     <section className="bg-linear-to-br from-darkGreen to-charcoal text-white py-16 md:py-24">
@@ -19,15 +19,13 @@ export const UneteHero = ({
               {subtitle}
             </p>
           )}
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
             {title}
           </h1>
-          
-          <p className="text-xl text-white/90 leading-relaxed">
-            {description}
-          </p>
-          
+
+          <p className="text-xl text-white/90 leading-relaxed">{description}</p>
+
           {/* Benefits List */}
           <div className="grid sm:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
             {benefits.map((benefit, index) => (
@@ -50,5 +48,5 @@ export const UneteHero = ({
         </div>
       </Container>
     </section>
-  );
-};
+  )
+}

@@ -1,6 +1,6 @@
 // components/FAQItem.tsx
-import { ChevronDown } from 'lucide-react';
-import { FAQItemProps } from '@/types/unete.types';
+import { ChevronDown } from "lucide-react"
+import { FAQItemProps } from "@/types/unete.types"
 
 export const FAQItem = ({ faq, isOpen, onToggle }: FAQItemProps) => {
   return (
@@ -12,19 +12,17 @@ export const FAQItem = ({ faq, isOpen, onToggle }: FAQItemProps) => {
         <span className="font-semibold text-darkGreen pr-4">
           {faq.question}
         </span>
-        <ChevronDown 
+        <ChevronDown
           className={`w-5 h-5 text-primaryGreen shrink-0 transition-transform duration-200 ${
-            isOpen ? 'rotate-180' : ''
+            isOpen ? "rotate-180" : ""
           }`}
         />
       </button>
       {isOpen && (
         <div className="px-6 pb-4">
-          <p className="text-gray-700 leading-relaxed">
-            {faq.answer}
-          </p>
+          <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
         </div>
       )}
     </div>
-  );
-};
+  )
+}

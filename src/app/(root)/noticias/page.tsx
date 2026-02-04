@@ -1,19 +1,18 @@
-
-import { FeaturedArticleSection } from '@/components/NewsPage/FeaturedArticleSection';
-import { NewsFilterClient } from '@/components/NewsPage/NewsFilterClient';
-import { NewsHero } from '@/components/NewsPage/NewsHero';
-import { NewsletterCTA } from '@/components/NewsPage/NewsletterCTA';
+import { FeaturedArticleSection } from "@/components/NewsPage/FeaturedArticleSection"
+import { NewsFilterClient } from "@/components/NewsPage/NewsFilterClient"
+import { NewsHero } from "@/components/NewsPage/NewsHero"
+import { NewsletterCTA } from "@/components/NewsPage/NewsletterCTA"
 import {
-    newsHeroData,
-    featuredArticle,
-    newsArticles,
-    newsCategories,
-    newsletterCTAData,
-  } from '@/config/news.config';
+  newsHeroData,
+  featuredArticle,
+  newsArticles,
+  newsCategories,
+  newsletterCTAData,
+} from "@/config/news.config"
 
 export default function NoticiasPage() {
-    return (
-        <main>
+  return (
+    <main>
       {/* Hero Section */}
       <NewsHero
         title={newsHeroData.title}
@@ -26,10 +25,7 @@ export default function NoticiasPage() {
       <FeaturedArticleSection article={featuredArticle} />
 
       {/* Filter & Grid - Client Component for interactivity */}
-      <NewsFilterClient 
-        articles={newsArticles}
-        categories={newsCategories}
-      />
+      <NewsFilterClient articles={newsArticles} categories={newsCategories} />
 
       {/* Newsletter CTA Section */}
       <NewsletterCTA
@@ -37,5 +33,5 @@ export default function NoticiasPage() {
         description={newsletterCTAData.description}
       />
     </main>
-    )
+  )
 }
