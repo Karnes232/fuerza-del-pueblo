@@ -17,8 +17,12 @@ import { CouncilMembers } from "@/components/CandidatesPage/CouncilMembers"
 import { CampaignProposals } from "@/components/CandidatesPage/CampaignProposals"
 import { CampaignVision } from "@/components/CandidatesPage/CampaignVision"
 import { CampaignPriorities } from "@/components/CandidatesPage/CampaignPriorities"
+import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 export default async function CandidatosPage() {
-  const [structuredData] = await Promise.all([getStructuredData("candidatos")])
+  const [structuredData, joinSection] = await Promise.all([
+    getStructuredData("candidatos"),
+    getJoinSection(),
+  ])
   return (
     <>
       <Script
@@ -81,12 +85,11 @@ export default async function CandidatosPage() {
 
         {/* Join CTA Section */}
         <JoinSection
-          title={joinData.title}
-          description={joinData.description}
-          benefits={joinData.benefits}
-          ctaText={joinData.ctaText}
-          ctaLink={joinData.ctaLink}
-          backgroundImage={joinData.backgroundImage}
+          title={joinSection.title}
+          description={joinSection.description}
+          benefits={joinSection.benefits}
+          ctaText={joinSection.ctaText}
+          backgroundImage={joinSection.backgroundImage}
         />
       </main>
     </>

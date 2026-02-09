@@ -16,9 +16,13 @@ import { WingsSection } from "@/components/LeadershipPage/WingsSection"
 import { SectorCoordinatorsSection } from "@/components/LeadershipPage/SectorCoordinatorsSection"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import Script from "next/script"
+import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 
 export default async function LiderazgoPage() {
-  const [structuredData] = await Promise.all([getStructuredData("liderazgo")])
+  const [structuredData, joinSection] = await Promise.all([
+    getStructuredData("liderazgo"),
+    getJoinSection(),
+  ])
   return (
     <>
       <Script
@@ -73,12 +77,11 @@ export default async function LiderazgoPage() {
 
         {/* Join CTA Section */}
         <JoinSection
-          title={joinData.title}
-          description={joinData.description}
-          benefits={joinData.benefits}
-          ctaText={joinData.ctaText}
-          ctaLink={joinData.ctaLink}
-          backgroundImage={joinData.backgroundImage}
+          title={joinSection.title}
+          description={joinSection.description}
+          benefits={joinSection.benefits}
+          ctaText={joinSection.ctaText}
+          backgroundImage={joinSection.backgroundImage}
         />
       </main>
     </>

@@ -20,9 +20,13 @@ import { MilestonesSection } from "@/components/HistoryPage/MilestonesSection"
 import { AchievementsSection } from "@/components/HistoryPage/AchievementsSection"
 import { ErasSection } from "@/components/HistoryPage/ErasSection"
 import { LegacySection } from "@/components/HistoryPage/LegacySection"
+import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 
 export default async function HistoriaPage() {
-  const [structuredData] = await Promise.all([getStructuredData("historia")])
+  const [structuredData, joinSection] = await Promise.all([
+    getStructuredData("historia"),
+    getJoinSection(),
+  ])
   return (
     <>
       <Script
@@ -92,12 +96,11 @@ export default async function HistoriaPage() {
 
         {/* Join CTA Section */}
         <JoinSection
-          title={joinData.title}
-          description={joinData.description}
-          benefits={joinData.benefits}
-          ctaText={joinData.ctaText}
-          ctaLink={joinData.ctaLink}
-          backgroundImage={joinData.backgroundImage}
+          title={joinSection.title}
+          description={joinSection.description}
+          benefits={joinSection.benefits}
+          ctaText={joinSection.ctaText}
+          backgroundImage={joinSection.backgroundImage}
         />
       </main>
     </>
