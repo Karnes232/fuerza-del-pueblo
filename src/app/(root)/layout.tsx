@@ -27,7 +27,8 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   const generalLayout = await getGeneralLayout()
-
+  console.log(montserrat)
+  console.log(openSans)
   return (
     <html lang="es">
       <body

@@ -56,6 +56,18 @@ export interface UneteHeroProps {
   benefits: string[]
   ctaText: string
   ctaLink?: string
+  backgroundImage?: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
 }
 
 export interface WhyJoinSectionProps {
@@ -79,7 +91,18 @@ export interface JoinFormSectionProps {
 export interface TestimonialsSectionProps {
   title: string
   subtitle?: string
-  testimonials: Testimonial[]
+  testimonials: {
+    id: string
+    name: string
+    role: string
+    photo: {
+      asset: {
+        url: string
+      }
+    }
+    quote: string
+    location?: string
+  }[]
 }
 
 export interface FAQSectionProps {
@@ -113,7 +136,18 @@ export interface JoinFormProps {
 }
 
 export interface TestimonialCardProps {
-  testimonial: Testimonial
+  testimonial: {
+    id: string
+    name: string
+    role: string
+    photo: {
+      asset: {
+        url: string
+      }
+    }
+    quote: string
+    location?: string
+  }
 }
 
 export interface FAQItemProps {

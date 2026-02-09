@@ -1,15 +1,20 @@
 import { defineField, defineType } from "sanity"
 import { DocumentIcon } from "@sanity/icons"
 
-export const joinSectionType = defineType({
-  name: "joinSection",
-  title: "Join Section",
+export const joinPageHeroSectionType = defineType({
+  name: "joinPageHeroSection",
+  title: "Join Page Hero Section",
   type: "document",
   icon: DocumentIcon,
   fields: [
     defineField({
       name: "title",
       title: "Title",
+      type: "string",
+    }),
+    defineField({
+      name: "subtitle",
+      title: "Subtitle",
       type: "string",
     }),
     defineField({
@@ -33,12 +38,21 @@ export const joinSectionType = defineType({
       name: "backgroundImage",
       title: "Background Image",
       type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: "alt",
+          title: "Alt Text",
+          type: "string",
+        }),
+      ],
     }),
   ],
   preview: {
     select: {
-      title: "Join Section",
-      media: "image",
+      title: "Title",
     },
   },
 })

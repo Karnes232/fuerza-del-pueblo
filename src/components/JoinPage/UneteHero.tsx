@@ -2,6 +2,7 @@
 import { Check, ArrowDown } from "lucide-react"
 import { Container } from "@/components/HomePage/Container"
 import { UneteHeroProps } from "@/types/unete.types"
+import Image from "next/image"
 
 export const UneteHero = ({
   title,
@@ -9,11 +10,23 @@ export const UneteHero = ({
   description,
   benefits,
   ctaText,
+  backgroundImage,
 }: UneteHeroProps) => {
   return (
-    <section className="bg-linear-to-br from-darkGreen to-charcoal text-white py-16 md:py-24">
+    <section className="relative bg-linear-to-br from-darkGreen to-charcoal text-white py-16 md:py-24">
+      {backgroundImage && (
+        <div className="absolute inset-0 z-0 opacity-20">
+          <Image
+            src={backgroundImage?.asset?.url}
+            alt={backgroundImage?.alt}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      )}
       <Container>
-        <div className="max-w-4xl mx-auto text-center space-y-8">
+        <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
           {subtitle && (
             <p className="text-primaryGreen font-semibold text-lg uppercase tracking-wide">
               {subtitle}
@@ -39,7 +52,7 @@ export const UneteHero = ({
           <div className="pt-4">
             <a
               href="#registro"
-              className="inline-flex items-center justify-center gap-2 bg-primaryGreen text-white px-8 py-4 rounded-lg font-semibold hover:bg-primaryGreen/80 transition-colors shadow-lg text-lg"
+              className="inline-flex items-center justify-center gap-2 bg-primaryGreen text-white px-8 py-4 rounded-lg font-semibold hover:bg-primaryGreen transition-colors shadow-lg text-lg"
             >
               {ctaText}
               <ArrowDown className="w-5 h-5" />

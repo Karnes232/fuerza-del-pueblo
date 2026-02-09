@@ -9,7 +9,7 @@ export const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
       <div className="flex items-center gap-4 mb-4">
         {testimonial.photo ? (
           <img
-            src={testimonial.photo}
+            src={testimonial.photo?.asset?.url}
             alt={testimonial.name}
             className="w-16 h-16 rounded-full object-cover"
           />

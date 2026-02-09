@@ -10,8 +10,8 @@ export const MembershipTierCard = ({
     <div
       className={`bg-white p-8 rounded-lg shadow-lg border-2 transition-all duration-300 hover:shadow-2xl relative ${
         tier.recommended
-          ? "border-[#00A651] transform md:-translate-y-4"
-          : "border-gray-200"
+          ? "border-[#00A651] transform md:-translate-y-4 md:scale-105 hover:shadow-2xl"
+          : "border-gray-200 hover:scale-105 transition-all duration-300 hover:shadow-2xl"
       }`}
     >
       {/* Recommended Badge */}

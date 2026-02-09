@@ -13,6 +13,12 @@ import { aboutSectionType } from "./HomePage/AboutSection"
 import { valuesSectionType } from "./HomePage/ValuesSection"
 import { joinSectionType } from "./HomePage/JoinSection"
 
+//JoinPage
+import { joinPageHeroSectionType } from "./JoinPage/HeroSection"
+import { whyJoinSectionType } from "./JoinPage/WhyJoinSection"
+import { memberShipTierSectionType } from "./JoinPage/MemberShipTierSection"
+import { joinBenefitsinPageTestimonialsSectionType } from "./JoinPage/TestimonialsSection"
+
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     //GeneralLayout
@@ -27,5 +33,11 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     aboutSectionType,
     valuesSectionType,
     joinSectionType,
+
+    //JoinPage
+    joinPageHeroSectionType,
+    whyJoinSectionType,
+    memberShipTierSectionType,
+    joinBenefitsinPageTestimonialsSectionType,
   ],
 }

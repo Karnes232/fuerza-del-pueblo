@@ -6,20 +6,20 @@ import {
   FAQItem,
 } from "../types/unete.types"
 
-// Hero Data
-export const uneteHeroData = {
-  title: "¡Únete a Fuerza del Pueblo!",
-  subtitle: "Sé parte del cambio",
-  description:
-    "Juntos construimos un mejor futuro para Verón-Punta Cana. Tu voz, tu participación y tu compromiso son fundamentales para el desarrollo de nuestra comunidad.",
-  benefits: [
-    "Participa en decisiones importantes",
-    "Accede a programas de formación",
-    "Construye redes comunitarias",
-    "Haz la diferencia en tu comunidad",
-  ],
-  ctaText: "Comienza Tu Registro",
-}
+// // Hero Data
+// export const uneteHeroData = {
+//   title: "¡Únete a Fuerza del Pueblo!",
+//   subtitle: "Sé parte del cambio",
+//   description:
+//     "Juntos construimos un mejor futuro para Verón-Punta Cana. Tu voz, tu participación y tu compromiso son fundamentales para el desarrollo de nuestra comunidad.",
+//   benefits: [
+//     "Participa en decisiones importantes",
+//     "Accede a programas de formación",
+//     "Construye redes comunitarias",
+//     "Haz la diferencia en tu comunidad",
+//   ],
+//   ctaText: "Comienza Tu Registro",
+// }
 
 // Benefits
 export const joinBenefits: Benefit[] = [
@@ -210,25 +210,25 @@ export const faqs: FAQItem[] = [
 ]
 
 // Why Join Section Data
-export const whyJoinData = {
-  title: "¿Por Qué Unirte?",
-  subtitle: "Los beneficios de ser parte de nuestra comunidad",
-  benefits: joinBenefits,
-}
+// export const whyJoinData = {
+//   title: "¿Por Qué Unirte?",
+//   subtitle: "Los beneficios de ser parte de nuestra comunidad",
+//   benefits: joinBenefits,
+// }
 
-// Membership Tiers Section Data
-export const membershipTiersData = {
-  title: "Elige Tu Nivel de Participación",
-  subtitle:
-    "Todas las opciones son gratuitas. Comienza donde te sientas cómodo.",
-  tiers: membershipTiers,
-}
+// // Membership Tiers Section Data
+// export const membershipTiersData = {
+//   title: "Elige Tu Nivel de Participación",
+//   subtitle:
+//     "Todas las opciones son gratuitas. Comienza donde te sientas cómodo.",
+//   tiers: membershipTiers,
+// }
 
-// Join Form Section Data
-export const joinFormData = {
-  title: "Completa Tu Registro",
-  subtitle: "Toma solo unos minutos unirte al movimiento",
-}
+// // Join Form Section Data
+// export const joinFormData = {
+//   title: "Completa Tu Registro",
+//   subtitle: "Toma solo unos minutos unirte al movimiento",
+// }
 
 // Testimonials Section Data
 export const testimonialsData = {

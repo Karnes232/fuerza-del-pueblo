@@ -62,4 +62,44 @@ export const structure: StructureResolver = S =>
                 ),
             ]),
         ),
+      S.listItem()
+        .title("Join Page")
+        .child(
+          S.list()
+            .title("Join Page")
+            .items([
+              S.listItem()
+                .title("Hero Section")
+                .child(
+                  S.document()
+                    .schemaType("joinPageHeroSection")
+                    .title("Hero Section")
+                    .documentId("joinPageHeroSection"),
+                ),
+              S.listItem()
+                .title("Why Join Section")
+                .child(
+                  S.document()
+                    .schemaType("whyJoinSection")
+                    .title("Why Join Section")
+                    .documentId("whyJoinSection"),
+                ),
+              S.listItem()
+                .title("MemberShip Tier Section")
+                .child(
+                  S.document()
+                    .schemaType("memberShipTierSection")
+                    .title("MemberShip Tier Section")
+                    .documentId("memberShipTierSection"),
+                ),
+              S.listItem()
+                .title("Testimonials Section")
+                .child(
+                  S.document()
+                    .schemaType("joinPageTestimonialsSection")
+                    .title("Testimonials Section")
+                    .documentId("joinPageTestimonialsSection"),
+                ),
+            ]),
+        ),
     ])

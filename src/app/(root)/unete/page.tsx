@@ -6,19 +6,34 @@ import { UneteCTA } from "@/components/JoinPage/UneteCTA"
 import { UneteHero } from "@/components/JoinPage/UneteHero"
 import { WhyJoinSection } from "@/components/JoinPage/WhyJoinSection"
 import {
-  uneteHeroData,
-  whyJoinData,
-  membershipTiersData,
-  joinFormData,
+  // whyJoinData,
+  // membershipTiersData,
+  // joinFormData,
   testimonialsData,
   faqData,
   uneteCTAData,
 } from "@/config/unete.config"
+import { getJoinPageHeroSection } from "@/sanity/queries/JoinPage/HeroSection"
+import { getWhyJoinSection } from "@/sanity/queries/JoinPage/WhyJoinSection"
+import { getMemberShipTierSection } from "@/sanity/queries/JoinPage/MemberShipTierSection"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import Script from "next/script"
+import { getJoinPageTestimonialsSection } from "@/sanity/queries/JoinPage/TestimonialsSection"
 
 export default async function UnetePage() {
-  const [structuredData] = await Promise.all([getStructuredData("unete")])
+  const [
+    structuredData,
+    joinPageHeroSection,
+    whyJoinSection,
+    memberShipTierSection,
+    joinPageTestimonialsSection,
+  ] = await Promise.all([
+    getStructuredData("unete"),
+    getJoinPageHeroSection(),
+    getWhyJoinSection(),
+    getMemberShipTierSection(),
+    getJoinPageTestimonialsSection(),
+  ])
   return (
     <>
       <Script
@@ -30,38 +45,39 @@ export default async function UnetePage() {
       <main>
         {/* Hero Section */}
         <UneteHero
-          title={uneteHeroData.title}
-          subtitle={uneteHeroData.subtitle}
-          description={uneteHeroData.description}
-          benefits={uneteHeroData.benefits}
-          ctaText={uneteHeroData.ctaText}
+          title={joinPageHeroSection.title}
+          subtitle={joinPageHeroSection.subtitle}
+          description={joinPageHeroSection.description}
+          benefits={joinPageHeroSection.benefits}
+          ctaText={joinPageHeroSection.ctaText}
+          backgroundImage={joinPageHeroSection.backgroundImage}
         />
 
         {/* Why Join Section */}
         <WhyJoinSection
-          title={whyJoinData.title}
-          subtitle={whyJoinData.subtitle}
-          benefits={whyJoinData.benefits}
+          title={whyJoinSection.title}
+          subtitle={whyJoinSection.subtitle}
+          benefits={whyJoinSection.benefits}
         />
 
         {/* Membership Tiers Section */}
         <MembershipTiersSection
-          title={membershipTiersData.title}
-          subtitle={membershipTiersData.subtitle}
-          tiers={membershipTiersData.tiers}
+          title={memberShipTierSection.title}
+          subtitle={memberShipTierSection.subtitle}
+          tiers={memberShipTierSection.tiers}
         />
 
         {/* Join Form Section */}
         <JoinFormSection
-          title={joinFormData.title}
-          subtitle={joinFormData.subtitle}
+          title="Completa Tu Registro"
+          subtitle="Toma solo unos minutos unirte al movimiento"
         />
 
         {/* Testimonials Section */}
         <TestimonialsSection
-          title={testimonialsData.title}
-          subtitle={testimonialsData.subtitle}
-          testimonials={testimonialsData.testimonials}
+          title={joinPageTestimonialsSection.title}
+          subtitle={joinPageTestimonialsSection.subtitle}
+          testimonials={joinPageTestimonialsSection.testimonials}
         />
 
         {/* FAQ Section */}

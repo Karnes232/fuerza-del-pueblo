@@ -41,7 +41,7 @@ export const FooterNewsletter = ({ onSubmit }: FooterNewsletterProps) => {
   }
 
   return (
-    <div className="space-y-3 min-w-0 w-full">
+    <div className="space-y-3 min-w-0 w-full" id="newsletter">
       <p className="text-white/70 text-sm">
         {footerContent.newsletterDescription}
       </p>
