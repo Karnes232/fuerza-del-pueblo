@@ -107,8 +107,6 @@ export const joinData = {
   backgroundImage: "https://picsum.photos/4000/2000?random=" + Math.random(), // Optional
 }
 
-
-
 // Brand Colors
 export const brandColors = {
   primaryGreen: "#00A651",

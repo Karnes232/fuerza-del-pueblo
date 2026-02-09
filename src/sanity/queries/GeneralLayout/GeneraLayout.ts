@@ -77,5 +77,3 @@ export interface contactData {
   email: string
   telephone: string
 }
-
-

@@ -22,7 +22,7 @@ export const joinSectionType = defineType({
       title: "Benefits",
       type: "array",
       of: [{ type: "string" }],
-      validation: (Rule) => Rule.required().min(1).max(4),
+      validation: Rule => Rule.required().min(1).max(4),
     }),
     defineField({
       name: "ctaText",

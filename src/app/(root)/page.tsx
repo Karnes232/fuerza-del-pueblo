@@ -1,11 +1,7 @@
 import Script from "next/script"
 import { AboutSection } from "@/components/HomePage/AboutSection"
 import { HeroSection } from "@/components/HomePage/HeroSection"
-import {
-  newsData,
-  eventsData,
-  joinData,
-} from "@/config/home.config"
+import { newsData, eventsData, joinData } from "@/config/home.config"
 import { getHeroSection } from "@/sanity/queries/HomePage/HeroSection"
 import { getAboutSection } from "@/sanity/queries/HomePage/AboutSection"
 import { ValuesSection } from "@/components/HomePage/ValuesSection"

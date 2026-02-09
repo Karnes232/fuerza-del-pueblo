@@ -8,6 +8,7 @@ import { EventRSVP } from "@/components/IndividualEventPage/EventRSVP"
 import { EventSchedule } from "@/components/IndividualEventPage/EventSchedule"
 import { RelatedEvents } from "@/components/IndividualEventPage/RelatedEvents"
 import { joinData } from "@/config/home.config"
+import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 
 // This is mock data - replace with actual data fetching from Sanity
 export default async function EventPage({
@@ -16,6 +17,8 @@ export default async function EventPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
+
+  const [joinSection] = await Promise.all([getJoinSection()])
   // Mock event data - replace with: const event = await getEventBySlug(params.slug)
   const event = {
     id: "event-1",
@@ -208,12 +211,11 @@ export default async function EventPage({
 
       {/* Join CTA */}
       <JoinSection
-        title={joinData.title}
-        description={joinData.description}
+        title={joinSection.title}
+        description={joinSection.description}
         benefits={joinData.benefits}
-        ctaText={joinData.ctaText}
-        ctaLink={joinData.ctaLink}
-        backgroundImage={joinData.backgroundImage}
+        ctaText={joinSection.ctaText}
+        backgroundImage={joinSection.backgroundImage}
       />
     </main>
   )
