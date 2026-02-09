@@ -71,3 +71,11 @@ export const getContactMethods = async (): Promise<contactMethods> => {
   const contactMethods = await client.fetch(contactMethodsQuery)
   return contactMethods
 }
+
+export interface contactData {
+  address: string
+  email: string
+  telephone: string
+}
+
+

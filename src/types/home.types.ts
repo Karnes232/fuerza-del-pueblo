@@ -95,8 +95,18 @@ export interface JoinSectionProps {
   description: string
   benefits: string[]
   ctaText: string
-  ctaLink: string
-  backgroundImage?: string
+  backgroundImage?: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
 }
 
 export interface ContactSectionProps {

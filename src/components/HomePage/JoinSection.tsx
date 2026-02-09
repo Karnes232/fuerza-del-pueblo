@@ -10,7 +10,6 @@ export const JoinSection = ({
   description,
   benefits,
   ctaText,
-  ctaLink,
   backgroundImage,
 }: JoinSectionProps) => {
   return (
@@ -19,8 +18,8 @@ export const JoinSection = ({
       {backgroundImage && (
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
-            src={backgroundImage}
-            alt="Join background"
+            src={backgroundImage.asset.url}
+            alt={backgroundImage.alt}
             fill
             className="object-cover"
           />
@@ -53,7 +52,7 @@ export const JoinSection = ({
           <div className="pt-4">
             <CTAButton
               text={ctaText}
-              href={ctaLink}
+              href="/unete"
               variant="primary"
               size="lg"
               icon="UserPlus"

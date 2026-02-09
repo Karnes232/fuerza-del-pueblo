@@ -11,6 +11,7 @@ import { pageSeoType } from "./SEO/PageSeo"
 import { heroSectionType } from "./HomePage/HeroSection"
 import { aboutSectionType } from "./HomePage/AboutSection"
 import { valuesSectionType } from "./HomePage/ValuesSection"
+import { joinSectionType } from "./HomePage/JoinSection"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -25,5 +26,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     heroSectionType,
     aboutSectionType,
     valuesSectionType,
+    joinSectionType,
   ],
 }

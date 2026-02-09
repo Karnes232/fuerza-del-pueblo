@@ -5,7 +5,6 @@ import {
   newsData,
   eventsData,
   joinData,
-  contactData,
 } from "@/config/home.config"
 import { getHeroSection } from "@/sanity/queries/HomePage/HeroSection"
 import { getAboutSection } from "@/sanity/queries/HomePage/AboutSection"
@@ -18,6 +17,7 @@ import { ContactSection } from "@/components/HomePage/ContactSection"
 import { getContactMethods } from "@/sanity/queries/GeneralLayout/GeneraLayout"
 import { getPageSeo } from "@/sanity/queries/SEO/seo"
 import { getStructuredData } from "@/sanity/queries/SEO/seo"
+import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 
 export default async function Home() {
   const [
@@ -26,12 +26,14 @@ export default async function Home() {
     valuesSection,
     contactMethods,
     structuredData,
+    joinSection,
   ] = await Promise.all([
     getHeroSection(),
     getAboutSection(),
     getValuesSection(),
     getContactMethods(),
     getStructuredData("inicio"),
+    getJoinSection(),
   ])
   return (
     <>
@@ -75,7 +77,7 @@ export default async function Home() {
           title={newsData.title}
           subtitle={newsData.subtitle}
           articles={newsData.articles}
-          viewAllLink={newsData.viewAllLink}
+          viewAllLink="/noticias"
         />
 
         {/* Events Section */}
@@ -83,23 +85,22 @@ export default async function Home() {
           title={eventsData.title}
           subtitle={eventsData.subtitle}
           events={eventsData.events}
-          viewAllLink={eventsData.viewAllLink}
+          viewAllLink="/eventos"
         />
 
         {/* Join Section */}
         <JoinSection
-          title={joinData.title}
-          description={joinData.description}
+          title={joinSection.title}
+          description={joinSection.description}
           benefits={joinData.benefits}
-          ctaText={joinData.ctaText}
-          ctaLink={joinData.ctaLink}
-          backgroundImage={joinData.backgroundImage}
+          ctaText={joinSection.ctaText}
+          backgroundImage={joinSection.backgroundImage}
         />
 
         {/* Contact Section */}
         <ContactSection
-          title={contactData.title}
-          description={contactData.description}
+          title="¿Tienes Preguntas?"
+          description="Estamos aquí para escucharte. Contáctanos por cualquiera de nuestros canales."
           contactMethods={contactMethods}
         />
       </main>

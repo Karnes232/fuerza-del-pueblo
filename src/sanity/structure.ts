@@ -52,13 +52,14 @@ export const structure: StructureResolver = S =>
                     .title("Values Section")
                     .documentId("valuesSection"),
                 ),
-              //   .title("Photoshoots Packages")
-              //   .child(
-              //     S.documentList()
-              //       .schemaType("photoshootsPackages")
-              //       .title("Photoshoots Packages")
-              //       .filter("_type == 'photoshootsPackages'"),
-              //   ),
+              S.listItem()
+                .title("Join Section")
+                .child(
+                  S.document()
+                    .schemaType("joinSection")
+                    .title("Join Section")
+                    .documentId("joinSection"),
+                ),
             ]),
         ),
     ])
