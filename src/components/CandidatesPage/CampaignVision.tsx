@@ -24,7 +24,7 @@ export const CampaignVision = ({
   items,
 }: CampaignVisionProps) => {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-darkGreen to-primaryGreen text-white">
+    <section className="py-16 md:py-24 bg-linear-to-br from-darkGreen to-primaryGreen text-white">
       <Container>
         <SectionHeader
           title={title}
