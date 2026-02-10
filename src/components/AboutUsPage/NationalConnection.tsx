@@ -12,7 +12,6 @@ export const NationalConnection = ({
   ctaText,
   ctaLink,
 }: NationalConnectionProps) => {
-  console.log(logoUrl)
   return (
     <section className="py-16 md:py-24 bg-linear-to-br from-darkGreen to-primaryGreen text-white">
       <Container>

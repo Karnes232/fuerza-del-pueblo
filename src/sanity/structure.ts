@@ -206,4 +206,68 @@ export const structure: StructureResolver = S =>
                 ),
             ]),
         ),
+      S.listItem()
+        .title("Mission Page")
+        .child(
+          S.list()
+            .title("Mission Page")
+            .items([
+              S.listItem()
+                .title("Hero Section")
+                .child(
+                  S.document()
+                    .schemaType("missionPageHeroSection")
+                    .title("Hero Section")
+                    .documentId("missionPageHeroSection"),
+                ),
+              S.listItem()
+                .title("Mission Statement")
+                .child(
+                  S.document()
+                    .schemaType("missionStatement")
+                    .title("Mission Statement")
+                    .documentId("missionStatement"),
+                ),
+              S.listItem()
+                .title("Vision Statement")
+                .child(
+                  S.document()
+                    .schemaType("visionStatement")
+                    .title("Vision Statement")
+                    .documentId("visionStatement"),
+                ),
+              S.listItem()
+                .title("Core Values")
+                .child(
+                  S.document()
+                    .schemaType("coreValues")
+                    .title("Core Values")
+                    .documentId("coreValues"),
+                ),
+              S.listItem()
+                .title("Pillars Section")
+                .child(
+                  S.document()
+                    .schemaType("pillarsSection")
+                    .title("Pillars Section")
+                    .documentId("pillarsSection"),
+                ),
+              S.listItem()
+                .title("Commitments Section")
+                .child(
+                  S.document()
+                    .schemaType("commitmentsSection")
+                    .title("Commitments Section")
+                    .documentId("commitmentsSection"),
+                ),
+              S.listItem()
+                .title("Goals Section")
+                .child(
+                  S.document()
+                    .schemaType("goalsSection")
+                    .title("Goals Section")
+                    .documentId("goalsSection"),
+                ),
+            ]),
+        ),
     ])

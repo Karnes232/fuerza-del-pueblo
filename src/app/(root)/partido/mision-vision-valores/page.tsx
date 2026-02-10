@@ -1,13 +1,3 @@
-import {
-  missionVisionHeroData,
-  missionData,
-  visionData,
-  coreValuesData,
-  commitmentsData,
-  pillarsData,
-  goalsData,
-} from "@/config/mission.config"
-import { joinData } from "@/config/home.config"
 import { JoinSection } from "@/components/HomePage/JoinSection"
 import { AboutHero } from "@/components/AboutUsPage/AboutHero"
 import { MissionStatement } from "@/components/MissionPage/MissionStatement"
@@ -19,12 +9,37 @@ import { PillarsSection } from "@/components/MissionPage/PillarsSection"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import Script from "next/script"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
+import { getMissionPageHeroSection } from "@/sanity/queries/MissionPage/HeroSection"
+import { getMissionStatement } from "@/sanity/queries/MissionPage/MissionStatement"
+import { getVisionStatement } from "@/sanity/queries/MissionPage/VisionStatement"
+import { getCoreValues } from "@/sanity/queries/MissionPage/CoreValues"
+import { getPillarsSection } from "@/sanity/queries/MissionPage/PillarsSection"
+import { getCommitmentsSection } from "@/sanity/queries/MissionPage/CommitmentsSection"
+import { getGoalsSection } from "@/sanity/queries/MissionPage/GoalsSection"
 
 export default async function MisionVisionValoresPage() {
-  const [structuredData, joinSection] = await Promise.all([
+  const [
+    structuredData,
+    joinSection,
+    missionPageHeroSection,
+    missionStatement,
+    visionStatement,
+    coreValues,
+    pillarsSection,
+    commitmentsSection,
+    goalsSection,
+  ] = await Promise.all([
     getStructuredData("mision-vision-valores"),
     getJoinSection(),
+    getMissionPageHeroSection(),
+    getMissionStatement(),
+    getVisionStatement(),
+    getCoreValues(),
+    getPillarsSection(),
+    getCommitmentsSection(),
+    getGoalsSection(),
   ])
+
   return (
     <>
       <Script
@@ -36,56 +51,56 @@ export default async function MisionVisionValoresPage() {
       <main>
         {/* Hero Section */}
         <AboutHero
-          title={missionVisionHeroData.title}
-          subtitle={missionVisionHeroData.subtitle}
-          description={missionVisionHeroData.description}
-          backgroundImage={missionVisionHeroData.backgroundImage}
+          title={missionPageHeroSection.title}
+          subtitle={missionPageHeroSection.subtitle}
+          description={missionPageHeroSection.description}
+          backgroundImage={missionPageHeroSection.backgroundImage}
         />
 
         {/* Mission Statement */}
         <MissionStatement
-          title={missionData.title}
-          statement={missionData.statement}
-          description={missionData.description}
-          icon={missionData.icon}
-          image={missionData.image}
+          title={missionStatement.title}
+          statement={missionStatement.statement}
+          description={missionStatement.description}
+          icon={missionStatement.icon}
+          image={missionStatement.image}
         />
 
         {/* Vision Statement */}
         <VisionStatement
-          title={visionData.title}
-          statement={visionData.statement}
-          description={visionData.description}
-          icon={visionData.icon}
-          image={visionData.image}
+          title={visionStatement.title}
+          statement={visionStatement.statement}
+          description={visionStatement.description}
+          icon={visionStatement.icon}
+          image={visionStatement.image}
         />
 
         {/* Core Values */}
         <CoreValuesSection
-          title={coreValuesData.title}
-          subtitle={coreValuesData.subtitle}
-          values={coreValuesData.values}
+          title={coreValues.title}
+          subtitle={coreValues.subtitle}
+          values={coreValues.values}
         />
 
         {/* Strategic Pillars */}
         <PillarsSection
-          title={pillarsData.title}
-          subtitle={pillarsData.subtitle}
-          pillars={pillarsData.pillars}
+          title={pillarsSection.title}
+          subtitle={pillarsSection.subtitle}
+          pillars={pillarsSection.pillars}
         />
 
         {/* Community Commitments */}
         <CommitmentsSection
-          title={commitmentsData.title}
-          subtitle={commitmentsData.subtitle}
-          commitments={commitmentsData.commitments}
+          title={commitmentsSection.title}
+          subtitle={commitmentsSection.subtitle}
+          commitments={commitmentsSection.commitments}
         />
 
         {/* Strategic Goals */}
         <GoalsSection
-          title={goalsData.title}
-          subtitle={goalsData.subtitle}
-          goals={goalsData.goals}
+          title={goalsSection.title}
+          subtitle={goalsSection.subtitle}
+          goals={goalsSection.goals}
         />
 
         {/* Join CTA Section */}

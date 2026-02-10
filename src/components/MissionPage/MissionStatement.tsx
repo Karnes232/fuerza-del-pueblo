@@ -2,8 +2,26 @@
 import Image from "next/image"
 import { Container } from "@/components/HomePage/Container"
 import { MissionStatementProps } from "@/types/mission.types"
-import { Target } from "lucide-react"
-import * as Icons from "lucide-react"
+import {
+  Target,
+  Users,
+  Scale,
+  Leaf,
+  Eye,
+  Award,
+  Lightbulb,
+  LucideIcon,
+} from "lucide-react"
+
+const Icons: Record<string, LucideIcon> = {
+  Target,
+  Users,
+  Scale,
+  Leaf,
+  Eye,
+  Award,
+  Lightbulb,
+}
 
 export const MissionStatement = ({
   title,
@@ -12,9 +30,7 @@ export const MissionStatement = ({
   icon,
   image,
 }: MissionStatementProps) => {
-  const IconComponent = icon
-    ? (Icons[icon as keyof typeof Icons] as any)
-    : Target
+  const IconComponent = (icon && Icons[icon]) ?? Target
 
   return (
     <section className="py-16 md:py-24 bg-white">
@@ -62,7 +78,7 @@ export const MissionStatement = ({
                   />
                 </div>
               ) : (
-                <div className="relative h-96 rounded-lg overflow-hidden shadow-xl bg-gradient-to-br from-primaryGreen/20 to-darkGreen/20 flex items-center justify-center border-4 border-primaryGreen/30">
+                <div className="relative h-96 rounded-lg overflow-hidden shadow-xl bg-linear-to-br from-primaryGreen/20 to-darkGreen/20 flex items-center justify-center border-4 border-primaryGreen/30">
                   <div className="text-center p-8">
                     {IconComponent && (
                       <IconComponent className="w-32 h-32 text-primaryGreen/40 mx-auto mb-4" />

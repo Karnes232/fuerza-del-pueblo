@@ -34,6 +34,15 @@ import { timelineSectionType } from "./AboutPage/Timeline"
 import { principlesSectionType } from "./AboutPage/Principles"
 import { nationalConnectionSectionType } from "./AboutPage/NationalConnection"
 
+//MissionPage
+import { missionPageHeroSectionType } from "./MissionPage/HeroSection"
+import { missionStatementType } from "./MissionPage/MissionStatement"
+import { visionStatementType } from "./MissionPage/VisionStatement"
+import { coreValuesType } from "./MissionPage/CoreValues"
+import { pillarsSectionType } from "./MissionPage/PillarsSection"
+import { commitmentsSectionType } from "./MissionPage/CommitmentsSection"
+import { goalsSectionType } from "./MissionPage/GoalsSection"
+
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     //GeneralLayout
@@ -69,5 +78,14 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     timelineSectionType,
     principlesSectionType,
     nationalConnectionSectionType,
+
+    //MissionPage
+    missionPageHeroSectionType,
+    missionStatementType,
+    visionStatementType,
+    coreValuesType,
+    pillarsSectionType,
+    commitmentsSectionType,
+    goalsSectionType,
   ],
 }
