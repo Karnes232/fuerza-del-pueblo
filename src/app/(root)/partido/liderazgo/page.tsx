@@ -1,12 +1,9 @@
 import {
-  leadershipHeroData,
-  leadershipTeamData,
   organizationalStructureData,
   departmentsData,
   wingsData,
   sectorCoordinatorsData,
 } from "@/config/leadership.config"
-import { joinData } from "@/config/home.config"
 import { JoinSection } from "@/components/HomePage/JoinSection"
 import { LeadershipTeam } from "@/components/LeadershipPage/LeadershipTeam"
 import { AboutHero } from "@/components/AboutUsPage/AboutHero"
@@ -17,11 +14,20 @@ import { SectorCoordinatorsSection } from "@/components/LeadershipPage/SectorCoo
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import Script from "next/script"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
+import { getLeadershipPageHeroSection } from "@/sanity/queries/LeadershipPage/HeroSection"
+import { getLeadershipTeam } from "@/sanity/queries/LeadershipPage/LeadershipTeam"
 
 export default async function LiderazgoPage() {
-  const [structuredData, joinSection] = await Promise.all([
+  const [
+    structuredData,
+    joinSection,
+    leadershipPageHeroSection,
+    leadershipTeam,
+  ] = await Promise.all([
     getStructuredData("liderazgo"),
     getJoinSection(),
+    getLeadershipPageHeroSection(),
+    getLeadershipTeam(),
   ])
   return (
     <>
@@ -34,19 +40,19 @@ export default async function LiderazgoPage() {
       <main>
         {/* Hero Section */}
         <AboutHero
-          title={leadershipHeroData.title}
-          subtitle={leadershipHeroData.subtitle}
-          description={leadershipHeroData.description}
-          backgroundImage={leadershipHeroData.backgroundImage}
+          title={leadershipPageHeroSection.title}
+          subtitle={leadershipPageHeroSection.subtitle}
+          description={leadershipPageHeroSection.description}
+          backgroundImage={leadershipPageHeroSection.backgroundImage}
         />
 
         {/* Leadership Team */}
         <LeadershipTeam
-          title={leadershipTeamData.title}
-          subtitle={leadershipTeamData.subtitle}
-          leaders={leadershipTeamData.leaders}
+          title={leadershipTeam.title}
+          subtitle={leadershipTeam.subtitle}
+          leaders={leadershipTeam.leaders}
         />
-
+        {/* TODO: Add Below Here to Sanity Schema and remove the config file */}
         {/* Organizational Structure */}
         <OrganizationalStructure
           title={organizationalStructureData.title}

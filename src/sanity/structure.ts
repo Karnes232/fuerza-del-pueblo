@@ -270,4 +270,28 @@ export const structure: StructureResolver = S =>
                 ),
             ]),
         ),
+      S.listItem()
+        .title("Leadership Page")
+        .child(
+          S.list()
+            .title("Leadership Page")
+            .items([
+              S.listItem()
+                .title("Hero Section")
+                .child(
+                  S.document()
+                    .schemaType("leadershipPageHeroSection")
+                    .title("Hero Section")
+                    .documentId("leadershipPageHeroSection"),
+                ),
+              S.listItem()
+                .title("Leadership Team")
+                .child(
+                  S.document()
+                    .schemaType("leadershipTeam")
+                    .title("Leadership Team")
+                    .documentId("leadershipTeam"),
+                ),
+            ]),
+        ),
     ])

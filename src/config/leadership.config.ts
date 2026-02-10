@@ -9,109 +9,109 @@ import {
 } from "../types/leadership.types"
 
 // Hero Section
-export const leadershipHeroData: LeadershipHeroProps = {
-  title: "Liderazgo y Estructura",
-  subtitle: "Fuerza del Pueblo - Verón Punta Cana",
-  description:
-    "Conoce al equipo de líderes comprometidos que trabajan día a día por el desarrollo de nuestra comunidad y la estructura organizativa que nos permite servir eficientemente.",
-  backgroundImage: {
-    alt: "Fuerza del Pueblo community",
-    asset: {
-      url: "https://picsum.photos/1920/600?random=" + Math.random(),
-      metadata: { dimensions: { width: 1920, height: 600 } },
-    },
-  },
-}
+// export const leadershipHeroData: LeadershipHeroProps = {
+//   title: "Liderazgo y Estructura",
+//   subtitle: "Fuerza del Pueblo - Verón Punta Cana",
+//   description:
+//     "Conoce al equipo de líderes comprometidos que trabajan día a día por el desarrollo de nuestra comunidad y la estructura organizativa que nos permite servir eficientemente.",
+//   backgroundImage: {
+//     alt: "Fuerza del Pueblo community",
+//     asset: {
+//       url: "https://picsum.photos/1920/600?random=" + Math.random(),
+//       metadata: { dimensions: { width: 1920, height: 600 } },
+//     },
+//   },
+// }
 
-// Main Leadership Team
-export const mainLeaders: LeaderProfile[] = [
-  {
-    id: "president",
-    name: "Por Designar",
-    position: "Presidente Municipal",
-    bio: "Líder principal del partido a nivel municipal, responsable de la dirección estratégica y la representación del movimiento en Verón-Punta Cana.",
-    responsibilities: [
-      "Dirigir la estrategia política municipal",
-      "Representar al partido ante autoridades e instituciones",
-      "Coordinar la dirección ejecutiva",
-      "Supervisar el cumplimiento de objetivos",
-    ],
-    image: {
-      alt: "Presidente Municipal",
-      asset: {
-        url: "https://picsum.photos/400/400?random=1",
-        metadata: { dimensions: { width: 400, height: 400 } },
-      },
-    },
-  },
-  {
-    id: "vicepresident-1",
-    name: "Por Designar",
-    position: "Primer Vicepresidente",
-    bio: "Apoya al presidente en la gestión estratégica y asume funciones de liderazgo en su ausencia.",
-    responsibilities: [
-      "Asistir al presidente en decisiones estratégicas",
-      "Supervisar programas y proyectos clave",
-      "Coordinar con direcciones departamentales",
-      "Representar al partido en eventos oficiales",
-    ],
-  },
-  {
-    id: "vicepresident-2",
-    name: "Por Designar",
-    position: "Segundo Vicepresidente",
-    bio: "Colabora en la dirección del partido y coordina iniciativas comunitarias específicas.",
-    responsibilities: [
-      "Supervisar comisiones de trabajo",
-      "Coordinar actividades comunitarias",
-      "Apoyar en la gestión administrativa",
-      "Facilitar comunicación entre estructuras",
-    ],
-    image: {
-      alt: "Segundo Vicepresidente",
-      asset: {
-        url: "https://picsum.photos/400/400?random=2",
-        metadata: { dimensions: { width: 400, height: 400 } },
-      },
-    },
-  },
-  {
-    id: "secretary",
-    name: "Por Designar",
-    position: "Secretario General",
-    bio: "Responsable de la gestión administrativa del partido y la documentación oficial.",
-    responsibilities: [
-      "Administrar la documentación del partido",
-      "Coordinar reuniones y asambleas",
-      "Mantener registros de militantes",
-      "Gestionar comunicaciones internas",
-    ],
-  },
-  {
-    id: "treasurer",
-    name: "Por Designar",
-    position: "Tesorero",
-    bio: "Administra los recursos financieros del partido con transparencia y eficiencia.",
-    responsibilities: [
-      "Gestionar finanzas del partido",
-      "Preparar informes financieros",
-      "Supervisar presupuestos de actividades",
-      "Garantizar transparencia en el manejo de fondos",
-    ],
-  },
-  {
-    id: "spokesperson",
-    name: "Por Designar",
-    position: "Vocero Oficial",
-    bio: "Encargado de las comunicaciones públicas y relaciones con medios de comunicación.",
-    responsibilities: [
-      "Gestionar comunicaciones públicas",
-      "Relacionarse con medios de comunicación",
-      "Preparar comunicados oficiales",
-      "Coordinar estrategia de redes sociales",
-    ],
-  },
-]
+// // Main Leadership Team
+// export const mainLeaders: LeaderProfile[] = [
+//   {
+//     id: "president",
+//     name: "Por Designar",
+//     position: "Presidente Municipal",
+//     bio: "Líder principal del partido a nivel municipal, responsable de la dirección estratégica y la representación del movimiento en Verón-Punta Cana.",
+//     responsibilities: [
+//       "Dirigir la estrategia política municipal",
+//       "Representar al partido ante autoridades e instituciones",
+//       "Coordinar la dirección ejecutiva",
+//       "Supervisar el cumplimiento de objetivos",
+//     ],
+//     image: {
+//       alt: "Presidente Municipal",
+//       asset: {
+//         url: "https://picsum.photos/400/400?random=1",
+//         metadata: { dimensions: { width: 400, height: 400 } },
+//       },
+//     },
+//   },
+//   {
+//     id: "vicepresident-1",
+//     name: "Por Designar",
+//     position: "Primer Vicepresidente",
+//     bio: "Apoya al presidente en la gestión estratégica y asume funciones de liderazgo en su ausencia.",
+//     responsibilities: [
+//       "Asistir al presidente en decisiones estratégicas",
+//       "Supervisar programas y proyectos clave",
+//       "Coordinar con direcciones departamentales",
+//       "Representar al partido en eventos oficiales",
+//     ],
+//   },
+//   {
+//     id: "vicepresident-2",
+//     name: "Por Designar",
+//     position: "Segundo Vicepresidente",
+//     bio: "Colabora en la dirección del partido y coordina iniciativas comunitarias específicas.",
+//     responsibilities: [
+//       "Supervisar comisiones de trabajo",
+//       "Coordinar actividades comunitarias",
+//       "Apoyar en la gestión administrativa",
+//       "Facilitar comunicación entre estructuras",
+//     ],
+//     image: {
+//       alt: "Segundo Vicepresidente",
+//       asset: {
+//         url: "https://picsum.photos/400/400?random=2",
+//         metadata: { dimensions: { width: 400, height: 400 } },
+//       },
+//     },
+//   },
+//   {
+//     id: "secretary",
+//     name: "Por Designar",
+//     position: "Secretario General",
+//     bio: "Responsable de la gestión administrativa del partido y la documentación oficial.",
+//     responsibilities: [
+//       "Administrar la documentación del partido",
+//       "Coordinar reuniones y asambleas",
+//       "Mantener registros de militantes",
+//       "Gestionar comunicaciones internas",
+//     ],
+//   },
+//   {
+//     id: "treasurer",
+//     name: "Por Designar",
+//     position: "Tesorero",
+//     bio: "Administra los recursos financieros del partido con transparencia y eficiencia.",
+//     responsibilities: [
+//       "Gestionar finanzas del partido",
+//       "Preparar informes financieros",
+//       "Supervisar presupuestos de actividades",
+//       "Garantizar transparencia en el manejo de fondos",
+//     ],
+//   },
+//   {
+//     id: "spokesperson",
+//     name: "Por Designar",
+//     position: "Vocero Oficial",
+//     bio: "Encargado de las comunicaciones públicas y relaciones con medios de comunicación.",
+//     responsibilities: [
+//       "Gestionar comunicaciones públicas",
+//       "Relacionarse con medios de comunicación",
+//       "Preparar comunicados oficiales",
+//       "Coordinar estrategia de redes sociales",
+//     ],
+//   },
+// ]
 
 // Organizational Structure Levels
 export const organizationalLevels: OrganizationalLevel[] = [
@@ -348,13 +348,13 @@ export const sectorCoordinators: SectorCoordinator[] = [
   },
 ]
 
-// Compiled data exports
-export const leadershipTeamData = {
-  title: "Nuestro Equipo de Liderazgo",
-  subtitle:
-    "Dirigentes comprometidos con el servicio y el desarrollo de Verón-Punta Cana",
-  leaders: mainLeaders,
-}
+// // Compiled data exports
+// export const leadershipTeamData = {
+//   title: "Nuestro Equipo de Liderazgo",
+//   subtitle:
+//     "Dirigentes comprometidos con el servicio y el desarrollo de Verón-Punta Cana",
+//   leaders: mainLeaders,
+// }
 
 export const organizationalStructureData = {
   title: "Estructura Organizativa",

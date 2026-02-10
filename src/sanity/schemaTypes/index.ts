@@ -43,6 +43,10 @@ import { pillarsSectionType } from "./MissionPage/PillarsSection"
 import { commitmentsSectionType } from "./MissionPage/CommitmentsSection"
 import { goalsSectionType } from "./MissionPage/GoalsSection"
 
+//LeadershipPage
+import { leadershipPageHeroSectionType } from "./LeadershipPage/HeroSection"
+import { leadershipTeamType } from "./LeadershipPage/LeadershipTeam"
+
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     //GeneralLayout
@@ -87,5 +91,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     pillarsSectionType,
     commitmentsSectionType,
     goalsSectionType,
+
+    //LeadershipPage
+    leadershipPageHeroSectionType,
+    leadershipTeamType,
   ],
 }
