@@ -108,10 +108,10 @@ export const contactFormData = {
 export const locationMapData = {
   title: "Nuestra Ubicación",
   address: "Calle Principal #123, Verón, Punta Cana, República Dominicana",
-  mapUrl: "https://maps.google.com/?q=Veron+Punta+Cana",
+  mapUrl: "https://maps.app.goo.gl/2q7UQHSngqb8MxCm9",
   // Replace with your actual Google Maps embed URL
   embedUrl:
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3757.234567890123!2d-68.4!3d18.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDMwJzAwLjAiTiA2OMKwMjQnMDAuMCJX!5e0!3m2!1sen!2sdo!4v1234567890123!5m2!1sen!2sdo",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d593.9338193478982!2d-68.43423988656001!3d18.59741265325868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ea895b6d4bf087f%3A0x1c760279b109c6d7!2sVeron%20Plaza%2C%20Punta%20Cana!5e1!3m2!1sen!2sdo!4v1770734704369!5m2!1sen!2sdo",
 }
 
 // Social Links Section Data

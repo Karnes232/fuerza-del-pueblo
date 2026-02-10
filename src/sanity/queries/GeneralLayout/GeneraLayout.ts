@@ -77,3 +77,43 @@ export interface contactData {
   email: string
   telephone: string
 }
+
+export interface socialLinks {
+  socialLinks: {
+    _key: string
+    platform: string
+    href: string
+    icon: string
+    ariaLabel: string
+  }[]
+}
+
+export const socialLinksQuery = `*[_type == "generalLayout"][0] {
+  socialLinks[] {
+    _key,
+    platform,
+    href,
+    icon,
+    ariaLabel
+  }
+} `
+
+export const getSocialLinks = async (): Promise<socialLinks> => {
+  const socialLinks = await client.fetch(socialLinksQuery)
+  return socialLinks
+}
+
+export interface mapData {
+  mapUrl: string
+  embedUrl: string
+}
+
+export const mapDataQuery = `*[_type == "generalLayout"][0] {
+  mapUrl,
+  embedUrl,
+} `
+
+export const getMapData = async (): Promise<mapData> => {
+  const mapData = await client.fetch(mapDataQuery)
+  return mapData
+}

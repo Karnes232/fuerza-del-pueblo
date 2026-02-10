@@ -3,18 +3,33 @@ import { ContactHero } from "@/components/ContactPage/ContactHero"
 import { ContactInfoSection } from "@/components/ContactPage/ContactInfoSection"
 import { LocationMapSection } from "@/components/ContactPage/LocationMapSection"
 import { SocialLinksSection } from "@/components/ContactPage/SocialLinksSection"
+
+import { getContactPageHeroSection } from "@/sanity/queries/ContactPage/HeroSection"
+import { getSectionTitles } from "@/sanity/queries/ContactPage/SectionTitles"
 import {
-  contactHeroData,
-  contactInfoData,
-  contactFormData,
-  locationMapData,
-  socialLinksData,
-} from "@/config/contact.config"
+  getContactMethods,
+  getSocialLinks,
+  getMapData,
+} from "@/sanity/queries/GeneralLayout/GeneraLayout"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import Script from "next/script"
 
 export default async function ContactPage() {
-  const [structuredData] = await Promise.all([getStructuredData("contacto")])
+  const [
+    structuredData,
+    contactPageHeroSection,
+    contactMethods,
+    sectionTitles,
+    socialLinks,
+    mapData,
+  ] = await Promise.all([
+    getStructuredData("contacto"),
+    getContactPageHeroSection(),
+    getContactMethods(),
+    getSectionTitles(),
+    getSocialLinks(),
+    getMapData(),
+  ])
 
   return (
     <>
@@ -27,36 +42,37 @@ export default async function ContactPage() {
       <main>
         {/* Hero Section */}
         <ContactHero
-          title={contactHeroData.title}
-          subtitle={contactHeroData.subtitle}
-          description={contactHeroData.description}
+          title={contactPageHeroSection.title}
+          subtitle={contactPageHeroSection.subtitle}
+          description={contactPageHeroSection.description}
+          backgroundImage={contactPageHeroSection.backgroundImage}
         />
 
         {/* Contact Information */}
         <ContactInfoSection
-          title={contactInfoData.title}
-          contacts={contactInfoData.contacts}
+          title={sectionTitles.contactInformationTitle}
+          contactMethods={contactMethods}
         />
 
         {/* Contact Form */}
         <ContactFormSection
-          title={contactFormData.title}
-          subtitle={contactFormData.subtitle}
+          title={sectionTitles.contactFormTitle}
+          subtitle={sectionTitles.contactFormSubtitle}
         />
 
         {/* Location Map */}
         <LocationMapSection
-          title={locationMapData.title}
-          address={locationMapData.address}
-          mapUrl={locationMapData.mapUrl}
-          embedUrl={locationMapData.embedUrl}
+          title={sectionTitles.locationMapTitle}
+          address={contactMethods.address}
+          mapUrl={mapData.mapUrl}
+          embedUrl={mapData.embedUrl}
         />
 
         {/* Social Media Links */}
         <SocialLinksSection
-          title={socialLinksData.title}
-          subtitle={socialLinksData.subtitle}
-          socials={socialLinksData.socials}
+          title={sectionTitles.socialLinksTitle}
+          subtitle={sectionTitles.socialLinksSubtitle}
+          socials={socialLinks.socialLinks}
         />
       </main>
     </>

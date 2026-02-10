@@ -126,4 +126,28 @@ export const structure: StructureResolver = S =>
                 ),
             ]),
         ),
+      S.listItem()
+        .title("Contact Page")
+        .child(
+          S.list()
+            .title("Contact Page")
+            .items([
+              S.listItem()
+                .title("Hero Section")
+                .child(
+                  S.document()
+                    .schemaType("contactPageHeroSection")
+                    .title("Hero Section")
+                    .documentId("contactPageHeroSection"),
+                ),
+              S.listItem()
+                .title("Section Titles")
+                .child(
+                  S.document()
+                    .schemaType("sectionTitles")
+                    .title("Section Titles")
+                    .documentId("sectionTitles"),
+                ),
+            ]),
+        ),
     ])

@@ -1,7 +1,6 @@
 import Script from "next/script"
 import { AboutSection } from "@/components/HomePage/AboutSection"
 import { HeroSection } from "@/components/HomePage/HeroSection"
-import { newsData, eventsData, joinData } from "@/config/home.config"
 import { getHeroSection } from "@/sanity/queries/HomePage/HeroSection"
 import { getAboutSection } from "@/sanity/queries/HomePage/AboutSection"
 import { ValuesSection } from "@/components/HomePage/ValuesSection"
@@ -14,6 +13,8 @@ import { getContactMethods } from "@/sanity/queries/GeneralLayout/GeneraLayout"
 import { getPageSeo } from "@/sanity/queries/SEO/seo"
 import { getStructuredData } from "@/sanity/queries/SEO/seo"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
+
+import { newsData, eventsData } from "@/config/home.config"
 
 export default async function Home() {
   const [
@@ -88,7 +89,7 @@ export default async function Home() {
         <JoinSection
           title={joinSection.title}
           description={joinSection.description}
-          benefits={joinData.benefits}
+          benefits={joinSection.benefits}
           ctaText={joinSection.ctaText}
           backgroundImage={joinSection.backgroundImage}
         />

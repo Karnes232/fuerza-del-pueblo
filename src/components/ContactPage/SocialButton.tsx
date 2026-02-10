@@ -7,7 +7,9 @@ import {
   Music,
   LucideIcon,
   X,
+  MessageCircle,
 } from "lucide-react"
+
 import { SocialButtonProps } from "@/types/contact.types"
 
 const iconMap: Record<string, LucideIcon> = {
@@ -17,6 +19,7 @@ const iconMap: Record<string, LucideIcon> = {
   Youtube,
   Music,
   X,
+  MessageCircle,
 }
 
 export const SocialButton = ({ social }: SocialButtonProps) => {
@@ -24,10 +27,10 @@ export const SocialButton = ({ social }: SocialButtonProps) => {
 
   return (
     <a
-      href={social.url}
+      href={social.href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={social.label}
+      aria-label={social.ariaLabel}
       className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group border border-gray-200 hover:border-primaryGreen"
     >
       <div className="w-16 h-16 bg-primaryGreen/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-primaryGreen transition-colors">
@@ -35,7 +38,7 @@ export const SocialButton = ({ social }: SocialButtonProps) => {
           <IconComponent className="w-8 h-8 text-primaryGreen group-hover:text-white transition-colors" />
         )}
       </div>
-      <span className="text-sm font-semibold text-darkGreen group-hover:text-primaryGreen transition-colors">
+      <span className="text-sm font-semibold text-darkGreen group-hover:text-primaryGreen transition-colors cap">
         {social.platform}
       </span>
     </a>

@@ -1,5 +1,7 @@
 // types/contact.types.ts
 
+import { contactMethods } from "@/sanity/queries/GeneralLayout/GeneraLayout"
+
 export interface ContactMethod {
   id: string
   type: "phone" | "email" | "address" | "whatsapp" | "hours"
@@ -38,11 +40,27 @@ export interface ContactHeroProps {
   title: string
   subtitle?: string
   description: string
+  backgroundImage?: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
 }
 
 export interface ContactInfoSectionProps {
   title: string
-  contacts: ContactMethod[]
+  contactMethods: {
+    address: string
+    email: string
+    telephone: string
+  }
 }
 
 export interface ContactFormSectionProps {
@@ -61,7 +79,13 @@ export interface LocationMapSectionProps {
 export interface SocialLinksSectionProps {
   title: string
   subtitle?: string
-  socials: SocialLink[]
+  socials: {
+    _key: string
+    platform: string
+    href: string
+    icon: string
+    ariaLabel: string
+  }[]
 }
 
 export interface ContactCardProps {
@@ -100,5 +124,11 @@ export interface MapEmbedProps {
 }
 
 export interface SocialButtonProps {
-  social: SocialLink
+  social: {
+    _key: string
+    platform: string
+    href: string
+    icon: string
+    ariaLabel: string
+  }
 }

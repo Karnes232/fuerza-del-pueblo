@@ -133,6 +133,18 @@ export const generalLayoutType = defineType({
       ],
       validation: Rule => Rule.required(),
     }),
+    defineField({
+      name: "mapUrl",
+      title: "Map URL",
+      type: "url",
+      validation: Rule => Rule.required(),
+    }),
+    defineField({
+      name: "embedUrl",
+      title: "Embed URL",
+      type: "url",
+      validation: Rule => Rule.required(),
+    }),
   ],
   preview: {
     select: {

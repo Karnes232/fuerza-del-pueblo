@@ -1,9 +1,28 @@
-// components/ContactCard.tsx
-import * as Icons from "lucide-react"
-import { ContactCardProps } from "@/types/contact.types"
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react"
 
-export const ContactCard = ({ contact }: ContactCardProps) => {
-  const IconComponent = Icons[contact.icon as keyof typeof Icons] as any
+const ICONS = {
+  Phone,
+  Mail,
+  MessageCircle,
+  MapPin,
+} as const
+
+type ContactIconName = keyof typeof ICONS
+
+export const ContactCard = ({
+  icon,
+  contact,
+  contactType,
+  description,
+  href,
+}: {
+  icon: ContactIconName
+  contact: string
+  contactType: string
+  description: string
+  href?: string
+}) => {
+  const IconComponent = ICONS[icon]
 
   const content = (
     <div className="flex flex-col items-center text-center p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 h-full border-t-4 border-primaryGreen">
@@ -15,25 +34,23 @@ export const ContactCard = ({ contact }: ContactCardProps) => {
       </div>
 
       {/* Label */}
-      <h3 className="text-lg font-bold text-darkGreen mb-2">{contact.label}</h3>
+      <h3 className="text-lg font-bold text-darkGreen mb-2">{contactType}</h3>
 
       {/* Value */}
-      <p className="text-gray-700 font-medium mb-2">{contact.value}</p>
+      <p className="text-gray-700 font-medium mb-2">{contact}</p>
 
       {/* Description */}
-      {contact.description && (
-        <p className="text-sm text-gray-500">{contact.description}</p>
-      )}
+      {description && <p className="text-sm text-gray-500">{description}</p>}
     </div>
   )
 
-  if (contact.href) {
+  if (href) {
     return (
       <a
-        href={contact.href}
+        href={href}
         className="block group"
-        target={contact.type === "address" ? "_blank" : undefined}
-        rel={contact.type === "address" ? "noopener noreferrer" : undefined}
+        target={href.includes("tel:") ? undefined : "_blank"}
+        rel={href.includes("tel:") ? undefined : "noopener noreferrer"}
       >
         {content}
       </a>

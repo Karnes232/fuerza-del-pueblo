@@ -22,6 +22,10 @@ import { joinPageFaqsSectionType } from "./JoinPage/FaqsSection"
 import { joinPageCtaSectionType } from "./JoinPage/CtaSection"
 import { joinPageFormSectionType } from "./JoinPage/FormSection"
 
+//ContactPage
+import { contactPageHeroSectionType } from "./ContactPage/HeroSection"
+import { sectionTitlesType } from "./ContactPage/SectionTitles"
+
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     //GeneralLayout
@@ -45,5 +49,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     joinPageFaqsSectionType,
     joinPageCtaSectionType,
     joinPageFormSectionType,
+
+    //ContactPage
+    contactPageHeroSectionType,
+    sectionTitlesType,
   ],
 }
