@@ -100,6 +100,30 @@ export const structure: StructureResolver = S =>
                     .title("Testimonials Section")
                     .documentId("joinPageTestimonialsSection"),
                 ),
+              S.listItem()
+                .title("Faqs Section")
+                .child(
+                  S.document()
+                    .schemaType("joinPageFaqsSection")
+                    .title("Faqs Section")
+                    .documentId("joinPageFaqsSection"),
+                ),
+              S.listItem()
+                .title("Form Section")
+                .child(
+                  S.document()
+                    .schemaType("joinPageFormSection")
+                    .title("Form Section")
+                    .documentId("joinPageFormSection"),
+                ),
+              S.listItem()
+                .title("Cta Section")
+                .child(
+                  S.document()
+                    .schemaType("joinPageCtaSection")
+                    .title("Cta Section")
+                    .documentId("joinPageCtaSection"),
+                ),
             ]),
         ),
     ])

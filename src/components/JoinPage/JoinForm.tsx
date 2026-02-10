@@ -7,13 +7,13 @@ import { FormInput } from "@/components/ContactPage/FormInput"
 import { FormTextarea } from "@/components/ContactPage/FormTextarea"
 import { FormCheckbox } from "@/components/JoinPage/FormCheckbox"
 import { JoinFormProps, JoinFormData } from "@/types/unete.types"
-import {
+
+export const JoinForm = ({
+  onSubmit,
   membershipTiers,
   interestAreas,
   availabilityOptions,
-} from "@/config/unete.config"
-
-export const JoinForm = ({ onSubmit }: JoinFormProps) => {
+}: JoinFormProps) => {
   const [formData, setFormData] = useState<JoinFormData>({
     firstName: "",
     lastName: "",

@@ -85,6 +85,8 @@ export interface MembershipTiersSectionProps {
 export interface JoinFormSectionProps {
   title: string
   subtitle?: string
+  interestAreas: string[]
+  availabilityOptions: string[]
   onSubmit?: (data: JoinFormData) => Promise<void>
 }
 
@@ -133,6 +135,13 @@ export interface MembershipTierCardProps {
 
 export interface JoinFormProps {
   onSubmit?: (data: JoinFormData) => Promise<void>
+  membershipTiers: {
+    id: string
+    name: string
+    description: string
+  }[]
+  interestAreas: string[]
+  availabilityOptions: string[]
 }
 
 export interface TestimonialCardProps {

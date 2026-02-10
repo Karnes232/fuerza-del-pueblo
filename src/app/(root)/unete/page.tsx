@@ -5,21 +5,15 @@ import { TestimonialsSection } from "@/components/JoinPage/TestimonialsSection"
 import { UneteCTA } from "@/components/JoinPage/UneteCTA"
 import { UneteHero } from "@/components/JoinPage/UneteHero"
 import { WhyJoinSection } from "@/components/JoinPage/WhyJoinSection"
-import {
-  // whyJoinData,
-  // membershipTiersData,
-  // joinFormData,
-  testimonialsData,
-  faqData,
-  uneteCTAData,
-} from "@/config/unete.config"
 import { getJoinPageHeroSection } from "@/sanity/queries/JoinPage/HeroSection"
 import { getWhyJoinSection } from "@/sanity/queries/JoinPage/WhyJoinSection"
 import { getMemberShipTierSection } from "@/sanity/queries/JoinPage/MemberShipTierSection"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import Script from "next/script"
 import { getJoinPageTestimonialsSection } from "@/sanity/queries/JoinPage/TestimonialsSection"
-
+import { getJoinPageFaqsSection } from "@/sanity/queries/JoinPage/FaqsSection"
+import { getJoinPageCtaSection } from "@/sanity/queries/JoinPage/CtaSection"
+import { getJoinPageFormSection } from "@/sanity/queries/JoinPage/FormSection"
 export default async function UnetePage() {
   const [
     structuredData,
@@ -27,13 +21,20 @@ export default async function UnetePage() {
     whyJoinSection,
     memberShipTierSection,
     joinPageTestimonialsSection,
+    joinPageFaqsSection,
+    joinPageCtaSection,
+    joinPageFormSection,
   ] = await Promise.all([
     getStructuredData("unete"),
     getJoinPageHeroSection(),
     getWhyJoinSection(),
     getMemberShipTierSection(),
     getJoinPageTestimonialsSection(),
+    getJoinPageFaqsSection(),
+    getJoinPageCtaSection(),
+    getJoinPageFormSection(),
   ])
+
   return (
     <>
       <Script
@@ -69,8 +70,10 @@ export default async function UnetePage() {
 
         {/* Join Form Section */}
         <JoinFormSection
-          title="Completa Tu Registro"
-          subtitle="Toma solo unos minutos unirte al movimiento"
+          title={joinPageFormSection.title}
+          subtitle={joinPageFormSection.subtitle}
+          interestAreas={joinPageFormSection.interestAreas}
+          availabilityOptions={joinPageFormSection.availabilityOptions}
         />
 
         {/* Testimonials Section */}
@@ -82,16 +85,16 @@ export default async function UnetePage() {
 
         {/* FAQ Section */}
         <FAQSection
-          title={faqData.title}
-          subtitle={faqData.subtitle}
-          faqs={faqData.faqs}
+          title={joinPageFaqsSection.title}
+          subtitle={joinPageFaqsSection.subtitle}
+          faqs={joinPageFaqsSection.faqs}
         />
 
         {/* CTA Section */}
         <UneteCTA
-          title={uneteCTAData.title}
-          description={uneteCTAData.description}
-          actions={uneteCTAData.actions}
+          title={joinPageCtaSection.title}
+          description={joinPageCtaSection.description}
+          actions={joinPageCtaSection.actions}
         />
       </main>
     </>

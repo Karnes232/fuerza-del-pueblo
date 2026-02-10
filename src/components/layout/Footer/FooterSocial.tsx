@@ -7,7 +7,7 @@ export const FooterSocial = ({
   title = "Síguenos",
 }: FooterSocialProps) => {
   return (
-    <div className="space-y-4">
+    <div className="space-y-4" id="social-media">
       {title && <h4 className="text-white font-medium text-sm">{title}</h4>}
       <div className="flex gap-3 flex-wrap">
         {socials.map(social => (

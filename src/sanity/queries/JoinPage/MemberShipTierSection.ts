@@ -35,3 +35,24 @@ export const getMemberShipTierSection =
     const data = await client.fetch(memberShipTierSectionQuery)
     return data
   }
+
+export interface MembershipTierForm {
+  tiers: {
+    id: string
+    name: string
+    description: string
+  }[]
+}
+
+export const membershipTierFormQuery = `*[_type == "memberShipTierSection"][0] {
+  tiers[] {
+    id,
+    name,
+    description,
+  }
+}`
+
+export const getMembershipTierForm = async (): Promise<MembershipTierForm> => {
+  const data = await client.fetch(membershipTierFormQuery)
+  return data
+}

@@ -18,6 +18,9 @@ import { joinPageHeroSectionType } from "./JoinPage/HeroSection"
 import { whyJoinSectionType } from "./JoinPage/WhyJoinSection"
 import { memberShipTierSectionType } from "./JoinPage/MemberShipTierSection"
 import { joinBenefitsinPageTestimonialsSectionType } from "./JoinPage/TestimonialsSection"
+import { joinPageFaqsSectionType } from "./JoinPage/FaqsSection"
+import { joinPageCtaSectionType } from "./JoinPage/CtaSection"
+import { joinPageFormSectionType } from "./JoinPage/FormSection"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -39,5 +42,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     whyJoinSectionType,
     memberShipTierSectionType,
     joinBenefitsinPageTestimonialsSectionType,
+    joinPageFaqsSectionType,
+    joinPageCtaSectionType,
+    joinPageFormSectionType,
   ],
 }

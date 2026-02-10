@@ -4,7 +4,6 @@ import { Container } from "@/components/HomePage/Container"
 import { CTAButton } from "@/components/HomePage/CTAButton"
 import { HeroSectionProps } from "@/types/home.types"
 
-
 export const HeroSection = ({
   title,
   subtitle,
@@ -46,18 +45,24 @@ export const HeroSection = ({
         <div className="max-w-4xl mx-auto text-center space-y-8">
           {/* Subtitle */}
           {subtitle && (
-            <p className={`text-primaryGreen font-semibold text-lg md:text-xl uppercase tracking-wide font-body`}>
+            <p
+              className={`text-primaryGreen font-semibold text-lg md:text-xl uppercase tracking-wide font-body`}
+            >
               {subtitle}
             </p>
           )}
 
           {/* Title */}
-          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight`}>
+          <h1
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight`}
+          >
             {title}
           </h1>
 
           {/* Slogan */}
-          <p className={`text-2xl md:text-3xl font-semibold text-primaryGreen italic`}>
+          <p
+            className={`text-2xl md:text-3xl font-semibold text-primaryGreen italic`}
+          >
             "{slogan}"
           </p>
 

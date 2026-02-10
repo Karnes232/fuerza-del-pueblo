@@ -14,7 +14,7 @@ export const MembershipTiersSection = ({
       <Container>
         <SectionHeader title={title} subtitle={subtitle} />
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 md:pt-12">
           {tiers.map(tier => (
             <MembershipTierCard key={tier.id} tier={tier} />
           ))}
