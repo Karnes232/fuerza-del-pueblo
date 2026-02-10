@@ -1,9 +1,9 @@
 import { defineField, defineType } from "sanity"
 import { DocumentIcon } from "@sanity/icons"
 
-export const joinSectionType = defineType({
-  name: "joinSection",
-  title: "Join Section",
+export const aboutPageHeroSectionType = defineType({
+  name: "aboutPageHeroSection",
+  title: "About Page Hero Section",
   type: "document",
   icon: DocumentIcon,
   fields: [
@@ -13,21 +13,14 @@ export const joinSectionType = defineType({
       type: "string",
     }),
     defineField({
+      name: "subtitle",
+      title: "Subtitle",
+      type: "string",
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "text",
-    }),
-    defineField({
-      name: "benefits",
-      title: "Benefits",
-      type: "array",
-      of: [{ type: "string" }],
-      validation: Rule => Rule.required().min(4).max(4),
-    }),
-    defineField({
-      name: "ctaText",
-      title: "CTA Text",
-      type: "string",
     }),
     defineField({
       name: "backgroundImage",
@@ -47,8 +40,7 @@ export const joinSectionType = defineType({
   ],
   preview: {
     select: {
-      title: "Join Section",
-      media: "image",
+      title: "Title",
     },
   },
 })

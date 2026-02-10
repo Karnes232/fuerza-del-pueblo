@@ -26,6 +26,14 @@ import { joinPageFormSectionType } from "./JoinPage/FormSection"
 import { contactPageHeroSectionType } from "./ContactPage/HeroSection"
 import { sectionTitlesType } from "./ContactPage/SectionTitles"
 
+//AboutPage
+import { aboutPageHeroSectionType } from "./AboutPage/HeroSection"
+import { aboutContentSectionType } from "./AboutPage/AboutContent"
+import { aboutStatsSectionType } from "./AboutPage/AboutStats"
+import { timelineSectionType } from "./AboutPage/Timeline"
+import { principlesSectionType } from "./AboutPage/Principles"
+import { nationalConnectionSectionType } from "./AboutPage/NationalConnection"
+
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     //GeneralLayout
@@ -53,5 +61,13 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     //ContactPage
     contactPageHeroSectionType,
     sectionTitlesType,
+
+    //AboutPage
+    aboutPageHeroSectionType,
+    aboutContentSectionType,
+    aboutStatsSectionType,
+    timelineSectionType,
+    principlesSectionType,
+    nationalConnectionSectionType,
   ],
 }

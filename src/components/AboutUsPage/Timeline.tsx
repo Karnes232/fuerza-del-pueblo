@@ -5,6 +5,7 @@ import { TimelineProps } from "@/types/about.types"
 import { Calendar } from "lucide-react"
 
 export const Timeline = ({ title, subtitle, items }: TimelineProps) => {
+  const sortedItems = [...items].sort((a, b) => Number(a.year) - Number(b.year))
   return (
     <section className="py-16 md:py-24 bg-[#F4F4F4]">
       <Container>
@@ -17,7 +18,7 @@ export const Timeline = ({ title, subtitle, items }: TimelineProps) => {
 
             {/* Timeline Items */}
             <div className="space-y-12">
-              {items.map((item, index) => (
+              {sortedItems.map((item, index) => (
                 <div
                   key={item.id}
                   className={`relative flex items-start ${

@@ -1,5 +1,5 @@
 // config/footer.config.ts
-import { FooterLink, SocialLink, ContactInfo } from "@/types/footer.types"
+import { FooterLink } from "@/types/footer.types"
 
 // Quick Links Navigation
 export const quickLinks: FooterLink[] = [

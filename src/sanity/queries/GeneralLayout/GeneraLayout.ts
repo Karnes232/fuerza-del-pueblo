@@ -117,3 +117,38 @@ export const getMapData = async (): Promise<mapData> => {
   const mapData = await client.fetch(mapDataQuery)
   return mapData
 }
+
+export interface logoData {
+  logo: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
+}
+
+export const logoDataQuery = `*[_type == "generalLayout"][0] {
+  logo {
+    alt,
+    asset -> {
+      url,
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    }
+  }
+} `
+
+export const getLogoData = async (): Promise<logoData> => {
+  const logoData = await client.fetch(logoDataQuery)
+  return logoData
+}

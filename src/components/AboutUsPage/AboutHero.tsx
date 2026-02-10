@@ -16,7 +16,7 @@ export const AboutHero = ({
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
             src={backgroundImage?.asset?.url}
-            alt={backgroundImage?.alt}
+            alt={backgroundImage?.alt || "About Hero Background Image"}
             fill
             className="object-cover"
             priority

@@ -1,5 +1,7 @@
 // types/about.types.ts
 
+import { logoData } from "@/sanity/queries/GeneralLayout/GeneraLayout"
+
 export interface AboutHeroProps {
   title: string
   subtitle?: string
@@ -69,10 +71,7 @@ export interface PrinciplesProps {
 export interface NationalConnectionProps {
   title: string
   content: string
-  logoUrl?: string
-  leaderName?: string
-  leaderTitle?: string
-  leaderImage?: {
+  logoUrl?: {
     alt: string
     asset: {
       url: string

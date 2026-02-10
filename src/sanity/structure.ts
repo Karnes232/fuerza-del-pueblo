@@ -150,4 +150,60 @@ export const structure: StructureResolver = S =>
                 ),
             ]),
         ),
+      S.listItem()
+        .title("About Page")
+        .child(
+          S.list()
+            .title("About Page")
+            .items([
+              S.listItem()
+                .title("Hero Section")
+                .child(
+                  S.document()
+                    .schemaType("aboutPageHeroSection")
+                    .title("Hero Section")
+                    .documentId("aboutPageHeroSection"),
+                ),
+              S.listItem()
+                .title("About Content Section")
+                .child(
+                  S.document()
+                    .schemaType("aboutContentSection")
+                    .title("About Content Section")
+                    .documentId("aboutContentSection"),
+                ),
+              S.listItem()
+                .title("About Stats Section")
+                .child(
+                  S.document()
+                    .schemaType("aboutStatsSection")
+                    .title("About Stats Section")
+                    .documentId("aboutStatsSection"),
+                ),
+              S.listItem()
+                .title("Timeline Section")
+                .child(
+                  S.document()
+                    .schemaType("timelineSection")
+                    .title("Timeline Section")
+                    .documentId("timelineSection"),
+                ),
+              S.listItem()
+                .title("Principles Section")
+                .child(
+                  S.document()
+                    .schemaType("principlesSection")
+                    .title("Principles Section")
+                    .documentId("principlesSection"),
+                ),
+              S.listItem()
+                .title("National Connection Section")
+                .child(
+                  S.document()
+                    .schemaType("nationalConnectionSection")
+                    .title("National Connection Section")
+                    .documentId("nationalConnectionSection"),
+                ),
+            ]),
+        ),
     ])

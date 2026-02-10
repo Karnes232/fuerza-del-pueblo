@@ -9,12 +9,10 @@ export const NationalConnection = ({
   title,
   content,
   logoUrl,
-  leaderName,
-  leaderTitle,
-  leaderImage,
   ctaText,
   ctaLink,
 }: NationalConnectionProps) => {
+  console.log(logoUrl)
   return (
     <section className="py-16 md:py-24 bg-linear-to-br from-darkGreen to-primaryGreen text-white">
       <Container>
@@ -36,33 +34,13 @@ export const NationalConnection = ({
             {content}
           </p>
 
-          {/* Leader Info (if provided) */}
-          {leaderName && leaderTitle && (
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-12 p-8 bg-white/10 rounded-lg backdrop-blur-sm">
-              {leaderImage && (
-                <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white/30">
-                  <Image
-                    src={leaderImage?.asset?.url}
-                    alt={leaderImage?.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              )}
-              <div className="text-center md:text-left">
-                <h3 className="text-2xl font-bold">{leaderName}</h3>
-                <p className="text-white/80">{leaderTitle}</p>
-              </div>
-            </div>
-          )}
-
           {/* Logo (if provided) */}
           {logoUrl && (
             <div className="flex justify-center mb-8">
-              <div className="relative w-48 h-24">
+              <div className="relative w-64 h-32 md:w-80 md:h-40">
                 <Image
-                  src={logoUrl}
-                  alt="Fuerza del Pueblo Logo"
+                  src={logoUrl.asset.url}
+                  alt={logoUrl.alt}
                   fill
                   className="object-contain"
                 />

@@ -37,7 +37,9 @@ export const PrincipleCard = ({ principle }: PrincipleCardProps) => {
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-bold text-charcoal">{principle.title}</h3>
+        <h3 className="text-xl font-bold text-charcoal h-12 line-clamp-2">
+          {principle.title}
+        </h3>
 
         {/* Description */}
         <p className="text-charcoal/70 leading-relaxed">

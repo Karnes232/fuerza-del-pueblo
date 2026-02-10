@@ -5,24 +5,39 @@ import { NationalConnection } from "@/components/AboutUsPage/NationalConnection"
 import { PrinciplesSection } from "@/components/AboutUsPage/PrinciplesSection"
 import { Timeline } from "@/components/AboutUsPage/Timeline"
 import { JoinSection } from "@/components/HomePage/JoinSection"
-import {
-  aboutHeroData,
-  aboutContentData,
-  aboutStatsData,
-  aboutTimelineData,
-  aboutPrinciplesData,
-  nationalConnectionData,
-} from "@/config/about.config"
-import { joinData } from "@/config/home.config"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import Script from "next/script"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
-
+import { getAboutPageHeroSection } from "@/sanity/queries/AboutPage/HeroSection"
+import { getAboutContentSection } from "@/sanity/queries/AboutPage/AboutContent"
+import { getAboutStatsSection } from "@/sanity/queries/AboutPage/AboutStats"
+import { getTimelineSection } from "@/sanity/queries/AboutPage/Timeline"
+import { getPrinciplesSection } from "@/sanity/queries/AboutPage/Principles"
+import { getNationalConnectionSection } from "@/sanity/queries/AboutPage/NationalConnection"
+import { getLogoData } from "@/sanity/queries/GeneralLayout/GeneraLayout"
 export default async function QuienesSomosPage() {
-  const [structuredData, joinSection] = await Promise.all([
+  const [
+    structuredData,
+    joinSection,
+    aboutPageHeroSection,
+    aboutContentSection,
+    aboutStatsSection,
+    timelineSection,
+    principlesSection,
+    nationalConnectionSection,
+    logoData,
+  ] = await Promise.all([
     getStructuredData("quienes-somos"),
     getJoinSection(),
+    getAboutPageHeroSection(),
+    getAboutContentSection(),
+    getAboutStatsSection(),
+    getTimelineSection(),
+    getPrinciplesSection(),
+    getNationalConnectionSection(),
+    getLogoData(),
   ])
+
   return (
     <>
       <Script
@@ -34,47 +49,44 @@ export default async function QuienesSomosPage() {
       <main>
         {/* Hero Section */}
         <AboutHero
-          title={aboutHeroData.title}
-          subtitle={aboutHeroData.subtitle}
-          description={aboutHeroData.description}
-          backgroundImage={aboutHeroData.backgroundImage}
+          title={aboutPageHeroSection.title}
+          subtitle={aboutPageHeroSection.subtitle}
+          description={aboutPageHeroSection.description}
+          backgroundImage={aboutPageHeroSection.backgroundImage}
         />
 
         {/* Main Content Section */}
         <AboutContent
-          title={aboutContentData.title}
-          content={aboutContentData.content}
-          sections={aboutContentData.sections}
-          image={aboutContentData.image}
+          title={aboutContentSection.title}
+          content={aboutContentSection.content}
+          sections={aboutContentSection.sections}
+          image={aboutContentSection.image}
         />
 
         {/* Statistics Section */}
-        <AboutStats stats={aboutStatsData.stats} />
+        <AboutStats stats={aboutStatsSection.stats} />
 
         {/* History Timeline */}
         <Timeline
-          title={aboutTimelineData.title}
-          subtitle={aboutTimelineData.subtitle}
-          items={aboutTimelineData.items}
+          title={timelineSection.title}
+          subtitle={timelineSection.subtitle}
+          items={timelineSection.historyTimelineData}
         />
 
         {/* Ideological Principles */}
         <PrinciplesSection
-          title={aboutPrinciplesData.title}
-          subtitle={aboutPrinciplesData.subtitle}
-          principles={aboutPrinciplesData.principles}
+          title={principlesSection.title}
+          subtitle={principlesSection.subtitle}
+          principles={principlesSection.principles}
         />
 
         {/* National Connection */}
         <NationalConnection
-          title={nationalConnectionData.title}
-          content={nationalConnectionData.content}
-          logoUrl={nationalConnectionData.logoUrl}
-          leaderName={nationalConnectionData.leaderName}
-          leaderTitle={nationalConnectionData.leaderTitle}
-          leaderImage={nationalConnectionData.leaderImage}
-          ctaText={nationalConnectionData.ctaText}
-          ctaLink={nationalConnectionData.ctaLink}
+          title={nationalConnectionSection.title}
+          content={nationalConnectionSection.content}
+          logoUrl={logoData.logo}
+          ctaText={nationalConnectionSection.ctaText}
+          ctaLink={nationalConnectionSection.ctaLink}
         />
 
         {/* Join CTA Section */}
