@@ -31,7 +31,8 @@ const config = {
         pureWhite: "#FFFFFF",
       },
       fontFamily: {
-        montserrat: ["var(--font-montserrat)", "serif"],
+        heading: ["var(--font-montserrat)"],
+        body: ["var(--font-open-sans)"],
       },
     },
   },

@@ -9,11 +9,17 @@ import { getGeneralLayout } from "@/sanity/queries/GeneralLayout/GeneraLayout"
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
+  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 })
 
 const openSans = Open_Sans({
   subsets: ["latin"],
   variable: "--font-open-sans",
+  style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -27,13 +33,9 @@ export default async function RootLayout({
   children: React.ReactNode
 }>) {
   const generalLayout = await getGeneralLayout()
-  console.log(montserrat)
-  console.log(openSans)
   return (
-    <html lang="es">
-      <body
-        className={`${montserrat.variable} ${openSans.variable} antialiased overflow-x-hidden `}
-      >
+    <html lang="es" className={`${montserrat.variable} ${openSans.variable}`}>
+      <body className="antialiased overflow-x-hidden">
         <NavbarContainer logo={generalLayout.logo} />
         {children}
         <FooterContainer generalLayout={generalLayout} />

@@ -7,7 +7,7 @@ export default async function RSVPPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  console.log(slug)
+
   const event = {
     id: "event-1",
     title: "Asamblea General Mensual",
