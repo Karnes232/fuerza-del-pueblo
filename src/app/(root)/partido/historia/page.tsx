@@ -1,16 +1,5 @@
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import Script from "next/script"
-import {
-  historyHeroData,
-  historyIntroData,
-  foundingStorySection,
-  timelineData,
-  milestonesData,
-  achievementsData,
-  erasData,
-  legacyData,
-} from "@/config/history.config"
-import { joinData } from "@/config/home.config"
 import { JoinSection } from "@/components/HomePage/JoinSection"
 import { AboutHero } from "@/components/AboutUsPage/AboutHero"
 import { HistoryIntro } from "@/components/HistoryPage/HistoryIntro"
@@ -21,12 +10,39 @@ import { AchievementsSection } from "@/components/HistoryPage/AchievementsSectio
 import { ErasSection } from "@/components/HistoryPage/ErasSection"
 import { LegacySection } from "@/components/HistoryPage/LegacySection"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
-
+import { getHistoryPageHeroSection } from "@/sanity/queries/HistoryPage/HeroSection"
+import { getHistoryIntroSection } from "@/sanity/queries/HistoryPage/HistoryIntro"
+import { getFoundingStorySection } from "@/sanity/queries/HistoryPage/FoundingStory"
+import { getErasSection } from "@/sanity/queries/HistoryPage/ErasSection"
+import { getHistoryTimeline } from "@/sanity/queries/HistoryPage/HistoryTimeline"
+import { getMilestonesSection } from "@/sanity/queries/HistoryPage/MilestonesSection"
+import { getAchievementsSection } from "@/sanity/queries/HistoryPage/AchievementsSection"
+import { getLegacySection } from "@/sanity/queries/HistoryPage/LegacySection"
 export default async function HistoriaPage() {
-  const [structuredData, joinSection] = await Promise.all([
+  const [
+    structuredData,
+    joinSection,
+    historyPageHeroSection,
+    historyIntroSection,
+    foundingStorySection,
+    erasSection,
+    historyTimeline,
+    milestonesSection,
+    achievementsSection,
+    legacySection,
+  ] = await Promise.all([
     getStructuredData("historia"),
     getJoinSection(),
+    getHistoryPageHeroSection(),
+    getHistoryIntroSection(),
+    getFoundingStorySection(),
+    getErasSection(),
+    getHistoryTimeline(),
+    getMilestonesSection(),
+    getAchievementsSection(),
+    getLegacySection(),
   ])
+
   return (
     <>
       <Script
@@ -38,60 +54,63 @@ export default async function HistoriaPage() {
       <main>
         {/* Hero Section */}
         <AboutHero
-          title={historyHeroData.title}
-          subtitle={historyHeroData.subtitle}
-          description={historyHeroData.description}
-          backgroundImage={historyHeroData.backgroundImage}
+          title={historyPageHeroSection.title}
+          subtitle={historyPageHeroSection.subtitle}
+          description={historyPageHeroSection.description}
+          backgroundImage={historyPageHeroSection.backgroundImage}
         />
 
         {/* History Introduction */}
         <HistoryIntro
-          title={historyIntroData.title}
-          content={historyIntroData.content}
-          image={historyIntroData.image}
+          title={historyIntroSection.title}
+          content={historyIntroSection.content}
+          image={historyIntroSection.image}
         />
 
         {/* Founding Story */}
         <FoundingStory
           title={foundingStorySection.title}
           subtitle={foundingStorySection.subtitle}
-          story={foundingStorySection.story}
+          year={foundingStorySection.year}
+          context={foundingStorySection.context}
+          founders={foundingStorySection.founders}
+          objectives={foundingStorySection.objectives}
         />
 
         {/* Historical Eras */}
         <ErasSection
-          title={erasData.title}
-          subtitle={erasData.subtitle}
-          eras={erasData.eras}
+          title={erasSection.title}
+          subtitle={erasSection.subtitle}
+          eras={erasSection.eras}
         />
 
         {/* Detailed Timeline */}
         <HistoryTimeline
-          title={timelineData.title}
-          subtitle={timelineData.subtitle}
-          events={timelineData.events}
+          title={historyTimeline.title}
+          subtitle={historyTimeline.subtitle}
+          events={historyTimeline.events}
         />
 
         {/* Key Milestones */}
         <MilestonesSection
-          title={milestonesData.title}
-          subtitle={milestonesData.subtitle}
-          milestones={milestonesData.milestones}
+          title={milestonesSection.title}
+          subtitle={milestonesSection.subtitle}
+          milestones={milestonesSection.milestones}
         />
 
         {/* Major Achievements */}
         <AchievementsSection
-          title={achievementsData.title}
-          subtitle={achievementsData.subtitle}
-          achievements={achievementsData.achievements}
+          title={achievementsSection.title}
+          subtitle={achievementsSection.subtitle}
+          achievements={achievementsSection.achievements}
         />
 
         {/* Legacy and Future */}
         <LegacySection
-          title={legacyData.title}
-          subtitle={legacyData.subtitle}
-          content={legacyData.content}
-          items={legacyData.items}
+          title={legacySection.title}
+          subtitle={legacySection.subtitle}
+          content={legacySection.content}
+          items={legacySection.items}
         />
 
         {/* Join CTA Section */}

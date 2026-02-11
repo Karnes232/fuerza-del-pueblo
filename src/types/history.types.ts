@@ -72,7 +72,10 @@ export interface FoundingStory {
 export interface FoundingStoryProps {
   title: string
   subtitle?: string
-  story: FoundingStory
+  year: string
+  context: string
+  founders?: string[]
+  objectives: string[]
 }
 
 export interface Milestone {

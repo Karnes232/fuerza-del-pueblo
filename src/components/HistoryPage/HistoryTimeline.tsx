@@ -9,6 +9,9 @@ export const HistoryTimeline = ({
   subtitle,
   events,
 }: HistoryTimelineProps) => {
+  const sortedEvents = [...events].sort(
+    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+  )
   return (
     <section className="py-16 md:py-24 bg-white">
       <Container>
@@ -21,7 +24,7 @@ export const HistoryTimeline = ({
 
             {/* Timeline Events */}
             <div className="space-y-12">
-              {events.map((event, index) => (
+              {sortedEvents.map((event, index) => (
                 <TimelineEventCard key={event.id} event={event} index={index} />
               ))}
             </div>

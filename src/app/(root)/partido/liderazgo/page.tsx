@@ -1,4 +1,3 @@
-import { sectorCoordinatorsData } from "@/config/leadership.config"
 import { JoinSection } from "@/components/HomePage/JoinSection"
 import { LeadershipTeam } from "@/components/LeadershipPage/LeadershipTeam"
 import { AboutHero } from "@/components/AboutUsPage/AboutHero"

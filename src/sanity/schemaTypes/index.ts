@@ -51,6 +51,16 @@ import { departmentsSectionType } from "./LeadershipPage/DepartmentsSection"
 import { wingsSectionType } from "./LeadershipPage/WingsSection"
 import { sectorCoordinatorsSectionType } from "./LeadershipPage/SectorCoordinatorsSection"
 
+//HistoryPage
+import { historyPageHeroSectionType } from "./HistoryPage/HeroSection"
+import { historyIntroSectionType } from "./HistoryPage/HistoryIntro"
+import { foundingStorySectionType } from "./HistoryPage/FoundingStory"
+import { erasSectionType } from "./HistoryPage/ErasSection"
+import { historyTimelineType } from "./HistoryPage/HistoryTimeline"
+import { milestonesSectionType } from "./HistoryPage/MilestonesSection"
+import { achievementsSectionType } from "./HistoryPage/AchievementsSection"
+import { legacySectionType } from "./HistoryPage/LegacySection"
+
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     //GeneralLayout
@@ -103,5 +113,15 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     departmentsSectionType,
     wingsSectionType,
     sectorCoordinatorsSectionType,
+
+    //HistoryPage
+    historyPageHeroSectionType,
+    historyIntroSectionType,
+    foundingStorySectionType,
+    erasSectionType,
+    historyTimelineType,
+    milestonesSectionType,
+    achievementsSectionType,
+    legacySectionType,
   ],
 }

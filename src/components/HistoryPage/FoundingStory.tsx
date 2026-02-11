@@ -7,7 +7,10 @@ import { Calendar, Target, Users, CheckCircle } from "lucide-react"
 export const FoundingStory = ({
   title,
   subtitle,
-  story,
+  year,
+  context,
+  founders,
+  objectives,
 }: FoundingStoryProps) => {
   return (
     <section className="py-16 md:py-24 bg-[#F4F4F4]">
@@ -19,7 +22,7 @@ export const FoundingStory = ({
           <div className="flex justify-center mb-8">
             <div className="bg-linear-to-r from-primaryGreen to-darkGreen text-white px-8 py-4 rounded-full shadow-lg flex items-center gap-3">
               <Calendar className="w-6 h-6" />
-              <span className="text-2xl font-bold">{story.year}</span>
+              <span className="text-2xl font-bold">{year}</span>
             </div>
           </div>
 
@@ -32,21 +35,21 @@ export const FoundingStory = ({
               Contexto de Fundación
             </h3>
             <p className="text-lg text-charcoal/80 leading-relaxed">
-              {story.context}
+              {context}
             </p>
           </div>
 
           {/* Two Column Layout */}
           <div className="grid md:grid-cols-2 gap-8">
             {/* Founders */}
-            {story.founders && story.founders.length > 0 && (
+            {founders && founders.length > 0 && (
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h4 className="text-xl font-bold text-charcoal mb-4 flex items-center gap-2">
                   <Users className="w-5 h-5 text-primaryGreen" />
                   Fundadores
                 </h4>
                 <ul className="space-y-3">
-                  {story.founders.map((founder, index) => (
+                  {founders.map((founder, index) => (
                     <li
                       key={index}
                       className="flex items-start gap-2 text-charcoal/70"
@@ -60,14 +63,14 @@ export const FoundingStory = ({
             )}
 
             {/* Objectives */}
-            {story.objectives && story.objectives.length > 0 && (
+            {objectives && objectives.length > 0 && (
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h4 className="text-xl font-bold text-charcoal mb-4 flex items-center gap-2">
                   <Target className="w-5 h-5 text-primaryGreen" />
                   Objetivos Fundacionales
                 </h4>
                 <ul className="space-y-3">
-                  {story.objectives.map((objective, index) => (
+                  {objectives.map((objective, index) => (
                     <li
                       key={index}
                       className="flex items-start gap-2 text-charcoal/70"
