@@ -292,6 +292,38 @@ export const structure: StructureResolver = S =>
                     .title("Leadership Team")
                     .documentId("leadershipTeam"),
                 ),
+              S.listItem()
+                .title("Organizational Structure")
+                .child(
+                  S.document()
+                    .schemaType("organizationalStructure")
+                    .title("Organizational Structure")
+                    .documentId("organizationalStructure"),
+                ),
+              S.listItem()
+                .title("Departments Section")
+                .child(
+                  S.document()
+                    .schemaType("departmentsSection")
+                    .title("Departments Section")
+                    .documentId("departmentsSection"),
+                ),
+              S.listItem()
+                .title("Wings Section")
+                .child(
+                  S.document()
+                    .schemaType("wingsSection")
+                    .title("Wings Section")
+                    .documentId("wingsSection"),
+                ),
+              S.listItem()
+                .title("Sector Coordinators Section")
+                .child(
+                  S.document()
+                    .schemaType("sectorCoordinatorsSection")
+                    .title("Sector Coordinators Section")
+                    .documentId("sectorCoordinatorsSection"),
+                ),
             ]),
         ),
     ])

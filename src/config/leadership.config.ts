@@ -114,198 +114,198 @@ import {
 // ]
 
 // Organizational Structure Levels
-export const organizationalLevels: OrganizationalLevel[] = [
-  {
-    id: "executive",
-    title: "Dirección Ejecutiva",
-    description:
-      "Máximo órgano de dirección del partido a nivel municipal, responsable de las decisiones estratégicas y políticas.",
-    icon: "Crown",
-    positions: [
-      "Presidente Municipal",
-      "Primer Vicepresidente",
-      "Segundo Vicepresidente",
-      "Secretario General",
-      "Tesorero",
-      "Vocero Oficial",
-    ],
-  },
-  {
-    id: "management",
-    title: "Dirección de Gestión",
-    description:
-      "Encargada de la implementación de políticas y la coordinación de actividades operativas del partido.",
-    icon: "Users",
-    positions: [
-      "Director de Organización",
-      "Director de Finanzas",
-      "Director de Comunicaciones",
-      "Director de Movilización",
-    ],
-  },
-  {
-    id: "departments",
-    title: "Departamentos Especializados",
-    description:
-      "Áreas temáticas que desarrollan propuestas y programas en sectores específicos.",
-    icon: "Briefcase",
-    positions: [
-      "Departamento de Educación",
-      "Departamento de Salud",
-      "Departamento de Desarrollo Económico",
-      "Departamento de Medio Ambiente",
-      "Departamento de Juventud",
-      "Departamento de Asuntos de la Mujer",
-    ],
-  },
-  {
-    id: "sectors",
-    title: "Coordinaciones Sectoriales",
-    description:
-      "Representantes del partido en diferentes sectores geográficos de Verón-Punta Cana.",
-    icon: "MapPin",
-    positions: [
-      "Coordinadores de Sector",
-      "Coordinadores de Barrio",
-      "Delegados Zonales",
-    ],
-  },
-  {
-    id: "base",
-    title: "Base Militante",
-    description:
-      "Militantes activos y simpatizantes que participan en las actividades del partido y constituyen su fuerza fundamental.",
-    icon: "Users",
-    positions: [
-      "Militantes Activos",
-      "Simpatizantes",
-      "Voluntarios",
-      "Comités de Base",
-    ],
-  },
-]
+// export const organizationalLevels: OrganizationalLevel[] = [
+//   {
+//     id: "executive",
+//     title: "Dirección Ejecutiva",
+//     description:
+//       "Máximo órgano de dirección del partido a nivel municipal, responsable de las decisiones estratégicas y políticas.",
+//     icon: "Crown",
+//     positions: [
+//       "Presidente Municipal",
+//       "Primer Vicepresidente",
+//       "Segundo Vicepresidente",
+//       "Secretario General",
+//       "Tesorero",
+//       "Vocero Oficial",
+//     ],
+//   },
+//   {
+//     id: "management",
+//     title: "Dirección de Gestión",
+//     description:
+//       "Encargada de la implementación de políticas y la coordinación de actividades operativas del partido.",
+//     icon: "Users",
+//     positions: [
+//       "Director de Organización",
+//       "Director de Finanzas",
+//       "Director de Comunicaciones",
+//       "Director de Movilización",
+//     ],
+//   },
+//   {
+//     id: "departments",
+//     title: "Departamentos Especializados",
+//     description:
+//       "Áreas temáticas que desarrollan propuestas y programas en sectores específicos.",
+//     icon: "Briefcase",
+//     positions: [
+//       "Departamento de Educación",
+//       "Departamento de Salud",
+//       "Departamento de Desarrollo Económico",
+//       "Departamento de Medio Ambiente",
+//       "Departamento de Juventud",
+//       "Departamento de Asuntos de la Mujer",
+//     ],
+//   },
+//   {
+//     id: "sectors",
+//     title: "Coordinaciones Sectoriales",
+//     description:
+//       "Representantes del partido en diferentes sectores geográficos de Verón-Punta Cana.",
+//     icon: "MapPin",
+//     positions: [
+//       "Coordinadores de Sector",
+//       "Coordinadores de Barrio",
+//       "Delegados Zonales",
+//     ],
+//   },
+//   {
+//     id: "base",
+//     title: "Base Militante",
+//     description:
+//       "Militantes activos y simpatizantes que participan en las actividades del partido y constituyen su fuerza fundamental.",
+//     icon: "Users",
+//     positions: [
+//       "Militantes Activos",
+//       "Simpatizantes",
+//       "Voluntarios",
+//       "Comités de Base",
+//     ],
+//   },
+// ]
 
 // Departments
-export const departments: DepartmentInfo[] = [
-  {
-    id: "education",
-    name: "Departamento de Educación",
-    description:
-      "Desarrolla propuestas y programas para mejorar la calidad educativa en Verón-Punta Cana.",
-    icon: "GraduationCap",
-    coordinator: "Por Designar",
-    responsibilities: [
-      "Elaborar propuestas educativas",
-      "Coordinar con centros educativos",
-      "Organizar talleres de formación",
-      "Monitorear calidad educativa local",
-    ],
-  },
-  {
-    id: "health",
-    name: "Departamento de Salud",
-    description:
-      "Trabaja por el acceso universal a servicios de salud de calidad para todos los ciudadanos.",
-    icon: "Heart",
-    coordinator: "Por Designar",
-    responsibilities: [
-      "Proponer políticas de salud pública",
-      "Coordinar jornadas de salud comunitaria",
-      "Monitorear servicios de salud local",
-      "Promover prevención y salud preventiva",
-    ],
-  },
-  {
-    id: "economic-development",
-    name: "Departamento de Desarrollo Económico",
-    description:
-      "Impulsa el crecimiento económico local y el apoyo a emprendedores y pequeños empresarios.",
-    icon: "TrendingUp",
-    coordinator: "Por Designar",
-    responsibilities: [
-      "Diseñar programas de apoyo empresarial",
-      "Promover generación de empleos",
-      "Coordinar con sector privado",
-      "Impulsar desarrollo turístico sostenible",
-    ],
-  },
-  {
-    id: "environment",
-    name: "Departamento de Medio Ambiente",
-    description:
-      "Promueve la sostenibilidad ambiental y la protección de recursos naturales.",
-    icon: "Leaf",
-    coordinator: "Por Designar",
-    responsibilities: [
-      "Desarrollar políticas ambientales",
-      "Organizar jornadas de limpieza",
-      "Promover educación ambiental",
-      "Monitorear impacto ambiental local",
-    ],
-  },
-  {
-    id: "youth",
-    name: "Departamento de Juventud",
-    description:
-      "Enfocado en las necesidades, aspiraciones y desarrollo de los jóvenes de la comunidad.",
-    icon: "Users",
-    coordinator: "Por Designar",
-    responsibilities: [
-      "Organizar actividades para jóvenes",
-      "Promover liderazgo juvenil",
-      "Desarrollar programas de capacitación",
-      "Representar intereses de la juventud",
-    ],
-  },
-  {
-    id: "womens-affairs",
-    name: "Departamento de Asuntos de la Mujer",
-    description:
-      "Defiende los derechos de las mujeres y promueve la equidad de género en todos los ámbitos.",
-    icon: "Users",
-    coordinator: "Por Designar",
-    responsibilities: [
-      "Promover equidad de género",
-      "Organizar talleres de empoderamiento",
-      "Defender derechos de las mujeres",
-      "Impulsar participación política femenina",
-    ],
-  },
-]
+// export const departments: DepartmentInfo[] = [
+//   {
+//     id: "education",
+//     name: "Departamento de Educación",
+//     description:
+//       "Desarrolla propuestas y programas para mejorar la calidad educativa en Verón-Punta Cana.",
+//     icon: "GraduationCap",
+//     coordinator: "Por Designar",
+//     responsibilities: [
+//       "Elaborar propuestas educativas",
+//       "Coordinar con centros educativos",
+//       "Organizar talleres de formación",
+//       "Monitorear calidad educativa local",
+//     ],
+//   },
+//   {
+//     id: "health",
+//     name: "Departamento de Salud",
+//     description:
+//       "Trabaja por el acceso universal a servicios de salud de calidad para todos los ciudadanos.",
+//     icon: "Heart",
+//     coordinator: "Por Designar",
+//     responsibilities: [
+//       "Proponer políticas de salud pública",
+//       "Coordinar jornadas de salud comunitaria",
+//       "Monitorear servicios de salud local",
+//       "Promover prevención y salud preventiva",
+//     ],
+//   },
+//   {
+//     id: "economic-development",
+//     name: "Departamento de Desarrollo Económico",
+//     description:
+//       "Impulsa el crecimiento económico local y el apoyo a emprendedores y pequeños empresarios.",
+//     icon: "TrendingUp",
+//     coordinator: "Por Designar",
+//     responsibilities: [
+//       "Diseñar programas de apoyo empresarial",
+//       "Promover generación de empleos",
+//       "Coordinar con sector privado",
+//       "Impulsar desarrollo turístico sostenible",
+//     ],
+//   },
+//   {
+//     id: "environment",
+//     name: "Departamento de Medio Ambiente",
+//     description:
+//       "Promueve la sostenibilidad ambiental y la protección de recursos naturales.",
+//     icon: "Leaf",
+//     coordinator: "Por Designar",
+//     responsibilities: [
+//       "Desarrollar políticas ambientales",
+//       "Organizar jornadas de limpieza",
+//       "Promover educación ambiental",
+//       "Monitorear impacto ambiental local",
+//     ],
+//   },
+//   {
+//     id: "youth",
+//     name: "Departamento de Juventud",
+//     description:
+//       "Enfocado en las necesidades, aspiraciones y desarrollo de los jóvenes de la comunidad.",
+//     icon: "Users",
+//     coordinator: "Por Designar",
+//     responsibilities: [
+//       "Organizar actividades para jóvenes",
+//       "Promover liderazgo juvenil",
+//       "Desarrollar programas de capacitación",
+//       "Representar intereses de la juventud",
+//     ],
+//   },
+//   {
+//     id: "womens-affairs",
+//     name: "Departamento de Asuntos de la Mujer",
+//     description:
+//       "Defiende los derechos de las mujeres y promueve la equidad de género en todos los ámbitos.",
+//     icon: "Users",
+//     coordinator: "Por Designar",
+//     responsibilities: [
+//       "Promover equidad de género",
+//       "Organizar talleres de empoderamiento",
+//       "Defender derechos de las mujeres",
+//       "Impulsar participación política femenina",
+//     ],
+//   },
+// ]
 
 // Wings (Youth and Women)
-export const partyWings: Wing[] = [
-  {
-    id: "youth-wing",
-    name: "Juventud Fuerza del Pueblo",
-    description:
-      "Organización juvenil del partido que prepara a la próxima generación de líderes políticos comprometidos con el desarrollo de Verón-Punta Cana.",
-    icon: "Users",
-    coordinator: "Por Designar",
-    focus: [
-      "Formación política de jóvenes",
-      "Organización de actividades juveniles",
-      "Representación en decisiones del partido",
-      "Desarrollo de propuestas desde perspectiva juvenil",
-      "Participación en campañas y movilizaciones",
-    ],
-  },
-  {
-    id: "women-wing",
-    name: "Mujeres Fuerza del Pueblo",
-    description:
-      "Organización que agrupa y empodera a las mujeres del partido, promoviendo su liderazgo y participación activa en la política local.",
-    icon: "Users",
-    coordinator: "Por Designar",
-    focus: [
-      "Empoderamiento político de mujeres",
-      "Defensa de derechos y equidad de género",
-      "Formación en liderazgo femenino",
-      "Organización de redes de apoyo",
-      "Participación en toma de decisiones",
-    ],
-  },
-]
+// export const partyWings: Wing[] = [
+//   {
+//     id: "youth-wing",
+//     name: "Juventud Fuerza del Pueblo",
+//     description:
+//       "Organización juvenil del partido que prepara a la próxima generación de líderes políticos comprometidos con el desarrollo de Verón-Punta Cana.",
+//     icon: "Users",
+//     coordinator: "Por Designar",
+//     focus: [
+//       "Formación política de jóvenes",
+//       "Organización de actividades juveniles",
+//       "Representación en decisiones del partido",
+//       "Desarrollo de propuestas desde perspectiva juvenil",
+//       "Participación en campañas y movilizaciones",
+//     ],
+//   },
+//   {
+//     id: "women-wing",
+//     name: "Mujeres Fuerza del Pueblo",
+//     description:
+//       "Organización que agrupa y empodera a las mujeres del partido, promoviendo su liderazgo y participación activa en la política local.",
+//     icon: "Users",
+//     coordinator: "Por Designar",
+//     focus: [
+//       "Empoderamiento político de mujeres",
+//       "Defensa de derechos y equidad de género",
+//       "Formación en liderazgo femenino",
+//       "Organización de redes de apoyo",
+//       "Participación en toma de decisiones",
+//     ],
+//   },
+// ]
 
 // Sector Coordinators (examples)
 export const sectorCoordinators: SectorCoordinator[] = [
@@ -356,23 +356,23 @@ export const sectorCoordinators: SectorCoordinator[] = [
 //   leaders: mainLeaders,
 // }
 
-export const organizationalStructureData = {
-  title: "Estructura Organizativa",
-  subtitle: "Organización eficiente al servicio de la comunidad",
-  levels: organizationalLevels,
-}
+// export const organizationalStructureData = {
+//   title: "Estructura Organizativa",
+//   subtitle: "Organización eficiente al servicio de la comunidad",
+//   levels: organizationalLevels,
+// }
 
-export const departmentsData = {
-  title: "Departamentos Especializados",
-  subtitle: "Áreas temáticas que desarrollan propuestas y soluciones",
-  departments: departments,
-}
+// export const departmentsData = {
+//   title: "Departamentos Especializados",
+//   subtitle: "Áreas temáticas que desarrollan propuestas y soluciones",
+//   departments: departments,
+// }
 
-export const wingsData = {
-  title: "Alas del Partido",
-  subtitle: "Organizaciones especializadas dentro del movimiento",
-  wings: partyWings,
-}
+// export const wingsData = {
+//   title: "Alas del Partido",
+//   subtitle: "Organizaciones especializadas dentro del movimiento",
+//   wings: partyWings,
+// }
 
 export const sectorCoordinatorsData = {
   title: "Coordinadores Sectoriales",

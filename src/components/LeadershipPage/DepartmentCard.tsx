@@ -7,6 +7,9 @@ import {
   Users,
   LucideIcon,
   User,
+  Shield,
+  Building2,
+  Briefcase,
 } from "lucide-react"
 import { DepartmentInfo } from "@/types/leadership.types"
 
@@ -16,6 +19,9 @@ const ICON_MAP: Record<string, LucideIcon> = {
   TrendingUp,
   Leaf,
   Users,
+  Shield,
+  Building2,
+  Briefcase,
 }
 
 interface DepartmentCardProps {

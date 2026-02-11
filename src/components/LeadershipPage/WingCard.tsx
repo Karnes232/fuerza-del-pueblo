@@ -1,10 +1,23 @@
 // components/LeadershipPage/WingCard.tsx
 import Image from "next/image"
-import { Users, User, CheckCircle, LucideIcon } from "lucide-react"
+import {
+  Users,
+  User,
+  CheckCircle,
+  LucideIcon,
+  Shield,
+  Building2,
+  Briefcase,
+  Leaf,
+} from "lucide-react"
 import { Wing } from "@/types/leadership.types"
 
 const ICON_MAP: Record<string, LucideIcon> = {
   Users,
+  Shield,
+  Building2,
+  Briefcase,
+  Leaf,
 }
 
 interface WingCardProps {

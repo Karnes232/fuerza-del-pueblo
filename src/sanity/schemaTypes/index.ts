@@ -46,6 +46,10 @@ import { goalsSectionType } from "./MissionPage/GoalsSection"
 //LeadershipPage
 import { leadershipPageHeroSectionType } from "./LeadershipPage/HeroSection"
 import { leadershipTeamType } from "./LeadershipPage/LeadershipTeam"
+import { organizationalStructureType } from "./LeadershipPage/OrganizationalStructure"
+import { departmentsSectionType } from "./LeadershipPage/DepartmentsSection"
+import { wingsSectionType } from "./LeadershipPage/WingsSection"
+import { sectorCoordinatorsSectionType } from "./LeadershipPage/SectorCoordinatorsSection"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -95,5 +99,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     //LeadershipPage
     leadershipPageHeroSectionType,
     leadershipTeamType,
+    organizationalStructureType,
+    departmentsSectionType,
+    wingsSectionType,
+    sectorCoordinatorsSectionType,
   ],
 }

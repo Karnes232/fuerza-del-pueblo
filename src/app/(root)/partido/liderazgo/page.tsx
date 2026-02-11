@@ -1,9 +1,4 @@
-import {
-  organizationalStructureData,
-  departmentsData,
-  wingsData,
-  sectorCoordinatorsData,
-} from "@/config/leadership.config"
+import { sectorCoordinatorsData } from "@/config/leadership.config"
 import { JoinSection } from "@/components/HomePage/JoinSection"
 import { LeadershipTeam } from "@/components/LeadershipPage/LeadershipTeam"
 import { AboutHero } from "@/components/AboutUsPage/AboutHero"
@@ -16,18 +11,29 @@ import Script from "next/script"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 import { getLeadershipPageHeroSection } from "@/sanity/queries/LeadershipPage/HeroSection"
 import { getLeadershipTeam } from "@/sanity/queries/LeadershipPage/LeadershipTeam"
-
+import { getOrganizationalStructure } from "@/sanity/queries/LeadershipPage/OrganizationalStructure"
+import { getDepartmentsSection } from "@/sanity/queries/LeadershipPage/DepartmentsSection"
+import { getWingsSection } from "@/sanity/queries/LeadershipPage/WingsSection"
+import { getSectorCoordinatorsSection } from "@/sanity/queries/LeadershipPage/SectorCoordinatorsSection"
 export default async function LiderazgoPage() {
   const [
     structuredData,
     joinSection,
     leadershipPageHeroSection,
     leadershipTeam,
+    organizationalStructure,
+    departmentsSection,
+    wingsSection,
+    sectorCoordinatorsSection,
   ] = await Promise.all([
     getStructuredData("liderazgo"),
     getJoinSection(),
     getLeadershipPageHeroSection(),
     getLeadershipTeam(),
+    getOrganizationalStructure(),
+    getDepartmentsSection(),
+    getWingsSection(),
+    getSectorCoordinatorsSection(),
   ])
   return (
     <>
@@ -55,30 +61,30 @@ export default async function LiderazgoPage() {
         {/* TODO: Add Below Here to Sanity Schema and remove the config file */}
         {/* Organizational Structure */}
         <OrganizationalStructure
-          title={organizationalStructureData.title}
-          subtitle={organizationalStructureData.subtitle}
-          levels={organizationalStructureData.levels}
+          title={organizationalStructure.title}
+          subtitle={organizationalStructure.subtitle}
+          levels={organizationalStructure.organizationalLevels}
         />
 
         {/* Departments */}
         <DepartmentsSection
-          title={departmentsData.title}
-          subtitle={departmentsData.subtitle}
-          departments={departmentsData.departments}
+          title={departmentsSection.title}
+          subtitle={departmentsSection.subtitle}
+          departments={departmentsSection.departments}
         />
 
         {/* Party Wings */}
         <WingsSection
-          title={wingsData.title}
-          subtitle={wingsData.subtitle}
-          wings={wingsData.wings}
+          title={wingsSection.title}
+          subtitle={wingsSection.subtitle}
+          wings={wingsSection.wings}
         />
 
         {/* Sector Coordinators */}
         <SectorCoordinatorsSection
-          title={sectorCoordinatorsData.title}
-          subtitle={sectorCoordinatorsData.subtitle}
-          sectors={sectorCoordinatorsData.sectors}
+          title={sectorCoordinatorsSection.title}
+          subtitle={sectorCoordinatorsSection.subtitle}
+          sectors={sectorCoordinatorsSection.sectors}
         />
 
         {/* Join CTA Section */}
