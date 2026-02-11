@@ -7,7 +7,7 @@ import { EventLocation } from "@/components/IndividualEventPage/EventLocation"
 import { EventRSVP } from "@/components/IndividualEventPage/EventRSVP"
 import { EventSchedule } from "@/components/IndividualEventPage/EventSchedule"
 import { RelatedEvents } from "@/components/IndividualEventPage/RelatedEvents"
-import { joinData } from "@/config/home.config"
+
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 
 // This is mock data - replace with actual data fetching from Sanity
@@ -213,7 +213,7 @@ export default async function EventPage({
       <JoinSection
         title={joinSection.title}
         description={joinSection.description}
-        benefits={joinData.benefits}
+        benefits={joinSection.benefits}
         ctaText={joinSection.ctaText}
         backgroundImage={joinSection.backgroundImage}
       />
