@@ -398,4 +398,77 @@ export const structure: StructureResolver = S =>
                 ),
             ]),
         ),
+      S.listItem()
+        .title("Candidates Page")
+        .child(
+          S.list()
+            .title("Candidates Page")
+            .items([
+              S.listItem()
+                .title("Hero Section")
+                .child(
+                  S.document()
+                    .schemaType("candidatesPageHeroSection")
+                    .title("Hero Section")
+                    .documentId("candidatesPageHeroSection"),
+                ),
+              S.listItem()
+                .title("Coming Soon Config")
+                .child(
+                  S.document()
+                    .schemaType("comingSoonConfig")
+                    .title("Coming Soon Config")
+                    .documentId("comingSoonConfig"),
+                ),
+
+              S.listItem()
+                .title("Campaign Proposals Section")
+                .child(
+                  S.document()
+                    .schemaType("campaignProposalsSection")
+                    .title("Campaign Proposals Section")
+                    .documentId("campaignProposalsSection"),
+                ),
+              S.listItem()
+                .title("Campaign Priorities Section")
+                .child(
+                  S.document()
+                    .schemaType("campaignPrioritiesSection")
+                    .title("Campaign Priorities Section")
+                    .documentId("campaignPrioritiesSection"),
+                ),
+              S.listItem()
+                .title("Media Section")
+                .child(
+                  S.document()
+                    .schemaType("mediaSection")
+                    .title("Media Section")
+                    .documentId("mediaSection"),
+                ),
+              S.listItem()
+                .title("Vision Data Section")
+                .child(
+                  S.document()
+                    .schemaType("visionDataSection")
+                    .title("Vision Data Section")
+                    .documentId("visionDataSection"),
+                ),
+              S.listItem()
+                .title("Mayor Candidate")
+                .child(
+                  S.document()
+                    .schemaType("mayorCandidate")
+                    .title("Mayor Candidate")
+                    .documentId("mayorCandidate"),
+                ),
+              S.listItem()
+                .title("Council Members Section")
+                .child(
+                  S.document()
+                    .schemaType("councilMembersSection")
+                    .title("Council Members Section")
+                    .documentId("councilMembersSection"),
+                ),
+            ]),
+        ),
     ])

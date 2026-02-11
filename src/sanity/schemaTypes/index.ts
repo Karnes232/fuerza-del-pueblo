@@ -61,6 +61,16 @@ import { milestonesSectionType } from "./HistoryPage/MilestonesSection"
 import { achievementsSectionType } from "./HistoryPage/AchievementsSection"
 import { legacySectionType } from "./HistoryPage/LegacySection"
 
+//CandidatesPage
+import { candidatesPageHeroSectionType } from "./CandidatesPage/HeroSection"
+import { comingSoonConfigType } from "./CandidatesPage/ComingSoonConfig"
+import { mayorCandidateType } from "./CandidatesPage/MayorCandidate"
+import { councilMembersSectionType } from "./CandidatesPage/CouncilMembers"
+import { campaignProposalsSectionType } from "./CandidatesPage/CampaignProposals"
+import { campaignPrioritiesSectionType } from "./CandidatesPage/CampaignPriorities"
+import { mediaSectionType } from "./CandidatesPage/MediaSection"
+import { visionDataSectionType } from "./CandidatesPage/visionData"
+
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     //GeneralLayout
@@ -123,5 +133,15 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     milestonesSectionType,
     achievementsSectionType,
     legacySectionType,
+
+    //CandidatesPage
+    candidatesPageHeroSectionType,
+    comingSoonConfigType,
+    mayorCandidateType,
+    councilMembersSectionType,
+    campaignProposalsSectionType,
+    campaignPrioritiesSectionType,
+    mediaSectionType,
+    visionDataSectionType,
   ],
 }

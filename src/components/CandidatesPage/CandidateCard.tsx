@@ -11,6 +11,7 @@ import {
   Briefcase,
   Award,
   Target,
+  X,
 } from "lucide-react"
 import { CandidateCardProps } from "@/types/candidates.types"
 
@@ -161,7 +162,7 @@ export const CandidateCard = ({
           {/* Contact and Social */}
           <div className="flex flex-wrap gap-4 pt-6 border-t border-gray-200">
             {/* Campaign Website */}
-            {candidate.campaignWebsite && (
+            {/* {candidate.campaignWebsite && (
               <a
                 href={candidate.campaignWebsite}
                 target="_blank"
@@ -171,7 +172,7 @@ export const CandidateCard = ({
                 <ExternalLink className="w-4 h-4" />
                 Sitio de Campaña
               </a>
-            )}
+            )} */}
 
             {/* Email */}
             {candidate.contactEmail && (
@@ -198,14 +199,14 @@ export const CandidateCard = ({
                   <Facebook className="w-5 h-5" />
                 </a>
               )}
-              {candidate.socialMedia.twitter && (
+              {candidate.socialMedia.X && (
                 <a
-                  href={candidate.socialMedia.twitter}
+                  href={candidate.socialMedia.X}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primaryGreen hover:text-white transition-colors"
                 >
-                  <Twitter className="w-5 h-5" />
+                  <X className="w-5 h-5" />
                 </a>
               )}
               {candidate.socialMedia.instagram && (

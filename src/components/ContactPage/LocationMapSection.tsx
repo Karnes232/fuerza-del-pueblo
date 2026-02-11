@@ -12,8 +12,6 @@ export const LocationMapSection = ({
   mapUrl,
   embedUrl,
 }: LocationMapSectionProps) => {
-  console.log(embedUrl)
-  console.log(mapUrl)
   return (
     <section className="py-16 md:py-24 bg-[#F4F4F4]">
       <Container>

@@ -92,20 +92,20 @@ export const eventsData = {
 }
 
 // Join Section Data
-export const joinData = {
-  title: "¡Únete a Fuerza del Pueblo!",
-  description:
-    "Sé parte del cambio que nuestra comunidad necesita. Juntos construimos un mejor futuro para Verón-Punta Cana.",
-  benefits: [
-    "Participación activa en decisiones del partido",
-    "Acceso a programas de formación política",
-    "Red de apoyo comunitario",
-    "Oportunidades de voluntariado y liderazgo",
-  ],
-  ctaText: "Afiliarme Ahora",
-  ctaLink: "/unete",
-  backgroundImage: "https://picsum.photos/4000/2000?random=" + Math.random(), // Optional
-}
+// export const joinData = {
+//   title: "¡Únete a Fuerza del Pueblo!",
+//   description:
+//     "Sé parte del cambio que nuestra comunidad necesita. Juntos construimos un mejor futuro para Verón-Punta Cana.",
+//   benefits: [
+//     "Participación activa en decisiones del partido",
+//     "Acceso a programas de formación política",
+//     "Red de apoyo comunitario",
+//     "Oportunidades de voluntariado y liderazgo",
+//   ],
+//   ctaText: "Afiliarme Ahora",
+//   ctaLink: "/unete",
+//   backgroundImage: "https://picsum.photos/4000/2000?random=" + Math.random(), // Optional
+// }
 
 // Brand Colors
 export const brandColors = {

@@ -4,24 +4,24 @@ import { SectionHeader } from "@/components/HomePage/SectionHeader"
 import { CandidateCard } from "@/components/CandidatesPage/CandidateCard"
 import { ComingSoon } from "@/components/CandidatesPage/ComingSoon"
 import { CouncilMembersProps } from "@/types/candidates.types"
-import { comingSoonConfig } from "@/config/candidates.config"
+// import { comingSoonConfig } from "@/config/candidates.config"
 
 export const CouncilMembers = ({
   title,
   subtitle,
   candidates,
-  comingSoon = false,
+  comingSoon,
 }: CouncilMembersProps) => {
   return (
     <section className="py-16 md:py-24 bg-[#F4F4F4]">
       <Container>
         <SectionHeader title={title} subtitle={subtitle} />
 
-        {comingSoon || candidates.length === 0 ? (
+        {!comingSoon?.enabled || candidates.length === 0 ? (
           <ComingSoon
-            title={comingSoonConfig.title}
+            title={comingSoon?.title || ""}
             message="Los candidatos a regidores serán anunciados junto con el candidato a alcalde. Estamos seleccionando un equipo diverso y comprometido con cada sector de Verón-Punta Cana."
-            expectedDate={comingSoonConfig.expectedDate}
+            expectedDate={comingSoon?.expectedDate || ""}
             notifyEnabled={false}
           />
         ) : (

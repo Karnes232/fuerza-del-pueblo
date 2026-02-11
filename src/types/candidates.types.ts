@@ -1,5 +1,7 @@
 // types/candidates.types.ts
 
+import { ComingSoonConfig } from "@/sanity/queries/CandidatesPage/ComingSoonConfig"
+
 export interface CandidatesHeroProps {
   title: string
   subtitle?: string
@@ -43,7 +45,7 @@ export interface CandidateProfile {
   }
   socialMedia?: {
     facebook?: string
-    twitter?: string
+    X?: string
     instagram?: string
     linkedin?: string
   }
@@ -60,14 +62,14 @@ export interface MayorCandidateProps {
   title: string
   subtitle?: string
   candidate: CandidateProfile | null
-  comingSoon?: boolean
+  comingSoon?: ComingSoonConfig
 }
 
 export interface CouncilMembersProps {
   title: string
   subtitle?: string
   candidates: CandidateProfile[]
-  comingSoon?: boolean
+  comingSoon?: ComingSoonConfig
 }
 
 export interface CampaignProposal {

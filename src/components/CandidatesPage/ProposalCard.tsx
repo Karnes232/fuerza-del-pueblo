@@ -34,7 +34,7 @@ export const ProposalCard = ({ proposal }: ProposalCardProps) => {
   return (
     <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
       {/* Header with gradient */}
-      <div className="bg-linear-to-r from-primaryGreen to-darkGreen p-6 text-white">
+      <div className="bg-linear-to-r from-primaryGreen to-darkGreen p-6 text-white h-32">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0">
             {IconComponent && <IconComponent className="w-6 h-6" />}
@@ -43,7 +43,7 @@ export const ProposalCard = ({ proposal }: ProposalCardProps) => {
             <p className="text-xs uppercase tracking-wide opacity-90">
               {proposal.category}
             </p>
-            <h3 className="text-xl font-bold">{proposal.title}</h3>
+            <h3 className="text-xl font-bold line-clamp-2">{proposal.title}</h3>
           </div>
         </div>
       </div>
