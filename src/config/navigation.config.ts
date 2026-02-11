@@ -27,9 +27,8 @@ export const navigationItems: NavDropdownItem[] = [
         href: "/partido/historia",
       },
       {
-        label: "Futuros Candidatos (Próximamente)",
+        label: "Futuros Candidatos",
         href: "/partido/candidatos",
-        disabled: true,
       },
     ],
   },
