@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import "@/app/globals.css"
+import "@/app/global.css"
 
 import { Montserrat, Open_Sans } from "next/font/google"
 import { NavbarContainer } from "@/components/layout/Nav/NavbarContainer"

@@ -1,4 +1,4 @@
-import "@/app/globals.css"
+import "@/app/global.css"
 import { Montserrat, Open_Sans } from "next/font/google"
 import Link from "next/link"
 import { NavbarContainer } from "@/components/layout/Nav/NavbarContainer"
