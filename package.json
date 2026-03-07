@@ -10,6 +10,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\""
   },
   "dependencies": {
+    "@portabletext/react": "^6.0.3",
     "@sanity/icons": "^3.7.4",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.22.0",
@@ -20,7 +21,8 @@
     "react-dom": "19.2.3",
     "sanity": "^4.22.0",
     "sanity-plugin-media": "^4.1.1",
-    "styled-components": "^6.3.8"
+    "styled-components": "^6.3.8",
+    "swiper": "^12.1.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

@@ -41,3 +41,32 @@ h5,
 h6 {
   font-family: var(--font-heading);
 }
+
+/* Article gallery Swiper overrides */
+.article-gallery .swiper-button-next,
+.article-gallery .swiper-button-prev {
+  color: var(--color-charcoal);
+  background: rgba(255, 255, 255, 0.9);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+.article-gallery .swiper-button-next:after,
+.article-gallery .swiper-button-prev:after {
+  font-size: 1.25rem;
+}
+.article-gallery .swiper-pagination-bullet {
+  background: rgb(17 17 17 / 0.3);
+  opacity: 1;
+  width: 0.5rem;
+  height: 0.5rem;
+  transition:
+    width 0.2s,
+    background 0.2s;
+}
+.article-gallery .swiper-pagination-bullet-active {
+  background: var(--color-charcoal);
+  width: 1.5rem;
+  border-radius: 9999px;
+}

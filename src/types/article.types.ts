@@ -1,4 +1,5 @@
 // types/article.types.ts
+import type { PortableTextBlock } from "sanity"
 
 export interface ArticleHeroProps {
   title: string
@@ -36,10 +37,9 @@ export interface ArticleHeroProps {
 }
 
 export interface ArticleContentProps {
-  content: string // Rich text content
+  content: PortableTextBlock[]
   images?: {
-    id: string
-    alt: string
+    _key: string
     asset: {
       url: string
       metadata: {

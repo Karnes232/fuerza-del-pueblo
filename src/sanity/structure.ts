@@ -471,4 +471,20 @@ export const structure: StructureResolver = S =>
                 ),
             ]),
         ),
+      S.listItem()
+        .title("News Page")
+        .child(
+          S.list()
+            .title("News Page")
+            .items([
+              S.listItem()
+                .title("Individual News Article")
+                .child(
+                  S.documentList()
+                    .schemaType("individualNewsArticle")
+                    .title("Individual News Article")
+                    .filter("_type == 'individualNewsArticle'"),
+                ),
+            ]),
+        ),
     ])

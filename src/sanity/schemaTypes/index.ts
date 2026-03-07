@@ -71,6 +71,9 @@ import { campaignPrioritiesSectionType } from "./CandidatesPage/CampaignPrioriti
 import { mediaSectionType } from "./CandidatesPage/MediaSection"
 import { visionDataSectionType } from "./CandidatesPage/visionData"
 
+//NewsPage
+import { individualNewsArticleType } from "./NewsPage/IndividualNewsArticle"
+
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     //GeneralLayout
@@ -143,5 +146,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     campaignPrioritiesSectionType,
     mediaSectionType,
     visionDataSectionType,
+
+    //NewsPage
+    individualNewsArticleType,
   ],
 }

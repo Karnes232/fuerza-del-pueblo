@@ -17,7 +17,6 @@ export const ArticleHero = ({
     month: "long",
     day: "numeric",
   })
-
   return (
     <section className="py-12 md:py-16 bg-white">
       <Container>
@@ -58,26 +57,6 @@ export const ArticleHero = ({
               </div>
             )}
           </div>
-
-          {/* Author Info (if image provided) */}
-          {author && author.image && (
-            <div className="flex items-center gap-4 mb-8 p-4 bg-[#F4F4F4] rounded-lg">
-              <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0">
-                <Image
-                  src={author.image.asset.url}
-                  alt={author.image.alt || author.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <p className="font-semibold text-charcoal">{author.name}</p>
-                {author.role && (
-                  <p className="text-sm text-charcoal/70">{author.role}</p>
-                )}
-              </div>
-            </div>
-          )}
 
           {/* Featured Image */}
           {featuredImage && (
