@@ -2,13 +2,25 @@
 import { Container } from "@/components/HomePage/Container"
 import { SectionHeader } from "@/components/HomePage/SectionHeader"
 import { NewsCard } from "@/components/HomePage/NewsCard"
-import { NewsGridSectionProps } from "@/types/news.types"
+import type { NewsArticle as HomeNewsArticle } from "@/types/home.types"
+import { NewsArticle, NewsGridSectionProps } from "@/types/news.types"
 
 export const NewsGridSection = ({
   title,
   articles,
   loading = false,
 }: NewsGridSectionProps) => {
+  function toNewsArticle(article: NewsArticle): HomeNewsArticle {
+    return {
+      id: article._id,
+      title: article.title,
+      excerpt: article.excerpt,
+      date: article.date,
+      slug: article.slug,
+      category: article.category,
+      image: article.image,
+    }
+  }
   return (
     <section className="py-16 md:py-24 bg-lightGreen">
       <Container>
@@ -22,7 +34,7 @@ export const NewsGridSection = ({
         ) : articles.length > 0 ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map(article => (
-              <NewsCard key={article.id} article={article} />
+              <NewsCard key={article._id} article={toNewsArticle(article)} />
             ))}
           </div>
         ) : (

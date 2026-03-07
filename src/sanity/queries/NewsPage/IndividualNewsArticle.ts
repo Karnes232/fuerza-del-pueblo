@@ -257,3 +257,52 @@ export const getIndividualNewsArticlePreviousArticles = async (
     )
   return previousArticle
 }
+
+export interface NewsArticles {
+  _id: string
+  title: string
+  slug: {
+    current: string
+  }
+  category: string
+  excerpt: string
+  date: string
+  featuredImage: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
+}
+
+export const newsArticlesQuery = `*[_type == "individualNewsArticle"] | order(date desc) {
+  _id,
+  title,
+  slug,
+  category,
+  excerpt,
+  date,
+  featuredImage {
+    alt,
+    asset -> {
+      url,
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    }
+  }
+}`
+
+export const getNewsArticles = async (): Promise<NewsArticles[] | null> => {
+  const newsArticles = await client.fetch<NewsArticles[] | null>(newsArticlesQuery)
+  return newsArticles
+}

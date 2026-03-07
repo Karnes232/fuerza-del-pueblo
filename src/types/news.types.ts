@@ -9,7 +9,7 @@ export type NewsCategory =
   | "logros"
 
 export interface NewsArticle {
-  id: string
+  _id: string
   title: string
   excerpt: string
   content?: string
@@ -17,7 +17,9 @@ export interface NewsArticle {
   author?: string
   category: NewsCategory
   image?: string
-  slug: string
+  slug: {
+    current: string
+  }
   featured?: boolean
   tags?: string[]
   readTime?: number

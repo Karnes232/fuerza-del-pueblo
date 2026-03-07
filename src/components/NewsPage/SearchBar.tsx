@@ -1,15 +1,23 @@
 // components/SearchBar.tsx
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Search } from "lucide-react"
 import { SearchBarProps } from "@/types/news.types"
+
+const DEBOUNCE_MS = 300
 
 export const SearchBar = ({
   onSearch,
   placeholder = "Buscar noticias...",
 }: SearchBarProps) => {
   const [query, setQuery] = useState("")
+
+  // Search as user types (debounced)
+  useEffect(() => {
+    const timer = setTimeout(() => onSearch(query), DEBOUNCE_MS)
+    return () => clearTimeout(timer)
+  }, [query, onSearch])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()

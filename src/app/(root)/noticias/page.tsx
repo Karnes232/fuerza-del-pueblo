@@ -5,15 +5,36 @@ import { NewsletterCTA } from "@/components/NewsPage/NewsletterCTA"
 import {
   newsHeroData,
   featuredArticle,
-  newsArticles,
   newsCategories,
   newsletterCTAData,
 } from "@/config/news.config"
+import { NewsArticle } from "@/types/news.types"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
+import {
+  getNewsArticles,
+  type NewsArticles,
+} from "@/sanity/queries/NewsPage/IndividualNewsArticle"
 import Script from "next/script"
 
+function toNewsArticle(row: NewsArticles): NewsArticle {
+  return {
+    _id: row._id,
+    title: row.title,
+    excerpt: row.excerpt,
+    date: row.date,
+    slug: row.slug,
+    category: row.category as NewsArticle["category"],
+    image: row.featuredImage?.asset?.url,
+  }
+}
+
 export default async function NoticiasPage() {
-  const [structuredData] = await Promise.all([getStructuredData("noticias")])
+  const [structuredData, rawArticles] = await Promise.all([
+    getStructuredData("noticias"),
+    getNewsArticles(),
+  ])
+  const articles: NewsArticle[] = (rawArticles ?? []).map(toNewsArticle)
+  console.log(articles)
   return (
     <>
       <Script
@@ -35,7 +56,7 @@ export default async function NoticiasPage() {
         <FeaturedArticleSection article={featuredArticle} />
 
         {/* Filter & Grid - Client Component for interactivity */}
-        <NewsFilterClient articles={newsArticles} categories={newsCategories} />
+        <NewsFilterClient articles={articles} categories={newsCategories} />
 
         {/* Newsletter CTA Section */}
         <NewsletterCTA
