@@ -17,7 +17,7 @@ export const FeaturedArticleCard = ({ article }: FeaturedArticleCardProps) => {
 
   return (
     <Link
-      href={`/noticias/${article.slug}`}
+      href={`/noticias/${article.slug.current}`}
       className="group block bg-white rounded-xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-300"
     >
       <div className="grid md:grid-cols-2 gap-0">

@@ -53,7 +53,7 @@ export const newsCategories: NewsCategoryInfo[] = [
 // News Articles (Sample Data)
 export const newsArticles: NewsArticle[] = [
   {
-    id: "1",
+    _id: "1",
     title: "Inauguración de Nueva Sede del Partido en Verón",
     excerpt:
       "Con gran éxito se llevó a cabo la inauguración de nuestra nueva sede, contando con la presencia de más de 150 militantes y simpatizantes de la comunidad.",
@@ -61,13 +61,13 @@ export const newsArticles: NewsArticle[] = [
     author: "Equipo de Comunicaciones",
     category: "eventos",
     image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "inauguracion-nueva-sede-veron",
+    slug: { current: "inauguracion-nueva-sede-veron" },
     featured: true,
     tags: ["inauguración", "sede", "crecimiento"],
     readTime: 5,
   },
   {
-    id: "2",
+    _id: "2",
     title: "Lanzamiento del Programa de Apoyo a Pequeños Comerciantes",
     excerpt:
       "Fuerza del Pueblo presenta una iniciativa integral para fortalecer el sector comercial local con capacitación, microcréditos y asesoría empresarial.",
@@ -75,12 +75,12 @@ export const newsArticles: NewsArticle[] = [
     author: "María Rodríguez",
     category: "iniciativas",
     image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "programa-apoyo-comerciantes",
+    slug: { current: "programa-apoyo-comerciantes" },
     tags: ["economía", "comercio", "desarrollo"],
     readTime: 8,
   },
   {
-    id: "3",
+    _id: "3",
     title: "Reunión Productiva con Líderes Comunitarios de Punta Cana",
     excerpt:
       "Nuestro equipo sostuvo un encuentro con más de 30 líderes de diferentes sectores para escuchar sus preocupaciones y propuestas de desarrollo.",
@@ -88,12 +88,12 @@ export const newsArticles: NewsArticle[] = [
     author: "Carlos Méndez",
     category: "noticias",
     image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "reunion-lideres-punta-cana",
+    slug: { current: "reunion-lideres-punta-cana" },
     tags: ["reunión", "líderes", "comunidad"],
     readTime: 6,
   },
   {
-    id: "4",
+    _id: "4",
     title: "Comunicado: Posición Sobre Proyecto de Desarrollo Turístico",
     excerpt:
       "Fuerza del Pueblo expresa su posición sobre el nuevo proyecto turístico propuesto para la zona, enfatizando la necesidad de protección ambiental y beneficios para la comunidad local.",
@@ -101,12 +101,12 @@ export const newsArticles: NewsArticle[] = [
     author: "Directiva del Partido",
     category: "comunicados",
     image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "posicion-proyecto-turistico",
+    slug: { current: "posicion-proyecto-turistico" },
     tags: ["turismo", "medio ambiente", "desarrollo"],
     readTime: 10,
   },
   {
-    id: "5",
+    _id: "5",
     title: "Entrevista: Conversando con Ana Santana sobre Juventud y Política",
     excerpt:
       "La coordinadora del programa de juventud comparte su visión sobre cómo involucrar a los jóvenes en la participación política activa.",
@@ -114,12 +114,12 @@ export const newsArticles: NewsArticle[] = [
     author: "Equipo Editorial",
     category: "entrevistas",
     image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "entrevista-ana-santana-juventud",
+    slug: { current: "entrevista-ana-santana-juventud" },
     tags: ["juventud", "entrevista", "liderazgo"],
     readTime: 12,
   },
   {
-    id: "6",
+    _id: "6",
     title: "Más de 100 Árboles Plantados en Jornada de Reforestación",
     excerpt:
       "Voluntarios del partido y miembros de la comunidad unieron fuerzas para plantar más de 100 árboles nativos en áreas verdes de Verón.",
@@ -127,24 +127,24 @@ export const newsArticles: NewsArticle[] = [
     author: "Comité de Medio Ambiente",
     category: "logros",
     image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "jornada-reforestacion-exito",
+    slug: { current: "jornada-reforestacion-exito" },
     tags: ["medio ambiente", "voluntariado", "reforestación"],
     readTime: 4,
   },
   {
-    id: "7",
+    _id: "7",
     title: "Primera Asamblea General del Año Establece Objetivos 2026",
     excerpt:
       "Con la participación de 78 militantes, se aprobó el plan de trabajo anual y se formaron comités especializados en diferentes áreas de desarrollo.",
     date: "2026-01-15",
     author: "Secretaría General",
     category: "noticias",
-    slug: "asamblea-general-objetivos-2026",
+    slug: { current: "asamblea-general-objetivos-2026" },
     tags: ["asamblea", "planificación", "objetivos"],
     readTime: 7,
   },
   {
-    id: "8",
+    _id: "8",
     title: "Taller de Formación Política Capacita a 45 Nuevos Militantes",
     excerpt:
       "El primer taller del año sobre participación ciudadana y procesos democráticos fue un éxito rotundo con evaluaciones excelentes de los participantes.",
@@ -152,24 +152,24 @@ export const newsArticles: NewsArticle[] = [
     author: "Departamento de Formación",
     category: "logros",
     image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "taller-formacion-politica-exito",
+    slug: { current: "taller-formacion-politica-exito" },
     tags: ["formación", "capacitación", "militantes"],
     readTime: 5,
   },
   {
-    id: "9",
+    _id: "9",
     title: "Comunicado: Solidaridad con Familias Afectadas por Inundaciones",
     excerpt:
       "Fuerza del Pueblo expresa su solidaridad con las familias afectadas por las recientes inundaciones y anuncia campaña de recolección de donaciones.",
     date: "2026-01-10",
     author: "Directiva del Partido",
     category: "comunicados",
-    slug: "solidaridad-familias-inundaciones",
+    slug: { current: "solidaridad-familias-inundaciones" },
     tags: ["solidaridad", "emergencia", "comunidad"],
     readTime: 3,
   },
   {
-    id: "10",
+    _id: "10",
     title:
       "Celebración del Día de la Independencia Reúne a Cientos de Ciudadanos",
     excerpt:
@@ -178,7 +178,7 @@ export const newsArticles: NewsArticle[] = [
     author: "Comité de Eventos",
     category: "eventos",
     image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "celebracion-dia-independencia",
+    slug: { current: "celebracion-dia-independencia" },
     tags: ["independencia", "cultura", "celebración"],
     readTime: 6,
   },
