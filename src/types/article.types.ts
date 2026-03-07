@@ -71,7 +71,7 @@ export interface SocialShareProps {
 }
 
 export interface RelatedArticle {
-  id: string
+  _id: string
   title: string
   excerpt: string
   date: string
@@ -88,11 +88,15 @@ export interface RelatedArticlesProps {
 export interface ArticleNavigationProps {
   previousArticle?: {
     title: string
-    slug: string
+    slug: {
+      current: string
+    }
   }
   nextArticle?: {
     title: string
-    slug: string
+    slug: {
+      current: string
+    }
   }
 }
 

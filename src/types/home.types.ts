@@ -13,7 +13,9 @@ export interface NewsArticle {
   excerpt: string
   date: string
   image?: string
-  slug: string
+  slug: {
+    current: string
+  }
   category?: string
 }
 

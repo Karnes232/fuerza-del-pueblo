@@ -7,7 +7,6 @@ import SanityBlogBody from "@/components/BlockContent/SanityBlogBody"
 import { ArticleImageCarousel } from "./ArticleImageCarousel"
 
 export const ArticleContent = ({ content, images }: ArticleContentProps) => {
-  console.log(images)
   return (
     <section className="py-8 bg-white">
       <Container>

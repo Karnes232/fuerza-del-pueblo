@@ -18,7 +18,7 @@ export const ArticleNavigation = ({
             {/* Previous Article */}
             {previousArticle ? (
               <Link
-                href={`/noticias/${previousArticle.slug}`}
+                href={`/noticias/${previousArticle.slug.current}`}
                 className="flex items-center gap-4 p-6 bg-white rounded-lg hover:shadow-lg transition-shadow group"
               >
                 <div className="w-10 h-10 bg-primaryGreen/10 rounded-full flex items-center justify-center group-hover:bg-primaryGreen group-hover:text-white transition-colors">
@@ -40,7 +40,7 @@ export const ArticleNavigation = ({
             {/* Next Article */}
             {nextArticle ? (
               <Link
-                href={`/noticias/${nextArticle.slug}`}
+                href={`/noticias/${nextArticle.slug.current}`}
                 className="flex items-center gap-4 p-6 bg-white rounded-lg hover:shadow-lg transition-shadow group"
               >
                 <div className="flex-1 text-right">

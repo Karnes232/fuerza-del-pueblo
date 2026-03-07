@@ -6,12 +6,31 @@ export const individualNewsArticleType = defineType({
   title: "Individual News Article",
   type: "document",
   icon: DocumentIcon,
+  groups: [
+    {
+      name: "info",
+      title: "Info",
+    },
+    {
+      name: "content",
+      title: "Content",
+    },
+    {
+      name: "images",
+      title: "Images",
+    },
+    {
+      name: "seo",
+      title: "SEO",
+    },
+  ],
   fields: [
     defineField({
       name: "title",
       title: "Title",
       type: "string",
       validation: Rule => Rule.required(),
+      group: "info",
     }),
     defineField({
       name: "category",
@@ -19,8 +38,16 @@ export const individualNewsArticleType = defineType({
       type: "string",
       validation: Rule => Rule.required(),
       options: {
-        list: ["Eventos", "Noticias", "Actualizaciones", "Publicaciones"],
+        list: [
+          "Eventos",
+          "Noticias",
+          "Iniciativas",
+          "Comunicados",
+          "Entrevistas",
+          "Logros",
+        ],
       },
+      group: "info",
     }),
     defineField({
       name: "date",
@@ -30,6 +57,7 @@ export const individualNewsArticleType = defineType({
       options: {
         dateFormat: "YYYY-MM-DD",
       },
+      group: "info",
     }),
     defineField({
       name: "slug",
@@ -39,6 +67,7 @@ export const individualNewsArticleType = defineType({
       options: {
         source: "title",
       },
+      group: "info",
     }),
     defineField({
       name: "author",
@@ -58,17 +87,27 @@ export const individualNewsArticleType = defineType({
           validation: Rule => Rule.required(),
         }),
       ],
+      group: "info",
     }),
     defineField({
       name: "readTime",
       title: "Read Time",
       type: "number",
       validation: Rule => Rule.required(),
+      group: "info",
+    }),
+    defineField({
+      name: "excerpt",
+      title: "Excerpt",
+      type: "text",
+      validation: Rule => Rule.required(),
+      group: "info",
     }),
     defineField({
       name: "featuredImage",
       title: "Featured Image",
       type: "image",
+      group: "images",
       validation: Rule => Rule.required(),
       options: {
         hotspot: true,
@@ -88,11 +127,13 @@ export const individualNewsArticleType = defineType({
       type: "array",
       of: [{ type: "block" }],
       validation: Rule => Rule.required(),
+      group: "content",
     }),
     defineField({
       name: "images",
       title: "Images",
       type: "array",
+      group: "images",
       of: [
         {
           type: "image",
@@ -106,6 +147,12 @@ export const individualNewsArticleType = defineType({
           ],
         },
       ],
+    }),
+    defineField({
+      name: "seo",
+      title: "SEO",
+      type: "seo",
+      group: "seo",
     }),
   ],
   preview: {

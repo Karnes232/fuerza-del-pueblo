@@ -13,7 +13,7 @@ export const NewsCard = ({ article }: NewsCardProps) => {
 
   return (
     <Link
-      href={`/noticias/${article.slug}`}
+      href={`/noticias/${article.slug.current || ""}`}
       className="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300"
     >
       {/* Image */}
