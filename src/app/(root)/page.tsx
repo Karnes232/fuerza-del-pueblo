@@ -14,7 +14,24 @@ import { getPageSeo } from "@/sanity/queries/SEO/seo"
 import { getStructuredData } from "@/sanity/queries/SEO/seo"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 
+import type { NewsArticle } from "@/types/home.types"
 import { newsData, eventsData } from "@/config/home.config"
+import {
+  getThreeLatestNewsArticles,
+  type NewsArticles,
+} from "@/sanity/queries/NewsPage/IndividualNewsArticle"
+
+function toHomeNewsArticle(row: NewsArticles): NewsArticle {
+  return {
+    id: row._id,
+    title: row.title,
+    excerpt: row.excerpt,
+    date: row.date,
+    slug: row.slug,
+    category: row.category,
+    image: row.featuredImage?.asset?.url,
+  }
+}
 
 export default async function Home() {
   const [
@@ -24,6 +41,7 @@ export default async function Home() {
     contactMethods,
     structuredData,
     joinSection,
+    rawNewsArticles,
   ] = await Promise.all([
     getHeroSection(),
     getAboutSection(),
@@ -31,7 +49,11 @@ export default async function Home() {
     getContactMethods(),
     getStructuredData("inicio"),
     getJoinSection(),
+    getThreeLatestNewsArticles(),
   ])
+  const threeLatestNewsArticles: NewsArticle[] = (rawNewsArticles ?? []).map(
+    toHomeNewsArticle,
+  )
   return (
     <>
       <Script
@@ -73,7 +95,7 @@ export default async function Home() {
         <NewsSection
           title={newsData.title}
           subtitle={newsData.subtitle}
-          articles={newsData.articles}
+          articles={threeLatestNewsArticles}
           viewAllLink="/noticias"
         />
 

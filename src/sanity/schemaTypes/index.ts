@@ -73,6 +73,7 @@ import { visionDataSectionType } from "./CandidatesPage/visionData"
 
 //NewsPage
 import { individualNewsArticleType } from "./NewsPage/IndividualNewsArticle"
+import { newsPageHeroSectionType } from "./NewsPage/HeroSection"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -148,6 +149,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     visionDataSectionType,
 
     //NewsPage
+    newsPageHeroSectionType,
     individualNewsArticleType,
   ],
 }

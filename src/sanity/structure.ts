@@ -478,6 +478,14 @@ export const structure: StructureResolver = S =>
             .title("News Page")
             .items([
               S.listItem()
+                .title("Hero Section")
+                .child(
+                  S.document()
+                    .schemaType("newsPageHeroSection")
+                    .title("Hero Section")
+                    .documentId("newsPageHeroSection"),
+                ),
+              S.listItem()
                 .title("Individual News Article")
                 .child(
                   S.documentList()

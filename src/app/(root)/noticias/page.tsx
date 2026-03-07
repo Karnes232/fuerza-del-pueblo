@@ -1,9 +1,7 @@
 import { FeaturedArticleSection } from "@/components/NewsPage/FeaturedArticleSection"
 import { NewsFilterClient } from "@/components/NewsPage/NewsFilterClient"
-import { NewsHero } from "@/components/NewsPage/NewsHero"
 import { NewsletterCTA } from "@/components/NewsPage/NewsletterCTA"
 import {
-  newsHeroData,
   featuredArticle,
   newsCategories,
   newsletterCTAData,
@@ -15,6 +13,8 @@ import {
   type NewsArticles,
 } from "@/sanity/queries/NewsPage/IndividualNewsArticle"
 import Script from "next/script"
+import { getNewsPageHeroSection } from "@/sanity/queries/NewsPage/HeroSection"
+import { AboutHero } from "@/components/AboutUsPage/AboutHero"
 
 function toNewsArticle(row: NewsArticles): NewsArticle {
   return {
@@ -29,12 +29,13 @@ function toNewsArticle(row: NewsArticles): NewsArticle {
 }
 
 export default async function NoticiasPage() {
-  const [structuredData, rawArticles] = await Promise.all([
+  const [structuredData, rawArticles, newsPageHeroSection] = await Promise.all([
     getStructuredData("noticias"),
     getNewsArticles(),
+    getNewsPageHeroSection(),
   ])
   const articles: NewsArticle[] = (rawArticles ?? []).map(toNewsArticle)
-  console.log(articles)
+
   return (
     <>
       <Script
@@ -45,15 +46,17 @@ export default async function NoticiasPage() {
       />
       <main>
         {/* Hero Section */}
-        <NewsHero
-          title={newsHeroData.title}
-          subtitle={newsHeroData.subtitle}
-          description={newsHeroData.description}
-          showSearch={newsHeroData.showSearch}
+        <AboutHero
+          title={newsPageHeroSection.title}
+          subtitle={newsPageHeroSection.subtitle}
+          description={newsPageHeroSection.description}
+          backgroundImage={newsPageHeroSection.backgroundImage}
         />
 
         {/* Featured Article Section */}
-        <FeaturedArticleSection article={featuredArticle} />
+        <FeaturedArticleSection
+          article={toNewsArticle(newsPageHeroSection.featuredArticle)}
+        />
 
         {/* Filter & Grid - Client Component for interactivity */}
         <NewsFilterClient articles={articles} categories={newsCategories} />

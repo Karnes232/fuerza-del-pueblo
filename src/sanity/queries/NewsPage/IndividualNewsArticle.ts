@@ -303,6 +303,38 @@ export const newsArticlesQuery = `*[_type == "individualNewsArticle"] | order(da
 }`
 
 export const getNewsArticles = async (): Promise<NewsArticles[] | null> => {
-  const newsArticles = await client.fetch<NewsArticles[] | null>(newsArticlesQuery)
+  const newsArticles = await client.fetch<NewsArticles[] | null>(
+    newsArticlesQuery,
+  )
+  return newsArticles
+}
+
+export const threeLatestNewsArticlesQuery = `*[_type == "individualNewsArticle"] | order(date desc) [0..2] {
+  _id,
+  title,
+  slug,
+  category,
+  excerpt,
+  date,
+  featuredImage {
+    alt,
+    asset -> {
+      url,
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    }
+  }
+}`
+
+export const getThreeLatestNewsArticles = async (): Promise<
+  NewsArticles[] | null
+> => {
+  const newsArticles = await client.fetch<NewsArticles[] | null>(
+    threeLatestNewsArticlesQuery,
+  )
   return newsArticles
 }

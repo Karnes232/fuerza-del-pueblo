@@ -8,7 +8,6 @@ export const NewsFilter = ({
   selectedCategory,
   onSelectCategory,
 }: NewsFilterProps) => {
-  console.log(categories)
   return (
     <div className="flex flex-wrap gap-3 justify-center">
       {/* All Button */}
@@ -29,7 +28,7 @@ export const NewsFilter = ({
           key={category.id}
           onClick={() => onSelectCategory(category.name as NewsCategory)}
           className={`px-4 py-2 rounded-full font-semibold transition-all duration-200 ${
-            selectedCategory === category.id
+            selectedCategory === category.name
               ? "bg-primaryGreen text-white shadow-md"
               : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"
           }`}
