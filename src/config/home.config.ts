@@ -10,7 +10,7 @@ export const latestNews: NewsArticle[] = [
       "Con gran éxito se llevó a cabo la inauguración de nuestra nueva sede, contando con la presencia de cientos de militantes y simpatizantes.",
     date: "2026-01-28",
     image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "inauguracion-nueva-sede",
+    slug: { current: "inauguracion-nueva-sede" },
     category: "Eventos",
   },
   {
@@ -20,7 +20,7 @@ export const latestNews: NewsArticle[] = [
       "Lanzamos una iniciativa para apoyar el desarrollo de pequeños comerciantes locales con capacitación y recursos.",
     date: "2026-01-25",
     image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "programa-apoyo-comerciantes",
+    slug: { current: "programa-apoyo-comerciantes" },
     category: "Iniciativas",
   },
   {
@@ -30,7 +30,7 @@ export const latestNews: NewsArticle[] = [
       "Nuestro equipo se reunió con líderes de diferentes sectores para escuchar sus necesidades y propuestas.",
     date: "2026-01-20",
     image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "reunion-lideres-comunitarios",
+    slug: { current: "reunion-lideres-comunitarios" },
     category: "Noticias",
   },
 ]
