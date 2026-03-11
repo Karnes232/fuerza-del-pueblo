@@ -5,18 +5,30 @@ import { FeaturedEventSection } from "@/components/EventsPage/FeaturedEventSecti
 import { PastEventsSection } from "@/components/EventsPage/PastEventsSection"
 import { UpcomingEventsSection } from "@/components/EventsPage/UpcomingEventsSection"
 import {
-  eventsHeroData,
   featuredEvent,
   upcomingEventsSectionData,
   pastEventsSectionData,
-  eventCategoriesSectionData,
-  eventsCTAData,
 } from "@/config/events.config"
+import { getEventsPageHeroSection } from "@/sanity/queries/EventsPage/HeroSection"
+import { getEventCategorySection } from "@/sanity/queries/EventsPage/CategorySecton"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import Script from "next/script"
+import { getSectionTitlesCTA } from "@/sanity/queries/EventsPage/SectionTitlesCTA"
 
 export default async function EventsPage() {
-  const [structuredData] = await Promise.all([getStructuredData("eventos")])
+  const [
+    structuredData,
+    eventsPageHeroSection,
+    eventCategorySection,
+    sectionTitlesCTA,
+  ] = await Promise.all([
+    getStructuredData("eventos"),
+    getEventsPageHeroSection(),
+    getEventCategorySection(),
+    getSectionTitlesCTA(),
+  ])
+
+  console.log(sectionTitlesCTA)
 
   return (
     <>
@@ -29,42 +41,47 @@ export default async function EventsPage() {
       <main>
         {/* Hero Section */}
         <EventsHero
-          title={eventsHeroData.title}
-          subtitle={eventsHeroData.subtitle}
-          description={eventsHeroData.description}
-          ctaText={eventsHeroData.ctaText}
-          ctaLink={eventsHeroData.ctaLink}
+          title={eventsPageHeroSection?.title}
+          subtitle={eventsPageHeroSection?.subtitle}
+          description={eventsPageHeroSection?.description}
+          ctaText={eventsPageHeroSection?.ctaText}
+          ctaLink={eventsPageHeroSection?.ctaLink}
+          backgroundImage={eventsPageHeroSection?.backgroundImage}
         />
 
         {/* Featured Event */}
-        <FeaturedEventSection event={featuredEvent} />
+        <FeaturedEventSection
+          title={eventsPageHeroSection?.featuredEventTitle}
+          subtitle={eventsPageHeroSection?.featuredEventSubtitle}
+          event={featuredEvent}
+        />
 
         {/* Event Categories */}
         <EventCategoriesSection
-          title={eventCategoriesSectionData.title}
-          subtitle={eventCategoriesSectionData.subtitle}
-          categories={eventCategoriesSectionData.categories}
+          title={eventCategorySection?.title}
+          subtitle={eventCategorySection?.subtitle}
+          categories={eventCategorySection?.categories}
         />
 
         {/* Upcoming Events */}
         <UpcomingEventsSection
-          title={upcomingEventsSectionData.title}
-          subtitle={upcomingEventsSectionData.subtitle}
+          title={sectionTitlesCTA?.upcomingEventsTitle}
+          subtitle={sectionTitlesCTA?.upcomingEventsSubtitle}
           events={upcomingEventsSectionData.events}
         />
 
         {/* Past Events */}
         <PastEventsSection
-          title={pastEventsSectionData.title}
-          subtitle={pastEventsSectionData.subtitle}
+          title={sectionTitlesCTA?.pastEventsTitle}
+          subtitle={sectionTitlesCTA?.pastEventsSubtitle}
           events={pastEventsSectionData.events}
         />
 
         {/* CTA Section */}
         <EventsCTA
-          title={eventsCTAData.title}
-          description={eventsCTAData.description}
-          actions={eventsCTAData.actions}
+          title={sectionTitlesCTA?.ctaTitle}
+          description={sectionTitlesCTA?.ctaDescription}
+          actions={sectionTitlesCTA?.ctaActions}
         />
       </main>
     </>

@@ -495,4 +495,44 @@ export const structure: StructureResolver = S =>
                 ),
             ]),
         ),
+      S.listItem()
+        .title("Events Page")
+        .child(
+          S.list()
+            .title("Events Page")
+            .items([
+              S.listItem()
+                .title("Hero Section")
+                .child(
+                  S.document()
+                    .schemaType("eventsPageHeroSection")
+                    .title("Hero Section")
+                    .documentId("eventsPageHeroSection"),
+                ),
+              S.listItem()
+                .title("Event Category Section")
+                .child(
+                  S.document()
+                    .schemaType("eventCategorySection")
+                    .title("Event Category Section")
+                    .documentId("eventCategorySection"),
+                ),
+              S.listItem()
+                .title("Event Categories")
+                .child(
+                  S.documentList()
+                    .schemaType("eventCategory")
+                    .title("Event Categories")
+                    .filter("_type == 'eventCategory'"),
+                ),
+              S.listItem()
+                .title("Section Titles CTA")
+                .child(
+                  S.document()
+                    .schemaType("sectionTitlesCTA")
+                    .title("Section Titles CTA")
+                    .documentId("sectionTitlesCTA"),
+                ),
+            ]),
+        ),
     ])

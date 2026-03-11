@@ -3,7 +3,11 @@ import { Container } from "@/components/HomePage/Container"
 import { FeaturedEventCard } from "@/components/EventsPage/FeaturedEventCard"
 import { FeaturedEventSectionProps } from "@/types/events.types"
 
-export const FeaturedEventSection = ({ event }: FeaturedEventSectionProps) => {
+export const FeaturedEventSection = ({
+  title,
+  subtitle,
+  event,
+}: FeaturedEventSectionProps) => {
   if (!event) return null
 
   return (
@@ -11,11 +15,9 @@ export const FeaturedEventSection = ({ event }: FeaturedEventSectionProps) => {
       <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#1F4D2B] mb-4">
-            Próximo Evento Importante
+            {title}
           </h2>
-          <p className="text-lg text-gray-600">
-            No te pierdas nuestra próxima actividad destacada
-          </p>
+          <p className="text-lg text-gray-600">{subtitle}</p>
         </div>
         <FeaturedEventCard event={event} />
       </Container>

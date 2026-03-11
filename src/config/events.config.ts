@@ -2,14 +2,14 @@
 import { Event, PastEvent, EventCategoryInfo } from "@/types/events.types"
 
 // Hero Data
-export const eventsHeroData = {
-  title: "Eventos y Actividades",
-  subtitle: "Participa en nuestras actividades comunitarias",
-  description:
-    "Únete a nosotros en nuestras actividades, asambleas y eventos sociales. Tu participación fortalece nuestra comunidad.",
-  ctaText: "Sugiere un Evento",
-  ctaLink: "/contacto",
-}
+// export const eventsHeroData = {
+//   title: "Eventos y Actividades",
+//   subtitle: "Participa en nuestras actividades comunitarias",
+//   description:
+//     "Únete a nosotros en nuestras actividades, asambleas y eventos sociales. Tu participación fortalece nuestra comunidad.",
+//   ctaText: "Sugiere un Evento",
+//   ctaLink: "/contacto",
+// }
 
 // Event Categories
 export const eventCategories: EventCategoryInfo[] = [
@@ -222,47 +222,47 @@ export const featuredEvent =
   upcomingEvents.find(e => e.featured) || upcomingEvents[0]
 
 // CTA Section Data
-export const eventsCTAData = {
-  title: "¿Quieres Participar Más?",
-  description:
-    "Hay muchas formas de involucrarte en nuestras actividades comunitarias.",
-  actions: [
-    {
-      title: "Sugiere un Evento",
-      description: "Tienes una idea para un evento o actividad comunitaria.",
-      icon: "Lightbulb",
-      href: "/contacto",
-    },
-    {
-      title: "Voluntariado",
-      description: "Ayuda a organizar y coordinar nuestros eventos.",
-      icon: "Users",
-      href: "/unete#voluntariado",
-    },
-    {
-      title: "Notificaciones",
-      description: "Recibe alertas sobre próximos eventos por email.",
-      icon: "Bell",
-      href: "/unete#newsletter",
-    },
-  ],
-}
+// export const eventsCTAData = {
+//   title: "¿Quieres Participar Más?",
+//   description:
+//     "Hay muchas formas de involucrarte en nuestras actividades comunitarias.",
+//   actions: [
+//     {
+//       title: "Sugiere un Evento",
+//       description: "Tienes una idea para un evento o actividad comunitaria.",
+//       icon: "Lightbulb",
+//       href: "/contacto",
+//     },
+//     {
+//       title: "Voluntariado",
+//       description: "Ayuda a organizar y coordinar nuestros eventos.",
+//       icon: "Users",
+//       href: "/unete#voluntariado",
+//     },
+//     {
+//       title: "Notificaciones",
+//       description: "Recibe alertas sobre próximos eventos por email.",
+//       icon: "Bell",
+//       href: "/unete#newsletter",
+//     },
+//   ],
+// }
 
 // Section Data
 export const upcomingEventsSectionData = {
-  title: "Próximos Eventos",
-  subtitle: "Revisa nuestra agenda y confirma tu asistencia",
+  // title: "Próximos Eventos",
+  // subtitle: "Revisa nuestra agenda y confirma tu asistencia",
   events: upcomingEvents,
 }
 
 export const pastEventsSectionData = {
-  title: "Eventos Realizados",
-  subtitle: "Conoce las actividades que hemos realizado",
+  // title: "Eventos Realizados",
+  // subtitle: "Conoce las actividades que hemos realizado",
   events: pastEvents,
 }
 
-export const eventCategoriesSectionData = {
-  title: "Tipos de Eventos",
-  subtitle: "Participa en las actividades que más te interesen",
-  categories: eventCategories,
-}
+// export const eventCategoriesSectionData = {
+//   title: "Tipos de Eventos",
+//   subtitle: "Participa en las actividades que más te interesen",
+//   categories: eventCategories,
+// }

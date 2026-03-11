@@ -75,6 +75,13 @@ import { visionDataSectionType } from "./CandidatesPage/visionData"
 import { individualNewsArticleType } from "./NewsPage/IndividualNewsArticle"
 import { newsPageHeroSectionType } from "./NewsPage/HeroSection"
 
+//EventsPage
+import { eventsPageHeroSectionType } from "./EventsPage/HeroSection"
+import { eventCategorySectionType } from "./EventsPage/CategorySection"
+import { eventCategoryType } from "./EventsPage/EventCategory"
+import { sectionTitlesCTAType } from "./EventsPage/SectionTitlesCTA"
+import { eventCTAType } from "./EventsPage/EventCTA"
+
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     //GeneralLayout
@@ -151,5 +158,12 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     //NewsPage
     newsPageHeroSectionType,
     individualNewsArticleType,
+
+    //EventsPage
+    eventsPageHeroSectionType,
+    eventCategorySectionType,
+    eventCategoryType,
+    sectionTitlesCTAType,
+    eventCTAType,
   ],
 }

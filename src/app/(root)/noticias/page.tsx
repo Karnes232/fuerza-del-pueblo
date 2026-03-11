@@ -1,11 +1,7 @@
 import { FeaturedArticleSection } from "@/components/NewsPage/FeaturedArticleSection"
 import { NewsFilterClient } from "@/components/NewsPage/NewsFilterClient"
 import { NewsletterCTA } from "@/components/NewsPage/NewsletterCTA"
-import {
-  featuredArticle,
-  newsCategories,
-  newsletterCTAData,
-} from "@/config/news.config"
+import { newsCategories, newsletterCTAData } from "@/config/news.config"
 import { NewsArticle } from "@/types/news.types"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import {

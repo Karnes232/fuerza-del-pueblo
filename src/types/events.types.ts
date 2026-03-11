@@ -40,14 +40,28 @@ export interface PastEvent extends Event {
 }
 
 export interface EventsHeroProps {
-  title: string
+  title?: string
   subtitle?: string
-  description: string
+  description?: string
   ctaText?: string
   ctaLink?: string
+  backgroundImage?: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
 }
 
 export interface FeaturedEventSectionProps {
+  title?: string
+  subtitle?: string
   event?: Event
 }
 
@@ -66,7 +80,13 @@ export interface PastEventsSectionProps {
 export interface EventCategoriesSectionProps {
   title: string
   subtitle?: string
-  categories: EventCategoryInfo[]
+  categories: {
+    id: string
+    name: string
+    description: string
+    icon: string
+    color: string
+  }[]
 }
 
 export interface EventsCTAProps {
@@ -96,7 +116,13 @@ export interface EventFilterProps {
 }
 
 export interface EventCategoryCardProps {
-  category: EventCategoryInfo
+  category: {
+    id: string
+    name: string
+    description: string
+    icon: string
+    color: string
+  }
 }
 
 export interface PastEventCardProps {
