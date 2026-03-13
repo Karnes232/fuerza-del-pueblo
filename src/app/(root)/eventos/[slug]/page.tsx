@@ -7,8 +7,14 @@ import { EventLocation } from "@/components/IndividualEventPage/EventLocation"
 import { EventRSVP } from "@/components/IndividualEventPage/EventRSVP"
 import { EventSchedule } from "@/components/IndividualEventPage/EventSchedule"
 import { RelatedEvents } from "@/components/IndividualEventPage/RelatedEvents"
+import {
+  getIndividualEvent,
+  getIndividualEventSeo,
+} from "@/sanity/queries/EventsPage/IndividualEvent"
 
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
+import { Metadata } from "next"
+import { notFound } from "next/navigation"
 
 // This is mock data - replace with actual data fetching from Sanity
 export default async function EventPage({
@@ -18,7 +24,14 @@ export default async function EventPage({
 }) {
   const { slug } = await params
 
-  const [joinSection] = await Promise.all([getJoinSection()])
+  const [joinSection, individualEvent] = await Promise.all([
+    getJoinSection(),
+    getIndividualEvent(slug),
+  ])
+  if (!individualEvent) {
+    return notFound()
+  }
+  console.log(individualEvent.category)
   // Mock event data - replace with: const event = await getEventBySlug(params.slug)
   const event = {
     id: "event-1",
@@ -161,39 +174,49 @@ export default async function EventPage({
 
   return (
     <main>
+      {individualEvent.seo.structuredData.jsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: individualEvent.seo.structuredData.jsonLd,
+          }}
+        />
+      )}
       {/* Event Hero */}
       <EventHero
-        title={event.title}
-        category={event.category}
-        date={event.date}
-        time={event.time}
-        location={event.location}
-        image={event.image}
-        status={event.status}
+        title={individualEvent.title}
+        category={individualEvent.category.name}
+        date={individualEvent.date}
+        time={individualEvent.time}
+        location={individualEvent.location}
+        image={individualEvent.image}
       />
 
       {/* Event Details */}
       <EventDetails
-        description={event.description}
-        fullDescription={event.fullDescription}
-        organizer={event.organizer}
-        capacity={event.capacity}
-        attendees={event.attendees}
-        requirements={event.requirements}
-        whatToBring={event.whatToBring}
+        description={individualEvent.description}
+        fullDescription={individualEvent.fullDescription}
+        organizer={individualEvent.organizer}
+        capacity={individualEvent.capacity}
+        attendees={individualEvent.attendees}
+        requirements={individualEvent.requirements}
+        whatToBring={individualEvent.whatToBring}
       />
 
       {/* Event Schedule */}
       {event.schedule && (
-        <EventSchedule title="Agenda del Evento" schedule={event.schedule} />
+        <EventSchedule
+          title="Agenda del Evento"
+          schedule={individualEvent.schedule}
+        />
       )}
 
       {/* Event Location */}
       <EventLocation
-        location={event.location}
+        location={individualEvent.location}
         address={event.address}
-        coordinates={event.coordinates}
-        directions={event.directions}
+        coordinates={individualEvent.coordinates}
+        directions={individualEvent.directions}
       />
 
       {/* RSVP Form */}
@@ -219,4 +242,36 @@ export default async function EventPage({
       />
     </main>
   )
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const seo = await getIndividualEventSeo(slug)
+  if (!seo) {
+    return {}
+  }
+  const canonicalUrl = `https://www.fuerzadelpueblo.do/eventos/${slug}`
+
+  return {
+    title: seo.meta.title,
+    description: seo.meta.description,
+    keywords: seo.meta.keywords,
+    openGraph: {
+      url: canonicalUrl,
+      title: seo.openGraph.title,
+      description: seo.openGraph.description,
+      images: seo.openGraph.image?.asset.url,
+    },
+    robots: {
+      index: !seo.noIndex,
+      follow: !seo.noFollow,
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    },
+  }
 }

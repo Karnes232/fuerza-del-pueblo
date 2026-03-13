@@ -2,6 +2,7 @@
 import { Container } from "@/components/HomePage/Container"
 import { EventDetailsProps } from "@/types/event.types"
 import { User, Users, CheckCircle, Package } from "lucide-react"
+import SanityBlogBody from "../BlockContent/SanityBlogBody"
 
 export const EventDetails = ({
   description,
@@ -28,10 +29,7 @@ export const EventDetails = ({
                   {description}
                 </p>
                 {fullDescription && (
-                  <div
-                    className="prose prose-lg max-w-none text-charcoal/70"
-                    dangerouslySetInnerHTML={{ __html: fullDescription }}
-                  />
+                  <SanityBlogBody content={fullDescription} />
                 )}
               </div>
 
@@ -141,9 +139,12 @@ export const EventDetails = ({
                       </p>
                     )}
                     {organizer.contact && (
-                      <p className="text-sm text-charcoal/70">
+                      <a
+                        href={`mailto:${organizer.contact}`}
+                        className="text-sm text-charcoal/70 underline hover:text-charcoal transition-colors"
+                      >
                         {organizer.contact}
-                      </p>
+                      </a>
                     )}
                   </div>
                 </div>

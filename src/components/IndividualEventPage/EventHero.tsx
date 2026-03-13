@@ -11,7 +11,6 @@ export const EventHero = ({
   time,
   location,
   image,
-  status = "upcoming",
 }: EventHeroProps) => {
   const formattedDate = new Date(date).toLocaleDateString("es-DO", {
     weekday: "long",
@@ -19,29 +18,6 @@ export const EventHero = ({
     month: "long",
     day: "numeric",
   })
-
-  const getStatusBadge = () => {
-    switch (status) {
-      case "ongoing":
-        return (
-          <span className="inline-block px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-full">
-            En Curso
-          </span>
-        )
-      case "completed":
-        return (
-          <span className="inline-block px-4 py-2 bg-gray-500 text-white text-sm font-semibold rounded-full">
-            Finalizado
-          </span>
-        )
-      default:
-        return (
-          <span className="inline-block px-4 py-2 bg-primaryGreen text-white text-sm font-semibold rounded-full">
-            Próximo
-          </span>
-        )
-    }
-  }
 
   return (
     <section className="py-12 md:py-16 bg-white">
@@ -52,7 +28,6 @@ export const EventHero = ({
             <span className="inline-block px-4 py-2 bg-primaryGreen/10 text-primaryGreen text-sm font-semibold rounded-full">
               {category}
             </span>
-            {getStatusBadge()}
           </div>
 
           {/* Title */}

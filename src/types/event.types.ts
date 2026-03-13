@@ -18,7 +18,6 @@ export interface EventHeroProps {
       }
     }
   }
-  status?: "upcoming" | "ongoing" | "completed"
 }
 
 export interface EventDetailsProps {

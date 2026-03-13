@@ -28,8 +28,6 @@ export default async function EventsPage() {
     getSectionTitlesCTA(),
   ])
 
-  console.log(sectionTitlesCTA)
-
   return (
     <>
       <Script

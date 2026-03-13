@@ -533,6 +533,14 @@ export const structure: StructureResolver = S =>
                     .title("Section Titles CTA")
                     .documentId("sectionTitlesCTA"),
                 ),
+              S.listItem()
+                .title("Individual Event")
+                .child(
+                  S.documentList()
+                    .schemaType("individualEvent")
+                    .title("Individual Event")
+                    .filter("_type == 'individualEvent'"),
+                ),
             ]),
         ),
     ])

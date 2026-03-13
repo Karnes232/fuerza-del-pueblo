@@ -81,6 +81,7 @@ import { eventCategorySectionType } from "./EventsPage/CategorySection"
 import { eventCategoryType } from "./EventsPage/EventCategory"
 import { sectionTitlesCTAType } from "./EventsPage/SectionTitlesCTA"
 import { eventCTAType } from "./EventsPage/EventCTA"
+import { individualEventType } from "./EventsPage/IndividualEvent"
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -165,5 +166,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     eventCategoryType,
     sectionTitlesCTAType,
     eventCTAType,
+    individualEventType,
   ],
 }
