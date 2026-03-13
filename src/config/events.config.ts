@@ -241,14 +241,13 @@ export const pastEvents: PastEvent[] = [
     },
     slug: { current: "inauguracion-nueva-sede-2026" },
     status: "past",
-    summary:
-      "Un evento exitoso con más de 150 asistentes, incluyendo líderes comunitarios y militantes del partido. Se realizó un recorrido por las instalaciones y se presentó el plan de actividades para el año.",
+
     photos: [
       "/images/events/past/inauguracion-1.jpg",
       "/images/events/past/inauguracion-2.jpg",
       "/images/events/past/inauguracion-3.jpg",
     ],
-    attendeesCount: 152,
+
   },
   {
     title: "Primera Asamblea General 2026",
@@ -272,9 +271,7 @@ export const pastEvents: PastEvent[] = [
     },
     slug: { current: "asamblea-general-enero-2026" },
     status: "past",
-    summary:
-      "Se establecieron las prioridades del año y se formaron comités de trabajo para diferentes áreas: educación, salud, desarrollo económico y medio ambiente.",
-    attendeesCount: 78,
+  
   },
   {
     title: "Jornada de Reforestación",
@@ -297,13 +294,11 @@ export const pastEvents: PastEvent[] = [
     },
     slug: { current: "jornada-reforestacion-enero-2026" },
     status: "past",
-    summary:
-      "Más de 100 árboles nativos fueron plantados con la ayuda de voluntarios de todas las edades. Una actividad que fortalece nuestro compromiso con el medio ambiente.",
+
     photos: [
       "/images/events/past/reforestacion-1.jpg",
       "/images/events/past/reforestacion-2.jpg",
     ],
-    attendeesCount: 45,
   },
 ]
 
