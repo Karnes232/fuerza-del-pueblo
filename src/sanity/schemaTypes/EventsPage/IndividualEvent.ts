@@ -256,6 +256,5 @@ export const individualEventType = defineType({
       subtitle: "category.name",
       media: "image",
     },
-   
   },
 })

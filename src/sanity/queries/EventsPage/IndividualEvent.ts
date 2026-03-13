@@ -212,9 +212,72 @@ export const nextThreeEventsQuery = `*[_type == "individualEvent" && date > $dat
   }
 }`
 
-export const getNextThreeEvents = async (date: Date): Promise<NextThreeEvents[] | null> => {
-  const events = await client.fetch<NextThreeEvents[] | null>(nextThreeEventsQuery, {
-    date,
-  })
+export const getNextThreeEvents = async (
+  date: Date,
+): Promise<NextThreeEvents[] | null> => {
+  const events = await client.fetch<NextThreeEvents[] | null>(
+    nextThreeEventsQuery,
+    {
+      date,
+    },
+  )
+  return events
+}
+
+export interface PreviousEvents {
+  title: string
+  description: string
+  date: string
+  time: string
+  location: string
+  image: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
+  slug: {
+    current: string
+  }
+}
+
+export const previousEventsQuery = `*[_type == "individualEvent" && date < $date] | order(date desc) {
+  title,
+  description,
+  date,
+  time,
+  location,
+  image {
+    alt,
+    asset -> {
+      url,
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    }
+  },
+  slug {
+    current
+  }
+}`
+
+export const getPreviousEvents = async (
+  date: Date,
+): Promise<PreviousEvents[] | null> => {
+  const events = await client.fetch<PreviousEvents[] | null>(
+    previousEventsQuery,
+    {
+      date,
+    },
+  )
   return events
 }

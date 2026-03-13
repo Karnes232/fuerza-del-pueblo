@@ -147,7 +147,7 @@ export const upcomingEvents: Event[] = [
     time: "4:00 PM",
     location: "Cámara de Comercio, Punta Cana",
     category: "reunion",
-      image: {
+    image: {
       alt: "Reunión con Comerciantes Locales",
       asset: {
         url: "https://picsum.photos/400/200?random=" + Math.random(),

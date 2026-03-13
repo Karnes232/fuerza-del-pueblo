@@ -14,18 +14,25 @@ import { getEventCategorySection } from "@/sanity/queries/EventsPage/CategorySec
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import Script from "next/script"
 import { getSectionTitlesCTA } from "@/sanity/queries/EventsPage/SectionTitlesCTA"
+import { getPreviousEvents } from "@/sanity/queries/EventsPage/IndividualEvent"
 
 export default async function EventsPage() {
+  const today = new Date()
+  const todayUTC = new Date(
+    Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()),
+  )
   const [
     structuredData,
     eventsPageHeroSection,
     eventCategorySection,
     sectionTitlesCTA,
+    previousEvents,
   ] = await Promise.all([
     getStructuredData("eventos"),
     getEventsPageHeroSection(),
     getEventCategorySection(),
     getSectionTitlesCTA(),
+    getPreviousEvents(todayUTC),
   ])
 
   return (
@@ -72,7 +79,7 @@ export default async function EventsPage() {
         <PastEventsSection
           title={sectionTitlesCTA?.pastEventsTitle}
           subtitle={sectionTitlesCTA?.pastEventsSubtitle}
-          events={pastEventsSectionData.events}
+          events={previousEvents || []}
         />
 
         {/* CTA Section */}

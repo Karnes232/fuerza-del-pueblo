@@ -26,7 +26,7 @@ export default async function EventPage({
   const { slug } = await params
   const today = new Date()
   const todayUTC = new Date(
-    Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate())
+    Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()),
   )
   const [joinSection, individualEvent, nextThreeEvents] = await Promise.all([
     getJoinSection(),
@@ -38,10 +38,10 @@ export default async function EventPage({
     return notFound()
   }
 
- 
   const eventDateUTC = new Date(`${individualEvent.date}T00:00:00Z`)
-  const rsvpEnabled =
-    individualEvent.date ? eventDateUTC.getTime() > todayUTC.getTime() : false
+  const rsvpEnabled = individualEvent.date
+    ? eventDateUTC.getTime() > todayUTC.getTime()
+    : false
 
   // Mock related events
   const relatedEvents = [
@@ -176,7 +176,7 @@ export async function generateMetadata({
       title: seo.openGraph.title,
       description: seo.openGraph.description,
       images: seo.openGraph.image?.asset.url,
-    },  
+    },
     robots: {
       index: !seo.noIndex,
       follow: !seo.noFollow,

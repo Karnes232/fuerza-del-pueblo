@@ -15,65 +15,67 @@ export const EventCard = ({ event }: EventCardProps) => {
   return (
     <Link href={`/eventos/${event.slug.current}`} className="h-full">
       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
-      {/* Image */}
-      {event.image && (
-        <div className="relative h-40 bg-gray-200 overflow-hidden">
-          <Image
-            src={event.image.asset.url}
-            alt={event.image.alt}
-            fill
-            className="object-cover"
-          />
-        </div>
-      )}
-
-      {/* Content */}
-      <div className="p-6 flex flex-col flex-1">
-        {/* Title */}
-        <h3 className="text-xl font-bold text-charcoal mb-3">{event.title}</h3>
-
-        {/* Description */}
-        <p className="text-charcoal/70 text-sm mb-4 line-clamp-2">
-          {event.description}
-        </p>
-
-        {/* Event Details */}
-        <div className="space-y-2 mb-4">
-          {/* Date */}
-          <div className="flex items-start gap-2 text-sm text-gray-700">
-            <Calendar className="w-4 h-4 text-primaryGreen mt-0.5 shrink-0" />
-            <span className="capitalize">{formattedDate}</span>
-          </div>
-
-          {/* Time */}
-          <div className="flex items-center gap-2 text-sm text-gray-700">
-            <Clock className="w-4 h-4 text-primaryGreen shrink-0" />
-            <span>{event.time}</span>
-          </div>
-
-          {/* Location */}
-          <div className="flex items-start gap-2 text-sm text-gray-700">
-            <MapPin className="w-4 h-4 text-primaryGreen mt-0.5 shrink-0" />
-            <span>{event.location}</span>
-          </div>
-        </div>
-
-        {/* RSVP/View Button */}
-        {event.rsvpLink && (
-          <div className="mt-auto">
-            <Link
-              href={event.rsvpLink}
-              className="inline-flex items-center gap-2 text-[#00A651] hover:text-[#008d45] font-semibold text-sm transition-colors group"
-            >
-              {event.rsvpLink.includes("rsvp")
-                ? "Confirmar Asistencia"
-                : "Ver Detalles"}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+        {/* Image */}
+        {event.image && (
+          <div className="relative h-40 bg-gray-200 overflow-hidden">
+            <Image
+              src={event.image.asset.url}
+              alt={event.image.alt}
+              fill
+              className="object-cover"
+            />
           </div>
         )}
+
+        {/* Content */}
+        <div className="p-6 flex flex-col flex-1">
+          {/* Title */}
+          <h3 className="text-xl font-bold text-charcoal mb-3">
+            {event.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-charcoal/70 text-sm mb-4 line-clamp-2">
+            {event.description}
+          </p>
+
+          {/* Event Details */}
+          <div className="space-y-2 mb-4">
+            {/* Date */}
+            <div className="flex items-start gap-2 text-sm text-gray-700">
+              <Calendar className="w-4 h-4 text-primaryGreen mt-0.5 shrink-0" />
+              <span className="capitalize">{formattedDate}</span>
+            </div>
+
+            {/* Time */}
+            <div className="flex items-center gap-2 text-sm text-gray-700">
+              <Clock className="w-4 h-4 text-primaryGreen shrink-0" />
+              <span>{event.time}</span>
+            </div>
+
+            {/* Location */}
+            <div className="flex items-start gap-2 text-sm text-gray-700">
+              <MapPin className="w-4 h-4 text-primaryGreen mt-0.5 shrink-0" />
+              <span>{event.location}</span>
+            </div>
+          </div>
+
+          {/* RSVP/View Button */}
+          {event.rsvpLink && (
+            <div className="mt-auto">
+              <Link
+                href={event.rsvpLink}
+                className="inline-flex items-center gap-2 text-[#00A651] hover:text-[#008d45] font-semibold text-sm transition-colors group"
+              >
+                {event.rsvpLink.includes("rsvp")
+                  ? "Confirmar Asistencia"
+                  : "Ver Detalles"}
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
-    </div>
     </Link>
   )
 }

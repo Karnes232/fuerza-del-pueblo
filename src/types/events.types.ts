@@ -46,9 +46,34 @@ export interface EventCategoryInfo {
 }
 
 export interface PastEvent extends Event {
-  summary: string
   photos?: string[]
-  attendeesCount: number
+}
+
+/** Minimal shape for past-event list items (from getPreviousEvents). Used by PastEventsSection/PastEventCard. */
+export interface PastEventListItem {
+  title: string
+  description: string
+  date: string
+  time: string
+  location: string
+  image: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
+  slug: {
+    current: string
+  }
+  photos?: string[]
+  /** Optional unique key for list rendering (e.g. when duplicating for dev). */
+  _listKey?: string
 }
 
 export interface EventsHeroProps {
@@ -86,7 +111,7 @@ export interface UpcomingEventsSectionProps {
 export interface PastEventsSectionProps {
   title: string
   subtitle?: string
-  events: PastEvent[]
+  events: PastEventListItem[]
 }
 
 export interface EventCategoriesSectionProps {
@@ -138,7 +163,7 @@ export interface EventCategoryCardProps {
 }
 
 export interface PastEventCardProps {
-  event: PastEvent
+  event: PastEventListItem
 }
 
 export interface RSVPButtonProps {

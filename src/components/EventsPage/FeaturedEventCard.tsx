@@ -28,7 +28,6 @@ export const FeaturedEventCard = ({ event }: FeaturedEventCardProps) => {
             <Image
               src={event.image.asset.url}
               alt={event.image.alt}
-
               fill
               className="object-cover"
             />

@@ -5,6 +5,7 @@ import { Calendar, MapPin, Users } from "lucide-react"
 import { PastEventCardProps } from "@/types/events.types"
 
 export const PastEventCard = ({ event }: PastEventCardProps) => {
+  console.log(event)
   const formattedDate = new Date(event.date).toLocaleDateString("es-DO", {
     year: "numeric",
     month: "long",
@@ -49,7 +50,7 @@ export const PastEventCard = ({ event }: PastEventCardProps) => {
 
         {/* Summary */}
         <p className="text-gray-600 text-sm line-clamp-3 mb-4">
-          {event.summary}
+          {event.description}
         </p>
 
         {/* Footer Info */}
@@ -58,10 +59,10 @@ export const PastEventCard = ({ event }: PastEventCardProps) => {
             <MapPin className="w-4 h-4" />
             <span className="truncate">{event.location}</span>
           </div>
-          <div className="flex items-center gap-2">
+          {/* <div className="flex items-center gap-2">
             <Users className="w-4 h-4" />
             <span>{event.attendeesCount} asistentes</span>
-          </div>
+          </div> */}
         </div>
 
         {/* Photos Count */}
