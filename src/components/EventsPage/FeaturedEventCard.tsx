@@ -26,8 +26,9 @@ export const FeaturedEventCard = ({ event }: FeaturedEventCardProps) => {
         <div className="relative h-64 md:h-full bg-linear-to-br from-primaryGreen to-darkGreen">
           {event.image ? (
             <Image
-              src={event.image}
-              alt={event.title}
+              src={event.image.asset.url}
+              alt={event.image.alt}
+
               fill
               className="object-cover"
             />
@@ -116,7 +117,7 @@ export const FeaturedEventCard = ({ event }: FeaturedEventCardProps) => {
           {/* RSVP Button */}
           <div className="mt-8">
             <RSVPButton
-              eventId={event.id}
+              eventId={event.slug.current}
               rsvpLink={event.rsvpLink}
               variant="primary"
               size="lg"
