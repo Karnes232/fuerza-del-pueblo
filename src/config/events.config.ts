@@ -271,7 +271,7 @@ export const upcomingEvents: Event[] = [
 //     },
 //     slug: { current: "asamblea-general-enero-2026" },
 //     status: "past",
-  
+
 //   },
 //   {
 //     title: "Jornada de Reforestación",

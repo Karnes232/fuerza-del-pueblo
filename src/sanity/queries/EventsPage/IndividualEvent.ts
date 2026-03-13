@@ -339,3 +339,64 @@ export const getUpcomingEvents = async (
   )
   return events
 }
+
+export interface FutureEvents {
+  title: string
+  description: string
+  category: {
+    name: string
+  }
+  date: string
+  time: string
+  location: string
+  image: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
+  slug: {
+    current: string
+  }
+}
+
+export const futureEventsQuery = `*[_type == "individualEvent" && date > $date] | order(date asc) {
+  title,
+  description,
+  category -> {
+    name
+  },
+  date,
+  time,
+  location,
+  image {
+    alt,
+    asset -> {
+      url,
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    }
+  },
+  slug {
+    current
+  }
+}`
+
+export const getFutureEvents = async (
+  date: Date,
+): Promise<FutureEvents[] | null> => {
+  const events = await client.fetch<FutureEvents[] | null>(futureEventsQuery, {
+    date,
+  })
+  return events
+}

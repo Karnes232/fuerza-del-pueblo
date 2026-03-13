@@ -1,7 +1,7 @@
 // components/EventFilter.tsx
 "use client"
 
-import { EventFilterProps } from "@/types/events.types"
+import { EventCategory, EventFilterProps } from "@/types/events.types"
 
 export const EventFilter = ({
   categories,
@@ -26,7 +26,7 @@ export const EventFilter = ({
       {categories.map(category => (
         <button
           key={category.id}
-          onClick={() => onSelectCategory(category.id)}
+          onClick={() => onSelectCategory(category.name as EventCategory)}
           className={`px-4 py-2 rounded-full font-semibold transition-all duration-200 ${
             selectedCategory === category.id
               ? "bg-[#00A651] text-white shadow-md"

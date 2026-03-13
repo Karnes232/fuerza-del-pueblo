@@ -33,7 +33,7 @@ export default async function EventPage({
     getIndividualEvent(slug),
     getNextThreeEvents(todayUTC),
   ])
-  console.log(nextThreeEvents)
+
   if (!individualEvent) {
     return notFound()
   }

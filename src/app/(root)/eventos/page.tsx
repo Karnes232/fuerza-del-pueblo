@@ -13,7 +13,22 @@ import { getEventCategorySection } from "@/sanity/queries/EventsPage/CategorySec
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import Script from "next/script"
 import { getSectionTitlesCTA } from "@/sanity/queries/EventsPage/SectionTitlesCTA"
-import { getPreviousEvents } from "@/sanity/queries/EventsPage/IndividualEvent"
+import {
+  getFutureEvents,
+  getPreviousEvents,
+} from "@/sanity/queries/EventsPage/IndividualEvent"
+import type { Event, EventCategory } from "@/types/events.types"
+
+function mapFutureEventsToEvent(
+  futureEvents: Awaited<ReturnType<typeof getFutureEvents>>,
+): Event[] {
+  if (!futureEvents?.length) return []
+  return futureEvents.map(e => ({
+    ...e,
+    category: (e.category?.name ?? "social") as EventCategory,
+    status: "upcoming" as const,
+  }))
+}
 
 export default async function EventsPage() {
   const today = new Date()
@@ -26,13 +41,16 @@ export default async function EventsPage() {
     eventCategorySection,
     sectionTitlesCTA,
     previousEvents,
+    futureEvents,
   ] = await Promise.all([
     getStructuredData("eventos"),
     getEventsPageHeroSection(),
     getEventCategorySection(),
     getSectionTitlesCTA(),
     getPreviousEvents(todayUTC),
+    getFutureEvents(todayUTC),
   ])
+  const upcomingEvents = mapFutureEventsToEvent(futureEvents)
 
   return (
     <>
@@ -71,7 +89,7 @@ export default async function EventsPage() {
         <UpcomingEventsSection
           title={sectionTitlesCTA?.upcomingEventsTitle}
           subtitle={sectionTitlesCTA?.upcomingEventsSubtitle}
-          events={upcomingEventsSectionData.events}
+          events={upcomingEvents}
         />
 
         {/* Past Events */}

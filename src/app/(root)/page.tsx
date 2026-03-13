@@ -64,7 +64,6 @@ export default async function Home() {
     toHomeNewsArticle,
   )
 
-    console.log(upcomingEvents)
   return (
     <>
       <Script

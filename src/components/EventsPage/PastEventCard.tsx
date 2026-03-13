@@ -5,7 +5,6 @@ import { Calendar, MapPin, Users } from "lucide-react"
 import { PastEventCardProps } from "@/types/events.types"
 
 export const PastEventCard = ({ event }: PastEventCardProps) => {
-  console.log(event)
   const formattedDate = new Date(event.date).toLocaleDateString("es-DO", {
     year: "numeric",
     month: "long",

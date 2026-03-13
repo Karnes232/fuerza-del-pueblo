@@ -12,7 +12,6 @@ export const EventsSection = ({
   events,
   viewAllLink,
 }: EventsSectionProps) => {
-  console.log(events)
   return (
     <section className="py-16 md:py-24 bg-[#F4F4F4]">
       <Container>
