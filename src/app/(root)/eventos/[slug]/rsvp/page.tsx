@@ -116,7 +116,6 @@ export default async function RSVPPage({
         time={event.time}
         location={event.location}
         image={event.image}
-        status={event.status}
       />
       {/* RSVP Form */}
       <EventRSVP
