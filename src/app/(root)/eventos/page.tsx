@@ -6,7 +6,6 @@ import { PastEventsSection } from "@/components/EventsPage/PastEventsSection"
 import { UpcomingEventsSection } from "@/components/EventsPage/UpcomingEventsSection"
 import {
   featuredEvent,
-  upcomingEventsSectionData,
 } from "@/config/events.config"
 import { getEventsPageHeroSection } from "@/sanity/queries/EventsPage/HeroSection"
 import { getEventCategorySection } from "@/sanity/queries/EventsPage/CategorySecton"
@@ -90,6 +89,7 @@ export default async function EventsPage() {
           title={sectionTitlesCTA?.upcomingEventsTitle}
           subtitle={sectionTitlesCTA?.upcomingEventsSubtitle}
           events={upcomingEvents}
+          categories={eventCategorySection?.categories}
         />
 
         {/* Past Events */}

@@ -25,10 +25,10 @@ export const EventFilter = ({
       {/* Category Buttons */}
       {categories.map(category => (
         <button
-          key={category.id}
+          key={category.name}
           onClick={() => onSelectCategory(category.name as EventCategory)}
           className={`px-4 py-2 rounded-full font-semibold transition-all duration-200 ${
-            selectedCategory === category.id
+            selectedCategory === category.name
               ? "bg-[#00A651] text-white shadow-md"
               : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"
           }`}

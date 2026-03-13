@@ -11,52 +11,52 @@ import { Event, PastEvent, EventCategoryInfo } from "@/types/events.types"
 //   ctaLink: "/contacto",
 // }
 
-// Event Categories
-export const eventCategories: EventCategoryInfo[] = [
-  {
-    id: "asamblea",
-    name: "Asambleas",
-    description:
-      "Reuniones generales del partido para discutir estrategias y decisiones.",
-    icon: "Users",
-    color: "#00A651",
-  },
-  {
-    id: "comunitaria",
-    name: "Actividades Comunitarias",
-    description: "Eventos para servir y conectar con la comunidad.",
-    icon: "Heart",
-    color: "#1F4D2B",
-  },
-  {
-    id: "formacion",
-    name: "Formación Política",
-    description: "Talleres y capacitaciones sobre participación ciudadana.",
-    icon: "GraduationCap",
-    color: "#00A651",
-  },
-  {
-    id: "social",
-    name: "Eventos Sociales",
-    description: "Celebraciones y encuentros para fortalecer lazos.",
-    icon: "PartyPopper",
-    color: "#1F4D2B",
-  },
-  {
-    id: "limpieza",
-    name: "Jornadas de Limpieza",
-    description: "Actividades para embellecer nuestros espacios públicos.",
-    icon: "Trash2",
-    color: "#00A651",
-  },
-  {
-    id: "reunion",
-    name: "Reuniones",
-    description: "Encuentros con líderes comunitarios y organizaciones.",
-    icon: "Handshake",
-    color: "#1F4D2B",
-  },
-]
+// // Event Categories
+// export const eventCategories: EventCategoryInfo[] = [
+//   {
+//     id: "asamblea",
+//     name: "Asambleas",
+//     description:
+//       "Reuniones generales del partido para discutir estrategias y decisiones.",
+//     icon: "Users",
+//     color: "#00A651",
+//   },
+//   {
+//     id: "comunitaria",
+//     name: "Actividades Comunitarias",
+//     description: "Eventos para servir y conectar con la comunidad.",
+//     icon: "Heart",
+//     color: "#1F4D2B",
+//   },
+//   {
+//     id: "formacion",
+//     name: "Formación Política",
+//     description: "Talleres y capacitaciones sobre participación ciudadana.",
+//     icon: "GraduationCap",
+//     color: "#00A651",
+//   },
+//   {
+//     id: "social",
+//     name: "Eventos Sociales",
+//     description: "Celebraciones y encuentros para fortalecer lazos.",
+//     icon: "PartyPopper",
+//     color: "#1F4D2B",
+//   },
+//   {
+//     id: "limpieza",
+//     name: "Jornadas de Limpieza",
+//     description: "Actividades para embellecer nuestros espacios públicos.",
+//     icon: "Trash2",
+//     color: "#00A651",
+//   },
+//   {
+//     id: "reunion",
+//     name: "Reuniones",
+//     description: "Encuentros con líderes comunitarios y organizaciones.",
+//     icon: "Handshake",
+//     color: "#1F4D2B",
+//   },
+// ]
 
 // Upcoming Events
 export const upcomingEvents: Event[] = [
@@ -334,11 +334,11 @@ export const featuredEvent =
 // }
 
 // Section Data
-export const upcomingEventsSectionData = {
-  // title: "Próximos Eventos",
-  // subtitle: "Revisa nuestra agenda y confirma tu asistencia",
-  events: upcomingEvents,
-}
+// export const upcomingEventsSectionData = {
+//   // title: "Próximos Eventos",
+//   // subtitle: "Revisa nuestra agenda y confirma tu asistencia",
+//   events: upcomingEvents,
+// }
 
 // export const pastEventsSectionData = {
 //   // title: "Eventos Realizados",

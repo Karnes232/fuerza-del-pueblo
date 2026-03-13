@@ -106,6 +106,13 @@ export interface UpcomingEventsSectionProps {
   title: string
   subtitle?: string
   events: Event[]
+  categories: {
+    id: string
+    name: string
+    description: string
+    icon: string
+    color: string
+  }[]
 }
 
 export interface PastEventsSectionProps {
@@ -147,7 +154,13 @@ export interface FeaturedEventCardProps {
 }
 
 export interface EventFilterProps {
-  categories: EventCategoryInfo[]
+  categories: {
+    id: string
+    name: string
+    description: string
+    icon: string
+    color: string
+  }[]
   selectedCategory: EventCategory | "all"
   onSelectCategory: (category: EventCategory | "all") => void
 }

@@ -7,7 +7,7 @@ import { SectionHeader } from "@/components/HomePage/SectionHeader"
 import { EventCard } from "@/components/HomePage/EventCard"
 import { EventFilter } from "@/components/EventsPage/EventFilter"
 import { UpcomingEventsSectionProps, EventCategory } from "@/types/events.types"
-import { eventCategories } from "@/config/events.config"
+// import { eventCategories } from "@/config/events.config"
 
 const EVENTS_PER_PAGE = 6
 
@@ -15,6 +15,7 @@ export const UpcomingEventsSection = ({
   title,
   subtitle,
   events,
+  categories,
 }: UpcomingEventsSectionProps) => {
   const [selectedCategory, setSelectedCategory] = useState<
     EventCategory | "all"
@@ -48,7 +49,7 @@ export const UpcomingEventsSection = ({
         {/* Filter */}
         <div className="mb-12">
           <EventFilter
-            categories={eventCategories}
+            categories={categories}
             selectedCategory={selectedCategory}
             onSelectCategory={setSelectedCategory}
           />
