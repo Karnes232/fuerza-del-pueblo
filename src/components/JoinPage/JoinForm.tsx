@@ -46,7 +46,7 @@ export const JoinForm = ({
       } else {
         // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 2000))
-        console.log("Form submitted:", formData)
+        console.log("Form submitted:", formData) 
       }
 
       setSubmitStatus("success")
