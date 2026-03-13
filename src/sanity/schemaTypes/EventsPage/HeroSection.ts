@@ -57,6 +57,15 @@ export const eventsPageHeroSectionType = defineType({
       title: "Featured Event Subtitle",
       type: "string",
     }),
+    defineField({
+      name: "featuredEvent",
+      title: "Featured Event",
+      type: "reference",
+      to: [{ type: "individualEvent" }],
+      options: {
+        disableNew: true,
+      },
+    }),
   ],
   preview: {
     select: {

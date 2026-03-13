@@ -27,7 +27,9 @@ export const UpcomingEventsSection = ({
     if (selectedCategory === "all") {
       return events.filter(e => !e.featured) // Exclude featured event
     }
-    return events.filter(e => e.category === selectedCategory && !e.featured)
+    return events.filter(
+      e => e.category.name === selectedCategory && !e.featured,
+    )
   }, [events, selectedCategory])
 
   // Reset to page 1 when category changes

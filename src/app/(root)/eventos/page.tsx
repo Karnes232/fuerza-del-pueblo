@@ -4,9 +4,7 @@ import { EventsHero } from "@/components/EventsPage/EventsHero"
 import { FeaturedEventSection } from "@/components/EventsPage/FeaturedEventSection"
 import { PastEventsSection } from "@/components/EventsPage/PastEventsSection"
 import { UpcomingEventsSection } from "@/components/EventsPage/UpcomingEventsSection"
-import {
-  featuredEvent,
-} from "@/config/events.config"
+import { featuredEvent } from "@/config/events.config"
 import { getEventsPageHeroSection } from "@/sanity/queries/EventsPage/HeroSection"
 import { getEventCategorySection } from "@/sanity/queries/EventsPage/CategorySecton"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
@@ -24,7 +22,6 @@ function mapFutureEventsToEvent(
   if (!futureEvents?.length) return []
   return futureEvents.map(e => ({
     ...e,
-    category: (e.category?.name ?? "social") as EventCategory,
     status: "upcoming" as const,
   }))
 }
@@ -49,6 +46,7 @@ export default async function EventsPage() {
     getPreviousEvents(todayUTC),
     getFutureEvents(todayUTC),
   ])
+
   const upcomingEvents = mapFutureEventsToEvent(futureEvents)
 
   return (
@@ -74,7 +72,7 @@ export default async function EventsPage() {
         <FeaturedEventSection
           title={eventsPageHeroSection?.featuredEventTitle}
           subtitle={eventsPageHeroSection?.featuredEventSubtitle}
-          event={featuredEvent}
+          event={eventsPageHeroSection?.featuredEvent as Event}
         />
 
         {/* Event Categories */}

@@ -1,10 +1,12 @@
 // components/FeaturedEventCard.tsx
 import Image from "next/image"
-import { Calendar, Clock, MapPin, Users } from "lucide-react"
+import Link from "next/link"
+import { Calendar, Clock, MapPin, Users, Info } from "lucide-react"
 import { RSVPButton } from "@/components/EventsPage/RSVPButton"
 import { FeaturedEventCardProps } from "@/types/events.types"
 
 export const FeaturedEventCard = ({ event }: FeaturedEventCardProps) => {
+  console.log(event)
   const formattedDate = new Date(event.date).toLocaleDateString("es-DO", {
     weekday: "long",
     year: "numeric",
@@ -45,7 +47,7 @@ export const FeaturedEventCard = ({ event }: FeaturedEventCardProps) => {
           {/* Category Badge */}
           {event.category && (
             <div className="absolute bottom-4 left-4 bg-white/90 text-darkGreen px-3 py-1 rounded-full text-sm font-semibold">
-              {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
+              {event.category.name}
             </div>
           )}
         </div>
@@ -111,11 +113,18 @@ export const FeaturedEventCard = ({ event }: FeaturedEventCardProps) => {
             </div>
           </div>
 
-          {/* RSVP Button */}
-          <div className="mt-8">
+          {/* Action Buttons */}
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link
+              href={`/eventos/${event.slug.current}`}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-200 shadow-md hover:shadow-lg bg-white text-[#00A651] border-2 border-[#00A651] hover:bg-[#00A651] hover:text-white"
+            >
+              <Info className="w-5 h-5" />
+              Más información
+            </Link>
             <RSVPButton
               eventId={event.slug.current}
-              rsvpLink={event.rsvpLink}
+              rsvpLink={`/eventos/${event.slug.current}/rsvp`}
               variant="primary"
               size="lg"
             />

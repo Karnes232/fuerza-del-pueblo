@@ -2,11 +2,13 @@
 
 export interface Event {
   title: string
+  category: {
+    name: string
+  }
   description: string
   date: string
   time: string
   location: string
-  category: EventCategory
   image: {
     alt: string
     asset: {
@@ -30,12 +32,12 @@ export interface Event {
 }
 
 export type EventCategory =
-  | "asamblea"
-  | "comunitaria"
-  | "formacion"
-  | "social"
-  | "limpieza"
-  | "reunion"
+  | "Asamblea"
+  | "Actividades Comunitarias"
+  | "Formación Política"
+  | "Eventos Sociales"
+  | "Jornadas de Limpieza"
+  | "Reuniones"
 
 export interface EventCategoryInfo {
   id: EventCategory

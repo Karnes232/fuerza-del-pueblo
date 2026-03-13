@@ -67,7 +67,7 @@ export const upcomingEvents: Event[] = [
     date: "2026-02-15",
     time: "6:00 PM",
     location: "Sede del Partido, Verón",
-    category: "asamblea",
+    category: { name: "asamblea" },
     image: {
       alt: "Asamblea General de Febrero",
       asset: {
@@ -94,7 +94,7 @@ export const upcomingEvents: Event[] = [
     date: "2026-02-22",
     time: "8:00 AM",
     location: "Parque Central de Verón",
-    category: "limpieza",
+    category: { name: "limpieza" },
     image: {
       alt: "Jornada de Limpieza Comunitaria",
       asset: {
@@ -120,7 +120,7 @@ export const upcomingEvents: Event[] = [
     date: "2026-03-05",
     time: "5:00 PM",
     location: "Centro Comunitario Punta Cana",
-    category: "formacion",
+    category: { name: "formacion" },
     image: {
       alt: "Taller de Participación Ciudadana",
       asset: {
@@ -146,7 +146,7 @@ export const upcomingEvents: Event[] = [
     date: "2026-03-10",
     time: "4:00 PM",
     location: "Cámara de Comercio, Punta Cana",
-    category: "reunion",
+    category: { name: "reunion" },
     image: {
       alt: "Reunión con Comerciantes Locales",
       asset: {
@@ -170,7 +170,7 @@ export const upcomingEvents: Event[] = [
     date: "2026-02-27",
     time: "3:00 PM",
     location: "Plaza Principal, Verón",
-    category: "social",
+    category: { name: "social" },
     image: {
       alt: "Celebración del Día de la Independencia",
       asset: {
@@ -196,7 +196,7 @@ export const upcomingEvents: Event[] = [
     date: "2026-03-15",
     time: "2:00 PM",
     location: "Sede del Partido, Verón",
-    category: "formacion",
+    category: { name: "formacion" },
     image: {
       alt: "Taller de Liderazgo Juvenil",
       asset: {
