@@ -3,7 +3,6 @@ import Image from "next/image"
 import { Calendar, Clock, MapPin, Users } from "lucide-react"
 import { RSVPButton } from "@/components/EventsPage/RSVPButton"
 import { FeaturedEventCardProps } from "@/types/events.types"
-import { eventCategories } from "@/config/events.config"
 
 export const FeaturedEventCard = ({ event }: FeaturedEventCardProps) => {
   const formattedDate = new Date(event.date).toLocaleDateString("es-DO", {
@@ -13,7 +12,6 @@ export const FeaturedEventCard = ({ event }: FeaturedEventCardProps) => {
     day: "numeric",
   })
 
-  const category = eventCategories.find(c => c.id === event.category)
   const attendancePercentage =
     event.capacity && event.attendees
       ? Math.round((event.attendees / event.capacity) * 100)
@@ -45,9 +43,9 @@ export const FeaturedEventCard = ({ event }: FeaturedEventCardProps) => {
           </div>
 
           {/* Category Badge */}
-          {category && (
+          {event.category && (
             <div className="absolute bottom-4 left-4 bg-white/90 text-darkGreen px-3 py-1 rounded-full text-sm font-semibold">
-              {category.name}
+              {event.category.charAt(0).toUpperCase() + event.category.slice(1)}
             </div>
           )}
         </div>
