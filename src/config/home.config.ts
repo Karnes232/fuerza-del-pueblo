@@ -46,39 +46,69 @@ export const newsData = {
 // Upcoming Events (Sample Data)
 export const upcomingEvents: Event[] = [
   {
-    id: "1",
     title: "Asamblea General Mensual",
     description:
       "Reunión abierta para todos los militantes y simpatizantes. Discutiremos los avances del mes y próximas actividades.",
     date: "2026-02-15",
     time: "6:00 PM",
     location: "Sede del Partido, Verón",
-    image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "asamblea-general-febrero",
+    image: {
+      alt: "Asamblea General Mensual",
+      asset: {
+        url: "https://picsum.photos/400/200?random=" + Math.random(),
+        metadata: {
+          dimensions: {
+            width: 400,
+            height: 200,
+          },
+        },
+      },
+    },
+    slug: { current: "asamblea-general-febrero" },
     rsvpLink: "/eventos/asamblea-general-febrero",
   },
   {
-    id: "2",
     title: "Jornada de Limpieza Comunitaria",
     description:
       "Únete a nosotros en una jornada de limpieza y embellecimiento de nuestras calles y parques.",
     date: "2026-02-22",
     time: "8:00 AM",
     location: "Parque Central de Verón",
-    image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "jornada-limpieza-febrero",
+    image: {
+      alt: "Jornada de Limpieza Comunitaria",
+      asset: {
+        url: "https://picsum.photos/400/200?random=" + Math.random(),
+        metadata: {
+          dimensions: {
+            width: 400,
+            height: 200,
+          },
+        },
+      },
+    },
+    slug: { current: "jornada-limpieza-febrero" },
     rsvpLink: "/eventos/jornada-limpieza-febrero",
   },
   {
-    id: "3",
     title: "Taller de Formación Política",
     description:
       "Capacitación sobre participación ciudadana y procesos democráticos. Abierto al público.",
     date: "2026-03-05",
     time: "5:00 PM",
     location: "Centro Comunitario Punta Cana",
-    image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "taller-formacion-marzo",
+    image: {
+      alt: "Taller de Formación Política",
+      asset: {
+        url: "https://picsum.photos/400/200?random=" + Math.random(),
+        metadata: {
+          dimensions: {
+            width: 400,
+            height: 200,
+          },
+        },
+      },
+    },
+    slug: { current: "taller-formacion-marzo" },
     rsvpLink: "/eventos/taller-formacion-marzo",
   },
 ]

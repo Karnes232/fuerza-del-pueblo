@@ -1,15 +1,27 @@
 // types/events.types.ts
 
 export interface Event {
-  id: string
   title: string
   description: string
   date: string
   time: string
   location: string
   category: EventCategory
-  image?: string
-  slug: string
+  image: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
+  slug: {
+    current: string
+  }
   rsvpLink?: string
   capacity?: number
   attendees?: number

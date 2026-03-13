@@ -18,7 +18,7 @@ export const PastEventsSection = ({
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {events.map(event => (
-            <PastEventCard key={event.id} event={event} />
+            <PastEventCard key={event.slug.current} event={event} />
           ))}
         </div>
       </Container>

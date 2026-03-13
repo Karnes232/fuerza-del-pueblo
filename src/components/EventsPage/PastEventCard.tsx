@@ -13,15 +13,15 @@ export const PastEventCard = ({ event }: PastEventCardProps) => {
 
   return (
     <Link
-      href={`/eventos/${event.slug}`}
+      href={`/eventos/${event.slug.current}`}
       className="group bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300"
     >
       {/* Image */}
       {event.image ? (
         <div className="relative h-48 bg-gray-200 overflow-hidden">
           <Image
-            src={event.image}
-            alt={event.title}
+            src={event.image.asset.url}
+            alt={event.image.alt}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />

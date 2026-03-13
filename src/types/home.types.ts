@@ -20,14 +20,26 @@ export interface NewsArticle {
 }
 
 export interface Event {
-  id: string
   title: string
   description: string
   date: string
   time: string
   location: string
-  image?: string
-  slug: string
+  image: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
+  slug: {
+    current: string
+  }
   rsvpLink?: string
 }
 

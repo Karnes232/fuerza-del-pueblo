@@ -10,6 +10,7 @@ import { RelatedEvents } from "@/components/IndividualEventPage/RelatedEvents"
 import {
   getIndividualEvent,
   getIndividualEventSeo,
+  getNextThreeEvents,
 } from "@/sanity/queries/EventsPage/IndividualEvent"
 
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
@@ -23,19 +24,21 @@ export default async function EventPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-
-  const [joinSection, individualEvent] = await Promise.all([
-    getJoinSection(),
-    getIndividualEvent(slug),
-  ])
-  if (!individualEvent) {
-    return notFound()
-  }
-
   const today = new Date()
   const todayUTC = new Date(
     Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate())
   )
+  const [joinSection, individualEvent, nextThreeEvents] = await Promise.all([
+    getJoinSection(),
+    getIndividualEvent(slug),
+    getNextThreeEvents(todayUTC),
+  ])
+  console.log(nextThreeEvents)
+  if (!individualEvent) {
+    return notFound()
+  }
+
+ 
   const eventDateUTC = new Date(`${individualEvent.date}T00:00:00Z`)
   const rsvpEnabled =
     individualEvent.date ? eventDateUTC.getTime() > todayUTC.getTime() : false
@@ -138,7 +141,7 @@ export default async function EventPage({
       />
 
       {/* Related Events */}
-      <RelatedEvents title="Próximos Eventos" events={relatedEvents} />
+      <RelatedEvents title="Próximos Eventos" events={nextThreeEvents || []} />
 
       {/* Join CTA */}
       <JoinSection

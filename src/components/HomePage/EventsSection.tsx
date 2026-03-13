@@ -12,6 +12,7 @@ export const EventsSection = ({
   events,
   viewAllLink,
 }: EventsSectionProps) => {
+  console.log(events)
   return (
     <section className="py-16 md:py-24 bg-[#F4F4F4]">
       <Container>
@@ -20,7 +21,7 @@ export const EventsSection = ({
         {/* Events Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
           {events.map(event => (
-            <EventCard key={event.id} event={event} />
+            <EventCard key={event.slug.current} event={event} />
           ))}
         </div>
 

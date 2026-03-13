@@ -13,13 +13,14 @@ export const EventCard = ({ event }: EventCardProps) => {
   })
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
+    <Link href={`/eventos/${event.slug.current}`} className="h-full">
+      <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
       {/* Image */}
       {event.image && (
         <div className="relative h-40 bg-gray-200 overflow-hidden">
           <Image
-            src={event.image}
-            alt={event.title}
+            src={event.image.asset.url}
+            alt={event.image.alt}
             fill
             className="object-cover"
           />
@@ -27,7 +28,7 @@ export const EventCard = ({ event }: EventCardProps) => {
       )}
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-1">
         {/* Title */}
         <h3 className="text-xl font-bold text-charcoal mb-3">{event.title}</h3>
 
@@ -59,17 +60,20 @@ export const EventCard = ({ event }: EventCardProps) => {
 
         {/* RSVP/View Button */}
         {event.rsvpLink && (
-          <Link
-            href={event.rsvpLink}
-            className="inline-flex items-center gap-2 text-[#00A651] hover:text-[#008d45] font-semibold text-sm transition-colors group"
-          >
-            {event.rsvpLink.includes("rsvp")
-              ? "Confirmar Asistencia"
-              : "Ver Detalles"}
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="mt-auto">
+            <Link
+              href={event.rsvpLink}
+              className="inline-flex items-center gap-2 text-[#00A651] hover:text-[#008d45] font-semibold text-sm transition-colors group"
+            >
+              {event.rsvpLink.includes("rsvp")
+                ? "Confirmar Asistencia"
+                : "Ver Detalles"}
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         )}
       </div>
     </div>
+    </Link>
   )
 }

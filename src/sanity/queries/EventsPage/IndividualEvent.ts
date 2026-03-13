@@ -165,3 +165,56 @@ export const getIndividualEvent = async (
 
   return event
 }
+
+export interface NextThreeEvents {
+  title: string
+  description: string
+  date: string
+  time: string
+  location: string
+  image: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
+  slug: {
+    current: string
+  }
+}
+
+export const nextThreeEventsQuery = `*[_type == "individualEvent" && date > $date] | order(date asc) [0..2] {
+  title,
+  description,
+  date,
+  time,
+  location,
+  image {
+    alt,
+    asset -> {
+      url,
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    }
+  },
+  slug {
+    current
+  }
+}`
+
+export const getNextThreeEvents = async (date: Date): Promise<NextThreeEvents[] | null> => {
+  const events = await client.fetch<NextThreeEvents[] | null>(nextThreeEventsQuery, {
+    date,
+  })
+  return events
+}

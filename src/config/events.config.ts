@@ -61,7 +61,6 @@ export const eventCategories: EventCategoryInfo[] = [
 // Upcoming Events
 export const upcomingEvents: Event[] = [
   {
-    id: "1",
     title: "Asamblea General de Febrero",
     description:
       "Reunión mensual para todos los militantes y simpatizantes. Discutiremos los avances del mes, planificación de eventos futuros y estrategias comunitarias.",
@@ -69,8 +68,19 @@ export const upcomingEvents: Event[] = [
     time: "6:00 PM",
     location: "Sede del Partido, Verón",
     category: "asamblea",
-    image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "asamblea-general-febrero-2026",
+    image: {
+      alt: "Asamblea General de Febrero",
+      asset: {
+        url: "https://picsum.photos/400/200?random=" + Math.random(),
+        metadata: {
+          dimensions: {
+            width: 400,
+            height: 200,
+          },
+        },
+      },
+    },
+    slug: { current: "asamblea-general-febrero-2026" },
     rsvpLink: "/eventos/asamblea-general-febrero-2026/rsvp",
     capacity: 100,
     attendees: 45,
@@ -78,7 +88,6 @@ export const upcomingEvents: Event[] = [
     status: "upcoming",
   },
   {
-    id: "2",
     title: "Jornada de Limpieza Comunitaria",
     description:
       "Únete a nosotros para limpiar y embellecer el Parque Central de Verón. Trae guantes y bolsas, nosotros proporcionamos el resto.",
@@ -86,15 +95,25 @@ export const upcomingEvents: Event[] = [
     time: "8:00 AM",
     location: "Parque Central de Verón",
     category: "limpieza",
-    image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "jornada-limpieza-febrero-2026",
+    image: {
+      alt: "Jornada de Limpieza Comunitaria",
+      asset: {
+        url: "https://picsum.photos/400/200?random=" + Math.random(),
+        metadata: {
+          dimensions: {
+            width: 400,
+            height: 200,
+          },
+        },
+      },
+    },
+    slug: { current: "jornada-limpieza-febrero-2026" },
     rsvpLink: "/eventos/jornada-limpieza-febrero-2026/rsvp",
     capacity: 50,
     attendees: 28,
     status: "upcoming",
   },
   {
-    id: "3",
     title: "Taller de Participación Ciudadana",
     description:
       "Capacitación sobre derechos ciudadanos y cómo participar activamente en procesos democráticos. Abierto al público.",
@@ -102,15 +121,25 @@ export const upcomingEvents: Event[] = [
     time: "5:00 PM",
     location: "Centro Comunitario Punta Cana",
     category: "formacion",
-    image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "taller-participacion-ciudadana-marzo-2026",
+    image: {
+      alt: "Taller de Participación Ciudadana",
+      asset: {
+        url: "https://picsum.photos/400/200?random=" + Math.random(),
+        metadata: {
+          dimensions: {
+            width: 400,
+            height: 200,
+          },
+        },
+      },
+    },
+    slug: { current: "taller-participacion-ciudadana-marzo-2026" },
     rsvpLink: "/eventos/taller-participacion-ciudadana-marzo-2026/rsvp",
     capacity: 60,
     attendees: 15,
     status: "upcoming",
   },
   {
-    id: "4",
     title: "Reunión con Comerciantes Locales",
     description:
       "Encuentro con pequeños y medianos comerciantes para escuchar sus necesidades y propuestas de desarrollo económico.",
@@ -118,13 +147,23 @@ export const upcomingEvents: Event[] = [
     time: "4:00 PM",
     location: "Cámara de Comercio, Punta Cana",
     category: "reunion",
-    image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "reunion-comerciantes-marzo-2026",
+      image: {
+      alt: "Reunión con Comerciantes Locales",
+      asset: {
+        url: "https://picsum.photos/400/200?random=" + Math.random(),
+        metadata: {
+          dimensions: {
+            width: 400,
+            height: 200,
+          },
+        },
+      },
+    },
+    slug: { current: "reunion-comerciantes-marzo-2026" },
     rsvpLink: "/eventos/reunion-comerciantes-marzo-2026/rsvp",
     status: "upcoming",
   },
   {
-    id: "5",
     title: "Celebración del Día de la Independencia",
     description:
       "Evento social para celebrar la independencia nacional con actividades culturales, música y comida típica.",
@@ -132,15 +171,25 @@ export const upcomingEvents: Event[] = [
     time: "3:00 PM",
     location: "Plaza Principal, Verón",
     category: "social",
-    image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "celebracion-independencia-2026",
+    image: {
+      alt: "Celebración del Día de la Independencia",
+      asset: {
+        url: "https://picsum.photos/400/200?random=" + Math.random(),
+        metadata: {
+          dimensions: {
+            width: 400,
+            height: 200,
+          },
+        },
+      },
+    },
+    slug: { current: "celebracion-independencia-2026" },
     rsvpLink: "/eventos/celebracion-independencia-2026/rsvp",
     capacity: 200,
     attendees: 87,
     status: "upcoming",
   },
   {
-    id: "6",
     title: "Taller de Liderazgo Juvenil",
     description:
       "Programa de formación para jóvenes interesados en convertirse en líderes comunitarios.",
@@ -148,8 +197,19 @@ export const upcomingEvents: Event[] = [
     time: "2:00 PM",
     location: "Sede del Partido, Verón",
     category: "formacion",
-    image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "taller-liderazgo-juvenil-marzo-2026",
+    image: {
+      alt: "Taller de Liderazgo Juvenil",
+      asset: {
+        url: "https://picsum.photos/400/200?random=" + Math.random(),
+        metadata: {
+          dimensions: {
+            width: 400,
+            height: 200,
+          },
+        },
+      },
+    },
+    slug: { current: "taller-liderazgo-juvenil-marzo-2026" },
     rsvpLink: "/eventos/taller-liderazgo-juvenil-marzo-2026/rsvp",
     capacity: 30,
     attendees: 22,
@@ -160,7 +220,6 @@ export const upcomingEvents: Event[] = [
 // Past Events
 export const pastEvents: PastEvent[] = [
   {
-    id: "p1",
     title: "Inauguración de la Nueva Sede",
     description:
       "Ceremonia de inauguración de nuestra nueva sede del partido en Verón.",
@@ -168,8 +227,19 @@ export const pastEvents: PastEvent[] = [
     time: "10:00 AM",
     location: "Sede del Partido, Verón",
     category: "social",
-    image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "inauguracion-nueva-sede-2026",
+    image: {
+      alt: "Inauguración de la Nueva Sede",
+      asset: {
+        url: "https://picsum.photos/400/200?random=" + Math.random(),
+        metadata: {
+          dimensions: {
+            width: 400,
+            height: 200,
+          },
+        },
+      },
+    },
+    slug: { current: "inauguracion-nueva-sede-2026" },
     status: "past",
     summary:
       "Un evento exitoso con más de 150 asistentes, incluyendo líderes comunitarios y militantes del partido. Se realizó un recorrido por las instalaciones y se presentó el plan de actividades para el año.",
@@ -181,7 +251,6 @@ export const pastEvents: PastEvent[] = [
     attendeesCount: 152,
   },
   {
-    id: "p2",
     title: "Primera Asamblea General 2026",
     description:
       "Primera asamblea del año para establecer objetivos y estrategias.",
@@ -189,23 +258,44 @@ export const pastEvents: PastEvent[] = [
     time: "6:00 PM",
     location: "Centro Comunitario",
     category: "asamblea",
-    image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "asamblea-general-enero-2026",
+    image: {
+      alt: "Primera Asamblea General 2026",
+      asset: {
+        url: "https://picsum.photos/400/200?random=" + Math.random(),
+        metadata: {
+          dimensions: {
+            width: 400,
+            height: 200,
+          },
+        },
+      },
+    },
+    slug: { current: "asamblea-general-enero-2026" },
     status: "past",
     summary:
       "Se establecieron las prioridades del año y se formaron comités de trabajo para diferentes áreas: educación, salud, desarrollo económico y medio ambiente.",
     attendeesCount: 78,
   },
   {
-    id: "p3",
     title: "Jornada de Reforestación",
     description: "Plantación de árboles en áreas verdes de la comunidad.",
     date: "2026-01-20",
     time: "7:00 AM",
     location: "Zona Verde Municipal",
     category: "comunitaria",
-    image: "https://picsum.photos/400/200?random=" + Math.random(),
-    slug: "jornada-reforestacion-enero-2026",
+    image: {
+      alt: "Jornada de Reforestación",
+      asset: {
+        url: "https://picsum.photos/400/200?random=" + Math.random(),
+        metadata: {
+          dimensions: {
+            width: 400,
+            height: 200,
+          },
+        },
+      },
+    },
+    slug: { current: "jornada-reforestacion-enero-2026" },
     status: "past",
     summary:
       "Más de 100 árboles nativos fueron plantados con la ayuda de voluntarios de todas las edades. Una actividad que fortalece nuestro compromiso con el medio ambiente.",
