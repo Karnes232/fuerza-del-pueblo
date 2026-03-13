@@ -218,89 +218,89 @@ export const upcomingEvents: Event[] = [
 ]
 
 // Past Events
-export const pastEvents: PastEvent[] = [
-  {
-    title: "Inauguración de la Nueva Sede",
-    description:
-      "Ceremonia de inauguración de nuestra nueva sede del partido en Verón.",
-    date: "2026-01-28",
-    time: "10:00 AM",
-    location: "Sede del Partido, Verón",
-    category: "social",
-    image: {
-      alt: "Inauguración de la Nueva Sede",
-      asset: {
-        url: "https://picsum.photos/400/200?random=" + Math.random(),
-        metadata: {
-          dimensions: {
-            width: 400,
-            height: 200,
-          },
-        },
-      },
-    },
-    slug: { current: "inauguracion-nueva-sede-2026" },
-    status: "past",
+// export const pastEvents: PastEvent[] = [
+//   {
+//     title: "Inauguración de la Nueva Sede",
+//     description:
+//       "Ceremonia de inauguración de nuestra nueva sede del partido en Verón.",
+//     date: "2026-01-28",
+//     time: "10:00 AM",
+//     location: "Sede del Partido, Verón",
+//     category: "social",
+//     image: {
+//       alt: "Inauguración de la Nueva Sede",
+//       asset: {
+//         url: "https://picsum.photos/400/200?random=" + Math.random(),
+//         metadata: {
+//           dimensions: {
+//             width: 400,
+//             height: 200,
+//           },
+//         },
+//       },
+//     },
+//     slug: { current: "inauguracion-nueva-sede-2026" },
+//     status: "past",
 
-    photos: [
-      "/images/events/past/inauguracion-1.jpg",
-      "/images/events/past/inauguracion-2.jpg",
-      "/images/events/past/inauguracion-3.jpg",
-    ],
+//     photos: [
+//       "/images/events/past/inauguracion-1.jpg",
+//       "/images/events/past/inauguracion-2.jpg",
+//       "/images/events/past/inauguracion-3.jpg",
+//     ],
 
-  },
-  {
-    title: "Primera Asamblea General 2026",
-    description:
-      "Primera asamblea del año para establecer objetivos y estrategias.",
-    date: "2026-01-15",
-    time: "6:00 PM",
-    location: "Centro Comunitario",
-    category: "asamblea",
-    image: {
-      alt: "Primera Asamblea General 2026",
-      asset: {
-        url: "https://picsum.photos/400/200?random=" + Math.random(),
-        metadata: {
-          dimensions: {
-            width: 400,
-            height: 200,
-          },
-        },
-      },
-    },
-    slug: { current: "asamblea-general-enero-2026" },
-    status: "past",
+//   },
+//   {
+//     title: "Primera Asamblea General 2026",
+//     description:
+//       "Primera asamblea del año para establecer objetivos y estrategias.",
+//     date: "2026-01-15",
+//     time: "6:00 PM",
+//     location: "Centro Comunitario",
+//     category: "asamblea",
+//     image: {
+//       alt: "Primera Asamblea General 2026",
+//       asset: {
+//         url: "https://picsum.photos/400/200?random=" + Math.random(),
+//         metadata: {
+//           dimensions: {
+//             width: 400,
+//             height: 200,
+//           },
+//         },
+//       },
+//     },
+//     slug: { current: "asamblea-general-enero-2026" },
+//     status: "past",
   
-  },
-  {
-    title: "Jornada de Reforestación",
-    description: "Plantación de árboles en áreas verdes de la comunidad.",
-    date: "2026-01-20",
-    time: "7:00 AM",
-    location: "Zona Verde Municipal",
-    category: "comunitaria",
-    image: {
-      alt: "Jornada de Reforestación",
-      asset: {
-        url: "https://picsum.photos/400/200?random=" + Math.random(),
-        metadata: {
-          dimensions: {
-            width: 400,
-            height: 200,
-          },
-        },
-      },
-    },
-    slug: { current: "jornada-reforestacion-enero-2026" },
-    status: "past",
+//   },
+//   {
+//     title: "Jornada de Reforestación",
+//     description: "Plantación de árboles en áreas verdes de la comunidad.",
+//     date: "2026-01-20",
+//     time: "7:00 AM",
+//     location: "Zona Verde Municipal",
+//     category: "comunitaria",
+//     image: {
+//       alt: "Jornada de Reforestación",
+//       asset: {
+//         url: "https://picsum.photos/400/200?random=" + Math.random(),
+//         metadata: {
+//           dimensions: {
+//             width: 400,
+//             height: 200,
+//           },
+//         },
+//       },
+//     },
+//     slug: { current: "jornada-reforestacion-enero-2026" },
+//     status: "past",
 
-    photos: [
-      "/images/events/past/reforestacion-1.jpg",
-      "/images/events/past/reforestacion-2.jpg",
-    ],
-  },
-]
+//     photos: [
+//       "/images/events/past/reforestacion-1.jpg",
+//       "/images/events/past/reforestacion-2.jpg",
+//     ],
+//   },
+// ]
 
 // Featured Event (next important event)
 export const featuredEvent =
@@ -340,11 +340,11 @@ export const upcomingEventsSectionData = {
   events: upcomingEvents,
 }
 
-export const pastEventsSectionData = {
-  // title: "Eventos Realizados",
-  // subtitle: "Conoce las actividades que hemos realizado",
-  events: pastEvents,
-}
+// export const pastEventsSectionData = {
+//   // title: "Eventos Realizados",
+//   // subtitle: "Conoce las actividades que hemos realizado",
+//   events: pastEvents,
+// }
 
 // export const eventCategoriesSectionData = {
 //   title: "Tipos de Eventos",

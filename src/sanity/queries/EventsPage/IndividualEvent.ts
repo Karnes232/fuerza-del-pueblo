@@ -281,3 +281,61 @@ export const getPreviousEvents = async (
   )
   return events
 }
+
+export interface UpcomingEvents {
+  title: string
+  description: string
+  date: string
+  time: string
+  location: string
+  image: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+  }
+  slug: {
+    current: string
+  }
+}
+
+export const upcomingEventsQuery = `*[_type == "individualEvent" && date > $date] | order(date asc)[0..2] {
+  title,
+  description,
+  date,
+  time,
+  location,
+  image {
+    alt,
+    asset -> {
+      url,
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    }
+  },
+  slug {
+    current
+  }
+}`
+
+export const getUpcomingEvents = async (
+  date: Date,
+): Promise<UpcomingEvents[] | null> => {
+  const events = await client.fetch<UpcomingEvents[] | null>(
+    upcomingEventsQuery,
+    {
+      date,
+    },
+  )
+  return events
+}

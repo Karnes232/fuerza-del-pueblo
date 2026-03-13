@@ -12,6 +12,7 @@ import { heroSectionType } from "./HomePage/HeroSection"
 import { aboutSectionType } from "./HomePage/AboutSection"
 import { valuesSectionType } from "./HomePage/ValuesSection"
 import { joinSectionType } from "./HomePage/JoinSection"
+import { sectionHeadersType } from "./HomePage/SectionHeaders"
 
 //JoinPage
 import { joinPageHeroSectionType } from "./JoinPage/HeroSection"
@@ -97,6 +98,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     aboutSectionType,
     valuesSectionType,
     joinSectionType,
+    sectionHeadersType,
 
     //JoinPage
     joinPageHeroSectionType,

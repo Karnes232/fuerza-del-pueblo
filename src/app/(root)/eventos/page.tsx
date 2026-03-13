@@ -7,7 +7,6 @@ import { UpcomingEventsSection } from "@/components/EventsPage/UpcomingEventsSec
 import {
   featuredEvent,
   upcomingEventsSectionData,
-  pastEventsSectionData,
 } from "@/config/events.config"
 import { getEventsPageHeroSection } from "@/sanity/queries/EventsPage/HeroSection"
 import { getEventCategorySection } from "@/sanity/queries/EventsPage/CategorySecton"

@@ -60,6 +60,14 @@ export const structure: StructureResolver = S =>
                     .title("Join Section")
                     .documentId("joinSection"),
                 ),
+              S.listItem()
+                .title("Section Headers")
+                .child(
+                  S.document()
+                    .schemaType("sectionHeaders")
+                    .title("Section Headers")
+                    .documentId("sectionHeaders"),
+                ),
             ]),
         ),
       S.listItem()

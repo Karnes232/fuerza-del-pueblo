@@ -15,11 +15,12 @@ import { getStructuredData } from "@/sanity/queries/SEO/seo"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 
 import type { NewsArticle } from "@/types/home.types"
-import { newsData, eventsData } from "@/config/home.config"
 import {
   getThreeLatestNewsArticles,
   type NewsArticles,
 } from "@/sanity/queries/NewsPage/IndividualNewsArticle"
+import { getUpcomingEvents } from "@/sanity/queries/EventsPage/IndividualEvent"
+import { getSectionHeaders } from "@/sanity/queries/HomePage/SectionHeaders"
 
 function toHomeNewsArticle(row: NewsArticles): NewsArticle {
   return {
@@ -34,6 +35,10 @@ function toHomeNewsArticle(row: NewsArticles): NewsArticle {
 }
 
 export default async function Home() {
+  const today = new Date()
+  const todayUTC = new Date(
+    Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()),
+  )
   const [
     heroSection,
     aboutSection,
@@ -42,6 +47,8 @@ export default async function Home() {
     structuredData,
     joinSection,
     rawNewsArticles,
+    upcomingEvents,
+    sectionHeaders,
   ] = await Promise.all([
     getHeroSection(),
     getAboutSection(),
@@ -50,10 +57,14 @@ export default async function Home() {
     getStructuredData("inicio"),
     getJoinSection(),
     getThreeLatestNewsArticles(),
+    getUpcomingEvents(todayUTC),
+    getSectionHeaders(),
   ])
   const threeLatestNewsArticles: NewsArticle[] = (rawNewsArticles ?? []).map(
     toHomeNewsArticle,
   )
+
+    console.log(upcomingEvents)
   return (
     <>
       <Script
@@ -93,17 +104,17 @@ export default async function Home() {
 
         {/* News Section */}
         <NewsSection
-          title={newsData.title}
-          subtitle={newsData.subtitle}
+          title={sectionHeaders.newsTitle}
+          subtitle={sectionHeaders.newsSubtitle}
           articles={threeLatestNewsArticles}
           viewAllLink="/noticias"
         />
 
         {/* Events Section */}
         <EventsSection
-          title={eventsData.title}
-          subtitle={eventsData.subtitle}
-          events={eventsData.events}
+          title={sectionHeaders.eventsTitle}
+          subtitle={sectionHeaders.eventsSubtitle}
+          events={upcomingEvents || []}
           viewAllLink="/eventos"
         />
 
@@ -118,8 +129,8 @@ export default async function Home() {
 
         {/* Contact Section */}
         <ContactSection
-          title="¿Tienes Preguntas?"
-          description="Estamos aquí para escucharte. Contáctanos por cualquiera de nuestros canales."
+          title={sectionHeaders.contactTitle}
+          description={sectionHeaders.contactDescription}
           contactMethods={contactMethods}
         />
       </main>
