@@ -17,8 +17,8 @@ export const EventHero = ({
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   })
-
   return (
     <section className="py-12 md:py-16 bg-white">
       <Container>

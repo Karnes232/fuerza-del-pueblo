@@ -252,7 +252,10 @@ export const individualEventType = defineType({
   ],
   preview: {
     select: {
-      title: "Title",
+      title: "title",
+      subtitle: "category.name",
+      media: "image",
     },
+   
   },
 })

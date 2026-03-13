@@ -60,7 +60,7 @@ export const EventRSVP = ({
   if (!rsvpEnabled) {
     return (
       <section className="py-12 bg-[#F4F4F4]">
-        <Container>
+        {/* <Container>
           <div className="max-w-2xl mx-auto text-center">
             <div className="bg-white rounded-lg shadow-md p-8">
               <AlertCircle className="w-12 h-12 text-charcoal/40 mx-auto mb-4" />
@@ -73,7 +73,7 @@ export const EventRSVP = ({
               </p>
             </div>
           </div>
-        </Container>
+        </Container> */}
       </section>
     )
   }
