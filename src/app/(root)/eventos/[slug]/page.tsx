@@ -43,45 +43,6 @@ export default async function EventPage({
     ? eventDateUTC.getTime() > todayUTC.getTime()
     : false
 
-  // Mock related events
-  const relatedEvents = [
-    {
-      id: "1",
-      title: "Jornada de Limpieza Comunitaria",
-      description:
-        "Únete a nosotros en una jornada de limpieza y embellecimiento de nuestras calles.",
-      date: "2026-02-22",
-      time: "8:00 AM",
-      location: "Parque Central de Verón",
-      image: `https://picsum.photos/400/200?random=${Math.random()}`,
-      slug: "jornada-limpieza-febrero",
-      category: "Acción Comunitaria",
-    },
-    {
-      id: "2",
-      title: "Taller de Formación Política",
-      description:
-        "Capacitación sobre participación ciudadana y procesos democráticos.",
-      date: "2026-03-05",
-      time: "5:00 PM",
-      location: "Centro Comunitario Punta Cana",
-      image: `https://picsum.photos/400/200?random=${Math.random()}`,
-      slug: "taller-formacion-marzo",
-      category: "Formación",
-    },
-    {
-      id: "3",
-      title: "Encuentro con Emprendedores Locales",
-      description:
-        "Espacio de diálogo con emprendedores para conocer sus necesidades y propuestas.",
-      date: "2026-03-12",
-      time: "3:00 PM",
-      location: "Sede del Partido",
-      image: `https://picsum.photos/400/200?random=${Math.random()}`,
-      slug: "encuentro-emprendedores",
-      category: "Reunión",
-    },
-  ]
 
   return (
     <main>
