@@ -46,7 +46,7 @@ export const FooterBottom = () => {
             el pueblo
           </span>
           <a
-            href="https://dr-webstudio.com"
+            href="https://www.dr-webstudio.com/es"
             className="flex items-center gap-1 hover:text-orange-500 cursor-pointer"
           >
             <Image
