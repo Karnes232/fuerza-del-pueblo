@@ -20,7 +20,7 @@ export default async function RSVPPage({
       <EventHero
         title={individualEvent.title}
         category={individualEvent.category.name}
-        date={individualEvent.date}                                                         
+        date={individualEvent.date}
         time={individualEvent.time}
         location={individualEvent.location}
         image={individualEvent.image}

@@ -48,7 +48,7 @@ export default async function EventsPage() {
   ])
 
   const upcomingEvents = mapFutureEventsToEvent(futureEvents)
- 
+
   return (
     <>
       <Script

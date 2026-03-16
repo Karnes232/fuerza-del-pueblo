@@ -43,7 +43,6 @@ export default async function EventPage({
     ? eventDateUTC.getTime() > todayUTC.getTime()
     : false
 
-
   return (
     <main>
       {individualEvent.seo.structuredData.jsonLd && (

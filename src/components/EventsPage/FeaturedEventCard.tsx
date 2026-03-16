@@ -6,7 +6,6 @@ import { RSVPButton } from "@/components/EventsPage/RSVPButton"
 import { FeaturedEventCardProps } from "@/types/events.types"
 
 export const FeaturedEventCard = ({ event }: FeaturedEventCardProps) => {
-  console.log(event)
   const formattedDate = new Date(event.date).toLocaleDateString("es-DO", {
     weekday: "long",
     year: "numeric",

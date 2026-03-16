@@ -2,6 +2,20 @@
 import { FooterLink } from "@/components/layout/Footer/FooterLink"
 import { legalLinks, footerContent } from "@/config/footer.config"
 import Image from "next/image"
+import Script from "next/script"
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: "Atribución del desarrollo del sitio web",
+  inLanguage: "es",
+  creator: {
+    "@type": "Organization",
+    "@id": "https://www.dr-webstudio.com/#organization",
+    name: "DR Web Studio",
+    url: "https://www.dr-webstudio.com/es",
+  },
+}
+
 export const FooterBottom = () => {
   return (
     <div className="border-t border-white/10 pt-6">
@@ -26,9 +40,11 @@ export const FooterBottom = () => {
 
       {/* Optional: Built by credit */}
       <div className="mt-4 text-center">
-        <p className="text-white/40 text-xs flex items-center gap-2 flex-1 justify-center">
-          Desarrollado con <span className="text-primaryGreen">♥</span> para el
-          pueblo
+        <p className="text-white/40 text-xs flex flex-col sm:flex-row items-center gap-2 flex-1 justify-center">
+          <span>
+            Desarrollado con <span className="text-primaryGreen">♥</span> para
+            el pueblo
+          </span>
           <a
             href="https://dr-webstudio.com"
             className="flex items-center gap-1 hover:text-orange-500 cursor-pointer"
@@ -42,8 +58,16 @@ export const FooterBottom = () => {
             />
             DR Web Studio
           </a>
+          <span className="hidden sm:inline"> —</span> Desarrollo Web en
+          República Dominicana
         </p>
       </div>
+      <Script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd),
+        }}
+      />
     </div>
   )
 }
