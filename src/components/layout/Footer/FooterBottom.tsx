@@ -63,6 +63,7 @@ export const FooterBottom = () => {
         </p>
       </div>
       <Script
+        id="dr-webstudio-builtby-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(jsonLd),
