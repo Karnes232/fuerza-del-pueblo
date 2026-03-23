@@ -154,7 +154,7 @@ function buildInternalEmailHtml(data: ContactFormData): string {
           </tr>
           <tr>
             <td style="background:#F4F4F4;padding:20px 40px;text-align:center;border-top:1px solid #e5e5e5;">
-              <p style="margin:0;font-size:12px;color:#999;">Enviado desde el formulario de contacto de <strong>fuerzadelpueblo.do</strong></p>
+              <p style="margin:0;font-size:12px;color:#999;">Enviado desde el formulario de contacto de <strong>fuerzadelpuebloveronpuntacana.com</strong></p>
             </td>
           </tr>
         </table>
@@ -166,7 +166,7 @@ function buildInternalEmailHtml(data: ContactFormData): string {
 }
 
 function buildConfirmationEmailHtml(data: ContactFormData): string {
-  const whatsapp = process.env.WHATSAPP_NUMBER ?? "18095551234"
+  const whatsapp = process.env.WHATSAPP_NUMBER ?? "18299328036"
   return `
 <!DOCTYPE html>
 <html lang="es">
@@ -197,7 +197,7 @@ function buildConfirmationEmailHtml(data: ContactFormData): string {
               <hr style="border:none;border-top:1px solid #eee;margin:0 0 24px;" />
               <p style="margin:0;font-size:13px;color:#999;text-align:center;line-height:1.6;">
                 Fuerza del Pueblo &middot; Ver&#243;n&#8211;Punta Cana<br/>
-                <a href="https://www.fuerzadelpueblo.do" style="color:#00A651;text-decoration:none;">www.fuerzadelpueblo.do</a>
+                <a href="https://www.fuerzadelpuebloveronpuntacana.com" style="color:#00A651;text-decoration:none;">www.fuerzadelpuebloveronpuntacana.com</a>
               </p>
             </td>
           </tr>
