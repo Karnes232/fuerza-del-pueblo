@@ -1,20 +1,23 @@
-// components/ContactForm.tsx
+// components/ContactPage/ContactForm.tsx
 "use client"
 
 import { useState } from "react"
 import { Send } from "lucide-react"
 import { FormInput } from "@/components/ContactPage/FormInput"
 import { FormTextarea } from "@/components/ContactPage/FormTextarea"
+import { sendContactEmail } from "@/app/actions/contact.action"
 import { ContactFormProps, ContactFormData } from "@/types/contact.types"
 
+const EMPTY_FORM: ContactFormData = {
+  name: "",
+  email: "",
+  phone: "",
+  subject: "",
+  message: "",
+}
+
 export const ContactForm = ({ onSubmit }: ContactFormProps) => {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  })
+  const [formData, setFormData] = useState<ContactFormData>(EMPTY_FORM)
 
   const [errors, setErrors] = useState<
     Partial<Record<keyof ContactFormData, string>>
@@ -23,6 +26,7 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle")
+  const [serverMessage, setServerMessage] = useState("")
 
   const validateForm = (): boolean => {
     const newErrors: Partial<Record<keyof ContactFormData, string>> = {}
@@ -54,33 +58,35 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (!validateForm()) {
-      return
-    }
+    if (!validateForm()) return
 
     setIsSubmitting(true)
     setSubmitStatus("idle")
+    setServerMessage("")
 
     try {
+      let succeeded = false
       if (onSubmit) {
+        // Custom handler injected by parent (e.g. for testing or overrides)
         await onSubmit(formData)
+        setSubmitStatus("success")
+        succeeded = true
       } else {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500))
-        console.log("Form data:", formData)
+        const result = await sendContactEmail(formData)
+        setServerMessage(result.message)
+        succeeded = result.success
+        setSubmitStatus(result.success ? "success" : "error")
       }
 
-      setSubmitStatus("success")
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      })
-      setErrors({})
-    } catch (error) {
+      if (succeeded) {
+        setFormData(EMPTY_FORM)
+        setErrors({})
+      }
+    } catch {
       setSubmitStatus("error")
+      setServerMessage(
+        "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo."
+      )
     } finally {
       setIsSubmitting(false)
     }
@@ -88,7 +94,6 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
 
   const updateField = (field: keyof ContactFormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
-    // Clear error when user starts typing
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: undefined }))
     }
@@ -156,8 +161,8 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
       {submitStatus === "success" && (
         <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
           <p className="text-green-800 font-medium">
-            ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo
-            pronto.
+            {serverMessage ||
+              "¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto."}
           </p>
         </div>
       )}
@@ -165,7 +170,8 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
       {submitStatus === "error" && (
         <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
           <p className="text-red-800 font-medium">
-            Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.
+            {serverMessage ||
+              "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo."}
           </p>
         </div>
       )}
