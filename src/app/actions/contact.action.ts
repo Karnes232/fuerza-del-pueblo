@@ -3,16 +3,17 @@
 
 import { Resend } from "resend"
 import type { ContactFormData } from "@/types/contact.types"
+import { createClient } from "@/lib/supabase/client"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 // The inbox that receives contact form submissions
 const RECIPIENT_EMAIL =
-  process.env.CONTACT_RECIPIENT_EMAIL ?? "info@fuerzadelpueblo.do"
+  process.env.CONTACT_RECIPIENT_EMAIL ?? "info@fuerzadelpuebloveronpuntacana.com"
 
 // The "from" address — must be a verified domain in your Resend account
 const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL ?? "noreply@fuerzadelpueblo.do"
+  process.env.RESEND_FROM_EMAIL ?? "info@fuerzadelpuebloveronpuntacana.com"
 
 const GENERIC_SEND_FAILURE =
   "Ocurrió un error al enviar el mensaje. Por favor inténtalo de nuevo o contáctanos directamente."
@@ -62,6 +63,34 @@ export async function sendContactEmail(data: ContactFormData): Promise<{
       message: "Por favor ingresa un correo electrónico válido.",
     }
   }
+
+  // ── 1. Save to Supabase ───────────────────────────────────────────────────────
+  // We save first so the submission is never lost even if email delivery fails.
+  try {
+    const supabase = createClient()
+
+    const record: any = {
+      name: data.name.trim(),
+      email: data.email.trim().toLowerCase(),
+      phone: data.phone?.trim() || null,
+      subject: data.subject.trim(),
+      message: data.message.trim(),
+      status: "new",
+  //    ip_address: null, // Optionally pass from headers() if needed
+    }
+    
+    const { error: dbError } = await supabase
+      .from("contact_submissions")
+      .insert(record)
+
+    if (dbError) {
+      // Log but don't block — we still try to send the email
+      console.error("[ContactAction] Supabase insert error:", dbError.message)
+    }
+  } catch (dbException) {
+    console.error("[ContactAction] Supabase exception:", dbException)
+  }
+ 
 
   try {
     // Resend returns { data, error } — it does not throw on API errors.
