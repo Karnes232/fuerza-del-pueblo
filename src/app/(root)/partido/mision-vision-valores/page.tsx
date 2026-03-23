@@ -121,7 +121,7 @@ export async function generateMetadata() {
   if (!pageSeo) {
     return {}
   }
-  const canonicalUrl = `https://www.fuerzadelpueblo.do/partido/mision-vision-valores`
+  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/partido/mision-vision-valores`
   return {
     canonical: canonicalUrl,
     title: pageSeo.meta.title,

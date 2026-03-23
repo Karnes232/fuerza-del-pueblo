@@ -125,7 +125,7 @@ export async function generateMetadata({
   if (!seo) {
     return {}
   }
-  const canonicalUrl = `https://www.fuerzadelpueblo.do/eventos/${slug}`
+  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/eventos/${slug}`
 
   return {
     title: seo.meta.title,

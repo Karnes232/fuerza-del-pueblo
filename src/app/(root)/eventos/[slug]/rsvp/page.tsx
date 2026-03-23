@@ -1,6 +1,10 @@
 import { EventHero } from "@/components/IndividualEventPage/EventHero"
 import { EventRSVP } from "@/components/IndividualEventPage/EventRSVP"
-import { getIndividualEvent } from "@/sanity/queries/EventsPage/IndividualEvent"
+import {
+  getIndividualEvent,
+  getIndividualEventSeo,
+} from "@/sanity/queries/EventsPage/IndividualEvent"
+import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 export default async function RSVPPage({
@@ -36,4 +40,37 @@ export default async function RSVPPage({
       />
     </main>
   )
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const seo = await getIndividualEventSeo(slug)
+  if (!seo) {
+    return {}
+  }
+
+  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/eventos/${slug}/rsvp`
+
+  return {
+    title: seo.meta.title,
+    description: seo.meta.description,
+    keywords: seo.meta.keywords,
+    openGraph: {
+      url: canonicalUrl,
+      title: seo.openGraph.title,
+      description: seo.openGraph.description,
+      images: seo.openGraph.image?.asset.url,
+    },
+    robots: {
+      index: !seo.noIndex,
+      follow: !seo.noFollow,
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    },
+  }
 }

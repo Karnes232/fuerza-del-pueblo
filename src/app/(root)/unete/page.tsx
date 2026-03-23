@@ -106,7 +106,7 @@ export async function generateMetadata() {
   if (!pageSeo) {
     return {}
   }
-  const canonicalUrl = `https://www.fuerzadelpueblo.do/unete`
+  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/unete`
   return {
     canonical: canonicalUrl,
     title: pageSeo.meta.title,

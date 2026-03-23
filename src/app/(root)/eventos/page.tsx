@@ -113,7 +113,7 @@ export async function generateMetadata() {
   if (!pageSeo) {
     return {}
   }
-  const canonicalUrl = `https://www.fuerzadelpueblo.do/eventos`
+  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/eventos`
   return {
     canonical: canonicalUrl,
     title: pageSeo.meta.title,

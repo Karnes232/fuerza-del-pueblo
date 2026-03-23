@@ -5,6 +5,7 @@ import { NavbarContainer } from "@/components/layout/Nav/NavbarContainer"
 import { FooterContainer } from "@/components/layout/Footer/FooterContainer"
 import { Container } from "@/components/HomePage/Container"
 import { getGeneralLayout } from "@/sanity/queries/GeneralLayout/GeneraLayout"
+import { Metadata } from "next"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -84,4 +85,8 @@ export default async function NotFound() {
       </body>
     </html>
   )
+}
+export const metadata: Metadata = {
+  title: "Fuerza del Pueblo",
+  description: "Fuerza del Pueblo",
 }

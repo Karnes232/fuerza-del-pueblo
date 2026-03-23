@@ -104,7 +104,7 @@ export async function generateMetadata() {
   if (!pageSeo) {
     return {}
   }
-  const canonicalUrl = `https://www.fuerzadelpueblo.do/partido/liderazgo`
+  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/partido/liderazgo`
   return {
     canonical: canonicalUrl,
     title: pageSeo.meta.title,

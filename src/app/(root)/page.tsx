@@ -142,7 +142,7 @@ export async function generateMetadata() {
   if (!pageSeo) {
     return {}
   }
-  const canonicalUrl = `https://www.fuerzadelpueblo.do`
+  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/`
   return {
     canonical: canonicalUrl,
     title: pageSeo.meta.title,

@@ -131,7 +131,7 @@ export async function generateMetadata() {
   if (!pageSeo) {
     return {}
   }
-  const canonicalUrl = `https://www.fuerzadelpueblo.do/partido/historia`
+  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/partido/historia`
   return {
     canonical: canonicalUrl,
     title: pageSeo.meta.title,

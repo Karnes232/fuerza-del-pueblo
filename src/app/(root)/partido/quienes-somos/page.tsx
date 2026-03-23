@@ -107,7 +107,7 @@ export async function generateMetadata() {
   if (!pageSeo) {
     return {}
   }
-  const canonicalUrl = `https://www.fuerzadelpueblo.do/partido/quienes-somos`
+  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/partido/quienes-somos`
   return {
     canonical: canonicalUrl,
     title: pageSeo.meta.title,

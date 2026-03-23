@@ -127,7 +127,7 @@ export async function generateMetadata() {
   if (!pageSeo) {
     return {}
   }
-  const canonicalUrl = `https://www.fuerzadelpueblo.do/partido/candidatos`
+  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/partido/candidatos`
   return {
     canonical: canonicalUrl,
     title: pageSeo.meta.title,
