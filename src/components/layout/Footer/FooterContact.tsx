@@ -32,10 +32,10 @@ export const FooterContact = ({
   const displayPhone = formatPhoneDisplay(telephone)
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-start gap-3">
+    <div className="min-w-0 space-y-4">
+      <div className="flex min-w-0 items-start gap-3">
         <MapPin className="w-5 h-5 text-primaryGreen shrink-0 mt-0.5" />
-        <div>
+        <div className="min-w-0">
           <p className="text-white/60 text-xs mb-0.5">Dirección</p>
           <p className="text-white/90 text-sm">{address}</p>
         </div>
@@ -44,11 +44,11 @@ export const FooterContact = ({
         href={`tel:${telHref}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="block hover:opacity-80 transition-opacity"
+        className="block min-w-0 hover:opacity-80 transition-opacity"
       >
-        <div className="flex items-start gap-3">
+        <div className="flex min-w-0 items-start gap-3">
           <Phone className="w-5 h-5 text-primaryGreen shrink-0 mt-0.5" />
-          <div>
+          <div className="min-w-0">
             <p className="text-white/60 text-xs mb-0.5">Teléfono</p>
             <p className="text-white/90 text-sm">{displayPhone}</p>
           </div>
@@ -58,13 +58,13 @@ export const FooterContact = ({
         href={`mailto:${email}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="block hover:opacity-80 transition-opacity"
+        className="block min-w-0 max-w-full hover:opacity-80 transition-opacity"
       >
-        <div className="flex items-start gap-3">
+        <div className="flex min-w-0 items-start gap-3">
           <Mail className="w-5 h-5 text-primaryGreen shrink-0 mt-0.5" />
-          <div>
+          <div className="min-w-0">
             <p className="text-white/60 text-xs mb-0.5">Email</p>
-            <p className="text-white/90 text-sm">{email}</p>
+            <p className="text-white/90 text-sm truncate">{email}</p>
           </div>
         </div>
       </a>
@@ -72,11 +72,11 @@ export const FooterContact = ({
         href={`https://wa.me/${telHref}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="block hover:opacity-80 transition-opacity"
+        className="block min-w-0 hover:opacity-80 transition-opacity"
       >
-        <div className="flex items-start gap-3">
+        <div className="flex min-w-0 items-start gap-3">
           <MessageCircle className="w-5 h-5 text-primaryGreen shrink-0 mt-0.5" />
-          <div>
+          <div className="min-w-0">
             <p className="text-white/60 text-xs mb-0.5">WhatsApp</p>
             <p className="text-white/90 text-sm">{displayPhone}</p>
           </div>
