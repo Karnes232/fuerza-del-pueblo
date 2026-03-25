@@ -1,10 +1,14 @@
 import { getPageSeo } from "@/sanity/queries/SEO/seo"
+import { legalDocumentQuery } from "@/sanity/queries/LegalDocuments/LegalDocuments"
+import SanityBlogBody from "@/components/BlockContent/SanityBlogBody"
 
-export default function Terminos() {
+export default async function Terminos() {
+  const legalDocument = await legalDocumentQuery("terminos-y-condiciones")
+
   return (
-    <div>
-      <h1>Términos y Condiciones</h1>
-    </div>
+    <main className="py-12">
+      <SanityBlogBody content={legalDocument.legalDocument} />
+    </main>
   )
 }
 

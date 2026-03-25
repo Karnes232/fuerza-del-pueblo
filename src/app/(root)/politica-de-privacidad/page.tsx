@@ -1,10 +1,13 @@
+import SanityBlogBody from "@/components/BlockContent/SanityBlogBody"
+import { legalDocumentQuery } from "@/sanity/queries/LegalDocuments/LegalDocuments"
 import { getPageSeo } from "@/sanity/queries/SEO/seo"
 
-export default function Privacidad() {
+export default async function Privacidad() {
+  const legalDocument = await legalDocumentQuery("politica-de-privacidad")
   return (
-    <div>
-      <h1>Política de Privacidad</h1>
-    </div>
+    <main className="py-12">
+      <SanityBlogBody content={legalDocument.legalDocument} />
+    </main>
   )
 }
 

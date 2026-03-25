@@ -3,6 +3,9 @@ import { type SchemaTypeDefinition } from "sanity"
 //GeneralLayout
 import { generalLayoutType } from "./GeneralLayout/GeneralLayout"
 
+//LegalDocuments
+import { legalDocumentsType } from "./LegalDocuments/LegalDocuments"
+
 //SEO
 import { seoType } from "./SEO/seo"
 import { pageSeoType } from "./SEO/PageSeo"
@@ -88,6 +91,9 @@ export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     //GeneralLayout
     generalLayoutType,
+
+    //LegalDocuments
+    legalDocumentsType,
 
     //SEO
     seoType,

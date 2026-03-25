@@ -15,6 +15,14 @@ export const structure: StructureResolver = S =>
             .documentId("generalLayout"),
         ),
       S.listItem()
+        .title("Legal Documents")
+        .child(
+          S.documentList()
+            .schemaType("legalDocuments")
+            .title("Legal Documents")
+            .filter("_type == 'legalDocuments'"),
+        ),
+      S.listItem()
         .title("Page SEO")
         .child(
           S.documentList()
