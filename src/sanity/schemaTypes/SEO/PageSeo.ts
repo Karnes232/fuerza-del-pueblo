@@ -22,6 +22,8 @@ export const pageSeoType = defineType({
           { title: "Liderazgo", value: "liderazgo" },
           { title: "Historia", value: "historia" },
           { title: "Candidatos", value: "candidatos" },
+          { title: "Terminos y Condiciones", value: "terminos-y-condiciones" },
+          { title: "Política de Privacidad", value: "politica-de-privacidad" },
         ],
       },
       validation: Rule => Rule.required(),

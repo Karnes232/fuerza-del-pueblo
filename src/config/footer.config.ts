@@ -21,8 +21,8 @@ export const partyLinks: FooterLink[] = [
 
 // Legal Links
 export const legalLinks: FooterLink[] = [
-  { label: "Política de Privacidad", href: "/privacidad" },
-  { label: "Términos de Uso", href: "/terminos" },
+  { label: "Política de Privacidad", href: "/politica-de-privacidad" },
+  { label: "Términos de Uso", href: "/terminos-y-condiciones" },
 ]
 
 // Brand Colors (matching navbar)

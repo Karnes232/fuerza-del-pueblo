@@ -85,7 +85,7 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
     } catch {
       setSubmitStatus("error")
       setServerMessage(
-        "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo."
+        "Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.",
       )
     } finally {
       setIsSubmitting(false)

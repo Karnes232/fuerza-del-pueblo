@@ -9,7 +9,8 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 
 // The inbox that receives contact form submissions
 const RECIPIENT_EMAIL =
-  process.env.CONTACT_RECIPIENT_EMAIL ?? "info@fuerzadelpuebloveronpuntacana.com"
+  process.env.CONTACT_RECIPIENT_EMAIL ??
+  "info@fuerzadelpuebloveronpuntacana.com"
 
 // The "from" address — must be a verified domain in your Resend account
 const FROM_EMAIL =
@@ -76,9 +77,9 @@ export async function sendContactEmail(data: ContactFormData): Promise<{
       subject: data.subject.trim(),
       message: data.message.trim(),
       status: "new",
-  //    ip_address: null, // Optionally pass from headers() if needed
+      //    ip_address: null, // Optionally pass from headers() if needed
     }
-    
+
     const { error: dbError } = await supabase
       .from("contact_submissions")
       .insert(record)
@@ -90,7 +91,6 @@ export async function sendContactEmail(data: ContactFormData): Promise<{
   } catch (dbException) {
     console.error("[ContactAction] Supabase exception:", dbException)
   }
- 
 
   try {
     // Resend returns { data, error } — it does not throw on API errors.
@@ -104,7 +104,11 @@ export async function sendContactEmail(data: ContactFormData): Promise<{
     })
     if (internal.error) {
       const detail = resendErrorMessage(internal.error)
-      console.error("[ContactAction] Resend (internal):", detail, internal.error)
+      console.error(
+        "[ContactAction] Resend (internal):",
+        detail,
+        internal.error,
+      )
       return {
         success: false,
         message: SHOW_RESEND_ERROR_DETAILS
@@ -125,7 +129,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<{
       console.error(
         "[ContactAction] Resend (confirmation):",
         detail,
-        confirmation.error
+        confirmation.error,
       )
       return {
         success: false,
@@ -243,8 +247,12 @@ function buildConfirmationEmailHtml(data: ContactFormData): string {
 function emailField(label: string, value: string): string {
   return (
     '<div style="margin-bottom:20px;">' +
-    '<p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;">' + label + "</p>" +
-    '<p style="margin:0;font-size:15px;color:#111;">' + value + "</p>" +
+    '<p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;">' +
+    label +
+    "</p>" +
+    '<p style="margin:0;font-size:15px;color:#111;">' +
+    value +
+    "</p>" +
     "</div>"
   )
 }
