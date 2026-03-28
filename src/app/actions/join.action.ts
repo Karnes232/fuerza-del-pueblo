@@ -3,6 +3,7 @@
 import { Resend } from "resend"
 import type { JoinFormData } from "@/types/unete.types"
 import { createClient } from "@/lib/supabase/client"
+import { addNewsletterSubscriber } from "@/app/actions/newsletter.action"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -98,6 +99,8 @@ export async function submitJoinForm(data: JoinFormData): Promise<{
 
     if (dbError) {
       console.error("[JoinAction] Supabase insert error:", dbError.message)
+    } else if (data.receiveUpdates) {
+      await addNewsletterSubscriber(normalizedEmail)
     }
   } catch (dbException) {
     console.error("[JoinAction] Supabase exception:", dbException)
