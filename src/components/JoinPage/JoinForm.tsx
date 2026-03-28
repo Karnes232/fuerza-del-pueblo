@@ -8,6 +8,7 @@ import { FormTextarea } from "@/components/ContactPage/FormTextarea"
 import { FormCheckbox } from "@/components/JoinPage/FormCheckbox"
 import { JoinFormProps, JoinFormData } from "@/types/unete.types"
 import { useMembershipSelection } from "./MembershipSelectionContext"
+import { submitJoinForm } from "@/app/actions/join.action"
 
 export const JoinForm = ({
   onSubmit,
@@ -44,23 +45,18 @@ export const JoinForm = ({
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle")
+  const [errorMessage, setErrorMessage] = useState("")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus("idle")
+    setErrorMessage("")
 
-    try {
-      if (onSubmit) {
-        await onSubmit(formData)
-      } else {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 2000))
-        console.log("Form submitted:", formData)
-      }
+    const result = await submitJoinForm(formData)
 
+    if (result.success) {
       setSubmitStatus("success")
-      // Reset form
       setFormData({
         firstName: "",
         lastName: "",
@@ -69,18 +65,19 @@ export const JoinForm = ({
         dateOfBirth: "",
         address: "",
         city: "",
-        membershipType: "simpatizante",
+        membershipType: "",
         interests: [],
         availability: [],
         motivation: "",
         agreeToTerms: false,
         receiveUpdates: true,
       })
-    } catch (error) {
+    } else {
       setSubmitStatus("error")
-    } finally {
-      setIsSubmitting(false)
+      setErrorMessage(result.message)
     }
+
+    setIsSubmitting(false)
   }
 
   const toggleInterest = (interest: string) => {
@@ -277,8 +274,7 @@ export const JoinForm = ({
       {submitStatus === "success" && (
         <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
           <p className="text-green-800 font-medium">
-            ¡Registro exitoso! Te hemos enviado un correo de confirmación.
-            ¡Bienvenido a Fuerza del Pueblo!
+            ¡Registro exitoso! Te hemos enviado un correo de confirmación. ¡Bienvenido a Fuerza del Pueblo!
           </p>
         </div>
       )}
@@ -286,7 +282,7 @@ export const JoinForm = ({
       {submitStatus === "error" && (
         <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
           <p className="text-red-800 font-medium">
-            Hubo un error al procesar tu registro. Por favor, intenta de nuevo.
+            {errorMessage || "Hubo un error al procesar tu registro. Por favor, intenta de nuevo."}
           </p>
         </div>
       )}
@@ -294,8 +290,8 @@ export const JoinForm = ({
       {/* Submit Button */}
       <button
         type="submit"
-        disabled={isSubmitting}
-        className="w-full bg-[#00A651] text-white px-6 py-4 rounded-lg font-semibold hover:bg-[#008d45] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg text-lg"
+        disabled={isSubmitting || !formData.agreeToTerms}
+        className="w-full bg-[#00A651] text-white px-6 py-4 rounded-lg font-semibold hover:bg-[#008d45] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-md hover:shadow-lg text-lg"
       >
         {isSubmitting ? (
           <>
