@@ -41,7 +41,7 @@ export interface JoinFormData {
   dateOfBirth: string
   address: string
   city: string
-  membershipType: "simpatizante" | "militante" | "voluntario"
+  membershipType: "simpatizante" | "militante" | "voluntario" | ""
   interests: string[]
   availability: string[]
   motivation: string

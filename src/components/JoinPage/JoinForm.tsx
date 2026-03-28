@@ -23,7 +23,7 @@ export const JoinForm = ({
     dateOfBirth: "",
     address: "",
     city: "",
-    membershipType: "simpatizante",
+    membershipType: "",
     interests: [],
     availability: [],
     motivation: "",
