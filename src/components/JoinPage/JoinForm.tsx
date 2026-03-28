@@ -1,12 +1,13 @@
 // components/JoinForm.tsx
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import * as Icons from "lucide-react"
 import { FormInput } from "@/components/ContactPage/FormInput"
 import { FormTextarea } from "@/components/ContactPage/FormTextarea"
 import { FormCheckbox } from "@/components/JoinPage/FormCheckbox"
 import { JoinFormProps, JoinFormData } from "@/types/unete.types"
+import { useMembershipSelection } from "./MembershipSelectionContext"
 
 export const JoinForm = ({
   onSubmit,
@@ -29,6 +30,15 @@ export const JoinForm = ({
     agreeToTerms: false,
     receiveUpdates: true,
   })
+
+  const { selectedTier } = useMembershipSelection()
+
+  useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      membershipType: selectedTier as JoinFormData["membershipType"],
+    }))
+  }, [selectedTier])
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<

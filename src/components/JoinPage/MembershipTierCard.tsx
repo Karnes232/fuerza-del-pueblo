@@ -1,11 +1,15 @@
 // components/MembershipTierCard.tsx
+"use client"
+
 import { Check, Circle } from "lucide-react"
 import { MembershipTierCardProps } from "@/types/unete.types"
+import { useMembershipSelection } from "./MembershipSelectionContext"
 
 export const MembershipTierCard = ({
   tier,
   onSelect,
 }: MembershipTierCardProps) => {
+  const { setSelectedTier } = useMembershipSelection()
   return (
     <div
       className={`bg-white p-8 rounded-lg shadow-lg border-2 transition-all duration-300 hover:shadow-2xl relative ${
@@ -71,7 +75,10 @@ export const MembershipTierCard = ({
       {/* Select Button */}
       <a
         href="#registro"
-        onClick={onSelect}
+        onClick={() => {
+          setSelectedTier(tier.id)
+          onSelect?.()
+        }}
         className={`block w-full text-center px-6 py-3 rounded-lg font-semibold transition-colors ${
           tier.recommended
             ? "bg-[#00A651] text-white hover:bg-[#008d45]"

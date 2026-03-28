@@ -1,6 +1,7 @@
 import { FAQSection } from "@/components/JoinPage/FAQSection"
 import { JoinFormSection } from "@/components/JoinPage/JoinFormSection"
 import { MembershipTiersSection } from "@/components/JoinPage/MembershipTiersSection"
+import { MembershipSelectionProvider } from "@/components/JoinPage/MembershipSelectionContext"
 import { TestimonialsSection } from "@/components/JoinPage/TestimonialsSection"
 import { UneteCTA } from "@/components/JoinPage/UneteCTA"
 import { UneteHero } from "@/components/JoinPage/UneteHero"
@@ -61,20 +62,22 @@ export default async function UnetePage() {
           benefits={whyJoinSection.benefits}
         />
 
-        {/* Membership Tiers Section */}
-        <MembershipTiersSection
-          title={memberShipTierSection.title}
-          subtitle={memberShipTierSection.subtitle}
-          tiers={memberShipTierSection.tiers}
-        />
+        {/* Membership Tiers Section + Join Form wired together */}
+        <MembershipSelectionProvider>
+          <MembershipTiersSection
+            title={memberShipTierSection.title}
+            subtitle={memberShipTierSection.subtitle}
+            tiers={memberShipTierSection.tiers}
+          />
 
-        {/* Join Form Section */}
-        <JoinFormSection
-          title={joinPageFormSection.title}
-          subtitle={joinPageFormSection.subtitle}
-          interestAreas={joinPageFormSection.interestAreas}
-          availabilityOptions={joinPageFormSection.availabilityOptions}
-        />
+          {/* Join Form Section */}
+          <JoinFormSection
+            title={joinPageFormSection.title}
+            subtitle={joinPageFormSection.subtitle}
+            interestAreas={joinPageFormSection.interestAreas}
+            availabilityOptions={joinPageFormSection.availabilityOptions}
+          />
+        </MembershipSelectionProvider>
 
         {/* Testimonials Section */}
         <TestimonialsSection
