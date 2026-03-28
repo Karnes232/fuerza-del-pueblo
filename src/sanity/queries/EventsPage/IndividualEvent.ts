@@ -97,7 +97,6 @@ export interface IndividualEvent {
     contact: string
   }
   capacity: number
-  attendees: number
   requirements: string[]
   whatToBring: string[]
   schedule: {
@@ -115,7 +114,7 @@ export interface IndividualEvent {
 export const individualEventQuery = `*[_type == "individualEvent" && slug.current == $slug][0] {
     title,
     slug,
-    id,
+    "id": id.current,
     category -> {
         name
     },
@@ -144,7 +143,6 @@ export const individualEventQuery = `*[_type == "individualEvent" && slug.curren
     fullDescription,
     organizer,
     capacity,
-    attendees,
     requirements,
     whatToBring,
     schedule,

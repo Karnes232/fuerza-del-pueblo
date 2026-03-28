@@ -12,12 +12,12 @@ import {
   getIndividualEventSeo,
   getNextThreeEvents,
 } from "@/sanity/queries/EventsPage/IndividualEvent"
-
+import { getEventAttendees } from "@/app/actions/rsvp.action"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
-// This is mock data - replace with actual data fetching from Sanity
+
 export default async function EventPage({
   params,
 }: {
@@ -37,6 +37,7 @@ export default async function EventPage({
   if (!individualEvent) {
     return notFound()
   }
+  const attendees = await getEventAttendees(individualEvent.id)
 
   const eventDateUTC = new Date(`${individualEvent.date}T00:00:00Z`)
   const rsvpEnabled = individualEvent.date
@@ -69,7 +70,7 @@ export default async function EventPage({
         fullDescription={individualEvent.fullDescription}
         organizer={individualEvent.organizer}
         capacity={individualEvent.capacity}
-        attendees={individualEvent.attendees}
+        attendees={attendees}
         requirements={individualEvent.requirements}
         whatToBring={individualEvent.whatToBring}
       />
@@ -93,11 +94,12 @@ export default async function EventPage({
       {/* RSVP Form */}
       <EventRSVP
         eventId={individualEvent.id}
+        eventSlug={slug}
         eventTitle={individualEvent.title}
         eventDate={individualEvent.date}
         rsvpEnabled={rsvpEnabled}
         capacity={individualEvent.capacity}
-        attendees={individualEvent.attendees}
+        attendees={attendees}
       />
 
       {/* Related Events */}

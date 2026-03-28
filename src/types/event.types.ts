@@ -57,6 +57,7 @@ export interface EventScheduleProps {
 
 export interface EventRSVPProps {
   eventId: string
+  eventSlug: string
   eventTitle: string
   eventDate: string
   rsvpEnabled: boolean

@@ -5,9 +5,11 @@ import { useState } from "react"
 import { Container } from "@/components/HomePage/Container"
 import { EventRSVPProps } from "@/types/event.types"
 import { CheckCircle, AlertCircle } from "lucide-react"
+import { submitRSVP } from "@/app/actions/rsvp.action"
 
 export const EventRSVP = ({
   eventId,
+  eventSlug,
   eventTitle,
   eventDate,
   rsvpEnabled,
@@ -30,19 +32,18 @@ export const EventRSVP = ({
     e.preventDefault()
     setError("")
 
-    // Basic validation
     if (!formData.name || !formData.email || !formData.phone) {
       setError("Por favor completa todos los campos requeridos")
       return
     }
 
-    // Here you would typically send to your backend
-    console.log("RSVP Submission:", {
-      eventId,
-      ...formData,
-    })
+    const result = await submitRSVP(eventId, eventSlug, formData)
 
-    // Simulate success
+    if (!result.success) {
+      setError(result.message)
+      return
+    }
+
     setSubmitted(true)
   }
 

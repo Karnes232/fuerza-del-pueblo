@@ -4,6 +4,7 @@ import {
   getIndividualEvent,
   getIndividualEventSeo,
 } from "@/sanity/queries/EventsPage/IndividualEvent"
+import { getEventAttendees } from "@/app/actions/rsvp.action"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
@@ -17,6 +18,8 @@ export default async function RSVPPage({
   if (!individualEvent) {
     return notFound()
   }
+
+  const attendees = await getEventAttendees(individualEvent.id)
 
   return (
     <main>
@@ -32,11 +35,12 @@ export default async function RSVPPage({
       {/* RSVP Form */}
       <EventRSVP
         eventId={individualEvent.id}
+        eventSlug={slug}
         eventTitle={individualEvent.title}
         eventDate={individualEvent.date}
         rsvpEnabled={true}
         capacity={individualEvent.capacity}
-        attendees={individualEvent.attendees}
+        attendees={attendees}
       />
     </main>
   )
