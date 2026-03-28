@@ -5,6 +5,7 @@ import { useState } from "react"
 import { Send } from "lucide-react"
 import { FooterNewsletterProps } from "@/types/footer.types"
 import { footerContent } from "@/config/footer.config"
+import { addNewsletterSubscriber } from "@/app/actions/newsletter.action"
 
 export const FooterNewsletter = ({ onSubmit }: FooterNewsletterProps) => {
   const [email, setEmail] = useState("")
@@ -20,6 +21,7 @@ export const FooterNewsletter = ({ onSubmit }: FooterNewsletterProps) => {
     }
 
     setIsSubmitting(true)
+
     setMessage("")
 
     try {
@@ -27,11 +29,19 @@ export const FooterNewsletter = ({ onSubmit }: FooterNewsletterProps) => {
       if (onSubmit) {
         await onSubmit(email)
       }
+      const result = await addNewsletterSubscriber(email)
+      console.log(result)
+      if (result.success) {
+        setMessage(result.message)
+        setEmail("")
+      } else {
+        setMessage(result.message)
+      }
 
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // await new Promise(resolve => setTimeout(resolve, 1000))
 
-      setMessage("¡Gracias por suscribirte!")
+      // setMessage("¡Gracias por suscribirte!")
       setEmail("")
     } catch (error) {
       setMessage("Hubo un error. Intenta de nuevo.")

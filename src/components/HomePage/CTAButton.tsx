@@ -32,6 +32,7 @@ export const CTAButton = ({
   return (
     <Link
       href={href}
+      target={'_blank'}
       className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
     >
       {text}
