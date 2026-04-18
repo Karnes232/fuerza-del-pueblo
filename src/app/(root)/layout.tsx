@@ -35,6 +35,13 @@ export default async function RootLayout({
   const generalLayout = await getGeneralLayout()
   return (
     <html lang="es" className={`${montserrat.variable} ${openSans.variable}`}>
+      <head>
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="sn1RFrXVBFoWytPCSPdhfQ"
+          async
+        ></script>
+      </head>
       <body className="antialiased overflow-x-hidden">
         <NavbarContainer logo={generalLayout.logo} />
         {children}

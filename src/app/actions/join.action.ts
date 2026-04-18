@@ -63,7 +63,7 @@ export async function submitJoinForm(data: JoinFormData): Promise<{
       .from("member_applications")
       .select("id")
       .eq("email", normalizedEmail)
-    
+
     if (checkError) {
       console.error("[JoinAction] Supabase check error:", checkError.message)
       return {

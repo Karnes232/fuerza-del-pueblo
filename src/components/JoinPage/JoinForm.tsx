@@ -274,7 +274,8 @@ export const JoinForm = ({
       {submitStatus === "success" && (
         <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
           <p className="text-green-800 font-medium">
-            ¡Registro exitoso! Te hemos enviado un correo de confirmación. ¡Bienvenido a Fuerza del Pueblo!
+            ¡Registro exitoso! Te hemos enviado un correo de confirmación.
+            ¡Bienvenido a Fuerza del Pueblo!
           </p>
         </div>
       )}
@@ -282,7 +283,8 @@ export const JoinForm = ({
       {submitStatus === "error" && (
         <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
           <p className="text-red-800 font-medium">
-            {errorMessage || "Hubo un error al procesar tu registro. Por favor, intenta de nuevo."}
+            {errorMessage ||
+              "Hubo un error al procesar tu registro. Por favor, intenta de nuevo."}
           </p>
         </div>
       )}

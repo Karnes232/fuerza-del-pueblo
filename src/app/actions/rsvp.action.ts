@@ -1,4 +1,4 @@
-'use server'
+"use server"
 import { createClient } from "@/lib/supabase/server"
 import { cookies } from "next/headers"
 import { revalidatePath } from "next/cache"
@@ -22,9 +22,9 @@ export async function submitRSVP(
     .select("id")
     .eq("event_id", eventId)
     .eq("email", formData.email)
-    // .maybeSingle()
+  // .maybeSingle()
 
-  if(checkError) {
+  if (checkError) {
     return {
       success: false,
       message: "Error al verificar si el correo ya está registrado",

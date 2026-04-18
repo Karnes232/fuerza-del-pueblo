@@ -20,7 +20,9 @@ export function MembershipSelectionProvider({
 }) {
   const [selectedTier, setSelectedTier] = useState("simpatizante")
   return (
-    <MembershipSelectionContext.Provider value={{ selectedTier, setSelectedTier }}>
+    <MembershipSelectionContext.Provider
+      value={{ selectedTier, setSelectedTier }}
+    >
       {children}
     </MembershipSelectionContext.Provider>
   )

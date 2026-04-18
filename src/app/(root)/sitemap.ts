@@ -31,13 +31,41 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/unete`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${SITE_URL}/noticias`, changeFrequency: "daily", priority: 0.9 },
     { url: `${SITE_URL}/eventos`, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${SITE_URL}/partido/quienes-somos`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/partido/mision-vision-valores`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/partido/historia`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/partido/liderazgo`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${SITE_URL}/partido/candidatos`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${SITE_URL}/terminos-y-condiciones`, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${SITE_URL}/politica-de-privacidad`, changeFrequency: "yearly", priority: 0.3 },
+    {
+      url: `${SITE_URL}/partido/quienes-somos`,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/partido/mision-vision-valores`,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/partido/historia`,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/partido/liderazgo`,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/partido/candidatos`,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/terminos-y-condiciones`,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/politica-de-privacidad`,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
   ]
 
   const newsEntries: MetadataRoute.Sitemap = newsRows.map(row => ({

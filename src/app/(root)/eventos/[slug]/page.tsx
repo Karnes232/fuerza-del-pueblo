@@ -17,7 +17,6 @@ import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
-
 export default async function EventPage({
   params,
 }: {
