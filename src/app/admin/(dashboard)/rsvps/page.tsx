@@ -1,3 +1,4 @@
+import { phoneToWhatsAppUrl } from "@/lib/phoneToWhatsAppUrl"
 import { adminClient } from "@/lib/supabase/admin"
 
 export const metadata = {
@@ -42,23 +43,50 @@ export default async function RsvpsPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              {rows.map((row) => (
-                <tr key={row.id} className="hover:bg-gray-50">
-                  <Td>{row.name}</Td>
-                  <Td>{row.email}</Td>
-                  <Td>{row.phone}</Td>
-                  <Td>{row.guests}</Td>
-                  <Td className="max-w-[160px]">
-                    <span
-                      className="block truncate text-gray-400 font-mono text-xs"
-                      title={row.event_id}
-                    >
-                      {row.event_id}
-                    </span>
-                  </Td>
-                  <Td>{formatDate(row.created_at)}</Td>
-                </tr>
-              ))}
+              {rows.map((row) => {
+                const waUrl = phoneToWhatsAppUrl(row.phone)
+                return (
+                  <tr key={row.id} className="hover:bg-gray-50">
+                    <Td>{row.name}</Td>
+                    <Td>
+                      {row.email ? (
+                        <a
+                          href={`mailto:${row.email}`}
+                          className="text-darkGreen hover:underline"
+                        >
+                          {row.email}
+                        </a>
+                      ) : (
+                        <span className="text-gray-500">—</span>
+                      )}
+                    </Td>
+                    <Td>
+                      {waUrl && row.phone ? (
+                        <a
+                          href={waUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-darkGreen hover:underline"
+                        >
+                          {row.phone}
+                        </a>
+                      ) : (
+                        <span className="text-gray-500">—</span>
+                      )}
+                    </Td>
+                    <Td>{row.guests}</Td>
+                    <Td className="max-w-[160px]">
+                      <span
+                        className="block truncate text-gray-400 font-mono text-xs"
+                        title={row.event_id}
+                      >
+                        {row.event_id}
+                      </span>
+                    </Td>
+                    <Td>{formatDate(row.created_at)}</Td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         )}

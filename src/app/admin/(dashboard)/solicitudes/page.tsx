@@ -1,3 +1,4 @@
+import { phoneToWhatsAppUrl } from "@/lib/phoneToWhatsAppUrl"
 import { adminClient } from "@/lib/supabase/admin"
 
 export const metadata = {
@@ -44,20 +45,47 @@ export default async function SolicitudesPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              {rows.map((row) => (
-                <tr key={row.id} className="hover:bg-gray-50">
-                  <Td>
-                    {row.first_name} {row.last_name}
-                  </Td>
-                  <Td>{row.email}</Td>
-                  <Td>{row.phone}</Td>
-                  <Td className="capitalize">{row.membership_type}</Td>
-                  <Td>
-                    <StatusBadge status={row.status} />
-                  </Td>
-                  <Td>{formatDate(row.created_at)}</Td>
-                </tr>
-              ))}
+              {rows.map((row) => {
+                const waUrl = phoneToWhatsAppUrl(row.phone)
+                return (
+                  <tr key={row.id} className="hover:bg-gray-50">
+                    <Td>
+                      {row.first_name} {row.last_name}
+                    </Td>
+                    <Td>
+                      {row.email ? (
+                        <a
+                          href={`mailto:${row.email}`}
+                          className="text-darkGreen hover:underline"
+                        >
+                          {row.email}
+                        </a>
+                      ) : (
+                        <span className="text-gray-500">—</span>
+                      )}
+                    </Td>
+                    <Td>
+                      {waUrl && row.phone ? (
+                        <a
+                          href={waUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-darkGreen hover:underline"
+                        >
+                          {row.phone}
+                        </a>
+                      ) : (
+                        <span className="text-gray-500">—</span>
+                      )}
+                    </Td>
+                    <Td className="capitalize">{row.membership_type}</Td>
+                    <Td>
+                      <StatusBadge status={row.status} />
+                    </Td>
+                    <Td>{formatDate(row.created_at)}</Td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         )}

@@ -63,7 +63,18 @@ export default async function AdminDashboardPage() {
                   <td className="py-2 pr-4 text-charcoal">
                     {row.first_name} {row.last_name}
                   </td>
-                  <td className="py-2 pr-4 text-gray-500">{row.email}</td>
+                  <td className="py-2 pr-4">
+                    {row.email ? (
+                      <a
+                        href={`mailto:${row.email}`}
+                        className="text-darkGreen hover:underline"
+                      >
+                        {row.email}
+                      </a>
+                    ) : (
+                      <span className="text-gray-500">—</span>
+                    )}
+                  </td>
                   <td className="py-2 pr-4 capitalize text-gray-500">
                     {row.membership_type}
                   </td>

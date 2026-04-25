@@ -45,7 +45,18 @@ export default async function ContactosPage() {
               {rows.map((row) => (
                 <tr key={row.id} className="hover:bg-gray-50">
                   <Td>{row.name}</Td>
-                  <Td>{row.email}</Td>
+                  <Td>
+                    {row.email ? (
+                      <a
+                        href={`mailto:${row.email}`}
+                        className="text-darkGreen hover:underline"
+                      >
+                        {row.email}
+                      </a>
+                    ) : (
+                      <span className="text-gray-500">—</span>
+                    )}
+                  </Td>
                   <Td>{row.subject}</Td>
                   <Td className="max-w-xs">
                     <span
