@@ -16,6 +16,8 @@ All secrets live in `.env.local` (gitignored). Never commit this file.
 |---|---|
 | `NEXT_PUBLIC_SUPABASE_URL` | Project URL from Supabase dashboard |
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY` | Anon/public key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Service role key (server-only, bypasses RLS) — used for admin data reads |
+| `ADMIN_ALLOWED_EMAILS` | Comma-separated list of Google email addresses allowed into `/admin` |
 
 ### Resend (email)
 | Variable | Description |
