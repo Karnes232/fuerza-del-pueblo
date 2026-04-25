@@ -22,7 +22,7 @@ export default async function SolicitudesPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-charcoal mb-6">
+      <h1 className="text-xl lg:text-2xl font-bold text-charcoal mb-4 lg:mb-6">
         Solicitudes de membresía
         <span className="ml-3 text-base font-normal text-gray-400">
           ({rows.length})
@@ -33,61 +33,107 @@ export default async function SolicitudesPage() {
         {rows.length === 0 ? (
           <p className="p-6 text-sm text-gray-400">No hay solicitudes aún.</p>
         ) : (
-          <table className="w-full text-sm">
-            <thead className="bg-lightGray">
-              <tr className="text-left text-gray-500">
-                <Th>Nombre</Th>
-                <Th>Correo</Th>
-                <Th>Teléfono</Th>
-                <Th>Tipo</Th>
-                <Th>Estado</Th>
-                <Th>Fecha</Th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-100">
-              {rows.map((row) => {
+          <>
+            {/* Mobile cards */}
+            <div className="lg:hidden divide-y divide-gray-100">
+              {rows.map(row => {
                 const waUrl = phoneToWhatsAppUrl(row.phone)
                 return (
-                  <tr key={row.id} className="hover:bg-gray-50">
-                    <Td>
-                      {row.first_name} {row.last_name}
-                    </Td>
-                    <Td>
-                      {row.email ? (
-                        <a
-                          href={`mailto:${row.email}`}
-                          className="text-darkGreen hover:underline"
-                        >
-                          {row.email}
-                        </a>
-                      ) : (
-                        <span className="text-gray-500">—</span>
-                      )}
-                    </Td>
-                    <Td>
-                      {waUrl && row.phone ? (
-                        <a
-                          href={waUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-darkGreen hover:underline"
-                        >
-                          {row.phone}
-                        </a>
-                      ) : (
-                        <span className="text-gray-500">—</span>
-                      )}
-                    </Td>
-                    <Td className="capitalize">{row.membership_type}</Td>
-                    <Td>
+                  <div key={row.id} className="p-4 space-y-1.5">
+                    <div className="flex items-start justify-between gap-3">
+                      <p className="font-semibold text-charcoal text-sm">
+                        {row.first_name} {row.last_name}
+                      </p>
                       <StatusBadge status={row.status} />
-                    </Td>
-                    <Td>{formatDate(row.created_at)}</Td>
-                  </tr>
+                    </div>
+                    <p className="text-sm text-gray-500 capitalize">
+                      {row.membership_type}
+                    </p>
+                    {row.email && (
+                      <a
+                        href={`mailto:${row.email}`}
+                        className="block text-sm text-darkGreen"
+                      >
+                        {row.email}
+                      </a>
+                    )}
+                    {waUrl && row.phone && (
+                      <a
+                        href={waUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-sm text-darkGreen"
+                      >
+                        {row.phone}
+                      </a>
+                    )}
+                    <p className="text-xs text-gray-400">
+                      {formatDate(row.created_at)}
+                    </p>
+                  </div>
                 )
               })}
-            </tbody>
-          </table>
+            </div>
+
+            {/* Desktop table */}
+            <div className="hidden lg:block">
+              <table className="w-full text-sm">
+                <thead className="bg-lightGray">
+                  <tr className="text-left text-gray-500">
+                    <Th>Nombre</Th>
+                    <Th>Correo</Th>
+                    <Th>Teléfono</Th>
+                    <Th>Tipo</Th>
+                    <Th>Estado</Th>
+                    <Th>Fecha</Th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {rows.map(row => {
+                    const waUrl = phoneToWhatsAppUrl(row.phone)
+                    return (
+                      <tr key={row.id} className="hover:bg-gray-50">
+                        <Td>
+                          {row.first_name} {row.last_name}
+                        </Td>
+                        <Td>
+                          {row.email ? (
+                            <a
+                              href={`mailto:${row.email}`}
+                              className="text-darkGreen hover:underline"
+                            >
+                              {row.email}
+                            </a>
+                          ) : (
+                            <span className="text-gray-500">—</span>
+                          )}
+                        </Td>
+                        <Td>
+                          {waUrl && row.phone ? (
+                            <a
+                              href={waUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-darkGreen hover:underline"
+                            >
+                              {row.phone}
+                            </a>
+                          ) : (
+                            <span className="text-gray-500">—</span>
+                          )}
+                        </Td>
+                        <Td className="capitalize">{row.membership_type}</Td>
+                        <Td>
+                          <StatusBadge status={row.status} />
+                        </Td>
+                        <Td>{formatDate(row.created_at)}</Td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </>
         )}
       </div>
     </div>
@@ -96,7 +142,7 @@ export default async function SolicitudesPage() {
 
 function Th({ children }: { children: React.ReactNode }) {
   return (
-    <th className="px-4 py-3 font-medium text-xs uppercase tracking-wide">
+    <th className="px-4 py-3 font-medium text-xs uppercase tracking-wide whitespace-nowrap">
       {children}
     </th>
   )
@@ -110,7 +156,11 @@ function Td({
   className?: string
 }) {
   return (
-    <td className={`px-4 py-3 text-charcoal ${className ?? ""}`}>{children}</td>
+    <td
+      className={`px-4 py-3 text-charcoal whitespace-nowrap ${className ?? ""}`}
+    >
+      {children}
+    </td>
   )
 }
 
@@ -122,7 +172,7 @@ function StatusBadge({ status }: { status: string }) {
   }
   return (
     <span
-      className={`inline-block px-2 py-0.5 rounded text-xs font-medium ${styles[status] ?? "bg-gray-100 text-gray-600"}`}
+      className={`inline-block px-2 py-0.5 rounded text-xs font-medium shrink-0 ${styles[status] ?? "bg-gray-100 text-gray-600"}`}
     >
       {status}
     </span>

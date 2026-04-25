@@ -5,33 +5,36 @@ All secrets live in `.env.local` (gitignored). Never commit this file.
 ## Required
 
 ### Sanity CMS
-| Variable | Description |
-|---|---|
-| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Sanity project ID |
-| `NEXT_PUBLIC_SANITY_DATASET` | Dataset name (e.g. `production`) |
+
+| Variable                         | Description                              |
+| -------------------------------- | ---------------------------------------- |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID`  | Sanity project ID                        |
+| `NEXT_PUBLIC_SANITY_DATASET`     | Dataset name (e.g. `production`)         |
 | `NEXT_PUBLIC_SANITY_API_VERSION` | API version date (default: `2026-02-02`) |
 
 ### Supabase
-| Variable | Description |
-|---|---|
-| `NEXT_PUBLIC_SUPABASE_URL` | Project URL from Supabase dashboard |
-| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY` | Anon/public key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Service role key (server-only, bypasses RLS) — used for admin data reads |
-| `ADMIN_ALLOWED_EMAILS` | Comma-separated list of Google email addresses allowed into `/admin` |
+
+| Variable                                       | Description                                                              |
+| ---------------------------------------------- | ------------------------------------------------------------------------ |
+| `NEXT_PUBLIC_SUPABASE_URL`                     | Project URL from Supabase dashboard                                      |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY` | Anon/public key                                                          |
+| `SUPABASE_SERVICE_ROLE_KEY`                    | Service role key (server-only, bypasses RLS) — used for admin data reads |
+| `ADMIN_ALLOWED_EMAILS`                         | Comma-separated list of Google email addresses allowed into `/admin`     |
 
 ### Resend (email)
-| Variable | Description |
-|---|---|
-| `RESEND_API_KEY` | API key from resend.com |
-| `RESEND_FROM_EMAIL` | Sender address (must be a verified domain) |
-| `CONTACT_RECIPIENT_EMAIL` | Where contact/join form notifications go |
+
+| Variable                  | Description                                |
+| ------------------------- | ------------------------------------------ |
+| `RESEND_API_KEY`          | API key from resend.com                    |
+| `RESEND_FROM_EMAIL`       | Sender address (must be a verified domain) |
+| `CONTACT_RECIPIENT_EMAIL` | Where contact/join form notifications go   |
 
 ## Optional
 
-| Variable | Default | Description |
-|---|---|---|
-| `WHATSAPP_NUMBER` | `18299328036` | Number used in confirmation email WhatsApp link |
-| `CONTACT_DEBUG_RESEND` | `false` | Set to `true` to expose Resend error details in responses (dev only) |
+| Variable               | Default       | Description                                                          |
+| ---------------------- | ------------- | -------------------------------------------------------------------- |
+| `WHATSAPP_NUMBER`      | `18299328036` | Number used in confirmation email WhatsApp link                      |
+| `CONTACT_DEBUG_RESEND` | `false`       | Set to `true` to expose Resend error details in responses (dev only) |
 
 ## Supabase Table
 

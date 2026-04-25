@@ -8,17 +8,17 @@ Website for **Fuerza del Pueblo**, the Verón–Punta Cana chapter of the Domini
 
 ## Tech Stack
 
-| Layer | Tool |
-|---|---|
-| Framework | Next.js 16.1.6 (App Router) |
-| UI | React 19, Tailwind CSS v4 |
-| Language | TypeScript 5 |
-| CMS | Sanity v4 (Studio embedded at `/studio`) |
-| Database | Supabase (member applications) |
-| Email | Resend |
-| Icons | Lucide React |
-| Carousel | Swiper |
-| Rich Text | @portabletext/react |
+| Layer     | Tool                                     |
+| --------- | ---------------------------------------- |
+| Framework | Next.js 16.1.6 (App Router)              |
+| UI        | React 19, Tailwind CSS v4                |
+| Language  | TypeScript 5                             |
+| CMS       | Sanity v4 (Studio embedded at `/studio`) |
+| Database  | Supabase (member applications)           |
+| Email     | Resend                                   |
+| Icons     | Lucide React                             |
+| Carousel  | Swiper                                   |
+| Rich Text | @portabletext/react                      |
 
 ## Commands
 
@@ -33,41 +33,46 @@ npm run format    # Prettier (all JS/TS/JSON/MD/CSS)
 
 Defined in `tailwind.config.ts` — always use these tokens, never raw hex values:
 
-| Token | Hex | Use |
-|---|---|---|
-| `primaryGreen` | `#00A651` | CTAs, links, accents |
-| `darkGreen` | `#1F4D2B` | Headers, dark backgrounds |
-| `charcoal` | `#111111` | Body text |
-| `lightGray` | `#F4F4F4` | Page backgrounds |
-| `pureWhite` | `#FFFFFF` | Cards, modals |
+| Token          | Hex       | Use                       |
+| -------------- | --------- | ------------------------- |
+| `primaryGreen` | `#00A651` | CTAs, links, accents      |
+| `darkGreen`    | `#1F4D2B` | Headers, dark backgrounds |
+| `charcoal`     | `#111111` | Body text                 |
+| `lightGray`    | `#F4F4F4` | Page backgrounds          |
+| `pureWhite`    | `#FFFFFF` | Cards, modals             |
 
 Dark mode is **disabled** (`darkMode: false` in tailwind.config.ts).
 
 ## Architecture Patterns
 
 ### Component Organization
+
 Each page has its own folder under `src/components/<PageName>/`. Components are granular — sections, cards, and sub-elements are separate files. Layout-level components (Navbar, Footer) live in `src/components/layout/`.
 
 ### Sanity Integration
+
 - **Schemas** → `src/sanity/schemaTypes/<PageName>/`
 - **GROQ Queries** → `src/sanity/queries/<PageName>/`
 - Schema and query folder names mirror each other exactly.
 - Sanity Studio is accessible at `/studio` (no separate Sanity project).
 
 ### Server Actions
+
 All form submissions go through Next.js Server Actions in `src/app/actions/`. Files use the `.action.ts` suffix and `"use server"` at the top.
 
-| Action | Purpose |
-|---|---|
-| `contact.action.ts` | Contact form → Resend email |
-| `join.action.ts` | Membership form → Supabase + Resend emails |
-| `newsletter.action.ts` | Newsletter opt-in |
-| `rsvp.action.ts` | Event RSVP |
+| Action                 | Purpose                                    |
+| ---------------------- | ------------------------------------------ |
+| `contact.action.ts`    | Contact form → Resend email                |
+| `join.action.ts`       | Membership form → Supabase + Resend emails |
+| `newsletter.action.ts` | Newsletter opt-in                          |
+| `rsvp.action.ts`       | Event RSVP                                 |
 
 ### Types
+
 All TypeScript interfaces live in `src/types/` with a `.types.ts` suffix, one file per page/domain.
 
 ### Config Files
+
 Static/seed data that isn't in Sanity lives in `src/config/` with a `.config.ts` suffix (navigation links, footer columns, etc.).
 
 ## Environment Variables

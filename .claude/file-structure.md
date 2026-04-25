@@ -186,12 +186,12 @@ fuerza-del-pueblo/
 
 ## Naming Conventions
 
-| Thing | Convention | Example |
-|---|---|---|
-| Component files | PascalCase | `MembershipTierCard.tsx` |
-| Component folders | PascalCase | `JoinPage/` |
-| Type files | camelCase + `.types.ts` | `unete.types.ts` |
-| Config files | camelCase + `.config.ts` | `navigation.config.ts` |
-| Action files | camelCase + `.action.ts` | `join.action.ts` |
-| Sanity schema/query files | PascalCase | `MemberShipTierSection.ts` |
-| Hooks | camelCase + `use` prefix | `useNavbar.ts` |
+| Thing                     | Convention               | Example                    |
+| ------------------------- | ------------------------ | -------------------------- |
+| Component files           | PascalCase               | `MembershipTierCard.tsx`   |
+| Component folders         | PascalCase               | `JoinPage/`                |
+| Type files                | camelCase + `.types.ts`  | `unete.types.ts`           |
+| Config files              | camelCase + `.config.ts` | `navigation.config.ts`     |
+| Action files              | camelCase + `.action.ts` | `join.action.ts`           |
+| Sanity schema/query files | PascalCase               | `MemberShipTierSection.ts` |
+| Hooks                     | camelCase + `use` prefix | `useNavbar.ts`             |
