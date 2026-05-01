@@ -3,20 +3,24 @@ import Image from "next/image"
 import Link from "next/link"
 import { Calendar, Clock, MapPin, Users, Info } from "lucide-react"
 import { RSVPButton } from "@/components/EventsPage/RSVPButton"
+import { parseCalendarDate } from "@/lib/calendarDate"
 import { FeaturedEventCardProps } from "@/types/events.types"
+import { getEventAttendees } from "@/app/actions/rsvp.action"
 
-export const FeaturedEventCard = ({ event }: FeaturedEventCardProps) => {
-  const formattedDate = new Date(event.date).toLocaleDateString("es-DO", {
+export const FeaturedEventCard = async ({ event }: FeaturedEventCardProps) => {
+  const formattedDate = parseCalendarDate(event.date).toLocaleDateString("es-DO", {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
   })
-
-  const attendancePercentage =
-    event.capacity && event.attendees
-      ? Math.round((event.attendees / event.capacity) * 100)
-      : 0
+  const attendees = event.id
+    ? await getEventAttendees(event.id)
+    : (event.attendees ?? 0)
+  const attendancePercentage = event.capacity
+    ? Math.round((attendees / event.capacity) * 100)
+    : 0
+      
 
   return (
     <div className="bg-white rounded-xl shadow-2xl overflow-hidden border-2 border-[#00A651]">
@@ -91,13 +95,13 @@ export const FeaturedEventCard = ({ event }: FeaturedEventCardProps) => {
               </div>
 
               {/* Attendance Info */}
-              {event.capacity && event.attendees !== undefined && (
+              {event.capacity && (
                 <div className="flex items-start gap-3">
                   <Users className="w-6 h-6 text-primaryGreen shrink-0 mt-0.5" />
                   <div className="flex-1">
                     <p className="font-semibold text-darkGreen">Asistencia</p>
                     <p className="text-gray-700">
-                      {event.attendees} de {event.capacity} confirmados
+                      {attendees} de {event.capacity} confirmados
                     </p>
                     {/* Progress Bar */}
                     <div className="mt-2 w-full bg-gray-200 rounded-full h-2">

@@ -21,6 +21,7 @@ export interface EventsPageHeroSection {
   featuredEventTitle: string
   featuredEventSubtitle: string
   featuredEvent: {
+    id: string
     title: string
     category: {
       name: string
@@ -70,6 +71,7 @@ export const eventsPageHeroSectionQuery = `*[_type == "eventsPageHeroSection"][0
   featuredEventTitle,
   featuredEventSubtitle,
   featuredEvent -> {
+    id,
     title,
     category -> {
       name

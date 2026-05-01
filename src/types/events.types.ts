@@ -1,6 +1,8 @@
 // types/events.types.ts
 
 export interface Event {
+  /** Sanity document id when the query projects `id` (e.g. featured event). */
+  id?: string
   title: string
   category: {
     name: string

@@ -72,7 +72,7 @@ export default async function EventsPage() {
         <FeaturedEventSection
           title={eventsPageHeroSection?.featuredEventTitle}
           subtitle={eventsPageHeroSection?.featuredEventSubtitle}
-          event={eventsPageHeroSection?.featuredEvent as Event}
+          event={eventsPageHeroSection?.featuredEvent as unknown as Event}
         />
 
         {/* Event Categories */}

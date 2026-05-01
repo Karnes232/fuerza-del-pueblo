@@ -1,6 +1,7 @@
 // components/EventPage/EventHero.tsx
 import Image from "next/image"
 import { Container } from "@/components/HomePage/Container"
+import { parseCalendarDate } from "@/lib/calendarDate"
 import { EventHeroProps } from "@/types/event.types"
 import { Calendar, Clock, MapPin } from "lucide-react"
 
@@ -12,12 +13,11 @@ export const EventHero = ({
   location,
   image,
 }: EventHeroProps) => {
-  const formattedDate = new Date(date).toLocaleDateString("es-DO", {
+  const formattedDate = parseCalendarDate(date).toLocaleDateString("es-DO", {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
-    timeZone: "UTC",
   })
   return (
     <section className="py-12 md:py-16 bg-white">

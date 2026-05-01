@@ -2,10 +2,11 @@
 import Image from "next/image"
 import Link from "next/link"
 import { Calendar, MapPin, Users } from "lucide-react"
+import { parseCalendarDate } from "@/lib/calendarDate"
 import { PastEventCardProps } from "@/types/events.types"
 
 export const PastEventCard = ({ event }: PastEventCardProps) => {
-  const formattedDate = new Date(event.date).toLocaleDateString("es-DO", {
+  const formattedDate = parseCalendarDate(event.date).toLocaleDateString("es-DO", {
     year: "numeric",
     month: "long",
     day: "numeric",
