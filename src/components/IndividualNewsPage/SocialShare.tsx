@@ -4,6 +4,10 @@
 import { Container } from "@/components/HomePage/Container"
 import { SocialShareProps } from "@/types/article.types"
 import { Facebook, X, Linkedin, Link2, Mail } from "lucide-react"
+import {
+  FacebookShareButton,
+  FacebookIcon,
+} from 'next-share'
 
 export const SocialShare = ({ url, title, description }: SocialShareProps) => {
   const shareOnFacebook = () => {
@@ -54,13 +58,15 @@ export const SocialShare = ({ url, title, description }: SocialShareProps) => {
 
             <div className="flex gap-3">
               {/* Facebook */}
-              <button
-                onClick={shareOnFacebook}
+              <FacebookShareButton
+                url={url}
+                quote={title}
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-[#1877F2] hover:text-white transition-colors shadow-md"
                 aria-label="Compartir en Facebook"
               >
-                <Facebook className="w-5 h-5" />
-              </button>
+                <FacebookIcon size={32} round />
+
+              </FacebookShareButton>
 
               {/* Twitter */}
               <button
