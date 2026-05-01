@@ -42,6 +42,7 @@ export const SocialShare = ({ url, title, description }: SocialShareProps) => {
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(url)
+      alert("Link copiado al portapapeles")
     } catch (err) {
       console.error("Error copying link:", err)
     }

@@ -33,7 +33,7 @@ export default async function NewsArticlePage({
   ])
 
   // For social sharing
-  const articleUrl = `https://www.fuerzadelpueblo.do/noticias/${slug}`
+  const articleUrl = `https://www.fuerzadelpuebloveronpuntacana.com/noticias/${slug}`
 
   return (
     <main>
