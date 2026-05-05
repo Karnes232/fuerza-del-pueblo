@@ -201,7 +201,7 @@ export const individualEventType = defineType({
       group: "info",
       type: "array",
       of: [{ type: "string" }],
-      validation: Rule => Rule.required(),
+
     }),
     defineField({
       name: "whatToBring",
@@ -209,7 +209,7 @@ export const individualEventType = defineType({
       group: "info",
       type: "array",
       of: [{ type: "string" }],
-      validation: Rule => Rule.required(),
+ 
     }),
     defineField({
       name: "schedule",
@@ -241,7 +241,7 @@ export const individualEventType = defineType({
           ],
         },
       ],
-      validation: Rule => Rule.required(),
+
     }),
     defineField({
       name: "seo",

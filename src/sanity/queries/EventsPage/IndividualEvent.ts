@@ -97,9 +97,9 @@ export interface IndividualEvent {
     contact: string
   }
   capacity: number
-  requirements: string[]
-  whatToBring: string[]
-  schedule: {
+  requirements?: string[]
+  whatToBring?: string[]
+  schedule?: {
     time: string
     activity: string
     description: string
