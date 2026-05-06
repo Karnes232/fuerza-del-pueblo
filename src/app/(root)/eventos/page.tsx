@@ -31,6 +31,7 @@ export default async function EventsPage() {
   const todayUTC = new Date(
     Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()),
   )
+
   const [
     structuredData,
     eventsPageHeroSection,
@@ -48,6 +49,16 @@ export default async function EventsPage() {
   ])
 
   const upcomingEvents = mapFutureEventsToEvent(futureEvents)
+  const nextEvent = upcomingEvents[0] ?? null
+
+  const featuredFromCms = eventsPageHeroSection?.featuredEvent as unknown as
+    | Event
+    | undefined
+  const featuredEvent = featuredFromCms ?? nextEvent
+  const upcomingEventsForList =
+    featuredFromCms == null && nextEvent != null
+      ? upcomingEvents.slice(1)
+      : upcomingEvents
 
   return (
     <>
@@ -72,7 +83,7 @@ export default async function EventsPage() {
         <FeaturedEventSection
           title={eventsPageHeroSection?.featuredEventTitle}
           subtitle={eventsPageHeroSection?.featuredEventSubtitle}
-          event={eventsPageHeroSection?.featuredEvent as unknown as Event}
+          event={nextEvent}
         />
 
         {/* Event Categories */}
@@ -86,7 +97,7 @@ export default async function EventsPage() {
         <UpcomingEventsSection
           title={sectionTitlesCTA?.upcomingEventsTitle}
           subtitle={sectionTitlesCTA?.upcomingEventsSubtitle}
-          events={upcomingEvents}
+          events={upcomingEventsForList}
           categories={eventCategorySection?.categories}
         />
 

@@ -76,8 +76,8 @@ export const EventDetails = ({
               )}
             </div>
 
-            {/* Sidebar - 1 column */}
-            <div className="space-y-6">
+            {/* Sidebar - 1 column (min-w-0 lets long text wrap inside CSS grid) */}
+            <div className="min-w-0 space-y-6">
               {/* Capacity Info */}
               {capacity && (
                 <div className="bg-[#F4F4F4] rounded-lg p-6">
@@ -141,7 +141,7 @@ export const EventDetails = ({
                     {organizer.contact && (
                       <a
                         href={`mailto:${organizer.contact}`}
-                        className="text-sm text-charcoal/70 underline hover:text-charcoal transition-colors"
+                        className="block w-full min-w-0 wrap-anywhere text-sm text-charcoal/70 underline hover:text-charcoal transition-colors"
                       >
                         {organizer.contact}
                       </a>
