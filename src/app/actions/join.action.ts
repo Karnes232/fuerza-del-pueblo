@@ -2,7 +2,7 @@
 
 import { Resend } from "resend"
 import type { JoinFormData } from "@/types/unete.types"
-import { createClient } from "@/lib/supabase/client"
+import { adminClient } from "@/lib/supabase/admin"
 import { addNewsletterSubscriber } from "@/app/actions/newsletter.action"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -56,7 +56,7 @@ export async function submitJoinForm(data: JoinFormData): Promise<{
 
   // ── 1. Save to Supabase ───────────────────────────────────────────────────────
   try {
-    const supabase = createClient()
+    const supabase = adminClient
     const normalizedEmail = data.email.trim().toLowerCase()
 
     const { data: existing, error: checkError } = await supabase

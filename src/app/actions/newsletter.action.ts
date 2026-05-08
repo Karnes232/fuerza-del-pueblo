@@ -1,16 +1,11 @@
 "use server"
-import { createClient } from "@/lib/supabase/server"
-import { cookies } from "next/headers"
+import { adminClient } from "@/lib/supabase/admin"
 
 export async function addNewsletterSubscriber(email: string): Promise<{
   success: boolean
   message: string
 }> {
-  const cookieStore = await cookies()
-
-  const { data: existingRecords, error: checkError } = await createClient(
-    cookieStore,
-  )
+  const { data: existingRecords, error: checkError } = await adminClient
     .from("newsletter_subscribers")
     .select("email")
     .eq("email", email)
@@ -32,7 +27,7 @@ export async function addNewsletterSubscriber(email: string): Promise<{
     }
   }
 
-  const { error } = await createClient(cookieStore)
+  const { error } = await adminClient
     .from("newsletter_subscribers")
     .insert({ email })
 

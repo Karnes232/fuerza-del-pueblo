@@ -3,7 +3,7 @@
 
 import { Resend } from "resend"
 import type { ContactFormData } from "@/types/contact.types"
-import { createClient } from "@/lib/supabase/client"
+import { adminClient } from "@/lib/supabase/admin"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -68,7 +68,7 @@ export async function sendContactEmail(data: ContactFormData): Promise<{
   // ── 1. Save to Supabase ───────────────────────────────────────────────────────
   // We save first so the submission is never lost even if email delivery fails.
   try {
-    const supabase = createClient()
+    const supabase = adminClient
 
     const record: any = {
       name: data.name.trim(),

@@ -1,6 +1,5 @@
 "use server"
-import { createClient } from "@/lib/supabase/server"
-import { cookies } from "next/headers"
+import { adminClient } from "@/lib/supabase/admin"
 import { revalidatePath } from "next/cache"
 
 export async function submitRSVP(
@@ -14,15 +13,11 @@ export async function submitRSVP(
     comments: string
   },
 ): Promise<{ success: boolean; message: string }> {
-  const cookieStore = await cookies()
-  const supabase = createClient(cookieStore)
-
-  const { data: existing, error: checkError } = await supabase
+  const { data: existing, error: checkError } = await adminClient
     .from("event_rsvps")
     .select("id")
     .eq("event_id", eventId)
     .eq("email", formData.email)
-  // .maybeSingle()
 
   if (checkError) {
     return {
@@ -30,7 +25,7 @@ export async function submitRSVP(
       message: "Error al verificar si el correo ya está registrado",
     }
   }
-  console.log(existing)
+
   if (existing && existing.length > 0) {
     return {
       success: false,
@@ -38,7 +33,7 @@ export async function submitRSVP(
     }
   }
 
-  const { error } = await supabase.from("event_rsvps").insert({
+  const { error } = await adminClient.from("event_rsvps").insert({
     event_id: eventId,
     name: formData.name,
     email: formData.email,
@@ -58,10 +53,7 @@ export async function submitRSVP(
 }
 
 export async function getEventAttendees(eventId: string): Promise<number> {
-  const cookieStore = await cookies()
-  const supabase = createClient(cookieStore)
-
-  const { data, error } = await supabase
+  const { data, error } = await adminClient
     .from("event_rsvps")
     .select("guests")
     .eq("event_id", eventId)
