@@ -71,6 +71,11 @@ function validateInput(subject: string, body: string): string | null {
   if (!subject?.trim()) return "El asunto es obligatorio."
   if (subject.trim().length > 200) return "El asunto es demasiado largo."
   if (!body?.trim()) return "El contenido del correo es obligatorio."
+  const stripped = body
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .trim()
+  if (stripped.length === 0) return "El contenido del correo es obligatorio."
   return null
 }
 

@@ -1,29 +1,4 @@
-export function buildNewsletterText({
-  subject,
-  body,
-  unsubscribeUrl,
-}: {
-  subject: string
-  body: string
-  unsubscribeUrl: string
-}): string {
-  const cleaned = body
-    .replace(/\r\n/g, "\n")
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, "$1 ($2)")
-    .replace(/\*\*([^*]+)\*\*/g, "$1")
-    .trim()
-
-  return `${subject}
-
-${cleaned}
-
-—
-Fuerza del Pueblo · Verón–Punta Cana
-https://www.fuerzadelpuebloveronpuntacana.com
-
-Cancelar suscripción: ${unsubscribeUrl}
-`
-}
+import sanitizeHtml from "sanitize-html"
 
 export function escapeHtml(str: string): string {
   return str
@@ -34,33 +9,75 @@ export function escapeHtml(str: string): string {
     .replace(/'/g, "&#039;")
 }
 
-function renderInline(text: string): string {
-  let html = escapeHtml(text)
-  html = html.replace(
-    /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
-    (_m, label, url) =>
-      `<a href="${url}" style="color:#00A651;text-decoration:underline;">${label}</a>`,
-  )
-  html = html.replace(
-    /\*\*([^*]+)\*\*/g,
-    (_m, inner) => `<strong>${inner}</strong>`,
-  )
-  return html
+const ALLOWED_TAGS = [
+  "p",
+  "br",
+  "strong",
+  "b",
+  "em",
+  "i",
+  "u",
+  "h1",
+  "h2",
+  "h3",
+  "ul",
+  "ol",
+  "li",
+  "a",
+]
+
+function sanitizeBody(html: string): string {
+  return sanitizeHtml(html, {
+    allowedTags: ALLOWED_TAGS,
+    allowedAttributes: {
+      a: ["href", "target", "rel"],
+    },
+    allowedSchemes: ["http", "https", "mailto"],
+    transformTags: {
+      a: (_tagName, attribs) => ({
+        tagName: "a",
+        attribs: {
+          href: attribs.href ?? "",
+          target: "_blank",
+          rel: "noopener noreferrer",
+        },
+      }),
+    },
+  })
 }
 
-function renderBody(body: string): string {
-  const blocks = body
-    .replace(/\r\n/g, "\n")
-    .split(/\n{2,}/)
-    .map(b => b.trim())
-    .filter(Boolean)
+const TAG_STYLES: Record<string, string> = {
+  p: "margin:0 0 16px;font-size:15px;color:#111;line-height:1.7;",
+  h1: "margin:0 0 16px;color:#1F4D2B;font-size:24px;font-weight:700;line-height:1.3;",
+  h2: "margin:0 0 14px;color:#1F4D2B;font-size:20px;font-weight:700;line-height:1.3;",
+  h3: "margin:0 0 12px;color:#1F4D2B;font-size:17px;font-weight:700;line-height:1.3;",
+  ul: "margin:0 0 16px;padding-left:24px;font-size:15px;color:#111;line-height:1.7;",
+  ol: "margin:0 0 16px;padding-left:24px;font-size:15px;color:#111;line-height:1.7;",
+  li: "margin:4px 0;",
+  a: "color:#00A651;text-decoration:underline;",
+}
 
-  return blocks
-    .map(block => {
-      const lines = block.split("\n").map(renderInline).join("<br/>")
-      return `<p style="margin:0 0 16px;font-size:15px;color:#111;line-height:1.7;">${lines}</p>`
+function injectInlineStyles(html: string): string {
+  let out = html
+  for (const tag of Object.keys(TAG_STYLES)) {
+    const style = TAG_STYLES[tag]
+    const openTagRe = new RegExp(`<${tag}(\\s[^>]*)?>`, "gi")
+    out = out.replace(openTagRe, (_match, attrs) => {
+      const existing = (attrs ?? "").trim()
+      if (/style\s*=/.test(existing)) {
+        return `<${tag}${attrs}>`
+      }
+      const sep = existing ? " " + existing : ""
+      return `<${tag}${sep} style="${style}">`
     })
-    .join("")
+  }
+  return out
+}
+
+function transformEditorHtmlForEmail(html: string): string {
+  if (!html) return ""
+  const sanitized = sanitizeBody(html)
+  return injectInlineStyles(sanitized)
 }
 
 export function buildNewsletterHtml({
@@ -73,7 +90,7 @@ export function buildNewsletterHtml({
   unsubscribeUrl: string
 }): string {
   const safeSubject = escapeHtml(subject)
-  const bodyHtml = renderBody(body)
+  const bodyHtml = transformEditorHtmlForEmail(body)
 
   return `
 <!DOCTYPE html>
@@ -115,4 +132,67 @@ export function buildNewsletterHtml({
   </table>
 </body>
 </html>`
+}
+
+function decodeEntities(str: string): string {
+  return str
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+}
+
+function htmlToText(html: string): string {
+  if (!html) return ""
+
+  let s = html
+
+  // Convert <a href="X">Y</a> → Y (X)
+  s = s.replace(
+    /<a\s+[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
+    (_m, href, label) => `${label} (${href})`,
+  )
+
+  // Block-level closers → blank line
+  s = s.replace(/<\/(p|h1|h2|h3|ul|ol)>/gi, "\n\n")
+  // List items → newline with bullet/number marker is hard; just use "- " before each <li>
+  s = s.replace(/<li[^>]*>/gi, "- ")
+  s = s.replace(/<\/li>/gi, "\n")
+  // <br> → newline
+  s = s.replace(/<br\s*\/?>/gi, "\n")
+
+  // Strip any remaining tags
+  s = sanitizeHtml(s, { allowedTags: [], allowedAttributes: {} })
+
+  s = decodeEntities(s)
+
+  // Collapse 3+ newlines and trim
+  s = s.replace(/\n{3,}/g, "\n\n").trim()
+
+  return s
+}
+
+export function buildNewsletterText({
+  subject,
+  body,
+  unsubscribeUrl,
+}: {
+  subject: string
+  body: string
+  unsubscribeUrl: string
+}): string {
+  const cleaned = htmlToText(body)
+
+  return `${subject}
+
+${cleaned}
+
+—
+Fuerza del Pueblo · Verón–Punta Cana
+https://www.fuerzadelpuebloveronpuntacana.com
+
+Cancelar suscripción: ${unsubscribeUrl}
+`
 }

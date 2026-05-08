@@ -5,6 +5,15 @@ import {
   sendNewsletter,
   sendNewsletterTest,
 } from "@/app/actions/newsletter-send.action"
+import NewsletterEditor from "./NewsletterEditor"
+
+function isEditorEmpty(html: string): boolean {
+  const stripped = html
+    .replace(/<[^>]+>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .trim()
+  return stripped.length === 0
+}
 
 type Status = {
   type: "success" | "error"
@@ -51,7 +60,7 @@ export default function NewsletterComposer({
 
   const overLimit = activeSubscribers > 100
   const noSubs = activeSubscribers === 0
-  const disabled = isPending || !subject.trim() || !body.trim()
+  const disabled = isPending || !subject.trim() || isEditorEmpty(body)
 
   return (
     <section className="bg-pureWhite rounded-xl shadow-sm p-4 lg:p-6 space-y-4">
@@ -60,10 +69,7 @@ export default function NewsletterComposer({
           Componer newsletter
         </h2>
         <p className="text-xs text-gray-500">
-          Formato simple: deja una línea en blanco para nuevos párrafos. Usa{" "}
-          <code className="bg-lightGray px-1 rounded">**negrita**</code> y{" "}
-          <code className="bg-lightGray px-1 rounded">[texto](https://…)</code>{" "}
-          para enlaces.
+          Usa la barra de herramientas para dar formato al contenido.
         </p>
       </div>
 
@@ -88,20 +94,13 @@ export default function NewsletterComposer({
         </div>
 
         <div>
-          <label
-            htmlFor="newsletter-body"
-            className="block text-xs font-medium uppercase tracking-wide text-gray-500 mb-1"
-          >
+          <label className="block text-xs font-medium uppercase tracking-wide text-gray-500 mb-1">
             Contenido
           </label>
-          <textarea
-            id="newsletter-body"
+          <NewsletterEditor
             value={body}
-            onChange={e => setBody(e.target.value)}
+            onChange={setBody}
             disabled={isPending}
-            rows={12}
-            className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm text-charcoal font-mono leading-relaxed focus:outline-none focus:ring-2 focus:ring-primaryGreen disabled:bg-gray-50"
-            placeholder={"Hola compañero,\n\nEste mes tenemos varias actividades importantes...\n\nNos vemos pronto."}
           />
         </div>
       </div>
