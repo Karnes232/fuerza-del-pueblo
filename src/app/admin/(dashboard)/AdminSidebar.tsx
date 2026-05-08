@@ -72,6 +72,9 @@ export default function AdminSidebar({ email }: { email: string }) {
           <NavLink href="/admin/rsvps" onClick={() => setOpen(false)}>
             RSVPs
           </NavLink>
+          <NavLink href="/admin/newsletters" onClick={() => setOpen(false)}>
+            Newsletters
+          </NavLink>
         </nav>
 
         <div className="p-4 border-t border-white/10">
