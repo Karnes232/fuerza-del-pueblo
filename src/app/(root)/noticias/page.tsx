@@ -4,6 +4,7 @@ import { NewsletterCTA } from "@/components/NewsPage/NewsletterCTA"
 import { newsCategories, newsletterCTAData } from "@/config/news.config"
 import { NewsArticle } from "@/types/news.types"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
+import { buildMetadata } from "@/lib/seo/buildMetadata"
 import {
   getNewsArticles,
   type NewsArticles,
@@ -69,27 +70,5 @@ export default async function NoticiasPage() {
 
 export async function generateMetadata() {
   const pageSeo = await getPageSeo("noticias")
-  if (!pageSeo) {
-    return {}
-  }
-  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/noticias`
-  return {
-    canonical: canonicalUrl,
-    title: pageSeo.meta.title,
-    description: pageSeo.meta.description,
-    keywords: pageSeo.meta.keywords,
-    openGraph: {
-      url: canonicalUrl,
-      title: pageSeo.openGraph.title,
-      description: pageSeo.openGraph.description,
-      image: pageSeo.openGraph.imageUrl,
-    },
-    robots: {
-      index: !pageSeo.noIndex,
-      follow: !pageSeo.noFollow,
-    },
-    alternates: {
-      canonical: canonicalUrl,
-    },
-  }
+  return buildMetadata({ seo: pageSeo, canonicalPath: "/noticias" })
 }

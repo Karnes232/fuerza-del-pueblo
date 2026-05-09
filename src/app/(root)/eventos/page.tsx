@@ -8,6 +8,7 @@ import { featuredEvent } from "@/config/events.config"
 import { getEventsPageHeroSection } from "@/sanity/queries/EventsPage/HeroSection"
 import { getEventCategorySection } from "@/sanity/queries/EventsPage/CategorySecton"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
+import { buildMetadata } from "@/lib/seo/buildMetadata"
 import Script from "next/script"
 import { getSectionTitlesCTA } from "@/sanity/queries/EventsPage/SectionTitlesCTA"
 import {
@@ -121,27 +122,5 @@ export default async function EventsPage() {
 
 export async function generateMetadata() {
   const pageSeo = await getPageSeo("eventos")
-  if (!pageSeo) {
-    return {}
-  }
-  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/eventos`
-  return {
-    canonical: canonicalUrl,
-    title: pageSeo.meta.title,
-    description: pageSeo.meta.description,
-    keywords: pageSeo.meta.keywords,
-    openGraph: {
-      url: canonicalUrl,
-      title: pageSeo.openGraph.title,
-      description: pageSeo.openGraph.description,
-      image: pageSeo.openGraph.imageUrl,
-    },
-    robots: {
-      index: !pageSeo.noIndex,
-      follow: !pageSeo.noFollow,
-    },
-    alternates: {
-      canonical: canonicalUrl,
-    },
-  }
+  return buildMetadata({ seo: pageSeo, canonicalPath: "/eventos" })
 }

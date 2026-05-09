@@ -109,52 +109,68 @@ export interface IndividualNewsArticleSeo {
   noFollow: boolean
 }
 
-export const individualNewsArticleSeoQuery = `*[_type == "individualNewsArticle" && slug.current == $slug][0].seo {
-  meta {
-    title,
-    description,
-    keywords
+export const individualNewsArticleSeoQuery = `*[_type == "individualNewsArticle" && slug.current == $slug][0] {
+  "seo": seo {
+    meta {
+      title,
+      description,
+      keywords
+    },
+    openGraph {
+      title,
+      description,
+      image
+    },
+    "noIndex": coalesce(noIndex, false),
+    "noFollow": coalesce(noFollow, false)
   },
-  openGraph {
-    title,
-    description,
-    image
-  },
-  "noIndex": coalesce(noIndex, false),
-  "noFollow": coalesce(noFollow, false)
+  featuredImage
 }`
 
-type IndividualNewsArticleSeoQueryResult = Omit<
-  IndividualNewsArticleSeo,
-  "openGraph"
-> & {
-  openGraph: {
-    title?: string
-    description?: string
-    image?: unknown
-  }
+type IndividualNewsArticleSeoQueryResult = {
+  seo: {
+    meta: {
+      title: string
+      description: string
+      keywords: string[]
+    }
+    openGraph: {
+      title?: string
+      description?: string
+      image?: unknown
+    }
+    noIndex: boolean
+    noFollow: boolean
+  } | null
+  featuredImage?: unknown
 }
 
 export const getIndividualNewsArticleSeo = async (
   slug: string,
 ): Promise<IndividualNewsArticleSeo | null> => {
-  const seo = await client.fetch<IndividualNewsArticleSeoQueryResult | null>(
-    individualNewsArticleSeoQuery,
-    { slug },
-  )
-  if (!seo) return null
+  const result =
+    await client.fetch<IndividualNewsArticleSeoQueryResult | null>(
+      individualNewsArticleSeoQuery,
+      { slug },
+    )
+  if (!result?.seo) return null
 
-  const imageUrl = seo.openGraph?.image
-    ? urlFor(seo.openGraph.image).width(1200).height(630).url()
+  const seoImage = result.seo.openGraph?.image
+  const fallback = result.featuredImage
+  const source = seoImage ?? fallback
+  const imageUrl = source
+    ? urlFor(source).width(1200).height(630).url()
     : undefined
 
   return {
-    ...seo,
+    meta: result.seo.meta,
     openGraph: {
-      title: seo.openGraph?.title,
-      description: seo.openGraph?.description,
+      title: result.seo.openGraph?.title,
+      description: result.seo.openGraph?.description,
       ...(imageUrl && { imageUrl }),
     },
+    noIndex: result.seo.noIndex,
+    noFollow: result.seo.noFollow,
   }
 }
 

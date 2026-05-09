@@ -11,6 +11,7 @@ import { JoinSection } from "@/components/HomePage/JoinSection"
 import { ContactSection } from "@/components/HomePage/ContactSection"
 import { getContactMethods } from "@/sanity/queries/GeneralLayout/GeneraLayout"
 import { getPageSeo } from "@/sanity/queries/SEO/seo"
+import { buildMetadata } from "@/lib/seo/buildMetadata"
 import { getStructuredData } from "@/sanity/queries/SEO/seo"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 
@@ -139,27 +140,5 @@ export default async function Home() {
 
 export async function generateMetadata() {
   const pageSeo = await getPageSeo("inicio")
-  if (!pageSeo) {
-    return {}
-  }
-  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/`
-  return {
-    canonical: canonicalUrl,
-    title: pageSeo.meta.title,
-    description: pageSeo.meta.description,
-    keywords: pageSeo.meta.keywords,
-    openGraph: {
-      url: canonicalUrl,
-      title: pageSeo.openGraph.title,
-      description: pageSeo.openGraph.description,
-      image: pageSeo.openGraph.imageUrl,
-    },
-    robots: {
-      index: !pageSeo.noIndex,
-      follow: !pageSeo.noFollow,
-    },
-    alternates: {
-      canonical: canonicalUrl,
-    },
-  }
+  return buildMetadata({ seo: pageSeo, canonicalPath: "/" })
 }

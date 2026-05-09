@@ -11,6 +11,7 @@ import {
   getIndividualNewsArticleRelatedArticles,
   getIndividualNewsArticleSeo,
 } from "@/sanity/queries/NewsPage/IndividualNewsArticle"
+import { buildMetadata } from "@/lib/seo/buildMetadata"
 import { notFound } from "next/navigation"
 
 export default async function NewsArticlePage({
@@ -95,27 +96,9 @@ export async function generateMetadata({
 }) {
   const { slug } = await params
   const seo = await getIndividualNewsArticleSeo(slug)
-  if (!seo) {
-    return {}
-  }
-  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/noticias/${slug}`
-  return {
-    canonical: canonicalUrl,
-    title: seo.meta?.title,
-    description: seo.meta.description,
-    keywords: seo.meta.keywords,
-    openGraph: {
-      url: canonicalUrl,
-      title: seo.openGraph.title,
-      description: seo.openGraph.description,
-      image: seo.openGraph.imageUrl,
-    },
-    robots: {
-      index: !seo.noIndex,
-      follow: !seo.noFollow,
-    },
-    alternates: {
-      canonical: canonicalUrl,
-    },
-  }
+  return buildMetadata({
+    seo,
+    canonicalPath: `/noticias/${slug}`,
+    ogType: "article",
+  })
 }

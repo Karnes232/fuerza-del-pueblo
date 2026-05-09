@@ -12,6 +12,7 @@ import {
   getMapData,
 } from "@/sanity/queries/GeneralLayout/GeneraLayout"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
+import { buildMetadata } from "@/lib/seo/buildMetadata"
 import Script from "next/script"
 
 export default async function ContactPage() {
@@ -81,27 +82,5 @@ export default async function ContactPage() {
 
 export async function generateMetadata() {
   const pageSeo = await getPageSeo("contacto")
-  if (!pageSeo) {
-    return {}
-  }
-  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/contacto`
-  return {
-    canonical: canonicalUrl,
-    title: pageSeo.meta.title,
-    description: pageSeo.meta.description,
-    keywords: pageSeo.meta.keywords,
-    openGraph: {
-      url: canonicalUrl,
-      title: pageSeo.openGraph.title,
-      description: pageSeo.openGraph.description,
-      image: pageSeo.openGraph.imageUrl,
-    },
-    robots: {
-      index: !pageSeo.noIndex,
-      follow: !pageSeo.noFollow,
-    },
-    alternates: {
-      canonical: canonicalUrl,
-    },
-  }
+  return buildMetadata({ seo: pageSeo, canonicalPath: "/contacto" })
 }

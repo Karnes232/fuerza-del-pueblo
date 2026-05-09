@@ -1,5 +1,6 @@
 import { JoinSection } from "@/components/HomePage/JoinSection"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
+import { buildMetadata } from "@/lib/seo/buildMetadata"
 import Script from "next/script"
 import { MediaSection } from "@/components/CandidatesPage/MediaSection"
 import { AboutHero } from "@/components/AboutUsPage/AboutHero"
@@ -124,27 +125,8 @@ export default async function CandidatosPage() {
 
 export async function generateMetadata() {
   const pageSeo = await getPageSeo("candidatos")
-  if (!pageSeo) {
-    return {}
-  }
-  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/partido/candidatos`
-  return {
-    canonical: canonicalUrl,
-    title: pageSeo.meta.title,
-    description: pageSeo.meta.description,
-    keywords: pageSeo.meta.keywords,
-    openGraph: {
-      url: canonicalUrl,
-      title: pageSeo.openGraph.title,
-      description: pageSeo.openGraph.description,
-      image: pageSeo.openGraph.imageUrl,
-    },
-    robots: {
-      index: !pageSeo.noIndex,
-      follow: !pageSeo.noFollow,
-    },
-    alternates: {
-      canonical: canonicalUrl,
-    },
-  }
+  return buildMetadata({
+    seo: pageSeo,
+    canonicalPath: "/partido/candidatos",
+  })
 }

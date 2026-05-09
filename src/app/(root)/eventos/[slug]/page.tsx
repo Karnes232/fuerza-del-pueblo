@@ -14,6 +14,7 @@ import {
 } from "@/sanity/queries/EventsPage/IndividualEvent"
 import { getEventAttendees } from "@/app/actions/rsvp.action"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
+import { buildMetadata } from "@/lib/seo/buildMetadata"
 import { Metadata } from "next"
 import { notFound } from "next/navigation"
 
@@ -123,27 +124,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params
   const seo = await getIndividualEventSeo(slug)
-  if (!seo) {
-    return {}
-  }
-  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/eventos/${slug}`
-
-  return {
-    title: seo.meta.title,
-    description: seo.meta.description,
-    keywords: seo.meta.keywords,
-    openGraph: {
-      url: canonicalUrl,
-      title: seo.openGraph.title,
-      description: seo.openGraph.description,
-      images: seo.openGraph.image?.asset.url,
-    },
-    robots: {
-      index: !seo.noIndex,
-      follow: !seo.noFollow,
-    },
-    alternates: {
-      canonical: canonicalUrl,
-    },
-  }
+  return buildMetadata({
+    seo,
+    canonicalPath: `/eventos/${slug}`,
+    ogType: "article",
+  })
 }

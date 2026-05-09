@@ -1,4 +1,5 @@
 import { client } from "@/sanity/lib/client"
+import { urlFor } from "@/sanity/lib/image"
 
 export interface IndividualEventSeo {
   meta: {
@@ -9,56 +10,74 @@ export interface IndividualEventSeo {
   openGraph: {
     title?: string
     description?: string
-    image?: {
-      asset: {
-        url: string
-        metadata: {
-          dimensions: {
-            width: number
-            height: number
-          }
-        }
-      }
-    }
+    imageUrl?: string
   }
   noIndex: boolean
   noFollow: boolean
 }
 
-export const individualEventSeoQuery = `*[_type == "individualEvent" && slug.current == $slug][0].seo {
+export const individualEventSeoQuery = `*[_type == "individualEvent" && slug.current == $slug][0] {
+  "seo": seo {
     meta {
-        title,
-        description,
-        keywords
+      title,
+      description,
+      keywords
     },
     openGraph {
-        title,
-        description,
-        image {
-            asset -> {
-                url,
-                metadata {
-                    dimensions {
-                        width,
-                        height
-                    }
-                }
-            }
-        }
+      title,
+      description,
+      image
     },
-    noIndex,
-    noFollow
+    "noIndex": coalesce(noIndex, false),
+    "noFollow": coalesce(noFollow, false)
+  },
+  image
 }`
+
+type IndividualEventSeoQueryResult = {
+  seo: {
+    meta: {
+      title: string
+      description: string
+      keywords: string[]
+    }
+    openGraph: {
+      title?: string
+      description?: string
+      image?: unknown
+    }
+    noIndex: boolean
+    noFollow: boolean
+  } | null
+  image?: unknown
+}
 
 export const getIndividualEventSeo = async (
   slug: string,
 ): Promise<IndividualEventSeo | null> => {
-  const seo = await client.fetch<IndividualEventSeo>(individualEventSeoQuery, {
-    slug,
-  })
-  if (!seo) return null
+  const result = await client.fetch<IndividualEventSeoQueryResult | null>(
+    individualEventSeoQuery,
+    { slug },
+  )
+  if (!result?.seo) return null
 
-  return seo
+  const seoImage = result.seo.openGraph?.image
+  const fallback = result.image
+  const source = seoImage ?? fallback
+  const imageUrl = source
+    ? urlFor(source).width(1200).height(630).url()
+    : undefined
+
+  return {
+    meta: result.seo.meta,
+    openGraph: {
+      title: result.seo.openGraph?.title,
+      description: result.seo.openGraph?.description,
+      ...(imageUrl && { imageUrl }),
+    },
+    noIndex: result.seo.noIndex,
+    noFollow: result.seo.noFollow,
+  }
 }
 
 export interface IndividualEvent {

@@ -6,6 +6,7 @@ import { DepartmentsSection } from "@/components/LeadershipPage/DepartmentsSecti
 import { WingsSection } from "@/components/LeadershipPage/WingsSection"
 import { SectorCoordinatorsSection } from "@/components/LeadershipPage/SectorCoordinatorsSection"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
+import { buildMetadata } from "@/lib/seo/buildMetadata"
 import Script from "next/script"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 import { getLeadershipPageHeroSection } from "@/sanity/queries/LeadershipPage/HeroSection"
@@ -101,27 +102,8 @@ export default async function LiderazgoPage() {
 
 export async function generateMetadata() {
   const pageSeo = await getPageSeo("liderazgo")
-  if (!pageSeo) {
-    return {}
-  }
-  const canonicalUrl = `https://www.fuerzadelpuebloveronpuntacana.com/partido/liderazgo`
-  return {
-    canonical: canonicalUrl,
-    title: pageSeo.meta.title,
-    description: pageSeo.meta.description,
-    keywords: pageSeo.meta.keywords,
-    openGraph: {
-      url: canonicalUrl,
-      title: pageSeo.openGraph.title,
-      description: pageSeo.openGraph.description,
-      image: pageSeo.openGraph.imageUrl,
-    },
-    robots: {
-      index: !pageSeo.noIndex,
-      follow: !pageSeo.noFollow,
-    },
-    alternates: {
-      canonical: canonicalUrl,
-    },
-  }
+  return buildMetadata({
+    seo: pageSeo,
+    canonicalPath: "/partido/liderazgo",
+  })
 }
