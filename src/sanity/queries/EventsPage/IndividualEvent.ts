@@ -1,6 +1,13 @@
 import { client } from "@/sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image"
 
+const toDateString = (date: Date): string => {
+  const year = date.getUTCFullYear()
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0")
+  const day = String(date.getUTCDate()).padStart(2, "0")
+  return `${year}-${month}-${day}`
+}
+
 export interface IndividualEventSeo {
   meta: {
     title: string
@@ -206,7 +213,7 @@ export interface NextThreeEvents {
   }
 }
 
-export const nextThreeEventsQuery = `*[_type == "individualEvent" && date > $date] | order(date asc) [0..2] {
+export const nextThreeEventsQuery = `*[_type == "individualEvent" && date >= $date] | order(date asc) [0..2] {
   title,
   description,
   date,
@@ -235,7 +242,7 @@ export const getNextThreeEvents = async (
   const events = await client.fetch<NextThreeEvents[] | null>(
     nextThreeEventsQuery,
     {
-      date,
+      date: toDateString(date),
     },
   )
   return events
@@ -293,7 +300,7 @@ export const getPreviousEvents = async (
   const events = await client.fetch<PreviousEvents[] | null>(
     previousEventsQuery,
     {
-      date,
+      date: toDateString(date),
     },
   )
   return events
@@ -322,7 +329,7 @@ export interface UpcomingEvents {
   }
 }
 
-export const upcomingEventsQuery = `*[_type == "individualEvent" && date > $date] | order(date asc)[0..2] {
+export const upcomingEventsQuery = `*[_type == "individualEvent" && date >= $date] | order(date asc)[0..2] {
   title,
   description,
   date,
@@ -351,7 +358,7 @@ export const getUpcomingEvents = async (
   const events = await client.fetch<UpcomingEvents[] | null>(
     upcomingEventsQuery,
     {
-      date,
+      date: toDateString(date),
     },
   )
   return events
@@ -383,7 +390,7 @@ export interface FutureEvents {
   }
 }
 
-export const futureEventsQuery = `*[_type == "individualEvent" && date > $date] | order(date asc) {
+export const futureEventsQuery = `*[_type == "individualEvent" && date >= $date] | order(date asc) {
   title,
   description,
   category -> {
@@ -413,7 +420,7 @@ export const getFutureEvents = async (
   date: Date,
 ): Promise<FutureEvents[] | null> => {
   const events = await client.fetch<FutureEvents[] | null>(futureEventsQuery, {
-    date,
+    date: toDateString(date),
   })
   return events
 }

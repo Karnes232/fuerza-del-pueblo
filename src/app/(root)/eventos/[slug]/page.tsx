@@ -41,7 +41,7 @@ export default async function EventPage({
 
   const eventDateUTC = new Date(`${individualEvent.date}T00:00:00Z`)
   const rsvpEnabled = individualEvent.date
-    ? eventDateUTC.getTime() > todayUTC.getTime()
+    ? eventDateUTC.getTime() >= todayUTC.getTime()
     : false
 
   return (
