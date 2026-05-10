@@ -302,6 +302,7 @@ export const getPreviousEvents = async (
     {
       date: toDateString(date),
     },
+    { cache: "no-store" },
   )
   return events
 }
@@ -419,8 +420,12 @@ export const futureEventsQuery = `*[_type == "individualEvent" && date >= $date]
 export const getFutureEvents = async (
   date: Date,
 ): Promise<FutureEvents[] | null> => {
-  const events = await client.fetch<FutureEvents[] | null>(futureEventsQuery, {
-    date: toDateString(date),
-  })
+  const events = await client.fetch<FutureEvents[] | null>(
+    futureEventsQuery,
+    {
+      date: toDateString(date),
+    },
+    { cache: "no-store" },
+  )
   return events
 }

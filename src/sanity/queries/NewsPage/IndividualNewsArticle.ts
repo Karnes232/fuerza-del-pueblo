@@ -321,6 +321,8 @@ export const newsArticlesQuery = `*[_type == "individualNewsArticle"] | order(da
 export const getNewsArticles = async (): Promise<NewsArticles[] | null> => {
   const newsArticles = await client.fetch<NewsArticles[] | null>(
     newsArticlesQuery,
+    {},
+    { cache: "no-store" },
   )
   return newsArticles
 }
