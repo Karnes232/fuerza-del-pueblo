@@ -39,6 +39,7 @@ export const NavDropdown = ({
             href={item.href}
             disabled={item.disabled}
             onClick={onClose}
+            textColor='text-charcoal'
           />
         ))}
       </div>

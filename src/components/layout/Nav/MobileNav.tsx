@@ -56,6 +56,7 @@ export const MobileNav = ({
                       href={subItem.href}
                       disabled={subItem.disabled}
                       onClick={onClose}
+                      textColor='text-white'
                     />
                   ))}
                 </div>

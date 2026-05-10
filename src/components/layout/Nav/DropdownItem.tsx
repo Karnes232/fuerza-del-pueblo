@@ -7,6 +7,7 @@ export const DropdownItem = ({
   href,
   onClick,
   disabled = false,
+  textColor
 }: DropdownItemProps) => {
   if (disabled) {
     return (
@@ -20,7 +21,7 @@ export const DropdownItem = ({
     <Link
       href={href}
       onClick={onClick}
-      className="block px-4 py-2 text-white hover:bg-lightGray hover:text-primaryGreen transition-colors"
+      className={`block px-4 py-2 ${textColor} hover:bg-lightGray hover:text-primaryGreen transition-colors`}
     >
       {label}
     </Link>
