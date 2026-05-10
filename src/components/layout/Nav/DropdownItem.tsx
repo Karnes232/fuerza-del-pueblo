@@ -20,7 +20,7 @@ export const DropdownItem = ({
     <Link
       href={href}
       onClick={onClick}
-      className="block px-4 py-2 text-charcoal hover:bg-lightGray hover:text-primaryGreen transition-colors"
+      className="block px-4 py-2 text-white hover:bg-lightGray hover:text-primaryGreen transition-colors"
     >
       {label}
     </Link>
