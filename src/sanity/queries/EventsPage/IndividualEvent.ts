@@ -114,6 +114,8 @@ export interface IndividualEvent {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
   description: string
   fullDescription: string
@@ -155,6 +157,8 @@ export const individualEventQuery = `*[_type == "individualEvent" && slug.curren
     },
     image {
         alt,
+        hotspot,
+        crop,
         asset -> {
             url,
             metadata {
@@ -207,6 +211,8 @@ export interface NextThreeEvents {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
   slug: {
     current: string
@@ -221,6 +227,8 @@ export const nextThreeEventsQuery = `*[_type == "individualEvent" && date >= $da
   location,
   image {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {
@@ -265,6 +273,8 @@ export interface PreviousEvents {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
   slug: {
     current: string
@@ -279,6 +289,8 @@ export const previousEventsQuery = `*[_type == "individualEvent" && date < $date
   location,
   image {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {
@@ -324,6 +336,8 @@ export interface UpcomingEvents {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
   slug: {
     current: string
@@ -338,6 +352,8 @@ export const upcomingEventsQuery = `*[_type == "individualEvent" && date >= $dat
   location,
   image {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {
@@ -385,6 +401,8 @@ export interface FutureEvents {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
   slug: {
     current: string
@@ -402,6 +420,8 @@ export const futureEventsQuery = `*[_type == "individualEvent" && date >= $date]
   location,
   image {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {

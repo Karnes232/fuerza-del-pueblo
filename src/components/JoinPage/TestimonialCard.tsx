@@ -1,6 +1,7 @@
 // components/TestimonialCard.tsx
 import { Quote } from "lucide-react"
 import { TestimonialCardProps } from "@/types/unete.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 
 export const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
   return (
@@ -8,10 +9,14 @@ export const TestimonialCard = ({ testimonial }: TestimonialCardProps) => {
       {/* Author Info */}
       <div className="flex items-center gap-4 mb-4">
         {testimonial.photo ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={testimonial.photo?.asset?.url}
             alt={testimonial.name}
             className="w-16 h-16 rounded-full object-cover"
+            style={{
+              objectPosition: hotspotToObjectPosition(testimonial.photo.hotspot),
+            }}
           />
         ) : (
           <div className="w-16 h-16 rounded-full bg-[#00A651] flex items-center justify-center text-white font-bold text-2xl">

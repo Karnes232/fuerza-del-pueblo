@@ -1,6 +1,7 @@
 // components/HistoryPage/EraCard.tsx
 import Image from "next/image"
 import { Era } from "@/types/history.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 import { Calendar, ChevronRight } from "lucide-react"
 
 interface EraCardProps {
@@ -28,6 +29,9 @@ export const EraCard = ({ era, index }: EraCardProps) => {
             alt={era.image?.alt || era.title}
             fill
             className="object-cover"
+            style={{
+              objectPosition: hotspotToObjectPosition(era.image?.hotspot),
+            }}
           />
         </div>
       )}

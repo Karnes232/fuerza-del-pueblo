@@ -67,6 +67,7 @@ export interface UneteHeroProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 
@@ -101,6 +102,7 @@ export interface TestimonialsSectionProps {
       asset: {
         url: string
       }
+      hotspot?: { x: number; y: number }
     }
     quote: string
     location?: string
@@ -153,6 +155,7 @@ export interface TestimonialCardProps {
       asset: {
         url: string
       }
+      hotspot?: { x: number; y: number }
     }
     quote: string
     location?: string

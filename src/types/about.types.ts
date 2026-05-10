@@ -17,6 +17,7 @@ export interface AboutHeroProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 
@@ -39,6 +40,7 @@ export interface AboutContentProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 
@@ -82,6 +84,7 @@ export interface NationalConnectionProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
   ctaText?: string
   ctaLink?: string

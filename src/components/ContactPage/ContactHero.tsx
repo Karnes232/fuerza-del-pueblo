@@ -1,6 +1,7 @@
 // sections/ContactHero.tsx
 import { Container } from "@/components/HomePage/Container"
 import { ContactHeroProps } from "@/types/contact.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 import Image from "next/image"
 
 export const ContactHero = ({
@@ -18,6 +19,9 @@ export const ContactHero = ({
             alt={backgroundImage?.alt}
             fill
             className="object-cover"
+            style={{
+              objectPosition: hotspotToObjectPosition(backgroundImage?.hotspot),
+            }}
             priority
           />
         </div>

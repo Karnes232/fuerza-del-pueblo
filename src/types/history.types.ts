@@ -15,6 +15,7 @@ export interface HistoryHeroProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 
@@ -32,6 +33,7 @@ export interface HistoryIntroProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 
@@ -52,6 +54,7 @@ export interface TimelineEvent {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
   highlights?: string[]
 }
@@ -125,6 +128,7 @@ export interface Era {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 

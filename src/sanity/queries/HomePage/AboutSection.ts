@@ -14,6 +14,8 @@ export interface AboutSection {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
   ctaText: string
   ctaLink: string
@@ -24,6 +26,8 @@ export const aboutSectionQuery = `*[_type == "aboutSection"][0] {
   content,
   image {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {

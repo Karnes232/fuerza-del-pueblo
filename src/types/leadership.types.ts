@@ -15,6 +15,7 @@ export interface LeadershipHeroProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 
@@ -37,6 +38,7 @@ export interface LeaderProfile {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
   socialMedia?: {
     facebook?: string
@@ -104,6 +106,7 @@ export interface Wing {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 

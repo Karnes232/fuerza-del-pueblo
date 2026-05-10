@@ -22,6 +22,7 @@ export interface Event {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
   slug: {
     current: string
@@ -71,6 +72,7 @@ export interface PastEventListItem {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
   slug: {
     current: string
@@ -97,6 +99,7 @@ export interface EventsHeroProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 

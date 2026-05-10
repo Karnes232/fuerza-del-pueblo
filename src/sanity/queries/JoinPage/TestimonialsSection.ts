@@ -17,13 +17,15 @@ export interface JoinPageTestimonialsSection {
           }
         }
       }
+      hotspot?: { x: number; y: number }
+      crop?: { top: number; bottom: number; left: number; right: number }
     }
     quote: string
     location?: string
   }[]
 }
 
-export const joinPageTestimonialsSectionQuery = `*[_type == "joinPageTestimonialsSection"][0] { 
+export const joinPageTestimonialsSectionQuery = `*[_type == "joinPageTestimonialsSection"][0] {
   title,
   subtitle,
   testimonials[] {
@@ -31,6 +33,8 @@ export const joinPageTestimonialsSectionQuery = `*[_type == "joinPageTestimonial
     name,
     role,
     photo {
+      hotspot,
+      crop,
       asset -> {
         url,
         metadata {

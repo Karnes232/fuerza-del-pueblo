@@ -17,6 +17,8 @@ export interface JoinPageHeroSection {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
 }
 
@@ -28,6 +30,8 @@ export const joinPageHeroSectionQuery = `*[_type == "joinPageHeroSection"][0] {
   ctaText,
   backgroundImage {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {

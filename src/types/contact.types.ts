@@ -51,6 +51,7 @@ export interface ContactHeroProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 

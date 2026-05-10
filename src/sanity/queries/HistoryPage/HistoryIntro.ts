@@ -14,6 +14,8 @@ export interface HistoryIntroSection {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
 }
 
@@ -22,6 +24,8 @@ export const historyIntroSectionQuery = `*[_type == "historyIntroSection"][0] {
   content,
   image {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {

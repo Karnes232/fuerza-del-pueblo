@@ -19,6 +19,8 @@ export interface HeroSection {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
 }
 
@@ -32,6 +34,8 @@ export const heroSectionQuery = `*[_type == "heroSection"][0] {
   secondaryCtaLink,
   backgroundImage {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {

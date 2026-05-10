@@ -17,6 +17,7 @@ export interface CandidatesHeroProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 
@@ -42,6 +43,7 @@ export interface CandidateProfile {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
   socialMedia?: {
     facebook?: string

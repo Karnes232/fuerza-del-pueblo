@@ -20,6 +20,8 @@ export interface LeadershipTeam {
           }
         }
       }
+      hotspot?: { x: number; y: number }
+      crop?: { top: number; bottom: number; left: number; right: number }
     }
   }[]
 }
@@ -35,6 +37,8 @@ export const leadershipTeamQuery = `*[_type == "leadershipTeam"][0] {
     responsibilities[],
     image {
       alt,
+      hotspot,
+      crop,
       asset -> {
         url,
         metadata {

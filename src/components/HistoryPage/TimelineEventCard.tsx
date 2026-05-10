@@ -1,6 +1,7 @@
 // components/HistoryPage/TimelineEventCard.tsx
 import Image from "next/image"
 import { TimelineEvent } from "@/types/history.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 import { Calendar, CheckCircle } from "lucide-react"
 
 interface TimelineEventCardProps {
@@ -95,6 +96,9 @@ export const TimelineEventCard = ({ event, index }: TimelineEventCardProps) => {
                 alt={event.image?.alt || event.title}
                 fill
                 className="object-cover"
+                style={{
+                  objectPosition: hotspotToObjectPosition(event.image?.hotspot),
+                }}
               />
             </div>
           )}

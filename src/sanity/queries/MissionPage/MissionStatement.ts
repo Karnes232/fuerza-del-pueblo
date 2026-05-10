@@ -16,6 +16,8 @@ export interface MissionStatement {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
 }
 
@@ -26,6 +28,8 @@ export const missionStatementQuery = `*[_type == "missionStatement"][0] {
   icon,
   image {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {

@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Container } from "@/components/HomePage/Container"
 import { CTAButton } from "@/components/HomePage/CTAButton"
 import { HeroSectionProps } from "@/types/home.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 
 export const HeroSection = ({
   title,
@@ -24,6 +25,9 @@ export const HeroSection = ({
             alt={backgroundImage?.alt}
             fill
             className="object-cover"
+            style={{
+              objectPosition: hotspotToObjectPosition(backgroundImage?.hotspot),
+            }}
             priority
           />
         </div>

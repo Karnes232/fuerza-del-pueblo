@@ -2,6 +2,7 @@
 import { Check, ArrowDown } from "lucide-react"
 import { Container } from "@/components/HomePage/Container"
 import { UneteHeroProps } from "@/types/unete.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 import Image from "next/image"
 
 export const UneteHero = ({
@@ -21,6 +22,9 @@ export const UneteHero = ({
             alt={backgroundImage?.alt}
             fill
             className="object-cover"
+            style={{
+              objectPosition: hotspotToObjectPosition(backgroundImage?.hotspot),
+            }}
             priority
           />
         </div>

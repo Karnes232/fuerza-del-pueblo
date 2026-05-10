@@ -19,6 +19,8 @@ export interface AboutContentSection {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
 }
 
@@ -32,6 +34,8 @@ export const aboutContentSectionQuery = `*[_type == "aboutContentSection"][0] {
   },
   image {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {

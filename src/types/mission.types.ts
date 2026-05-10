@@ -15,6 +15,7 @@ export interface MissionVisionHeroProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 
@@ -34,6 +35,7 @@ export interface MissionStatementProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 
@@ -53,6 +55,7 @@ export interface VisionStatementProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 

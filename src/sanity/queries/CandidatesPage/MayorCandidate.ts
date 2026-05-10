@@ -23,6 +23,8 @@ export const mayorCandidateQuery = `*[_type == "mayorCandidate"][0] {
     priorities[],
     image {
       alt,
+      hotspot,
+      crop,
       asset -> {
         url,
         metadata {

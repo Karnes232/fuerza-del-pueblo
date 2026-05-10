@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { Container } from "@/components/HomePage/Container"
 import { VisionStatementProps } from "@/types/mission.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 import { Eye } from "lucide-react"
 import * as Icons from "lucide-react"
 
@@ -28,6 +29,9 @@ export const VisionStatement = ({
                     alt={image?.alt}
                     fill
                     className="object-cover"
+                    style={{
+                      objectPosition: hotspotToObjectPosition(image?.hotspot),
+                    }}
                   />
                 </div>
               ) : (

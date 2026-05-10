@@ -9,6 +9,7 @@ import {
   Linkedin,
 } from "lucide-react"
 import { LeaderCardProps } from "@/types/leadership.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 
 export const LeaderCard = ({ leader, featured = false }: LeaderCardProps) => {
   const cardSize = featured ? "md:col-span-2" : ""
@@ -30,6 +31,9 @@ export const LeaderCard = ({ leader, featured = false }: LeaderCardProps) => {
               alt={leader.image?.alt || leader.name}
               fill
               className="object-cover"
+              style={{
+                objectPosition: hotspotToObjectPosition(leader.image?.hotspot),
+              }}
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">

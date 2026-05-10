@@ -29,6 +29,8 @@ export const councilMembersSectionQuery = `*[_type == "councilMembersSection"][0
     },
     image {
       alt,
+      hotspot,
+      crop,
       asset -> {
         url,
         metadata {

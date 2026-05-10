@@ -18,6 +18,8 @@ export const erasSectionQuery = `*[_type == "erasSection"][0] {
     keyEvents,
     image {
       alt,
+      hotspot,
+      crop,
       asset -> {
         url,
         metadata {

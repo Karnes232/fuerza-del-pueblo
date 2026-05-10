@@ -14,6 +14,7 @@ import {
   X,
 } from "lucide-react"
 import { CandidateCardProps } from "@/types/candidates.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 
 export const CandidateCard = ({
   candidate,
@@ -38,6 +39,11 @@ export const CandidateCard = ({
               alt={candidate.image?.alt || candidate.name}
               fill
               className="object-cover"
+              style={{
+                objectPosition: hotspotToObjectPosition(
+                  candidate.image?.hotspot,
+                ),
+              }}
             />
           ) : (
             <div className="absolute inset-0 flex items-center justify-center">

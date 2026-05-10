@@ -11,6 +11,7 @@ import {
   Leaf,
 } from "lucide-react"
 import { Wing } from "@/types/leadership.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 
 const ICON_MAP: Record<string, LucideIcon> = {
   Users,
@@ -37,6 +38,9 @@ export const WingCard = ({ wing }: WingCardProps) => {
             alt={wing.image?.alt || wing.name}
             fill
             className="object-cover"
+            style={{
+              objectPosition: hotspotToObjectPosition(wing.image?.hotspot),
+            }}
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">

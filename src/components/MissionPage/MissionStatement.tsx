@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { Container } from "@/components/HomePage/Container"
 import { MissionStatementProps } from "@/types/mission.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 import {
   Target,
   Users,
@@ -75,6 +76,9 @@ export const MissionStatement = ({
                     alt={image?.alt}
                     fill
                     className="object-cover"
+                    style={{
+                      objectPosition: hotspotToObjectPosition(image?.hotspot),
+                    }}
                   />
                 </div>
               ) : (

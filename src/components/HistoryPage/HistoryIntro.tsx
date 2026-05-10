@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { Container } from "@/components/HomePage/Container"
 import { HistoryIntroProps } from "@/types/history.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 import { BookOpen } from "lucide-react"
 
 export const HistoryIntro = ({ title, content, image }: HistoryIntroProps) => {
@@ -19,6 +20,9 @@ export const HistoryIntro = ({ title, content, image }: HistoryIntroProps) => {
                     alt={image?.alt}
                     fill
                     className="object-cover"
+                    style={{
+                      objectPosition: hotspotToObjectPosition(image?.hotspot),
+                    }}
                   />
                 </div>
               ) : (

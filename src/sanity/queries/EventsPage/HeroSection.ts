@@ -15,6 +15,8 @@ export interface EventsPageHeroSection {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
   ctaText: string
   ctaLink: string
@@ -43,6 +45,8 @@ export interface EventsPageHeroSection {
           }
         }
       }
+      hotspot?: { x: number; y: number }
+      crop?: { top: number; bottom: number; left: number; right: number }
     }
     slug: {
       current: string
@@ -56,6 +60,8 @@ export const eventsPageHeroSectionQuery = `*[_type == "eventsPageHeroSection"][0
   description,
   backgroundImage {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {
@@ -84,6 +90,8 @@ export const eventsPageHeroSectionQuery = `*[_type == "eventsPageHeroSection"][0
     capacity,
     image {
       alt,
+      hotspot,
+      crop,
       asset -> {
         url,
         metadata {

@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { Container } from "@/components/HomePage/Container"
 import { AboutContentProps } from "@/types/about.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 
 export const AboutContent = ({
   title,
@@ -31,6 +32,9 @@ export const AboutContent = ({
                 alt={image?.alt}
                 fill
                 className="object-cover"
+                style={{
+                  objectPosition: hotspotToObjectPosition(image?.hotspot),
+                }}
               />
             </div>
           </div>

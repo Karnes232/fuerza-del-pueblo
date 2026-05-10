@@ -40,6 +40,7 @@ export interface Event {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
   slug: {
     current: string
@@ -66,6 +67,7 @@ export interface HeroSectionProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 
@@ -83,6 +85,7 @@ export interface AboutSectionProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
   ctaText?: string
   ctaLink?: string
@@ -124,6 +127,7 @@ export interface JoinSectionProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
 }
 

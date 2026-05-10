@@ -15,6 +15,8 @@ export interface HistoryPageHeroSection {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
 }
 
@@ -24,6 +26,8 @@ export const historyPageHeroSectionQuery = `*[_type == "historyPageHeroSection"]
   description,
   backgroundImage {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {

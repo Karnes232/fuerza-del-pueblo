@@ -19,6 +19,8 @@ export const historyTimelineQuery = `*[_type == "historyTimeline"][0] {
     highlights[],
     image {
       alt,
+      hotspot,
+      crop,
       asset -> {
         url,
         metadata {
