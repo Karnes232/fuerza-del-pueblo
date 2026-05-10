@@ -5,7 +5,7 @@ import Link from "next/link"
 interface DropdownItemProps {
   label: string;
   href: string;
-  onClick: () => void;
+  onClick?: () => void;
   disabled: boolean | undefined;
   textColor: string | undefined;
 }
