@@ -16,7 +16,11 @@ export interface NewsArticle {
   date: string
   author?: string
   category: NewsCategory
-  image?: string
+  image?: {
+    url: string
+    alt?: string
+    hotspot?: { x: number; y: number }
+  }
   slug: {
     current: string
   }

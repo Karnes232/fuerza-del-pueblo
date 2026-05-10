@@ -31,7 +31,13 @@ function toHomeNewsArticle(row: NewsArticles): NewsArticle {
     date: row.date,
     slug: row.slug,
     category: row.category,
-    image: row.featuredImage?.asset?.url,
+    image: row.featuredImage?.asset?.url
+      ? {
+          url: row.featuredImage.asset.url,
+          alt: row.featuredImage.alt,
+          hotspot: row.featuredImage.hotspot,
+        }
+      : undefined,
   }
 }
 

@@ -24,6 +24,8 @@ export interface IndividualNewsArticle {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
   content: PortableTextBlock[]
   images: {
@@ -38,6 +40,8 @@ export interface IndividualNewsArticle {
       }
     }
     caption: string
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }[]
   seo: {
     structuredData: {
@@ -55,6 +59,8 @@ export const individualNewsArticleQuery = `*[_type == "individualNewsArticle" &&
   readTime,
   featuredImage {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {
@@ -66,8 +72,10 @@ export const individualNewsArticleQuery = `*[_type == "individualNewsArticle" &&
     }
   },
   content,
-  images {
+  images[] {
     _key,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {
@@ -78,7 +86,7 @@ export const individualNewsArticleQuery = `*[_type == "individualNewsArticle" &&
       }
     },
     caption
-  }[],
+  },
   seo {
     structuredData {
       jsonLd
@@ -194,6 +202,8 @@ export interface IndividualNewsArticleRelatedArticles {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
 }
 
@@ -206,6 +216,8 @@ export const individualNewsArticleRelatedArticlesQuery = `*[_type == "individual
   date,
   featuredImage {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {
@@ -294,6 +306,8 @@ export interface NewsArticles {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
 }
 
@@ -306,6 +320,8 @@ export const newsArticlesQuery = `*[_type == "individualNewsArticle"] | order(da
   date,
   featuredImage {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {
@@ -336,6 +352,8 @@ export const threeLatestNewsArticlesQuery = `*[_type == "individualNewsArticle"]
   date,
   featuredImage {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {

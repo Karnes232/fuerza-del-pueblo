@@ -3,6 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Calendar } from "lucide-react"
 import { NewsCardProps } from "@/types/home.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 
 export const NewsCard = ({ article }: NewsCardProps) => {
   const formattedDate = new Date(article.date).toLocaleDateString("es-DO", {
@@ -20,10 +21,13 @@ export const NewsCard = ({ article }: NewsCardProps) => {
       {article.image ? (
         <div className="relative h-48 bg-gray-200 overflow-hidden">
           <Image
-            src={article.image}
-            alt={article.title}
+            src={article.image.url}
+            alt={article.image.alt || article.title}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
+            style={{
+              objectPosition: hotspotToObjectPosition(article.image.hotspot),
+            }}
           />
           {article.category && (
             <div className="absolute top-4 left-4 bg-primaryGreen text-white px-3 py-1 rounded-full text-xs font-semibold">

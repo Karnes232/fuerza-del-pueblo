@@ -137,6 +137,9 @@ export const individualNewsArticleType = defineType({
       of: [
         {
           type: "image",
+          options: {
+            hotspot: true,
+          },
           fields: [
             defineField({
               name: "caption",

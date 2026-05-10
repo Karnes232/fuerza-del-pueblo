@@ -12,7 +12,11 @@ export interface NewsArticle {
   title: string
   excerpt: string
   date: string
-  image?: string
+  image?: {
+    url: string
+    alt?: string
+    hotspot?: { x: number; y: number }
+  }
   slug: {
     current: string
   }

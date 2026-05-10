@@ -9,3 +9,10 @@ const builder = createImageUrlBuilder({ projectId, dataset })
 export const urlFor = (source: SanityImageSource) => {
   return builder.image(source)
 }
+
+export const hotspotToObjectPosition = (
+  hotspot?: { x?: number; y?: number } | null,
+) =>
+  hotspot?.x != null && hotspot?.y != null
+    ? `${hotspot.x * 100}% ${hotspot.y * 100}%`
+    : "50% 50%"

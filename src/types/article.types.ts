@@ -32,6 +32,7 @@ export interface ArticleHeroProps {
         }
       }
     }
+    hotspot?: { x: number; y: number }
   }
   readTime?: string
 }
@@ -50,6 +51,7 @@ export interface ArticleContentProps {
       }
     }
     caption?: string
+    hotspot?: { x: number; y: number }
   }[]
 }
 

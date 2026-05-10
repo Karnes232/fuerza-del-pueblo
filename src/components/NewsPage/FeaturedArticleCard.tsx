@@ -5,6 +5,7 @@ import { Calendar, Clock, User, ArrowRight } from "lucide-react"
 import { FeaturedArticleCardProps } from "@/types/news.types"
 import { CategoryBadge } from "@/components/NewsPage/CategoryBadge"
 import { newsCategories } from "@/config/news.config"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 
 export const FeaturedArticleCard = ({ article }: FeaturedArticleCardProps) => {
   const formattedDate = new Date(article.date).toLocaleDateString("es-DO", {
@@ -25,10 +26,13 @@ export const FeaturedArticleCard = ({ article }: FeaturedArticleCardProps) => {
         <div className="relative h-64 md:h-full bg-linear-to-br from-primaryGreen to-darkGreen">
           {article.image ? (
             <Image
-              src={article.image}
-              alt={article.title}
+              src={article.image.url}
+              alt={article.image.alt || article.title}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-500"
+              style={{
+                objectPosition: hotspotToObjectPosition(article.image.hotspot),
+              }}
             />
           ) : (
             <div className="flex items-center justify-center h-full">

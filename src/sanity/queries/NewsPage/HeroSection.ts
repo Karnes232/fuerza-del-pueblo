@@ -17,6 +17,8 @@ export interface NewsPageHeroSection {
         }
       }
     }
+    hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
   featuredArticle: {
     _id: string
@@ -38,6 +40,8 @@ export interface NewsPageHeroSection {
           }
         }
       }
+      hotspot?: { x: number; y: number }
+      crop?: { top: number; bottom: number; left: number; right: number }
     }
   }
 }
@@ -50,6 +54,8 @@ export const newsPageHeroSectionQuery = `*[_type == "newsPageHeroSection"][0] {
   ctaText,
   backgroundImage {
     alt,
+    hotspot,
+    crop,
     asset -> {
       url,
       metadata {
@@ -69,6 +75,8 @@ export const newsPageHeroSectionQuery = `*[_type == "newsPageHeroSection"][0] {
     date,
     featuredImage {
       alt,
+      hotspot,
+      crop,
       asset -> {
         url,
         metadata {

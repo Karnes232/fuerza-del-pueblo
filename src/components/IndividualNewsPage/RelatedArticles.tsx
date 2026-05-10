@@ -13,7 +13,13 @@ function toNewsArticle(
     title: article.title,
     excerpt: article.excerpt,
     date: article.date,
-    image: article.featuredImage?.asset?.url,
+    image: article.featuredImage?.asset?.url
+      ? {
+          url: article.featuredImage.asset.url,
+          alt: article.featuredImage.alt,
+          hotspot: article.featuredImage.hotspot,
+        }
+      : undefined,
     slug: article.slug,
     category: article.category,
   }

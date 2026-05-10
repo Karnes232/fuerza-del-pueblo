@@ -2,6 +2,7 @@
 import Image from "next/image"
 import { Container } from "@/components/HomePage/Container"
 import { ArticleHeroProps } from "@/types/article.types"
+import { hotspotToObjectPosition } from "@/sanity/lib/image"
 import { Calendar, Clock, User } from "lucide-react"
 
 export const ArticleHero = ({
@@ -66,6 +67,11 @@ export const ArticleHero = ({
                 alt={featuredImage.alt || title}
                 fill
                 className="object-cover"
+                style={{
+                  objectPosition: hotspotToObjectPosition(
+                    featuredImage.hotspot,
+                  ),
+                }}
                 priority
               />
             </div>
