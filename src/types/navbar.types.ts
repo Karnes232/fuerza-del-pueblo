@@ -46,7 +46,7 @@ export interface DropdownItemProps {
   label: string
   href: string
   onClick?: () => void
-  disabled?: boolean
+  textColor: string
 }
 
 export interface CTAButtonProps {
