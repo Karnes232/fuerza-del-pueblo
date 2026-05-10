@@ -6,8 +6,8 @@ interface DropdownItemProps {
   label: string;
   href: string;
   onClick: () => void;
-  disabled: boolean;
-  textColor: string;
+  disabled: boolean | undefined;
+  textColor: string | undefined;
 }
 
 export const DropdownItem = ({
