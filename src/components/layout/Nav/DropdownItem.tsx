@@ -1,6 +1,14 @@
 // components/DropdownItem.tsx
 import Link from "next/link"
-import { DropdownItemProps } from "@/types/navbar.types"
+//import { DropdownItemProps } from "@/types/navbar.types"
+
+interface DropdownItemProps {
+  label: string;
+  href: string;
+  onClick: () => void;
+  disabled: boolean;
+  textColor: string;
+}
 
 export const DropdownItem = ({
   label,
