@@ -67,7 +67,7 @@ export const WingCard = ({ wing }: WingCardProps) => {
       <div className="p-6">
         {/* Name and Coordinator */}
         <div className="mb-4">
-          <h3 className="font-bold text-charcoal mb-2 text-xl">{wing.name}</h3>
+          <h3 className="font-bold text-charcoal mb-2 text-xl h-12">{wing.name}</h3>
           {wing.coordinator && (
             <p className="text-primaryGreen font-semibold">
               {wing.coordinator}
