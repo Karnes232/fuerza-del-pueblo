@@ -10,7 +10,7 @@ export const DepartmentsSection = ({
   departments,
 }: DepartmentsProps) => {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-16 md:py-24 bg-[#F4F4F4]">
       <Container>
         <SectionHeader title={title} subtitle={subtitle} />
 

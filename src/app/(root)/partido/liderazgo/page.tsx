@@ -5,6 +5,7 @@ import { OrganizationalStructure } from "@/components/LeadershipPage/Organizatio
 import { DepartmentsSection } from "@/components/LeadershipPage/DepartmentsSection"
 import { WingsSection } from "@/components/LeadershipPage/WingsSection"
 import { SectorCoordinatorsSection } from "@/components/LeadershipPage/SectorCoordinatorsSection"
+import { ElectedRepresentativesSection } from "@/components/LeadershipPage/ElectedRepresentativesSection"
 import { getPageSeo, getStructuredData } from "@/sanity/queries/SEO/seo"
 import { buildMetadata } from "@/lib/seo/buildMetadata"
 import Script from "next/script"
@@ -15,6 +16,7 @@ import { getOrganizationalStructure } from "@/sanity/queries/LeadershipPage/Orga
 import { getDepartmentsSection } from "@/sanity/queries/LeadershipPage/DepartmentsSection"
 import { getWingsSection } from "@/sanity/queries/LeadershipPage/WingsSection"
 import { getSectorCoordinatorsSection } from "@/sanity/queries/LeadershipPage/SectorCoordinatorsSection"
+import { getElectedRepresentativesSection } from "@/sanity/queries/LeadershipPage/ElectedRepresentativesSection"
 export default async function LiderazgoPage() {
   const [
     structuredData,
@@ -25,6 +27,7 @@ export default async function LiderazgoPage() {
     departmentsSection,
     wingsSection,
     sectorCoordinatorsSection,
+    electedRepresentativesSection,
   ] = await Promise.all([
     getStructuredData("liderazgo"),
     getJoinSection(),
@@ -34,8 +37,9 @@ export default async function LiderazgoPage() {
     getDepartmentsSection(),
     getWingsSection(),
     getSectorCoordinatorsSection(),
+    getElectedRepresentativesSection(),
   ])
-  console.log(wingsSection)
+
   return (
     <>
       <Script
@@ -60,18 +64,12 @@ export default async function LiderazgoPage() {
           leaders={leadershipTeam.leaders}
         />
         {/* TODO: Add Below Here to Sanity Schema and remove the config file */}
-        {/* Organizational Structure */}
-        <OrganizationalStructure
-          title={organizationalStructure.title}
-          subtitle={organizationalStructure.subtitle}
-          levels={organizationalStructure.organizationalLevels}
-        />
 
-        {/* Departments */}
-        <DepartmentsSection
-          title={departmentsSection.title}
-          subtitle={departmentsSection.subtitle}
-          departments={departmentsSection.departments}
+        {/* Elected Representatives */}
+        <ElectedRepresentativesSection
+          title={electedRepresentativesSection.title}
+          subtitle={electedRepresentativesSection.subtitle}
+          representatives={electedRepresentativesSection.representatives}
         />
 
         {/* Party Wings */}
@@ -80,12 +78,28 @@ export default async function LiderazgoPage() {
           subtitle={wingsSection.subtitle}
           wings={wingsSection.wings}
         />
+        
+
+        {/* Departments */}
+        <DepartmentsSection
+          title={departmentsSection.title}
+          subtitle={departmentsSection.subtitle}
+          departments={departmentsSection.departments}
+        />
+
+        
 
         {/* Sector Coordinators */}
         <SectorCoordinatorsSection
           title={sectorCoordinatorsSection.title}
           subtitle={sectorCoordinatorsSection.subtitle}
           sectors={sectorCoordinatorsSection.sectors}
+        />
+        {/* Organizational Structure */}
+        <OrganizationalStructure
+          title={organizationalStructure.title}
+          subtitle={organizationalStructure.subtitle}
+          levels={organizationalStructure.organizationalLevels}
         />
 
         {/* Join CTA Section */}

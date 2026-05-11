@@ -54,6 +54,7 @@ import { organizationalStructureType } from "./LeadershipPage/OrganizationalStru
 import { departmentsSectionType } from "./LeadershipPage/DepartmentsSection"
 import { wingsSectionType } from "./LeadershipPage/WingsSection"
 import { sectorCoordinatorsSectionType } from "./LeadershipPage/SectorCoordinatorsSection"
+import { electedRepresentativesSectionType } from "./LeadershipPage/ElectedRepresentativesSection"
 
 //HistoryPage
 import { historyPageHeroSectionType } from "./HistoryPage/HeroSection"
@@ -143,6 +144,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     departmentsSectionType,
     wingsSectionType,
     sectorCoordinatorsSectionType,
+    electedRepresentativesSectionType,
 
     //HistoryPage
     historyPageHeroSectionType,

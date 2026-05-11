@@ -340,6 +340,14 @@ export const structure: StructureResolver = S =>
                     .title("Sector Coordinators Section")
                     .documentId("sectorCoordinatorsSection"),
                 ),
+              S.listItem()
+                .title("Elected Representatives Section")
+                .child(
+                  S.document()
+                    .schemaType("electedRepresentativesSection")
+                    .title("Elected Representatives Section")
+                    .documentId("electedRepresentativesSection"),
+                ),
             ]),
         ),
       S.listItem()

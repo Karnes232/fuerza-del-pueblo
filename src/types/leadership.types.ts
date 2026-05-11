@@ -116,6 +116,32 @@ export interface WingsProps {
   wings: Wing[]
 }
 
+export interface ElectedRepresentative {
+  id: string
+  name: string
+  position: string
+  bio: string
+  image?: {
+    alt: string
+    asset: {
+      url: string
+      metadata: {
+        dimensions: {
+          width: number
+          height: number
+        }
+      }
+    }
+    hotspot?: { x: number; y: number }
+  }
+}
+
+export interface ElectedRepresentativesProps {
+  title: string
+  subtitle?: string
+  representatives: ElectedRepresentative[]
+}
+
 export interface SectorCoordinator {
   id: string
   sector: string

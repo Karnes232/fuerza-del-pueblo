@@ -6,7 +6,7 @@ import { WingsProps } from "@/types/leadership.types"
 
 export const WingsSection = ({ title, subtitle, wings }: WingsProps) => {
   return (
-    <section className="py-16 md:py-24 bg-[#F4F4F4]">
+    <section className="py-16 md:py-24 bg-white">
       <Container>
         <SectionHeader title={title} subtitle={subtitle} />
 
