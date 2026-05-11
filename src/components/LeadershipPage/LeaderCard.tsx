@@ -68,7 +68,7 @@ export const LeaderCard = ({ leader, featured = false }: LeaderCardProps) => {
           </div>
 
           {/* Bio */}
-          <p className="text-charcoal/70 text-sm leading-relaxed mb-4">
+          <p className="text-charcoal/70 text-sm leading-relaxed mb-4 min-h-16">
             {leader.bio}
           </p>
 
