@@ -2,7 +2,6 @@
 import Image from "next/image"
 import {
   Users,
-  User,
   CheckCircle,
   LucideIcon,
   Shield,
@@ -44,52 +43,57 @@ export const WingCard = ({ wing }: WingCardProps) => {
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
-            {IconComponent && (
-              <IconComponent className="w-24 h-24 text-white/30" />
-            )}
+            <div className="text-center text-white p-6">
+              <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                {IconComponent ? (
+                  <IconComponent className="w-12 h-12 text-white" />
+                ) : (
+                  <span className="text-4xl font-bold">
+                    {wing.name
+                      .split(" ")
+                      .map(n => n[0])
+                      .join("")
+                      .substring(0, 2)}
+                  </span>
+                )}
+              </div>
+              <p className="text-sm opacity-75">Foto no disponible</p>
+            </div>
           </div>
         )}
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
-        {/* Title on image */}
-        <div className="absolute bottom-4 left-6 right-6">
-          <h3 className="text-2xl font-bold text-white">{wing.name}</h3>
-        </div>
       </div>
 
       {/* Content */}
       <div className="p-6">
+        {/* Name and Coordinator */}
+        <div className="mb-4">
+          <h3 className="font-bold text-charcoal mb-2 text-xl">{wing.name}</h3>
+          {wing.coordinator && (
+            <p className="text-primaryGreen font-semibold">
+              {wing.coordinator}
+            </p>
+          )}
+        </div>
+
         {/* Description */}
-        <p className="text-charcoal/70 leading-relaxed mb-4">
+        <p className="text-charcoal/70 text-sm leading-relaxed mb-4 min-h-24">
           {wing.description}
         </p>
 
-        {/* Coordinator */}
-        {wing.coordinator && (
-          <div className="flex items-center gap-2 mb-4 pb-4 border-b border-gray-200">
-            <User className="w-4 h-4 text-primaryGreen" />
-            <div>
-              <p className="text-xs text-charcoal/60 uppercase tracking-wide">
-                Coordinador:
-              </p>
-              <p className="text-sm font-semibold text-charcoal">
-                {wing.coordinator}
-              </p>
-            </div>
-          </div>
-        )}
-
         {/* Focus Areas */}
         {wing.focus && wing.focus.length > 0 && (
-          <div>
-            <h4 className="text-sm font-semibold text-charcoal mb-3 uppercase tracking-wide">
+          <div className="mb-4">
+            <h4 className="text-sm font-semibold text-charcoal mb-2 uppercase tracking-wide">
               Áreas de Enfoque:
             </h4>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {wing.focus.map((area, index) => (
-                <li key={index} className="flex items-start gap-2">
-                  <CheckCircle className="w-4 h-4 text-primaryGreen shrink-0 mt-0.5" />
-                  <span className="text-sm text-charcoal/80">{area}</span>
+                <li
+                  key={index}
+                  className="text-sm text-charcoal/70 flex items-start"
+                >
+                  <CheckCircle className="w-4 h-4 text-primaryGreen shrink-0 mt-0.5 mr-2" />
+                  {area}
                 </li>
               ))}
             </ul>
