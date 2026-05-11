@@ -29,10 +29,10 @@ export const WingCard = ({ wing }: WingCardProps) => {
   const IconComponent = ICON_MAP[wing.icon]
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
-      {/* Header Image or Gradient */}
-      <div className="relative h-48 bg-linear-to-br from-primaryGreen to-darkGreen">
-        {wing.image ? (
+    <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+      {/* Image */}
+      <div className="relative h-64 bg-linear-to-br from-primaryGreen to-darkGreen">
+        {wing.image?.asset?.url ? (
           <Image
             src={wing.image?.asset?.url}
             alt={wing.image?.alt || wing.name}

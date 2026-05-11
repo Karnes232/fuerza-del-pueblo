@@ -64,6 +64,23 @@ export const wingsSectionType = defineType({
               validation: Rule => Rule.required(),
             }),
             defineField({
+              name: "image",
+              title: "Image",
+              type: "image",
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                defineField({
+                  name: "alt",
+                  title: "Alt",
+                  type: "string",
+
+                }),
+              ],
+ 
+            }),
+            defineField({
               name: "focus",
               title: "Focus",
               type: "array",

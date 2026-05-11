@@ -25,7 +25,7 @@ export const LeaderCard = ({ leader, featured = false }: LeaderCardProps) => {
             featured ? "md:w-1/3 h-64 md:h-auto" : "h-64"
           }`}
         >
-          {leader.image ? (
+          {leader.image?.asset?.url ? (
             <Image
               src={leader.image?.asset?.url}
               alt={leader.image?.alt || leader.name}

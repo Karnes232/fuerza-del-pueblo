@@ -10,7 +10,7 @@ export const WingsSection = ({ title, subtitle, wings }: WingsProps) => {
       <Container>
         <SectionHeader title={title} subtitle={subtitle} />
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {wings.map(wing => (
             <WingCard key={wing.id} wing={wing} />
           ))}

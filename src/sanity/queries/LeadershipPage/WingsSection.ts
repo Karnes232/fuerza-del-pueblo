@@ -10,6 +10,18 @@ export interface WingsSection {
     icon: string
     coordinator: string
     focus: string[]
+    image: {
+      alt: string
+      asset: {
+        url: string
+        metadata: {
+          dimensions: {
+            width: number
+            height: number
+          }
+        }
+      }
+    }
   }[]
 }
 
@@ -22,7 +34,19 @@ export const wingsSectionQuery = `*[_type == "wingsSection"][0] {
     description,
     icon,
     coordinator,
-    focus[]
+    focus[],
+    image {
+      alt,
+      asset -> {
+        url,
+        metadata {
+          dimensions {
+            width,
+            height
+          }
+        }
+      }
+    }
   }[]
 }`
 

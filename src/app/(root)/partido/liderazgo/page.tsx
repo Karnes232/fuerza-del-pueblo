@@ -35,6 +35,7 @@ export default async function LiderazgoPage() {
     getWingsSection(),
     getSectorCoordinatorsSection(),
   ])
+  console.log(wingsSection)
   return (
     <>
       <Script
