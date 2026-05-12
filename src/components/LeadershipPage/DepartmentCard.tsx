@@ -10,6 +10,15 @@ import {
   Shield,
   Building2,
   Briefcase,
+  Wheat,
+  Palmtree,
+  HardHat,
+  Bus,
+  Trophy,
+  Palette,
+  HeartHandshake,
+  Lightbulb,
+  Settings
 } from "lucide-react"
 import { DepartmentInfo } from "@/types/leadership.types"
 
@@ -22,6 +31,15 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Shield,
   Building2,
   Briefcase,
+  Wheat,
+  Palmtree,
+  HardHat,
+  Bus,
+  Trophy,
+  Palette,
+  HeartHandshake,
+  Lightbulb,
+  Settings
 }
 
 interface DepartmentCardProps {
@@ -39,7 +57,7 @@ export const DepartmentCard = ({ department }: DepartmentCardProps) => {
           <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center shrink-0">
             {IconComponent && <IconComponent className="w-6 h-6" />}
           </div>
-          <h3 className="text-lg font-bold">{department.name}</h3>
+          <h3 className="text-lg font-bold h-14">{department.name}</h3>
         </div>
       </div>
 

@@ -3,6 +3,9 @@ import type { NextConfig } from "next"
 const nextConfig: NextConfig = {
   /* config options here */
   transpilePackages: ["@sanity/vision", "groq-js", "@swc/helpers"],
+  experimental: {
+    optimizePackageImports: ["lucide-react"],
+  },
   images: {
     qualities: [65, 70, 75, 80, 85, 90, 95, 100],
     remotePatterns: [
