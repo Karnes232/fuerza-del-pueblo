@@ -7,6 +7,7 @@ import { EventLocation } from "@/components/IndividualEventPage/EventLocation"
 import { EventRSVP } from "@/components/IndividualEventPage/EventRSVP"
 import { EventSchedule } from "@/components/IndividualEventPage/EventSchedule"
 import { RelatedEvents } from "@/components/IndividualEventPage/RelatedEvents"
+import { SocialShare } from "@/components/IndividualNewsPage/SocialShare"
 import {
   getIndividualEvent,
   getIndividualEventSeo,
@@ -82,6 +83,13 @@ export default async function EventPage({
           schedule={individualEvent.schedule}
         />
       )}
+
+      {/* Social Share */}
+      <SocialShare
+        url={`https://www.fuerzadelpuebloveronpuntacana.com/eventos/${slug}`}
+        title={individualEvent.title}
+        description="Conoce los detalles de este evento de Fuerza del Pueblo en Verón-Punta Cana"
+      />
 
       {/* Event Location */}
       <EventLocation
