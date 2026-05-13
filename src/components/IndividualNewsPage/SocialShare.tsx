@@ -6,7 +6,19 @@ import { SocialShareProps } from "@/types/article.types"
 import { Facebook, X, Linkedin, Link2, Mail } from "lucide-react"
 
 export const SocialShare = ({ url, title, description }: SocialShareProps) => {
-  const shareOnFacebook = () => {
+  const shareOnFacebook = async () => {
+    // Facebook's mobile app intercepts sharer.php links but drops the `u=`
+    // parameter, so the composer opens empty. Use the Web Share API on mobile
+    // (native share sheet → user picks FB → URL is passed correctly) and fall
+    // back to the sharer.php popup on desktop.
+    if (typeof navigator !== "undefined" && "share" in navigator) {
+      try {
+        await navigator.share({ url, title, text: description })
+        return
+      } catch (err) {
+        if ((err as DOMException)?.name === "AbortError") return
+      }
+    }
     const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
       url,
     )}`
