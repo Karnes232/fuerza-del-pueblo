@@ -137,12 +137,14 @@ export const individualNewsArticleType = defineType({
         "Paste any YouTube URL (watch, youtu.be, shorts, or embed). Leave empty to hide the video section.",
       group: "content",
       validation: Rule =>
-        Rule.uri({ scheme: ["http", "https"] })
-          .regex(
-            /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+/,
-            { name: "youtube url", invert: false },
+        Rule.uri({ scheme: ["http", "https"] }).custom(value => {
+          if (!value) return true
+          return /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+/.test(
+            value,
           )
-          .optional(),
+            ? true
+            : "Must be a valid YouTube URL (youtube.com or youtu.be)"
+        }),
     }),
     defineField({
       name: "images",
