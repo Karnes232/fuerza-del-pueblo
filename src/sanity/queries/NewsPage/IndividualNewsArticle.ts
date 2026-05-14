@@ -28,6 +28,7 @@ export interface IndividualNewsArticle {
     crop?: { top: number; bottom: number; left: number; right: number }
   }
   content: PortableTextBlock[]
+  videoUrl?: string
   images: {
     _key: string
     asset: {
@@ -72,6 +73,7 @@ export const individualNewsArticleQuery = `*[_type == "individualNewsArticle" &&
     }
   },
   content,
+  videoUrl,
   images[] {
     _key,
     hotspot,

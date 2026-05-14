@@ -130,6 +130,21 @@ export const individualNewsArticleType = defineType({
       group: "content",
     }),
     defineField({
+      name: "videoUrl",
+      title: "YouTube Video URL (optional)",
+      type: "url",
+      description:
+        "Paste any YouTube URL (watch, youtu.be, shorts, or embed). Leave empty to hide the video section.",
+      group: "content",
+      validation: Rule =>
+        Rule.uri({ scheme: ["http", "https"] })
+          .regex(
+            /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+/,
+            { name: "youtube url", invert: false },
+          )
+          .optional(),
+    }),
+    defineField({
       name: "images",
       title: "Images",
       type: "array",

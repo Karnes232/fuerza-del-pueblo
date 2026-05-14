@@ -5,8 +5,13 @@ import { Container } from "@/components/HomePage/Container"
 import { ArticleContentProps } from "@/types/article.types"
 import SanityBlogBody from "@/components/BlockContent/SanityBlogBody"
 import { ArticleImageCarousel } from "./ArticleImageCarousel"
+import { ArticleVideoEmbed } from "./ArticleVideoEmbed"
 
-export const ArticleContent = ({ content, images }: ArticleContentProps) => {
+export const ArticleContent = ({
+  content,
+  videoUrl,
+  images,
+}: ArticleContentProps) => {
   return (
     <section className="py-8 bg-white">
       <Container>
@@ -15,6 +20,8 @@ export const ArticleContent = ({ content, images }: ArticleContentProps) => {
           <div className="prose prose-lg max-w-none">
             <SanityBlogBody content={content} />
           </div>
+
+          {videoUrl && <ArticleVideoEmbed url={videoUrl} />}
 
           {images && images.length > 0 && (
             <ArticleImageCarousel images={images} />

@@ -57,7 +57,11 @@ export default async function NewsArticlePage({
       />
 
       {/* Article Content */}
-      <ArticleContent content={article.content} images={article.images} />
+      <ArticleContent
+        content={article.content}
+        videoUrl={article.videoUrl}
+        images={article.images}
+      />
 
       {/* Social Share */}
       <SocialShare

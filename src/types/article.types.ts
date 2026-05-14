@@ -39,6 +39,7 @@ export interface ArticleHeroProps {
 
 export interface ArticleContentProps {
   content: PortableTextBlock[]
+  videoUrl?: string
   images?: {
     _key: string
     asset: {
