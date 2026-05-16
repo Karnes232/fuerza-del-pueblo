@@ -515,7 +515,8 @@ export const structure: StructureResolver = S =>
                   S.documentList()
                     .schemaType("individualNewsArticle")
                     .title("Individual News Article")
-                    .filter("_type == 'individualNewsArticle'"),
+                    .filter("_type == 'individualNewsArticle'")
+                    .defaultOrdering([{ field: "date", direction: "desc" }]),
                 ),
             ]),
         ),
@@ -563,7 +564,8 @@ export const structure: StructureResolver = S =>
                   S.documentList()
                     .schemaType("individualEvent")
                     .title("Individual Event")
-                    .filter("_type == 'individualEvent'"),
+                    .filter("_type == 'individualEvent'")
+                    .defaultOrdering([{ field: "date", direction: "desc" }]),
                 ),
             ]),
         ),
