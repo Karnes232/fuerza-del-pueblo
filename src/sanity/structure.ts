@@ -380,14 +380,14 @@ export const structure: StructureResolver = S =>
                     .title("Founding Story Section")
                     .documentId("foundingStorySection"),
                 ),
-              S.listItem()
-                .title("Eras Section")
-                .child(
-                  S.document()
-                    .schemaType("erasSection")
-                    .title("Eras Section")
-                    .documentId("erasSection"),
-                ),
+              // S.listItem()
+              //   .title("Eras Section")
+              //   .child(
+              //     S.document()
+              //       .schemaType("erasSection")
+              //       .title("Eras Section")
+              //       .documentId("erasSection"),
+              //   ),
               S.listItem()
                 .title("History Timeline")
                 .child(
@@ -396,22 +396,22 @@ export const structure: StructureResolver = S =>
                     .title("History Timeline")
                     .documentId("historyTimeline"),
                 ),
-              S.listItem()
-                .title("Milestones Section")
-                .child(
-                  S.document()
-                    .schemaType("milestonesSection")
-                    .title("Milestones Section")
-                    .documentId("milestonesSection"),
-                ),
-              S.listItem()
-                .title("Achievements Section")
-                .child(
-                  S.document()
-                    .schemaType("achievementsSection")
-                    .title("Achievements Section")
-                    .documentId("achievementsSection"),
-                ),
+              // S.listItem()
+              //   .title("Milestones Section")
+              //   .child(
+              //     S.document()
+              //       .schemaType("milestonesSection")
+              //       .title("Milestones Section")
+              //       .documentId("milestonesSection"),
+              //   ),
+              // S.listItem()
+              //   .title("Achievements Section")
+              //   .child(
+              //     S.document()
+              //       .schemaType("achievementsSection")
+              //       .title("Achievements Section")
+              //       .documentId("achievementsSection"),
+              //   ),
               S.listItem()
                 .title("Legacy Section")
                 .child(

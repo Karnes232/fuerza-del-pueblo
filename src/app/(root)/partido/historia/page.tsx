@@ -6,18 +6,18 @@ import { AboutHero } from "@/components/AboutUsPage/AboutHero"
 import { HistoryIntro } from "@/components/HistoryPage/HistoryIntro"
 import { FoundingStory } from "@/components/HistoryPage/FoundingStory"
 import { HistoryTimeline } from "@/components/HistoryPage/HistoryTimeline"
-import { MilestonesSection } from "@/components/HistoryPage/MilestonesSection"
-import { AchievementsSection } from "@/components/HistoryPage/AchievementsSection"
-import { ErasSection } from "@/components/HistoryPage/ErasSection"
+//import { MilestonesSection } from "@/components/HistoryPage/MilestonesSection"
+//import { AchievementsSection } from "@/components/HistoryPage/AchievementsSection"
+//import { ErasSection } from "@/components/HistoryPage/ErasSection"
 import { LegacySection } from "@/components/HistoryPage/LegacySection"
 import { getJoinSection } from "@/sanity/queries/HomePage/JoinSection"
 import { getHistoryPageHeroSection } from "@/sanity/queries/HistoryPage/HeroSection"
 import { getHistoryIntroSection } from "@/sanity/queries/HistoryPage/HistoryIntro"
 import { getFoundingStorySection } from "@/sanity/queries/HistoryPage/FoundingStory"
-import { getErasSection } from "@/sanity/queries/HistoryPage/ErasSection"
+//import { getErasSection } from "@/sanity/queries/HistoryPage/ErasSection"
 import { getHistoryTimeline } from "@/sanity/queries/HistoryPage/HistoryTimeline"
-import { getMilestonesSection } from "@/sanity/queries/HistoryPage/MilestonesSection"
-import { getAchievementsSection } from "@/sanity/queries/HistoryPage/AchievementsSection"
+//import { getMilestonesSection } from "@/sanity/queries/HistoryPage/MilestonesSection"
+//import { getAchievementsSection } from "@/sanity/queries/HistoryPage/AchievementsSection"
 import { getLegacySection } from "@/sanity/queries/HistoryPage/LegacySection"
 export default async function HistoriaPage() {
   const [
@@ -26,10 +26,10 @@ export default async function HistoriaPage() {
     historyPageHeroSection,
     historyIntroSection,
     foundingStorySection,
-    erasSection,
+   // erasSection,
     historyTimeline,
-    milestonesSection,
-    achievementsSection,
+    // milestonesSection,
+   // achievementsSection,
     legacySection,
   ] = await Promise.all([
     getStructuredData("historia"),
@@ -37,10 +37,10 @@ export default async function HistoriaPage() {
     getHistoryPageHeroSection(),
     getHistoryIntroSection(),
     getFoundingStorySection(),
-    getErasSection(),
+   // getErasSection(),
     getHistoryTimeline(),
-    getMilestonesSection(),
-    getAchievementsSection(),
+    // getMilestonesSection(),
+   // getAchievementsSection(),
     getLegacySection(),
   ])
 
@@ -78,12 +78,12 @@ export default async function HistoriaPage() {
           objectives={foundingStorySection.objectives}
         />
 
-        {/* Historical Eras */}
+        {/* Historical Eras
         <ErasSection
           title={erasSection.title}
           subtitle={erasSection.subtitle}
           eras={erasSection.eras}
-        />
+        /> */}
 
         {/* Detailed Timeline */}
         <HistoryTimeline
@@ -93,18 +93,18 @@ export default async function HistoriaPage() {
         />
 
         {/* Key Milestones */}
-        <MilestonesSection
+        {/* <MilestonesSection
           title={milestonesSection.title}
           subtitle={milestonesSection.subtitle}
           milestones={milestonesSection.milestones}
-        />
+        /> */}
 
         {/* Major Achievements */}
-        <AchievementsSection
+        {/* <AchievementsSection
           title={achievementsSection.title}
           subtitle={achievementsSection.subtitle}
           achievements={achievementsSection.achievements}
-        />
+        /> */}
 
         {/* Legacy and Future */}
         <LegacySection
