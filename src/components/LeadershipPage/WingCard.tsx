@@ -10,7 +10,7 @@ import {
   Leaf,
 } from "lucide-react"
 import { Wing } from "@/types/leadership.types"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl } from "@/sanity/lib/image"
 
 const ICON_MAP: Record<string, LucideIcon> = {
   Users,
@@ -33,13 +33,10 @@ export const WingCard = ({ wing }: WingCardProps) => {
       <div className="relative h-64 bg-linear-to-br from-primaryGreen to-darkGreen">
         {wing.image?.asset?.url ? (
           <Image
-            src={wing.image?.asset?.url}
+            src={croppedImageUrl(wing.image, 800, 800)}
             alt={wing.image?.alt || wing.name}
             fill
             className="object-cover"
-            style={{
-              objectPosition: hotspotToObjectPosition(wing.image?.hotspot),
-            }}
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">

@@ -3,7 +3,7 @@ import Image from "next/image"
 import { Container } from "@/components/HomePage/Container"
 import { CTAButton } from "@/components/HomePage/CTAButton"
 import { EventsHeroProps } from "@/types/events.types"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl } from "@/sanity/lib/image"
 
 export const EventsHero = ({
   title,
@@ -19,13 +19,10 @@ export const EventsHero = ({
       {backgroundImage?.asset?.url && (
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
-            src={backgroundImage.asset.url}
+            src={croppedImageUrl(backgroundImage, 1920, 1080)}
             alt={backgroundImage.alt || "Events Hero Background"}
             fill
             className="object-cover"
-            style={{
-              objectPosition: hotspotToObjectPosition(backgroundImage.hotspot),
-            }}
             priority
           />
         </div>

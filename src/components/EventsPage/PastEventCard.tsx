@@ -4,7 +4,7 @@ import Link from "next/link"
 import { Calendar, MapPin, Users } from "lucide-react"
 import { parseCalendarDate } from "@/lib/calendarDate"
 import { PastEventCardProps } from "@/types/events.types"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl } from "@/sanity/lib/image"
 
 export const PastEventCard = ({ event }: PastEventCardProps) => {
   const formattedDate = parseCalendarDate(event.date).toLocaleDateString("es-DO", {
@@ -22,13 +22,10 @@ export const PastEventCard = ({ event }: PastEventCardProps) => {
       {event.image ? (
         <div className="relative h-48 bg-gray-200 overflow-hidden">
           <Image
-            src={event.image.asset.url}
+            src={croppedImageUrl(event.image, 800, 400)}
             alt={event.image.alt}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
-            style={{
-              objectPosition: hotspotToObjectPosition(event.image.hotspot),
-            }}
           />
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />

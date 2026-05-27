@@ -6,7 +6,7 @@ import { RSVPButton } from "@/components/EventsPage/RSVPButton"
 import { parseCalendarDate } from "@/lib/calendarDate"
 import { FeaturedEventCardProps } from "@/types/events.types"
 import { getEventAttendees } from "@/app/actions/rsvp.action"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl } from "@/sanity/lib/image"
 
 export const FeaturedEventCard = async ({ event }: FeaturedEventCardProps) => {
   const formattedDate = parseCalendarDate(event.date).toLocaleDateString("es-DO", {
@@ -30,13 +30,10 @@ export const FeaturedEventCard = async ({ event }: FeaturedEventCardProps) => {
         <div className="relative h-64 md:h-full bg-linear-to-br from-primaryGreen to-darkGreen">
           {event.image ? (
             <Image
-              src={event.image.asset.url}
+              src={croppedImageUrl(event.image, 1000, 750)}
               alt={event.image.alt}
               fill
               className="object-cover"
-              style={{
-                objectPosition: hotspotToObjectPosition(event.image.hotspot),
-              }}
             />
           ) : (
             <div className="flex items-center justify-center h-full">

@@ -1,7 +1,7 @@
 // components/HistoryPage/TimelineEventCard.tsx
 import Image from "next/image"
 import { TimelineEvent } from "@/types/history.types"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl } from "@/sanity/lib/image"
 import { Calendar, CheckCircle } from "lucide-react"
 
 interface TimelineEventCardProps {
@@ -92,13 +92,10 @@ export const TimelineEventCard = ({ event, index }: TimelineEventCardProps) => {
           {event.image && (
             <div className="relative h-48 bg-gray-200">
               <Image
-                src={event.image?.asset?.url}
+                src={croppedImageUrl(event.image, 800, 400)}
                 alt={event.image?.alt || event.title}
                 fill
                 className="object-cover"
-                style={{
-                  objectPosition: hotspotToObjectPosition(event.image?.hotspot),
-                }}
               />
             </div>
           )}

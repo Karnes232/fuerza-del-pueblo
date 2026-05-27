@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import type { ArticleContentProps } from "@/types/article.types"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl, urlFor } from "@/sanity/lib/image"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
@@ -60,13 +60,10 @@ export const ArticleImageCarousel = ({ images }: ArticleImageCarouselProps) => {
                   className="relative block h-96 w-full bg-charcoal/5 cursor-zoom-in group"
                 >
                   <Image
-                    src={image.asset.url}
+                    src={croppedImageUrl(image, 1200, 800)}
                     alt={image.caption || ""}
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                    style={{
-                      objectPosition: hotspotToObjectPosition(image.hotspot),
-                    }}
                     sizes="(max-width: 768px) 100vw, 672px"
                   />
                 </button>
@@ -121,7 +118,7 @@ export const ArticleImageCarousel = ({ images }: ArticleImageCarouselProps) => {
                   <figure className="m-0 w-full h-full flex flex-col items-center justify-center px-4 md:px-16 py-12">
                     <div className="relative w-full h-full max-w-6xl">
                       <Image
-                        src={image.asset.url}
+                        src={urlFor(image).width(2000).auto("format").url()}
                         alt={image.caption || ""}
                         fill
                         className="object-contain"

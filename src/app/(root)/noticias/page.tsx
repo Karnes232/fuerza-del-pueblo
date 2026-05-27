@@ -26,6 +26,7 @@ function toNewsArticle(row: NewsArticles): NewsArticle {
           url: row.featuredImage.asset.url,
           alt: row.featuredImage.alt,
           hotspot: row.featuredImage.hotspot,
+          crop: row.featuredImage.crop,
         }
       : undefined,
   }

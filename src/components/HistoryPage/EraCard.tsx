@@ -1,7 +1,7 @@
 // components/HistoryPage/EraCard.tsx
 import Image from "next/image"
 import { Era } from "@/types/history.types"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl } from "@/sanity/lib/image"
 import { Calendar, ChevronRight } from "lucide-react"
 
 interface EraCardProps {
@@ -25,13 +25,10 @@ export const EraCard = ({ era, index }: EraCardProps) => {
       {era.image && (
         <div className="relative h-48 bg-gray-200">
           <Image
-            src={era.image?.asset?.url}
+            src={croppedImageUrl(era.image, 800, 400)}
             alt={era.image?.alt || era.title}
             fill
             className="object-cover"
-            style={{
-              objectPosition: hotspotToObjectPosition(era.image?.hotspot),
-            }}
           />
         </div>
       )}

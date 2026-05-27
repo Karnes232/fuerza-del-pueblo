@@ -1,7 +1,7 @@
 // components/LeadershipPage/ElectedRepresentativeCard.tsx
 import Image from "next/image"
 import { ElectedRepresentative } from "@/types/leadership.types"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl } from "@/sanity/lib/image"
 
 interface ElectedRepresentativeCardProps {
   representative: ElectedRepresentative
@@ -16,15 +16,10 @@ export const ElectedRepresentativeCard = ({
       <div className="relative h-64 bg-linear-to-br from-primaryGreen to-darkGreen">
         {representative.image?.asset?.url ? (
           <Image
-            src={representative.image.asset.url}
+            src={croppedImageUrl(representative.image, 800, 800)}
             alt={representative.image.alt || representative.name}
             fill
             className="object-cover"
-            style={{
-              objectPosition: hotspotToObjectPosition(
-                representative.image.hotspot,
-              ),
-            }}
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">

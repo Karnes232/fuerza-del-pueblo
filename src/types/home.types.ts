@@ -16,6 +16,7 @@ export interface NewsArticle {
     url: string
     alt?: string
     hotspot?: { x: number; y: number }
+    crop?: { top: number; bottom: number; left: number; right: number }
   }
   slug: {
     current: string

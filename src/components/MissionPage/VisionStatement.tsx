@@ -2,7 +2,7 @@
 import Image from "next/image"
 import { Container } from "@/components/HomePage/Container"
 import { VisionStatementProps } from "@/types/mission.types"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl } from "@/sanity/lib/image"
 import { Eye } from "lucide-react"
 import * as Icons from "lucide-react"
 
@@ -25,13 +25,10 @@ export const VisionStatement = ({
               {image ? (
                 <div className="relative h-96 rounded-lg overflow-hidden shadow-xl">
                   <Image
-                    src={image?.asset?.url}
+                    src={croppedImageUrl(image, 1200, 900)}
                     alt={image?.alt}
                     fill
                     className="object-cover"
-                    style={{
-                      objectPosition: hotspotToObjectPosition(image?.hotspot),
-                    }}
                   />
                 </div>
               ) : (

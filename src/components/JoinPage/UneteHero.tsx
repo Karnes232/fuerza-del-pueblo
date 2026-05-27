@@ -2,7 +2,7 @@
 import { Check, ArrowDown } from "lucide-react"
 import { Container } from "@/components/HomePage/Container"
 import { UneteHeroProps } from "@/types/unete.types"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl } from "@/sanity/lib/image"
 import Image from "next/image"
 
 export const UneteHero = ({
@@ -18,13 +18,10 @@ export const UneteHero = ({
       {backgroundImage && (
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
-            src={backgroundImage?.asset?.url}
+            src={croppedImageUrl(backgroundImage, 1920, 1080)}
             alt={backgroundImage?.alt}
             fill
             className="object-cover"
-            style={{
-              objectPosition: hotspotToObjectPosition(backgroundImage?.hotspot),
-            }}
             priority
           />
         </div>

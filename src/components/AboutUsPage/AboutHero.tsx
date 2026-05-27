@@ -2,7 +2,7 @@
 import Image from "next/image"
 import { Container } from "@/components/HomePage/Container"
 import { AboutHeroProps } from "@/types/about.types"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl } from "@/sanity/lib/image"
 
 export const AboutHero = ({
   title,
@@ -16,13 +16,10 @@ export const AboutHero = ({
       {backgroundImage && (
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
-            src={backgroundImage?.asset?.url}
+            src={croppedImageUrl(backgroundImage, 1920, 1080)}
             alt={backgroundImage?.alt || "About Hero Background Image"}
             fill
             className="object-cover"
-            style={{
-              objectPosition: hotspotToObjectPosition(backgroundImage?.hotspot),
-            }}
             priority
           />
         </div>

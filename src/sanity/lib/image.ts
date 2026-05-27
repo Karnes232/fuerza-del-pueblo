@@ -10,9 +10,12 @@ export const urlFor = (source: SanityImageSource) => {
   return builder.image(source)
 }
 
-export const hotspotToObjectPosition = (
-  hotspot?: { x?: number; y?: number } | null,
-) =>
-  hotspot?.x != null && hotspot?.y != null
-    ? `${hotspot.x * 100}% ${hotspot.y * 100}%`
-    : "50% 50%"
+// Build a Sanity CDN URL that bakes in BOTH the editorial crop and the hotspot.
+// Requesting a fixed width + height with fit("crop") makes Sanity apply the crop
+// rect first, then fit to the target aspect ratio using the hotspot as the focal
+// point — so the rendered image matches what an editor sees in Studio.
+export const croppedImageUrl = (
+  source: SanityImageSource,
+  width: number,
+  height: number,
+) => urlFor(source).width(width).height(height).fit("crop").auto("format").url()

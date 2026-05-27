@@ -4,7 +4,7 @@ import { Check } from "lucide-react"
 import { Container } from "@/components/HomePage/Container"
 import { CTAButton } from "@/components/HomePage/CTAButton"
 import { JoinSectionProps } from "@/types/home.types"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl } from "@/sanity/lib/image"
 
 export const JoinSection = ({
   title,
@@ -19,13 +19,10 @@ export const JoinSection = ({
       {backgroundImage && (
         <div className="absolute inset-0 z-0 opacity-20">
           <Image
-            src={backgroundImage.asset.url}
+            src={croppedImageUrl(backgroundImage, 1920, 1080)}
             alt={backgroundImage.alt}
             fill
             className="object-cover"
-            style={{
-              objectPosition: hotspotToObjectPosition(backgroundImage.hotspot),
-            }}
           />
         </div>
       )}

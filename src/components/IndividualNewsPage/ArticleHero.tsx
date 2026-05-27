@@ -2,7 +2,7 @@
 import Image from "next/image"
 import { Container } from "@/components/HomePage/Container"
 import { ArticleHeroProps } from "@/types/article.types"
-import { hotspotToObjectPosition } from "@/sanity/lib/image"
+import { croppedImageUrl } from "@/sanity/lib/image"
 import { Calendar, Clock, User } from "lucide-react"
 
 export const ArticleHero = ({
@@ -63,15 +63,10 @@ export const ArticleHero = ({
           {featuredImage && (
             <div className="relative h-96 md:h-[500px] rounded-lg overflow-hidden shadow-xl mb-8">
               <Image
-                src={featuredImage.asset.url}
+                src={croppedImageUrl(featuredImage, 1600, 900)}
                 alt={featuredImage.alt || title}
                 fill
                 className="object-cover"
-                style={{
-                  objectPosition: hotspotToObjectPosition(
-                    featuredImage.hotspot,
-                  ),
-                }}
                 priority
               />
             </div>
